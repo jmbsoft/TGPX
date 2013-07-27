@@ -1,0 +1,136 @@
+
+body
+{
+    background-color: #ffffff;
+    font-family:      Verdana;
+    font-size:        12px;
+}
+
+
+a
+{
+    color:           Red;
+}
+
+
+a:hover
+{
+    color:           Red;
+}
+
+
+a.helplink
+{
+    font-size:       11px;
+    font-weight:     bold;
+    color:           Blue;
+}
+
+
+a.helplink:visited
+{
+    font-size:       11px;
+    font-weight:     bold;
+    color:           Blue;
+}
+
+
+td
+{
+    font-family:      Verdana;
+    font-size:        12px;
+}
+
+
+.small
+{
+    font-family:      Verdana;
+    font-size:        11px;
+}
+
+
+.grey
+{
+    color: #aaa;
+}
+
+
+.large
+{
+    font-size:   24px;
+    font-weight: bold;
+}
+
+
+
+.tab
+{
+    font-size:        11px;
+    font-weight:      bold;
+    padding:          2px 5px 2px 5px;
+    background-color: Maroon;
+    width:            20%;
+    color:            White;
+}
+
+
+.card
+{
+    font-size:        11px;
+    border:  1px solid Maroon;
+    padding: 2px 5px 2px 5px;
+
+}
+
+
+.important
+{
+    color: blue;
+    font-weight: bold;
+}
+
+
+.red
+{
+    color: red;
+    font-weight: bold;
+}
+
+.centered
+{
+    text-align: center;
+}
+
+.main-content
+{
+    width: 900px; 
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.note
+{
+  border: 1px solid #0b198c;
+  background-color: #f5f5ff;
+  padding: 4px;
+  font-size: 8pt;
+}
+
+table.fields td
+{
+  font-size: 8pt;
+}
+
+.heading
+{
+  font-size: 11pt;
+  border-bottom: 1px solid #666;
+}
+
+xmp.code {
+  border: 1px solid #afafaf; 
+  background-color: #ececec; 
+  padding: 10px; 
+  overflow: auto;
+}

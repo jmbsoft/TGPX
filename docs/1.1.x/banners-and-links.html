@@ -1,0 +1,120 @@
+<html>
+<head>
+    <title>ToplistX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Configuring Banners and Links for Your Members</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+Before you begin accepting account submissions you will want to configure some of the software templates so that your member accounts will
+be provided with the link code they should use on their sites.  You can also update the link code in the future when you add new banners and/or
+links for your members to use.  This document will give an overview of what templates you will want to edit to provide your members with the
+banners and/or links they will use.
+
+<br />
+<br />
+
+<b class="heading">General Concepts</b>
+
+<br />
+<br />
+
+The default template set provided with the software does not include any default links or banners for your members to use.  This has been left
+up to you, so you can provide your member accounts with the exact links you want them to use on their sites.
+
+<br />
+<br />
+
+The best way to provide your members with the links they should use is to give them the exact HTML code they should place in their page.  There
+are a couple of different methods that you can use to display HTML code for your users to copy:
+
+<ul>
+<b>The &lt;xmp&gt; HTML tag</b><br />
+HTML code has a special &lt;xmp&gt; tag that will force the user's browser display the actual HTML code instead of rendering it.  For example,
+if you used this code in your page:
+
+<pre class="code">&lt;xmp&gt;&lt;a href="{$tracking_url|htmlspecialchars}"&gt;Top 100 Joke Sites&lt;/a&gt;&lt;/xmp&gt;</pre>
+
+It would display in the user's browser like this:
+
+<xmp><a href="{$tracking_url|htmlspecialchars}">Top 100 Joke Sites</a></xmp>
+
+The user would be able to select this HTML code, copy it, and paste it into their page.
+
+<br /><br />
+
+<b>The &lt;textarea&gt; HTML tag</b><br />
+The &lt;textarea&gt; tag is similar to the &lt;xmp&gt; tag, however it will display the HTML code in a text input box instead of directly in the
+page.  When using a textarea tag it is also necessary to convert the &lt; and &gt; characters to &amp;lt; and &amp;gt; respectively.  For example,
+if you used this code in your page:
+
+<pre class="code">&lt;textarea rows="3" cols="80"&gt;
+&amp;lt;a href="{$tracking_url|htmlspecialchars}"&amp;gt;Top 100 Joke Sites&amp;lt;/a&amp;gt;
+&lt;/textarea&gt;</pre>
+
+It would display in the user's browser like this:<br /><br />
+
+<textarea rows="3" cols="80">
+&lt;a href="{$tracking_url|htmlspecialchars}"&gt;Top 100 Joke Sites&lt;/a&gt;
+</textarea>
+</ul>
+
+If you would like to provide your members with banners to use on their sites, you will use the standard HTML &lt;img&gt; tag to show the actual
+banner in the ToplistX pages.  For example, if you had a banner for your site located at http://www.yoursite.com/banners/468x60.gif you would
+use this &lt;img&gt; tag in your ToplistX template(s) to show the banner to the user:
+
+<xmp class="code"><img src="http://www.yoursite.com/banners/468x60.gif"></xmp>
+
+<br />
+
+<b class="heading">Editing the ToplistX Templates</b>
+
+<br />
+<br />
+
+There are a few different templates that you can use to provide your members with the HTML code they should use for the links on their site, however
+there are 2 templates that you will definitely want to edit to provide your link code.  Those two templates are:
+
+<ul>
+<b>accounts-added.tpl</b><br />
+This template is displayed to the member after their account has been successfully added.  This is an ideal place to provide members with the banners
+and/or links they should use on their site since it is the first page they will see after they signup.  In the default accounts-added.tpl template there
+is a section of the template that has been commented out using the {* *} template syntax.  You can uncomment that section and place the banners and/or links
+that you want your members to use there.
+
+<br />
+<br />
+
+<b>accounts-banners-links.tpl</b><br />
+This template is displayed in the account maintenance interface when the user selects to get banners and links.  This is the second best place to setup
+the banners and/or links that you want your members to use.  The default template included with the software does not display anything on this page, so you
+will need to add your links and/or banners to this page so your members will have something to choose from.
+</ul>
+
+To provide your members with the correct URL that they should use for their links, you should use the {$tracking_url|htmlspecialchars} template variable.  You
+should use this template variable rather than hard-coding the URL so that the software can automatically generate the correct URL for them to use based on the
+software settings.
+
+</div>
+</div>
+
+<br />
+<br />
+
+</body>
+</html>

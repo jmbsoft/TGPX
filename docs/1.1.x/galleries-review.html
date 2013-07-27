@@ -1,0 +1,386 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Reviewing New Galleries</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+TGPX has a built in tool that will allow you to quickly review newly submitted galleries.  While reviewing galleries you will be able
+to see the gallery itself, make changes to the gallery information, and approve or reject the gallery submission.  This document will
+provide information on the gallery review utility.
+
+<br />
+<br />
+
+<b class="heading">The Gallery Review Interface</b>
+
+<br />
+<br />
+
+<div class="note">
+To use the gallery review interface you will need to setup your popup blocker to allow popup windows from the site where TGPX is installed.
+</div>
+
+<br />
+
+To begin reviewing galleries, access the Galleries &gt; Review New Galleries function from the control panel menu.  This will display
+two popup windows, one that contains the gallery information that you can edit and one that shows the gallery itself.  The popup window
+that displays the gallery information will look something like this:
+
+<br />
+<br />
+
+<img src="galleries-review.png" width="990" height="236" border="1" alt="">
+
+<br />
+
+<ol style="list-style-type: upper-alpha">
+<li> This is the gallery data which you can edit if any changes are required
+<li> This shows the number of galleries left to review along with the number of galleries you have skipped in parenthesis
+<li> These icons allow you to process the current gallery, skip a gallery, and set options
+<li> This section shows the preview thumbnail(s) for the gallery (if any) and allows you to modify or delete them
+</ol>
+
+
+<b class="heading">Gallery Review Functions</b>
+
+<br />
+<br />
+
+Each of the icons in section C of the gallery review interface correspond to a function that you can run.  Each of those functions are described below.
+
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/check-big.png" width="16" height="16" border="0" alt="">
+</td>
+<td>
+Click this icon to approve the gallery you are currently viewing.  You will be asked to confirm the approval before it is submitted.
+When the gallery is approved, any changes that you have made to the gallery data will be recorded in the database.  If you have the
+option enabled to notify submitters when their gallery is approved, the approval e-mail will be sent.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/x-big.png" width="16" height="16" border="0" alt="">
+</td>
+<td>
+Click this icon to reject the gallery you are currently viewing.  A selection field will slide into view that will allow you to select
+what rejection e-mail message you want to send.  To reject the gallery without sending an e-mail message, select NONE from the drop down
+selection list.  Once you have selected the e-mail you want to send (or NONE) click on the <img src="../images/x-big.png" width="16" height="16" border="0" alt="">
+icon to complete the rejection.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/trash-big.png" width="16" height="16" border="0" alt="">
+</td>
+<td>
+Click this icon to delete the gallery you are currently viewing.  This is the same as rejecting the gallery except that no rejection e-mail
+will be sent.  You can use this as a shortcut to reject galleries when you do not want to select a rejection e-mail to send.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/blacklist-big.png" width="13" height="16" border="0" alt="">
+</td>
+<td>
+Click this icon if you want to blacklist and delete the gallery you are currently viewing.  When you click this icon several input fields will
+slide into view allowing you to enter the data that you want to blacklist for this gallery along with a reason for blacklisting the data.  Once
+you have filled in the values as you like, click on the <img src="../images/blacklist-big.png" width="13" height="16" border="0" alt=""> icon to
+actually blacklist and delete the gallery.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/next.png" width="16" height="16" border="0" alt="">
+</td>
+<td>
+Click this icon to skip the current gallery you are viewing and move on to the next available gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/re-test.png" width="16" height="16" border="0" alt="">
+</td>
+<td>
+Click this icon to set options that control which galleries you are reviewing and what order they appear in.  When you click this icon the search
+interface will slide into view.  This interface will allow you to select which galleries you want to review by selecting the type, format, sponsor and/or
+category you want to work with.  You can also select how the galleries should be ordered while you review them.  Once you have the settings you want to
+use, press the Save button which will load the first gallery that meets the criteria you have set.
+</td>
+</tr>
+</table>
+</ul>
+
+
+<b class="heading">Keyboard Shortcuts</b>
+
+<br />
+<br />
+
+The gallery review interface contains a few keyboard shortcuts that you can use to approve, reject, delete, or move onto the next gallery.  These shortcuts will
+work only when one of the form fields does not have the input focus.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>ctrl-q</b>
+</td>
+<td>
+Press the 'ctrl' and 'q' keys on your keyboard to remove focus from the forum input fields so you can use the other shortcuts
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>a</b>
+</td>
+<td>
+Press the 'a' key on your keyboard to approve the current gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>r</b>
+</td>
+<td>
+Press the 'r' key on your keyboard to reject the current gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>d</b>
+</td>
+<td>
+Press the 'd' key on your keyboard to delete the current gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>right arrow (-&gt;)</b>
+</td>
+<td>
+Press the right arrow key on your keyboard to skip the current gallery and move onto the next
+</td>
+</tr>
+</table>
+</ul>
+
+<br />
+<br />
+
+<b class="heading">Gallery Data</b>
+
+<br />
+<br />
+
+Most of the gallery settings can be edited through this interface by editing the values in section A.  Each of the values that you can edit are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>URL</b>
+</td>
+<td>
+The full URL to the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Description</b>
+</td>
+<td>
+The description of the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Keywords</b>
+</td>
+<td>
+A space separated list of keywords that describe the gallery.  Keywords must be at least 4 characters long
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Tags</b>
+</td>
+<td>
+A space separated list of tags for this gallery.  Tags can be used for grouping galleries.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Sponsor</b>
+</td>
+<td>
+The sponsor that this gallery comes from
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Categories</b>
+</td>
+<td>
+The categories that the gallery fits into.  Multiple categories can be selected by clicking the <img src="../images/add-small.png"> icon.
+You can remove categories by clicking on the <img src="../images/remove-small.png" border="0" alt=""> icon.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/icons.png" width="13" height="12" border="0" alt="">
+</td>
+<td>
+If you have configured any icons, you can assign them to a gallery by clicking on this icon.  A selection box
+will appear where you can put checks in the checkboxes next to any of the icons you want to assign to this
+gallery.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Weight</b>
+</td>
+<td>
+The weight value to assign to this gallery.  The weight value can be any whole number from -2147483648 to 2147483647.
+Gallery weight values only come into play if you are using the weight sorting option in the order or reorder settings of
+the {galleries} template command
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+
+</td>
+<td>
+<b>Scan</b><br />
+Uncheck this option if you do not want the gallery scanner to scan this gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+
+</td>
+<td>
+<b>Thumb</b><br />
+Uncheck this option if you do not want the gallery scanner to be allowed to create a preview thumbnail for this gallery
+</td>
+</tr>
+
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Thumbnails</b>
+</td>
+<td>
+The number of thumbnails that appear on the gallery (i.e. small images that link to the full sized image or movie)
+</td>
+</tr>
+
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Scheduled</b>
+</td>
+<td>
+The date and time that this gallery will become eligible for display on your TGP pages.
+Note this does not guarantee that the gallery will be displayed on this date, it
+simply becomes eligible for selection on this date.<br />
+This must be in YYYY-MM-DD HH:MM:SS format.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Delete</b>
+</td>
+<td>
+The date and time that this gallery should be deleted from the database.  This must be in YYYY-MM-DD HH:MM:SS format.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Type</b>
+</td>
+<td>
+The type of gallery, either permanent or submitted
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Format</b>
+</td>
+<td>
+The format of this gallery, either movies or pictures
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Nickname</b>
+</td>
+<td>
+The name of the gallery submitter
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Submit Info</b>
+</td>
+<td>
+This will display the submitter's e-mail address, IP address, and the date and time the gallery was submitted
+</td>
+</tr>
+</table>
+</ul>
+
+
+If you have configured any user defined gallery fields, they will appear below the Categories field in the gallery review interface.  All of these settings
+can be edited before you approve a gallery; the changes will be recorded in the database when the gallery is approved.
+
+<br />
+<br />
+
+<b class="heading">Preview Thumbnails</b>
+
+<br />
+<br />
+
+If the gallery you are reviewing has any preview thumbnails, those will appear in the gallery review interface in section B.  The drop down selection list will
+show you how many preview thumbnails have been created for this gallery, and each will be listed by it's dimensions.  To view one of the other preview thumbnails for the
+gallery, simply select it from the drop down list.
+
+<br />
+<br />
+
+To create a new preview thumbnail for the gallery click on the <img src="../images/preview-crop.png" width="12" height="12" border="0" alt=""> icon.  This will display
+up a new popup window that will allow you to crop the image of your choice from the gallery.
+
+<br />
+<br />
+
+To delete a preview thumbnail, first select it from the drop down selection field and then click on the <img src="../images/trash.png" width="12" height="12" border="0" alt="">
+icon.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

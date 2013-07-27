@@ -1,0 +1,383 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Links</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The main function of LinkX is to maintain a database of links, so it is obviously important to understand how the software handles them.  This document will give
+you an overview of how to add, maintain, and remove links.
+
+<br />
+<br />
+
+<b class="heading">Adding a New Link<a name="add"></a></b>
+
+<br />
+<br />
+
+To add a new link access the Directory &gt; Links &gt; Add a Link function from the control panel menu.  This will display a popup 
+window where you will be able to enter the link data that you want to use.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>E-mail</b>
+</td>
+<td>
+The e-mail address that should be associated with this link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Submitter Name</b>
+</td>
+<td>
+The name of the link submitter
+</td>
+</tr>
+<tr>
+<tr>
+<td valign="top" align="right">
+<b>Submitter IP</b>
+</td>
+<td>
+The IP address of the link submitter
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Site URL</b>
+</td>
+<td>
+The full URL of the site that surfers are sent to when they click on this site link
+
+<div class="note" style="margin-top: 5px;">
+Clicking on the <img src="../images/go-down.png" border="0" width="11" height="10"> icon will have the software access the site URL and
+extract the title, meta description, and meta keywords values from the site for use in the corresponding fields on the link submission form.
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Recip URL</b>
+</td>
+<td>
+The full URL of the page where the site owner plans to place a link back to your site
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Title</b>
+</td>
+<td>
+The title of the site
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Description</b>
+</td>
+<td>
+A description of the site
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Status</b>
+</td>
+<td>
+The link status (one of unconfirmed, pending, active, or disabled)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+The link type (one of regular, premium, or featured)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Expires</b>
+</td>
+<td>
+The date that the link becomes a regular link (must be in YYYY-MM-DD format; applies to premium or featured links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Keywords</b>
+</td>
+<td>
+Keywords that will be used for search purposes (a space separated list of words)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Clicks</b>
+</td>
+<td>
+The number of clicks this link has received
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Number of Ratings</b>
+</td>
+<td>
+The number of ratings this link has received
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Ratings/Total</b>
+</td>
+<td>
+The first field is the number of ratings this link has received<br />
+The second field is the total value of all the ratings when added up
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Weight</b>
+</td>
+<td>
+The weight value assigned to this link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Added</b>
+</td>
+<td>
+The date this link was added (must be in YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Modified</b>
+</td>
+<td>
+The date this link was last modified (must be in YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Icon HTML</b>
+</td>
+<td>
+The icon HTML code assigned to this link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Admin Comments</b>
+</td>
+<td>
+The admin comments assigned to this link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Account</b>
+</td>
+<td>
+The username of the account that this link was submitted by
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Password</b>
+</td>
+<td>
+The password associated with this link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Categories</b>
+</td>
+<td>
+Select the categories that this link will appear in.  Click the <img src="../images/add-small.png"> icon to select categories or the
+<img src="../images/remove-small.png"> icon to clear the current selected categories.  You will use the <a href="category-selector.html">Category Selector</a> interface
+to select categories.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Require a reciprocal link</b>
+</td>
+<td>
+Check this box if this site must have a reciprocal link back to your site.  This overrides the global and account level settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Allow URL redirection</b>
+</td>
+<td>
+Check this box to allow this site URL to redirect to other URLs.  This overrides the global and account level settings.
+</td>
+</tr>
+</table>
+</ul>
+
+
+You will also find all of the user defined fields that you have configured, and will be allow to fill in or select the appropriate values for those fields.
+Once you have filled in all of the fields as you want them, press the Add Link button.  This will add the new link to the database.
+
+<br />
+<br />
+
+<b class="heading">Link Status<a name="status"></a></b>
+
+<br />
+<br />
+
+When links are submitted they are assigned a status which determines if they are displayed in the link directory.  Each of the available status options are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Unconfirmed</b>
+</td>
+<td>
+Links that have been submitted but not yet confirmed through the submitter's e-mail address have this status
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Pending</b>
+</td>
+<td>
+Links that have been submitted but not yet approved by an administrator have this status
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Active</b>
+</td>
+<td>
+Links that have been approved and are currently displayed in the link directory have this status
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Disabled</b>
+</td>
+<td>
+Links that have been disabled by an administrator and are not displayed in the link directory have this status
+</td>
+</tr>
+</table>
+</ul>
+
+The link status can be changed at any time by editing a link or by using the functions available in the <a href="directory-browse.html">Directory Browsing</a> or
+<a href="link-search.html">Link Search</a> interfaces
+
+<br />
+<br />
+
+<b class="heading">Processing New Links<a name="processnew"></a></b>
+
+<br />
+<br />
+
+If you have one or more of your categories setup to require approval of new links, you will need to login to the control panel from time-to-time to review newly submitted links.
+To view the newly submitted links, select To Do &gt; Review New Links from the control panel menu.  This will load the Link Search interface with the appropriate options set to 
+display only links with pending status.
+
+<br />
+<br />
+
+New links can be processed one at a time, or in bulk.  When viewing the new links, you will see the <img src="../images/check.png"> and <img src="../images/x.png"> icons added
+to the Functions column along with a drop down selection list.  To approve a link, select the e-mail message you want to send (if any) from the drop down selection list and then
+click on the <img src="../images/check.png"> icons.  Rejecting a link works the same way, except you will click the <img src="../images/x.png"> icon.
+
+
+To process many links at once, put a check in the box next to the links you want to process.  At the bottom of the page select either 'Approve Selected' or 'Reject Selected' from
+the drop down list of functions.  When you do this, an additional drop down selection box will appear that will allow you to select which e-mail message (if any) you want to send.
+Select the appropriate e-mail message and then press the Execute function to process all of the selected links.
+
+<br />
+<br />
+
+<b class="heading">Processing Edited Links<a name="processedited"></a></b>
+
+<br />
+<br />
+
+If you have enabled the option to require that link edits be approved before going live in your link directory, you will need to login to the control panel from time-to-time to 
+review the link modifications.  To view the edited links, select To Do &gt; Review Edited Links from the control panel menu.  This will load the Link Search interface with the
+appropriate options set to display only links that have been edited.  Below the standard link information that is displayed, these links will have additional information 
+that shows you which fields the user has changed.
+
+<br />
+<br />
+
+Each field that has been modified will be listed so you can see the new information that has been provided.  Inside the yellow box that contains the new link information you
+will see the <img src="../images/check.png"> and <img src="../images/x.png"> icons.  If you approve the user modifications by clicking the <img src="../images/check.png"> icon, 
+the new data will be assigned to the link and will appear in the link directory at the next cache update.  If you reject the user modifications by clicking the <img src="../images/x.png">
+icon, the new data will simply be discarded and the existing link information will remain in the directory.
+
+<br />
+<br />
+
+To process several links at once, put a check in the box next to the links you want to process.  At the bottom of the page select either 'Approve Edits of Selected' or 'Reject Edits os Selected' from
+the drop down list of functions.  Press the Execute function to process all of the selected links.
+
+<br />
+<br />
+
+<b class="heading">Editing a Link<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a link you will fist need to locate it through the <a href="directory-browse.html">Directory Browsing</a> or <a href="link-search.html">Link Search</a> interfaces.
+When you locate the link you want to edit, click on the <img src="../images/edit.png"> icon to bring up the link editing interface.  This interface is nearly identical to the
+link creation interface, and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update Link button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Link<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete a link you will fist need to locate it through the <a href="directory-browse.html">Directory Browsing</a> or <a href="link-search.html">Link Search</a> interfaces.
+When you locate the link you want to delete, click on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several links at once by putting a check in the box next to the links you want to delete, selecting the 'Delete Selected' function from the drop down list
+at the bottom of the page and pressing the Execute button.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

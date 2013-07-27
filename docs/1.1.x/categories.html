@@ -1,0 +1,410 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Categories</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+Categories are one of the basic building blocks for your TGP and allow submitters and administrators to specify what category(ies) each gallery fits into.  Before you
+can begin accepting gallery submissions you will need to setup at least one category.  This document describes how to manage your categories.
+
+<br />
+<br />
+
+<b class="heading">Viewing/Searching Categories<a name="search"></a></b>
+
+<br />
+<br />
+
+To view or search your currently configured categories, access the Settings &gt; Manage Categories function from the control panel menu.  This will display a page where you will be able to 
+see the currently configured categories and search them if you wish.
+
+<br />
+<br />
+
+In the table that displays the categories, you will find a couple of functions that you can run on a single category.  Each of those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the category.  A window will appear where you will be able to edit all of it's settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this category.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running these functions on single categories, you can also run the delete function on multiple categories at once.  To run the delete function, put a check in the checkbox next to the
+categories you want to delete, then press the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+The search results will display a few different pieces of information about the gallery.  Each column of the search results is described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Name</b>
+</td>
+<td>
+The name of the category
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Pictures</b>
+</td>
+<td>
+<img src="../images/check.png" width="12" height="12" border="0" alt=""> This category allows picture galleries<br />
+<img src="../images/x.png" width="12" height="12" border="0" alt=""> This category does not allow picture galleries<br />
+<img src="../images/preview.png" width="11" height="12" border="0" alt=""> This category allows thumbnail previews for picture galleries
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Movies</b>
+</td>
+<td>
+<img src="../images/check.png" width="12" height="12" border="0" alt=""> This category allows movie galleries<br />
+<img src="../images/x.png" width="12" height="12" border="0" alt=""> This category does not allow movie galleries<br />
+<img src="../images/preview.png" width="11" height="12" border="0" alt=""> This category allows thumbnail previews for movie galleries
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Hidden</b>
+</td>
+<td>
+<img src="../images/check.png" width="12" height="12" border="0" alt=""> This category is hidden and cannot be selected by gallery submitters<br />
+<img src="../images/x.png" width="12" height="12" border="0" alt=""> This category is not hidden and can be selected by gallery submitters<br />
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Last Submit</b>
+</td>
+<td>
+The date and time that the last gallery was submitted to this category through the submit.php script
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Sorter</b>
+</td>
+<td>
+The value corresponding to the "Sort:" field that you selected for the current search
+</td>
+</tr>
+</table>
+</ul>
+ 	 	 	 	 	
+
+<a name="add"></a>
+<b class="heading">Adding a Category</b>
+
+<br />
+<br />
+
+To add a new category access the Settings &gt; Manage Categories function from the control panel menu.  This will display your currently configured categories.  Near the top of the page in the header
+bar that reads "Manage Categories" click on the <img src="../images/add.png" border="0" alt=""> icon.  This will display a popup window where you will be able to enter the data
+for the new category that you want to add.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td colspan="2" style="background-color: #ececec; font-weight: bold; font-size: 9pt;">
+General Settings
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Category Name(s)</b>
+</td>
+<td>
+The name(s) you want to use for the category(ies).  You can enter one category per line to add multiple categories at once.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Meta Description</b>
+</td>
+<td>
+The value to display in the TGP page's meta description tag.  This value can be displayed on any page that is assigned to this category.  See the meta_categories.txt example template included with the software.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Meta Keywords</b>
+</td>
+<td>
+The value to display in the TGP page's meta keywords tag.  This value can be displayed on any page that is assigned to this category.  See the meta_categories.txt example template included with the software.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Submissions Per Day</b>
+</td>
+<td>
+The maximum number of galleries that can be submitted to this category each day
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Make this category hidden</b><br />
+If this is checked this category will not appear on the end-user gallery submission form
+and users will not be able to submit galleries to this category
+</td>
+</tr>
+<tr>
+<td colspan="2" style="background-color: #ececec; font-weight: bold; font-size: 9pt;">
+Picture Gallery Settings
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Allow picture galleries in this category</b><br />
+Check this box to allow picture gallery submissions in this category
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>File Extensions</b>
+</td>
+<td>
+Enter a comma separated list of file extensions allowed for pictures
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Minimum Thumbs</b>
+</td>
+<td>
+The minimum number of thumbnails that must appear on the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Maximum Thumbs</b>
+</td>
+<td>
+The maximum number of thumbnails that may appear on the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Minimum Filesize</b>
+</td>
+<td>
+The minimum allowed filesize of the pictures on the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Allow preview thumbnails for this format</b><br />
+Check this box to allow submitters to provide preview thumbnails with their gallery submissions for this category
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Preview Dimensions</b>
+</td>
+<td>
+The size of preview thumbnails allowed in this category.  Select Custom --&gt; to enter a new size in WxH format or select one of the existing sizes from the drop down list.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Preview Annotation</b>
+</td>
+<td>
+The annotation to display on the preview thumbnails for galleries in this category.  This will only appear if you have <a href="annotations.html">defined one or more annotations</a>.
+</td>
+</tr>
+<tr>
+<td colspan="2" style="background-color: #ececec; font-weight: bold; font-size: 9pt;">
+Movie Gallery Settings
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Allow movie galleries in this category</b><br />
+Check this box to allow movie gallery submissions in this category
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>File Extensions</b>
+</td>
+<td>
+Enter a comma separated list of file extensions allowed for movies
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Minimum Thumbs</b>
+</td>
+<td>
+The minimum number of thumbnails that must appear on the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Maximum Thumbs</b>
+</td>
+<td>
+The maximum number of thumbnails that may appear on the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Minimum Filesize</b>
+</td>
+<td>
+The minimum allowed filesize of the movies on the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Allow preview thumbnails for this format</b><br />
+Check this box to allow submitters to provide preview thumbnails with their gallery submissions for this category
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Preview Dimensions</b>
+</td>
+<td>
+The size of preview thumbnails allowed in this category.  Select Custom --&gt; to enter a new size in WxH format or select one of the existing sizes from the drop down list.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Preview Annotation</b>
+</td>
+<td>
+The annotation to display on the preview thumbnails for galleries in this category.  This will only appear if you have <a href="annotations.html">defined one or more annotations</a>.
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have filled in all of the fields as you want them, press the Add Category button.  This will add the new category to the database, and it will
+be activated and ready for galleries immediately.
+
+<br />
+<br />
+
+<a name="default"></a>
+<b class="heading">The Default Category</b>
+
+<br />
+<br />
+
+Any time you add a new category you will notice that many of the form fields have been pre-filled for you.  This data is taken from the default category settings, which can be edited.
+To edit the default category, access the Settings &gt; Manage Categories function from the control panel menu.  This will display your currently configured categories.  Near the top of the page in the header
+bar that reads "Manage Categories" click on the <img src="../images/edit-large.png" border="0" alt=""> icon.  This will display a popup window where you will be able to edit the data
+for the default category.
+
+<br />
+<br />
+
+The default category settings are the same as when you add a new category, with th exception that you do not enter a category name.  The form fields described above have the same meaning
+when editing the default category as they do when adding/editing a defined category.  Once you've got the settings configured how you want them, press the Save Default Settings button to 
+record this information.
+
+<br />
+<br />
+
+<div class="note">
+The default category is also used when you are importing galleries and you tell the import function to create a new category for any that are imported with the galleries but don't already exist.
+The default category settings will be used for the new category(ies) that are created during the gallery import process.
+</div>
+
+<br />
+
+<a name="edit"></a>
+<b class="heading">Editing a Category</b>
+
+<br />
+<br />
+
+To edit a category you will first need to locate it through the <a href="#search">View/Search</a> interface.  When you locate the category you want to edit, click on the
+<img src="../images/edit.png"> icon to bring up the category editing interface.  This interface is nearly identical to the category addition interface,
+and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update Category button to save your changes.
+
+<br />
+<br />
+
+<a name="delete"></a>
+<b class="heading">Deleting a Category</b>
+
+<br />
+<br />
+
+<div class="note">
+Deleting a category will also delete all of the galleries contained in that category!
+</div>
+
+<br />
+
+To delete a category you will first need to locate it through the <a href="#search">View/Search</a> interface.  When you locate the category you want to delete, click
+on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several categories at once by putting a check in the box next to the categories you want to delete, then pressing the Delete button at the bottom of the page.
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

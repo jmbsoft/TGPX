@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div align="center">
+<span class="large">shuffle.php Utility Script</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The shuffle.php utility script allows you to mix up the galleries in your database.  For example, if you imported a large number of galleries from one
+sponsor they will be in order by gallery ID in your database.  If you would rather not have them be in order by gallery ID, you can use the shuffle.php
+utility script.
+
+<br />
+<br />
+
+<b class="heading">Requirements</b>
+
+<br />
+<br />
+
+Your server will need to have the command line interface (CLI) version of PHP installed.  If you are not sure about this, contact
+your server administrator and ask them if the CLI version of PHP is installed on the server.  You will also need to know where the CLI PHP binary is located
+on the server.  In most cases it is in /usr/bin or /usr/local/bin
+
+<br />
+<br />
+
+<b class="heading">Running the shuffle.php Script</b>
+
+<br />
+<br />
+
+<div class="note">
+It is highly recommended that you perform a database backup before running the shuffle script!
+</div>
+
+<br />
+
+The shuffle.php script must be run from the command line of your server, it cannot be accessed through a browser.  You will need SSH or telnet
+access to your server in order to use this script.  The first thing you will need to do is upload the shuffle.php script to the admin directory
+of your TGPX installation.
+
+<br />
+<br />
+
+You can now login to the server through telnet or SSH and change into the directory where the shuffle.php script is located.  It is recommended
+that you run the shuffle.php script during off-peak hours, since it will use some server resources to reassign the gallery IDs in the MySQL database.
+You should also not run any other TGPX functions while the shuffling is in progress. Execute the following command to begin the shuffling process
+(where /usr/local/bin/php is the full path to the CLI version of PHP on your server):
+
+<br />
+<br />
+
+/usr/local/bin/php shuffle.php
+
+<br />
+<br />
+
+When you execute this command, the script will begin running and will display some output to let you know what it is doing.  You should allow several minutes for
+the shuffling process to be completed, depending on how many galleries you have in your database.  When the script is done it will output the message "Shuffling complete!" and
+return you to the command line of your server.  You can now login to the TGPX control panel and use the <a href="galleries.html">Search Galleries</a> interface to view the galleries
+and make sure they have been shuffled properly.
+
+<br />
+<br />
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

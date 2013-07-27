@@ -1,0 +1,348 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Comments</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The LinkX comment system allows your users to submit messages that will be displayed on the details page for the link they are commenting on.  You can restrict comments to only registered users
+and also use the blacklist feature to prevent unwanted items from appearing in your comments.  This document will give an overview of managing user comments.
+
+<br />
+<br />
+
+<b class="heading">Search Comments<a name="search"></a></b>
+
+<br />
+<br />
+
+To access the comment search interface use the Directory &gt; Search &gt Comments function from the control panel menu.  This will load a page which will initially indicate
+that no search term has been entered.  To start your search, enter the term you would like to search for in the text input box and select the field that you would like to search in.
+Each of the search fields is described below.
+
+<br />
+<br />
+
+<div class="note">
+The Comment Text field supports <a href="boolean-searches.html">boolean mode searching</a>; the other fields support <a href="standard-searches.html">standard searching</a>.
+</div>
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Comment Text</b>
+</td>
+<td>
+This will search in the text of the comment
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Username</b>
+</td>
+<td>
+The username of the account the comment was submitted with, if any
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>E-mail Address</b>
+</td>
+<td>
+The e-mail address associcated with the comment
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Name</b>
+</td>
+<td>
+The name associated with the comment
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Submitter IP</b>
+</td>
+<td>
+The IP address used to submit the comment
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Added</b>
+</td>
+<td>
+The date and time the comment was added (YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Comment ID</b>
+</td>
+<td>
+The unique ID number assigned to the comment
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Link ID</b>
+</td>
+<td>
+The current link status (one of unconfirmed, pending, active, or disabled)
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to searching the fields above, you can also select to display comments that have a specific status.  Each of the possible status options are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>All</b>
+</td>
+<td>
+This will display all links, no matter what their status
+</td>
+</tr>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Pending</b>
+</td>
+<td>
+This will display comments that have been submitted but are awaiting approval by an administrator
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Approved</b>
+</td>
+<td>
+This will display links that have been approved and are currently displayed in the link directory
+</td>
+</tr>
+</table>
+</ul>
+
+You can also choose how the comments are sorted by selecting the sorting field from the drop down list.  The available sorting fields correspond with the search fields which are 
+described above.  Once you have the search values filled in how you want them, press the search button to display the comments that meet your criteria.
+
+<br />
+<br />
+
+<b class="heading">Comment Functions</b>
+
+<br />
+<br />
+
+In the search result you will be able to run a number of different functions on the comments that are displayed.  To display additional information about the comment,
+click on the <img src="../images/go-down.png" width="11" height="10" border="0" alt=""> icon.  This will send a  request to your server for the information, so it may
+take a couple of seconds to load.  Once it has been loaded, the information will slide into view.
+
+<br />
+<br />
+
+Clicking on the icons in the Functions column of the table will allow you to run that function on a single comment.  You can also check the boxes next to multiple comments
+to perform the functions listed at the bottom of the page.  The single comment function icons are each described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the comment.  A window will appear where you will be able to edit all of the comment settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/check.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to approve the comment (visible only on pending comments)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/x.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to reject the comment (visible only on pending comments)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/user.png" width="10" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to view the user account that submitted the comment (visible only on comments submitted by an account)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/links.png" width="10" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to view the link that this comment is associated with
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to delete the comment.  You will be asked to confirm the deletion before it is done.
+</td>
+</tr>
+</table>
+</ul>
+
+You can also run a function on multiple comments by putting a check in the box next to the comments you want, selecting the function to run
+from the drop down selection field at the bottom of the page, and pressing the Execute button.  Each of the available functions are
+described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Delete Selected</b>
+</td>
+<td>
+This will permanently delete the comments you have selected
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Approve Selected</b>
+</td>
+<td>
+This will approve the comments you have selected. (this function should be used only for pending comments)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Reject Selected</b>
+</td>
+<td>
+This will reject the comments you have selected. (this function should be used only for pending comments)
+</td>
+</tr>
+</table>
+</ul>
+
+<b class="heading">Processing New Comments<a name="processnew"></a></b>
+
+<br />
+<br />
+
+If you have the option enabled to require approval of new comments, you will need to login to the control panel from time-to-time to review newly submitted comments.
+To view the newly submitted comments, select To Do &gt; Review Comments from the control panel menu.  This will load the <a href="#search">Comment Search</a> interface with the appropriate options set to 
+display only comments with pending status.
+
+<br />
+<br />
+
+New comments can be processed one at a time, or in bulk.  To process them one at a time click on the <img src="../images/check.png" width="12" height="12" border="0" alt=""> icon
+to approve the comment or the <img src="../images/x.png" width="12" height="12" border="0" alt=""> icon to reject the comment.
+
+<br />
+<br />
+
+To process many comments at once, put a check in the box next to the comments you want to process.  At the bottom of the page select either 'Approve Selected' or 'Reject Selected' from
+the drop down list of functions.  Press the Execute function to process all of the selected comments using the function you have choosen.
+
+<br />
+<br />
+
+<b class="heading">Editing a Comment<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a comment you will fist need to locate it through the <a href="#search">Comment Search</a> interface.   When you locate the link you want to edit, click on the <img src="../images/edit.png">
+icon to bring up the link editing interface.  This will display a popup window where you will be able to update the comment data.  Each of the form fields are described below.
+  
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Name</b>
+</td>
+<td>
+The name of the comment submitter
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>E-mail</b>
+</td>
+<td>
+The e-mail address that is associated with this comment
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Added</b>
+</td>
+<td>
+The date this comment was added (must be in YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Comment</b>
+</td>
+<td>
+The comment itself
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have modified all of the fields as you want them, press the Update Comment button.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Comment<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete a comment you will fist need to locate it through the <a href="#search">Comment Search</a> interface.
+When you locate the comment you want to delete, click on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several comments at once by putting a check in the box next to the comments you want to delete, selecting the 'Delete Selected' function from the drop down list
+at the bottom of the page and pressing the Execute button.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

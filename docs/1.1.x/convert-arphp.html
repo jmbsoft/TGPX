@@ -1,0 +1,200 @@
+<html>
+<head>
+    <title>ToplistX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div align="center">
+<span class="large">Converting AutoRank PHP Data</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+If you are currently running AutoRank PHP on one of your sites and would like to import it's data into a ToplistX installation, you can use
+the included arphp-convert.php script to do just that.  This document will outline the steps necessary to convert your AutoRank PHP data.
+
+<br />
+<br />
+
+<b class="heading">Requirements</b>
+
+<br />
+<br />
+
+To convert your AutoRank PHP data you will need to be using any version in the 3.0.x series of AutoRank PHP.  If you are not using one of these versions,
+follow the instructions in the AutoRank PHP software manual to upgrade your installation.
+
+<br />
+<br />
+
+<b class="heading">Converted Data</b>
+
+<br />
+<br />
+
+The conversion script will convert and import the following data from your AutoRank PHP installation:
+
+<ul>
+<li> Account Data
+<li> Categories
+<li> Icons
+<li> Account Banners
+<li> Account Comments
+<li> Ranking pages and their templates
+</ul>
+
+The conversion script will attempt to convert your ranking page templates to the new ToplistX format, however some template directives cannot be
+converted or may need some tweaking after the conversion is complete.  Here are the known limitations of template conversion:
+
+<ul>
+<li> Some of the old template variables are no longer available and will not be converted
+<li> Script page templates (account submission form, account maintenance interface, etc) cannot be converted
+</ul>
+
+
+<b class="heading">Running From The Command Line</b>
+
+<br />
+<br />
+
+<div class="note">
+You will need shell access (through telnet or SSH) to your server to run the conversion script from the command line
+</div>
+
+<br />
+
+The conversion script can be run from the command line of your server, and this is the recommended method if you have a large number of accounts and/or pages to
+convert (5,000+).  The conversion process is the same as listed below, however instead of accessing the conversion script through your browser you
+will run it from the command line of your server using the PHP CLI executable.  The command you will use will be something like this:
+
+<br />
+<br />
+
+/usr/local/bin/php arphp-convert.php /full/path/to/arphp
+
+<br />
+<br />
+
+Where /usr/local/bin/php is the full path to the PHP CLI executable on your server and /full/path/to/arphp is the full path to the AutoRank PHP installation
+on your server.
+
+<br />
+<br />
+
+<b class="heading">Conversion Process</b>
+
+<br />
+<br />
+
+Follow the steps below to convert your AutoRank PHP data:
+
+<br />
+<br />
+
+<div class="note">
+The conversion process will not affect your AutoRank PHP installation.  The AutoRank PHP data will be left unchanged and you will be able to continue
+using AutoRank PHP as normal after the conversion has been completed.
+</div>
+
+<br />
+
+<div class="note">
+Before you start the conversion you should process all pending and edited accounts in AutoRank PHP.  Pending and edited account data will not be copied
+over to ToplistX, but if you process them first in AutoRank PHP the changes that you make will be imported.
+</div>
+
+<ol>
+<li> Install a clean copy of ToplistX on your server using the standard <a href="installation.html">installation instructions</a>.  Do not add any
+accounts, categories, or setup any pages before you convert your AutoRank PHP data.  Anything that you configure in ToplistX will be deleted during
+the conversion process.  You will need to setup the ToplistX settings through the General Settings interface, however.
+
+<br /><br />
+
+<li> When configuring the ToplistX settings, make sure you use a different Banner URL setting than what your AutoRank PHP installation is currently
+configured for.  The ToplistX installation should not point to the same Banner URL as your AutoRank PHP installation.
+
+<br /><br />
+
+<li> Once ToplistX is installed and has had it's initial settings configured through the General Settings interface, upload the arphp-convert.php file
+from the utilities directory of the ToplistX distribution to the admin directory of your ToplistX installation on your server.
+
+<br /><br />
+
+<li> Point your web browser to the arphp-convert.php script that you uploaded to the admin directory of your ToplistX installation.  This will load a
+page where you will need to enter the full directory path to the location of the AutoRank PHP installation on your server.  This should point to
+the directory where the arphp.pl and common.pl files are located.
+
+<br /><br />
+
+<li> Once you have filled in the directory path to your AutoRank PHP installation, you can press the Convert Data button.  You will be asked to confirm
+that you do want to convert this data.
+
+<br /><br />
+
+<li> The conversion script will run a few tests to make sure you have entered a valid directory path to your AutoRank PHP installation and that you have
+the correct version of AutoRank PHP installed.  If any errors are encountered, it will display them and terminate the conversion process.
+
+<br /><br />
+
+<li> If all of the pre-conversion tests pass, the script will begin converting your AutoRank PHP data.  The conversion process can take anywhere from a few
+seconds to several minutes depending on the size of your member database.  During the conversion process, the script will output some text to let you know what
+it is doing.  Don't be alarmed if you don't see any text, as some web servers will wait for the script to complete before outputting the information it is generating.
+You can also check the convert.log file which will be located in the data directory of your ToplistX installation.
+
+<br /><br />
+
+<li> When the conversion process is complete you will see a message that says "Data conversion complete!" (check the convert.log file in the data directory of your
+ToplistX installation if you don't get output in your browser).  You can login to your ToplistX control panel to check
+that all of the data has been properly imported.
+
+<br /><br />
+
+<li> Run the Ranking Pages &gt; Recompile Page Templates function to force the software to recompile all of the imported ranking page templates.
+
+<br /><br />
+
+<li> ToplistX uses static ranking pages instead of the dynamic pages that AutoRank PHP used, so the conversion script will setup your ranking pages to be created
+in a directory named tlx_pages.  You can edit your ranking pages through the Manage Pages interface to adjust where they are created on your website.
+</ol>
+
+Once you have completed these steps, the coversion process is complete.  You should remove the arphp-convert.php file from your server to prevent it from being 
+accidentally run again.
+
+<br />
+<br />
+
+<b class="heading">Forwarding Surfers</b>
+
+<br />
+<br />
+
+The above steps will import your members into ToplistX, however your member sites will still have their old links to AutoRank PHP on their sites.  To deal with this,
+ToplistX includes a custom in.php script that you can use to forward surfers automatically to the new ToplistX URL.  This is a drop in replacement for the AutoRank PHP
+in.php script, but will need to be configured before you upload it to your server.  You can find the in.php script in the utilities directory of the ToplistX distribution.
+Open this file in a text editor and set the two variables at the top of the file - each variable has a comment above it that explains how it should be set.
+
+<br />
+<br />
+
+Once the variables have been set, upload the in.php script to your server replacing the AutoRank PHP in.php script.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

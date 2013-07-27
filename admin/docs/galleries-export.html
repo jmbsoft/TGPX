@@ -1,0 +1,171 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Exporting Galleries From TGPX</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The gallery export function of TGPX allows you to export some or all of your galleries so they can be used in other TGPX installations or with
+third party programs.  This document will describe how to export galleries from your TGPX installation.
+
+<br />
+<br />
+
+<b class="heading">Control Panel Interface</b>
+
+<br />
+<br />
+
+To use the gallery export function access the Galleries &gt; Search Galleries function from the control panel menu.  This will load the standard Search Galleries
+interface, which will display a drop-down list of functions at the bottom of that page.  Select the Export function from the first drop down list, and an option from
+the second drop down list to control which galleries get exported.  Those options are:
+
+<ul>
+<b>Selected Galleries</b> - This will export the displayed galleries that have a check in their associated checkbox.
+<br /><br />
+
+<b>All Matching Galleries</b> - This will export all of the galleries that match the search items you have entered at the top of the page.  For example,
+if you only want to export galleries from a specific category you can do a search for that category in the Search Galleries interface and then select to
+export all matching galleries.
+<br /><br />
+
+<b>All Galleries</b> - This will export all of the galleries currently in your database
+</ul>
+
+Once you have selected the Export function and the galleries you want to export, click the Execute button.  This will open a popup window where you will be able
+to select some additional options to control how the galleries will be exported.  Each of those options is described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Galleries File</b>
+</td>
+<td>
+Enter the filename you want to use for the gallery data.  This file will be generated in the data directory of your installation and the gallery data will be
+written to this file.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Thumbs File</b>
+</td>
+<td>
+Enter the filename you want to use for the thumbnail preview image data.  This file will be generated in the data directory of your installation and the thumbnail
+preview images will be written to this file.  If you leave this field blank, the thumbnail preview images will not be exported.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>File Format</b>
+</td>
+<td>
+Select the file format to use for the export data.  More on this later...
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Delimiter</b>
+</td>
+<td>
+Select the delimiter (character that will separate each piece of gallery data) to use when generating a delimited text file.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Fields</b>
+</td>
+<td>
+Select the fields you want to export from the database.  You can select multiple fields by holding down the ctrl key on your keyboard as you click
+on the name of each field.
+</td>
+</tr>
+</table>
+</ul>
+
+After setting these options how you like, press the Export Galleries button to start the process.  Depending on the number of galleries you are exporting, this
+process may take several minutes to complete.
+
+<br />
+<br />
+
+<b class="heading">File Formats</b>
+
+<br />
+<br />
+
+When exporting galleries you have a choice of 2 different file formats to use:
+
+<ul>
+<b>Raw SQL Text File</b><br /><br />
+<div class="note">
+In order to maintain the database consistency, it is necessary for the software to include your sponsors, partners, categories, icons, and annotations when generating
+the raw SQL export file.  If you use the database restore function to add the exported galleries to an existing TGPX installation it will overwrite all of the current 
+galleries, categories, partners, sponsors, icons, and annotations.
+</div>
+
+<br />
+
+This format will export the galleries with the SQL queries necessary to load them into another TGPX installation.  Use this method if you want to transfer galleries from
+one TGPX installation to another.  The export file that is generated will be compatible with the TGPX database restore function, so you can use that file in another TGPX
+installation along with the restore function to quickly add these galleries.
+
+<br />
+<br />
+
+<b>Delimited Text File</b><br />
+This format will export the galleries one-per-line into a text file.  Each line will contain the data for one gallery, and each piece of data will be separated by the delimiter
+character that you select.  Use this method if you want to transfer galleries to a third party program or to another TGPX installation without overwriting the current galleries
+in that installation.  If you select to use the pipe (|) character as the delimiter, you will be able to use the generated file with the TGPX gallery import function in another
+installation to import these galleries.
+
+</ul>
+
+<b class="heading">The Thumbnail Export File</b>
+
+<br />
+<br />
+
+Your thumbnail preview images can optionally be included in the export, and a separate file will be generated that contain these images.  This file will be a plain text file
+with one thumbnail image per line.  Each line has this format:
+
+<xmp class="code">FILENAME|BASE 64 ENCODED IMAGE</xmp>
+
+Where FILENAME is the name of the image on your server and BASE 64 ENCODED IMAGE is a base 64 encoded string of the image file contents.
+
+<br />
+<br />
+
+The thumbnail export file can be useful in two situations:
+
+<ol>
+<li> With the Raw SQL format.  When you are using this format, you can use the TGPX database restore function to import the galleries into another TGPX installation.  Since
+the restore function allows you to specify the filename of a thumbnail backup file, you can enter the name of the file generated by the export function.
+<br /><br />
+
+<li> If you are using a third party program for which you can create a custom addon that is capable of reading the thumbnail export file.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

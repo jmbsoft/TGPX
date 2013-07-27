@@ -1,0 +1,158 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">First Steps After Installation</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+If you are reading this part of the TGPX manual, you most likely just installed it on your server.  If that is the case, there are a number of things
+you will want to do to get started.  This document will cover the items you will most likely want to do right away, and it will also point you to other parts
+of the manual where you can find more information about each specific step.
+
+<br />
+<br />
+
+<b class="heading">Important Notes</b>
+
+<br />
+<br />
+
+You may feel like snooping around your TGPX installation with an FTP client to see what files have been installed, and that is fine.  What you shouldn't do
+is delete or modify any of the files or directories that have been installed.  All of the changes that you will need to make are done through the control panel.
+You should never try to manually edit any of the files that are located in the TGPX installation directory or any of it's subdirectories.  Doing so will most
+likely end up with TGPX no longer functioning properly.  Unless you are specifically instructed for tech support reasons or by the documentation to do
+something with the files, you should avoid modifying them in any way.
+
+<br />
+<br />
+
+<b class="heading">Remove The install.php Script</b>
+
+<br />
+<br />
+
+While there is very little danger in leaving the install.php script on your server, for enhanced security it is recommended that you remove that file after
+you have successfully setup your MySQL information and received your username and password for the control panel.
+
+<br />
+<br />
+
+<b class="heading">Logging Into The Control Panel</b>
+
+<br />
+<br />
+
+If you haven't already, go ahead and login to your TGPX control panel.  You may want to bookmark the control panel URL so you can quickly access it when
+you need to.
+
+<br />
+<br />
+
+The top portion of the control panel page contains the menu, which you will use to access the control panel's functions.  When you hover your mouse pointer
+over an item in the menu, a sub-menu will appear where you can select the function you want to access.  It is recommended that you keep your browser window maximized at
+all times when working in the control panel.  It was designed for a screen resolution of 1024x768 or larger.
+
+<br />
+<br />
+
+<div class="note">
+You should not access the other functions of the control panel until you have configured and saved your settings
+in the General Settings interface.  If the General Settings interface is popping up every time you access a function, it means your settings are not saved
+correctly and should be configured before you continue.
+</div>
+
+<br />
+
+<b class="heading">Changing Your Username and Password</b>
+
+<br />
+<br />
+
+When the software was initialized a default username and random password were generated for you to access the control panel.  This gives you secure access
+to your control panel, since the password is dynamically generated and different for every installation of TGPX.  However, you may want to choose a new username
+and/or password to suit your needs.
+
+<br />
+<br />
+
+To change your password, use the Settings &gt; Manage Administrators function.  This will display the currently defined administrator accounts, and
+at this point there should only be the one default account.  Click on the <img src="../images/edit.png"> icon to bring up the editing interface.  You can
+enter a new value for the Password field and then press the Update Account button to change the password for this account.
+
+<br />
+<br />
+
+To change your username you will need to create a new administrator account, which is described in the <a href="administrators.html#add">Administrators</a>
+section of this manual.  Once the new account is created, you can delete the old account by clicking on the <img src="../images/trash.png"> icon in the
+administrator search interface.
+
+<br />
+<br />
+
+<b class="heading">Setting up an Access List</b>
+
+<br />
+<br />
+
+For enhanced security you should setup an access list which will allow only specific IP addresses to access some of the more powerful functions of the
+software control panel.  This extra layer of security will help to reduce the potential damage if someone were to discover your control panel username
+and password.  A complete section of the software manual is dedicated to <a href="access-list.html">setting up your access list</a>.
+
+<br />
+<br />
+
+<b class="heading">Adding Categories</b>
+
+<br />
+<br />
+
+Before you can begin accepting gallery submissions or adding your own galleries through the control panel, there must be at least one category defined.  You
+can find complete information in the <a href="categories.html">Categories</a> section of this manual.
+
+<br />
+<br />
+
+<b class="heading">Creating a TGP Page</b>
+
+<br />
+<br />
+
+To make your gallery links visible to your surfers you will need to setup at least one TGP page.  TGP pages can be added and updated at any time.  You
+can find complete information on how to add a new TGP page in the <a href="pages-manage.html">Managing TGP Pages</a> section of this manual.
+
+<br />
+<br />
+
+<b class="heading">From Here</b>
+
+<br />
+<br />
+
+The steps above cover the major things you will want to do to get started with TGPX.  Of course there are many other optional things you can do, but
+this will get you off to a good start.  There are many other sections of the manual which have not been covered in this document.  It is highly recommended
+that you read the entire manual.  It may take some time to get through, but it will be worth it in the end.
+
+</div>
+</div>
+
+<br />
+<br />
+
+</body>
+</html>

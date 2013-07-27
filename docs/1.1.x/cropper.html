@@ -1,0 +1,136 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div align="center">
+<span class="large">Web Based Thumbnail Cropper</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+TGPX includes a web-based thumbnail cropping utility that you can use to create preview thumbnails for your galleries.   This web based interface allows you
+to select the image you want to crop as well as the area of the image you want to crop.  This document will describe the basic features of the thumbnail
+cropper.
+
+<br />
+<br />
+
+<div class="note">
+There is also a <a href="http://www.jmbsoft.com/docs/tgpx/screencasts/crop/">screencast</a> showing the main features of the cropping interface.
+</div>
+
+<br />
+
+<b class="heading">Overview</b>
+
+<br />
+<br />
+
+When the thumbnail cropping window first appears it will scan the gallery to grab the thumbnail images it finds.  As the thumbnails are downloaded, they
+will begin appearing at the top of this interface.
+
+<br />
+<br />
+
+Once all of the thumbnails have loaded, you can click on any of them to select that image as the one you would like to crop.  If the gallery is a picture gallery,
+the full sized image will be downloaded from the gallery and displayed for you to crop.  For movie galleries, the thumbnail image that appears on the gallery page
+will be used for cropping.
+
+<br />
+<br />
+
+After you have selected the image to crop, it will be downloaded and displayed below the thumbnail selection area.  You will be able to click and drag your mouse inside
+the image to select the cropping region.  You can resize the cropping region by clicking on the white boxes in the corners and dragging your mouse.  As you adjust the
+cropping region, the preview to the left of the image will be updated showing you what the final thumbnail will look like.  Note that the preview is low-quality, and the
+actual generated thumbnail will appear better than this quick preview.
+
+<br />
+<br />
+
+To create the actual thumbnail, double click your mouse inside the cropping region.  This will load a new page where you will see the finished thumbnail.
+
+<br />
+<br />
+
+<b class="heading">Keyboard shortcuts</b>
+
+<br />
+<br />
+
+When you are adjusting the cropping region on the image, there are a number of keyboard shortcuts you can use in addition to using your mouse.  Those are:
+
+<ul>
+<b>Up</b> - Move the cropping region up by one pixel.<br />
+<b>Down</b> - Move the cropping region down by one pixel.<br />
+<b>Left</b> - Move the cropping region left by one pixel.<br />
+<b>Right</b> - Move the cropping region right by one pixel.<br />
+<br />
+<b>Up+Shift</b> - Move the cropping region up by 10 pixels<br />
+<b>Down+Shift</b> - Move the cropping region down by 10 pixels<br />
+<b>Left+Shift</b> - Move the cropping region left by 10 pixels<br />
+<b>Right+Shift</b> - Move the cropping region right by 10 pixels<br />
+<br />
+<b>Left+Ctrl</b> - Increase the cropping region size by one pixel<br />
+<b>Right+Ctrl</b> - Decrease the cropping region size by one pixel<br />
+<br />
+<b>Left+Ctrl+Shift</b> - Increase the cropping region size by 10 pixels<br />
+<b>Right+Ctrl+Shift</b> - Decrease the cropping region size by 10 pixels<br />
+<br />
+<b>Spacebar</b> - Maximize and center the cropping region in the image
+</ul>
+
+<br />
+
+<b class="heading">Quick Crop Feature</b>
+
+<br />
+<br />
+
+This interface also has a "quick crop" feature which allows you to quickly create a preview thumbnail from an image without having to select the cropping
+region yourself.  This can be done by holding down the ctrl key on your keyboard as you click on one of the thumbnails at the top of the page loaded from 
+the gallery.
+
+<br />
+<br />
+
+This feature also has an automatic offsetting of the crop location depending on where you click your mouse on the image and the orientation of the image.
+Those are:
+
+<ul>
+<b>Portrait Oriented Images</b> <span class="small">(width less than height)</span><br />
+Click in the top third of the image will crop from the top of the image<br />
+Click in the middle third of the image will crop from the middle of the image<br />
+Click in the bottom third of the image will crop from the bottom of the image
+
+<br /><br />
+
+<b>Landscape Oriented Images</b> <span class="small">(width greater than height)</span><br />
+Click in the left third of the image will crop from the left of the image<br />
+Click in the middle third of the image will crop from the middle of the image<br />
+Click in the right third of the image will crop from the right of the image
+</ul>
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,839 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Galleries</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The main function of TGPX is to maintain a database of galleries, so it is obviously important to understand how the software handles them.  This document will give
+you an overview of how to add, maintain, and remove galleries.
+
+<br />
+<br />
+
+<b class="heading">Searching Galleries<a name="search"></a></b>
+
+<br />
+<br />
+
+To search the current galleries in your database so you can modify or delete them, access the Galleries &gt; Search Galleries function from the control panel menu.  This will display a 
+page where you will be able select a number of different search options so you can quickly locate the gallery(ies) you want to work with.  Most of the database fields that you can search
+use the software's <a href="standard-searches.html">Standard Search</a> function, however some of the fields use the <a href="boolean-searches.html">Boolean Search</a> feature.  The
+fields that you can use with the Boolean Mode Search are:
+
+<ul>
+<li> Description,Keywords<br />
+<li> Keywords<br />
+<li> Tags
+</ul>
+
+When you perform a search, the galleries that match your search terms will be displayed like the following example:
+
+<br />
+<br />
+
+<img src="galleries-search.png" border="1">
+
+<ol style="list-style-type: upper-alpha">
+<li> Use this checkbox to select this gallery when you want to run a function on multiple galleries at once
+<li> This section displays the galleries current settings.  These items can be edited by clicking on them, which is described below.
+<li> This is the ID number assigned to the gallery
+<li> These are the functions that you can run on this specific gallery
+<li> This is the value that the current search results were sorted by
+<li> This is a placeholder that will appear when a gallery does not have a preview thumbnail.  Click on the green arrow to upload a preview thumbnail for
+this gallery or the scissors to use the web-based cropping utility to create a preview for this gallery.
+</ol>
+
+If a gallery has one or more preview thumbnails assigned, you will see this in the location of the placeholder (F):
+
+<br />
+<br />
+
+<img src="galleries-search-preview.png" border="1">
+
+<br />
+<br />
+
+You can use the drop down selection box to view the other preview thumbnails assigned to this gallery.  Click on the <img src="../images/preview-upload.png" border="0">
+icon to upload a new preview thumbnail, the <img src="../images/preview-crop.png" border="0"> icon to use the web-based cropping utility to create a new preview thumbnail,
+or the <img src="../images/trash.png" border="0"> icon to delete the preview thumbnail that is currently displayed.  You can also apply filters to preview thumbnails 
+by clicking on the <img src="../images/filters.png" border="0"> icon.  The functions available in the filters interface are described below.
+
+<ul>
+<b>Sharpen</b> <span class="small grey">(only available if using ImageMagick)</span><br />
+This filter allows you to sharpen the thumbnail.  Enter two numbers separated by an x character.  Larger numbers will increase the sharpening effect.  Some values you
+might want to try are 1x1 and 0.0x0.6
+
+<br />
+<br />
+
+<b>Modulate</b> <span class="small grey">(only available if using ImageMagick)</span><br />
+This filter allows you to adjust the brightness, saturation and hue of the thumbnail.  Specify the percent change in brightness, the color saturation, and the hue separated by commas.
+
+<br />
+<br />
+
+<b>Contrast</b> <span class="small grey">(only available if using ImageMagick)</span><br />
+This filter allows you to adjust the contrast of the thumbnail.  To increase the contrast, click the <img src="../images/increase.png" border="0"> icon.  To decrease the contrast, 
+click the <img src="../images/decrease.png" border="0"> icon.  You can click each icon multiple times (make sure that the updated image has loaded before clicking an icon again) to
+repeat the filter and increase the strength of the effect.
+
+<br />
+<br />
+
+<b>Normalize</b> <span class="small grey">(only available if using ImageMagick)</span><br />
+This filter allows you to apply a normalization filter to the thumbnail.  This is similar to the Auto Levels feature in Adobe Photoshop which automatically adjusts the black point
+and white point in an image.  Note that this will not always produce a better looking image, so it is up to your judgement to determine when to use this filter.
+
+<br />
+<br />
+
+<b>Enhance</b> <span class="small grey">(only available if using ImageMagick)</span><br />
+This filter allows you to apply a digital filter to enhance a noisy image.  Note that this will not always produce a better looking image,
+so it is up to your judgement to determine when to use this filter.
+
+<br />
+<br />
+
+<b>Annotation</b><br />
+This filter allows you to apply one of your pre-defined annotations to the thumbnail.  All of the annotations you have defined are listed in the drop down menu.  Select the one
+you want to apply and click the <img src="../images/check.png" border="0"> icon to add that annotation to the image.
+
+<br />
+<br />
+
+<b>Undo</b><br />
+Press this button to undo the last filter that you applied.  You can press this button multiple times to step backwards through the filters you have applied.
+
+<br />
+<br />
+
+<b>Reset</b><br />
+Press this button to reset the image to the way it appeared before you began applying filters.
+
+<br />
+<br />
+
+<b>Save</b><br />
+Once you have applied the filters that you like, press the save button to save the updated image as the new preview thumbnail for this gallery
+
+<br />
+<br />
+
+<b>Cancel</b><br />
+Press this button to cancel all of the filters you have applied and exit the filter interface.
+
+</ul>
+
+
+The functions that you can run on each individual gallery (marked D in the image abov) are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/icons.png" border="0" alt="">
+</td>
+<td>
+Click this icon to assign icons to this gallery or multiple galleries.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/search.png" border="0" alt="">
+</td>
+<td>
+Click this icon to scan the gallery.  A window will appear showing you the scan results.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/blacklist.png" width="10" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to blacklist and delete the gallery.  A window will appear where you will be able configure the values you want to blacklist.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/disable.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to disable the gallery; this will set the gallery's status to disabled.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/enable.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to enable the gallery; this will set the gallery's status back to it's previous setting before it was disabled.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the gallery.  A window will appear where you will be able to edit all of the gallery settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/mail.png" border="0" alt="">
+</td>
+<td>
+Click this icon to send an e-mail to the gallery submitter.  A window will appear where you will enter the e-mail text.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/check.png" border="0" alt="">
+</td>
+<td>
+Click this icon to approve the gallery (shows only for Pending or Unconfirmed galleries).
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/x.png" border="0" alt="">
+</td>
+<td>
+Click this icon to reject the gallery (shows only for Pending or Unconfirmed galleries).
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this gallery.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running functions on single galleries at a time, you can also run most of these functions on multiple galleries at once.  At the bottom of the search
+results table you will find two drop down selection fields and a button labeled Execute.  Each of these bulk functions is described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Delete</b>
+</td>
+<td>
+Use this function to bulk delete galleries
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>E-mail</b>
+</td>
+<td>
+Use this function to bulk e-mail gallery submitters. A window will appear where you will be able to enter the e-mail text.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Approve</b>
+</td>
+<td>
+Use this function to bulk approve galleries; the email-gallery-approved.tpl e-mail message will be sent if you have that option enabled
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Reject</b>
+</td>
+<td>
+Use this function to bulk reject galleries.  When you select this option another select box will appear that will allow you to choose which rejection
+e-mail message you would like to send.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Blacklist</b>
+</td>
+<td>
+Use this function to bulk blacklist galleries.  This will automatically blacklist the gallery hostname, submitter IP, and e-mail address for each gallery.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Disable</b>
+</td>
+<td>
+Use this function to bulk disable galleries.  The gallery status will be changed to disabled for each gallery.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Enable</b>
+</td>
+<td>
+Use this function to bulk enable galleries.  The gallery status will be set back to it's previous value before the gallery was disabled.
+</td>
+</tr>
+</table>
+</ul>
+
+When you use the bulk functions, you will have the option to specify which galleries should be included.  The drop down selection list gives you
+three options:
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Selected Galleries</b>
+</td>
+<td>
+Apply this function only to the galleries that you selected by checking their associated checkbox in the search results
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>All Matching Galleries</b>
+</td>
+<td>
+Apply this function to all of the galleries that match the search values you have specified
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>All Galleries</b>
+</td>
+<td>
+Apply this function to all galleries in the database
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have selected the function you want to run and decided which galleries to apply the function to, press the Execute button to run that function.  Running functions on a large
+number of galleries can take some time to complete, so be sure to allow the function to run completely before you run other software functions.
+
+<br />
+<br />
+
+<b class="heading">Saved Searches<a name="saved"></a></b>
+
+<br />
+<br />
+
+The Search Galleries interface allows you to save your most commonly used searches so you can access them quickly without having to adjust all of the form fields each
+time you want to view those galleries.  
+
+<br />
+<br />
+
+If you decide that you want to save the search settings that you are currently using, you can click on the <img src="../images/save-big.png" border="0">
+icon in the header bar near the top of the search interface.  This will display a small pop-up interface where you can enter a short string as an easy identifier so you can 
+load the stored search settings later.  Once you have entered the identifier you want to use, click on the <img src="../images/save.png" border="0"> icon to save your search settings.
+
+<br />
+<br />
+
+<div class="note">
+TIP: You can use the special identifier <b>Default</b> to configure the default search that will be used each time you access the Search Galleries interface.  For example,
+if you want to see Approved galleries every time you first access the Search Galleries interface, put a check in the Approved box and then save that search with the identifier
+<b>Default</b>.  From now on when you access the Search Galleries interface it will default to showing you your Approved galleries!
+</div>
+
+<br />
+
+<div class="note">
+If you use the same identifier as an existing saved search, it will overwrite the previous settings with the new settings.
+</div>
+
+<br />
+
+To load a previously saved search, click on the <img src="../images/restore.png" border="0"> icon in the header bar near the top of the search interface.  This will display a
+small pop-up interface where you can select the saved search you want to load.  Click on the <img src="../images/restore-small.png" border="0"> icon to load those search settings
+and have the gallery search interface refresh with the galleries that match your search settings.
+
+<br />
+<br />
+
+<b class="heading">In-Place Editing<a name="ipe"></a></b>
+
+<br />
+<br />
+
+In the Search Galleries interface you can quickly edit most of the gallery data by simply clicking on the current value.  This will display a field where you will be able to edit
+and save the new setting that you want to use.  For example, if you click on the description (using the example above) you would get something like this:
+
+<br />
+<br />
+
+<img src="galleries-search-ipe.png" border="1">
+
+<br />
+<br />
+
+You can edit this field to have any setting you want.  While you are editing the field, the number directly following the input box will indicate the number of characters you have
+entered.  The icons after the character counter can be used to save or cancel your changes.  The function of each icon is described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/save.png" border="0">
+</td>
+<td>
+Save this new value only for the gallery you are currently working with
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/save-selected.png" border="0">
+</td>
+<td>
+Save this new value for all of the galleries on this page that have their checkbox checked
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/save-all.png" border="0">
+</td>
+<td>
+Save this new value for all of the galleries that match the search criteria you have entered at the top of the page
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/x.png" border="0">
+</td>
+<td>
+Cancel (don't save) the changes you have made and hide the editing field
+</td>
+</tr>
+</table>
+</ul>
+
+Using the <img src="../images/save-selected.png" border="0"> and <img src="../images/save-all.png" border="0"> icons you can quickly edit large numbers of galleries.
+
+<br />
+<br />
+
+<b class="heading">Gallery Quick Tasks<a name="tasks"></a></b>
+
+<br />
+<br />
+
+From the Search Galleries interface you will be able to access the quick tasks functions which allow you to perform a number of functions on your gallery database.
+To access the quick tasks interface click on the <img src="../images/tasks.png" border="0"> icon in the Search Galleries interface.  A popup window will appear displaying
+the available functions, which are described below.
+
+<ul>
+<b>Search and Replace</b><br />
+If you need to quickly search for and replace an item in your entire database of submitted galleries, you can use this function.
+For example, if you have decided that you no longer want to allow the phrase 'young girl' in the gallery description you can use
+this function to replace all occurances of that phrase with 'legal teen'.  To do this you would enter 'young girl' in the Search For
+box and select Description for the Search Field.  In the Replace With box enter 'legal teen'.  You can now press the
+Search and Replace button and TGPX will automatically go through the entire gallery database replacing each occurance
+of 'young girl' with 'legal teen'.  If you want to search for an empty value, use the special string NULL in the Search For field.
+
+<br />
+<br />
+
+You do need to be somewhat cautious when using this feature because it will locate the text you enter in the Search For box anywhere within
+the field it is searching.  For example, if you wanted to replace the word 'tit' in the gallery description with 'boob' you could run
+into some problems.  If a gallery description has the word 'title' it will end up changing that to 'booble'.  To prevent this from 
+happening you can use a space before or after the word to affect how the searching is done.  If you enter ' tit ' it will look for
+the word 'tit' with a space before and after it.
+
+<br />
+<br />
+
+<b>Search and Set</b><br />
+To do a search and set, enter the text you would like to search for and select which field should be searched.  You will then need to enter the field that
+should be updated and what it should be set to.  For example, if you wanted to locate all galleries with fetish in the URL and set the Keywords value
+to fetish, you would enter fetish in the Search For field, select Gallery URL for the Search Field, select Keywords for the Set Field, and enter
+Fetish in Set Value field.  Note that this does not do replacements, but instead sets the field to the value you enter.  If you want to search for an empty
+value, use the special string NULL in the Search For field.
+
+<br />
+<br />
+
+<b>Search and Append</b><br />
+To do a search and append, enter the text you would like to search for and select which field should be searched.  You will then need to enter the field that
+should be appended to and what string should be appended.  For example, if you wanted to locate all galleries with fetish in the URL and append the keyword 'fetish'
+to the current Keywords setting, you would enter fetish in the Search For field, select Gallery URL for the Search Field, select Keywords for the Append Field, and enter
+Fetish in Append Value field.  Note that this will not automatically insert spaces for you.  For example, if you are appending to the Keywords value be sure to include
+a space before the string you want to append (e.g. ' fetish' rather than 'fetish)
+
+<br />
+<br />
+
+<b>Other Functions</b><br />
+<i>Reset click counts to zero for submitted galleries</i><br />
+Click on this link to reset the click counts for all submitted galleries back to zero.  This will not affect permanent galleries.
+
+<br />
+<br />
+
+<i>Reset click counts to zero for permanent galleries</i><br />
+Click on this link to reset the click counts for all permanent galleries back to zero.  This will not affect submitted galleries.
+
+<br />
+<br />
+
+<i>Remove unconfirmed galleries that are more than 48 hours old</i><br />
+This function is pretty much self explanatory.  When you click this link all unconfirmed galleries that are more than 48 hours old will be
+deleted from the database.
+
+<br />
+<br />
+
+<i>Decrement the used and build counters by one</i><br />
+This will decrement the used_counter and build_counter by one for all galleries in the database.
+
+<br />
+<br />
+
+<i>Cleanup broken thumbnail previews</i><br />
+If you have accidentally deleted some of the preview thumbnails from the TGPX thumbnail directory on your server, you can use this
+function to have TGPX locate which thumbnails were deleted and remove the references to them in the gallery database.
+
+</ul>
+
+
+<b class="heading">Adding a New Gallery<a name="add"></a></b>
+
+<br />
+<br />
+
+<div class="note">
+Galleries can also be imported in bulk by using the <a href="galleries-import.html">Gallery Import</a> feature.
+</div>
+
+<br />
+
+To add a new gallery access the Galleries &gt; Add Gallery function from the control panel menu.  This will display a popup 
+window where you will be able to enter the gallery data that you want to use.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>E-mail</b>
+</td>
+<td>
+The e-mail address that should be associated with this gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Submitter Name</b>
+</td>
+<td>
+The name of the gallery submitter
+</td>
+</tr>
+<tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Submitter IP</b>
+</td>
+<td>
+The IP address of the gallery submitter
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Gallery URL</b>
+</td>
+<td>
+The full URL to the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Description</b>
+</td>
+<td>
+The description of the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Tags</b>
+</td>
+<td>
+A space separated list of tags for this gallery.  Tags can be used for grouping galleries.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Keywords</b>
+</td>
+<td>
+A space separated list of keywords that describe the gallery.  Keywords must be at least 4 characters long
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Thumbnails</b>
+</td>
+<td>
+The number of thumbnails that appear on the gallery (i.e. small images that link to the full sized image or movie)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Categories</b>
+</td>
+<td>
+The categories that the gallery fits into.  Multiple categories can be selected by clicking the <img src="../images/add-small.png"> icon.
+You can remove categories by clicking on the <img src="../images/remove-small.png" border="0" alt=""> icon.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Sponsor</b>
+</td>
+<td>
+The sponsor that this gallery comes from
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Status</b>
+</td>
+<td>
+The status to assign to this gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Type</b>
+</td>
+<td>
+The type of gallery, either permanent or submitted
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Format</b>
+</td>
+<td>
+The format of this gallery, either movies or pictures
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Partner</b>
+</td>
+<td>
+The partner account to associate with this gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Clicks</b>
+</td>
+<td>
+The number of clicks this gallery link has received
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Scheduled Date</b>
+</td>
+<td>
+The date and time that this gallery will become eligible for display on your TGP pages.
+Note this does not guarantee that the gallery will be displayed on this date, it
+simply becomes eligible for selection on this date.<br />
+This must be in YYYY-MM-DD HH:MM:SS format.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Displayed Date</b>
+</td>
+<td>
+The date and time that this gallery was selected for display.  In most cases it is not necessary to edit this field since the software will
+fill it in automatically when the gallery is selected for display.<br />
+This must be in YYYY-MM-DD HH:MM:SS format.
+
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Delete Date</b>
+</td>
+<td>
+The date and time that this gallery should be deleted from the database.  This must be in YYYY-MM-DD HH:MM:SS format.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Weight</b>
+</td>
+<td>
+The weight value to assign to this gallery.  The weight value can be any whole number from -2147483648 to 2147483647.
+Gallery weight values only come into play if you are using the weight sorting option in the order or reorder settings of
+the {galleries} template command
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Icons</b>
+</td>
+<td>
+If you have configured any icons, they will appear below the Weight setting and can be selected by putting a check in
+the box next to them.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+
+</td>
+<td>
+<b>Allow the gallery scanner to scan this gallery</b><br />
+Uncheck this option if you do not want the gallery scanner to scan this gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+
+</td>
+<td>
+<b>Allow the gallery scanner to create a thumbnail for this gallery</b><br />
+Uncheck this option if you do not want the gallery scanner to be allowed to create a preview thumbnail for this gallery
+</td>
+</tr>
+</table>
+</ul>
+
+
+You will also find all of the user defined fields that you have configured, and will be allowed to fill in or select the appropriate values for those fields.
+Once you have filled in all of the fields as you want them, press the Add Gallery button.  This will add the new gallery to the database.
+
+<br />
+<br />
+
+<b class="heading">Gallery Status<a name="status"></a></b>
+
+<br />
+<br />
+
+When galleries are submitted they are assigned a status which determines how they will be handled by the software and when they will be displayed on one of your TGP pages.  Each of the available status options are described below.
+
+submitting','unconfirmed','pending','approved','used','holding','disabled
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Unconfirmed</b>
+</td>
+<td>
+Galleries that have been submitted but not yet confirmed through the submitter's e-mail address
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Pending</b>
+</td>
+<td>
+Galleries that have been submitted (and optionally confirmed) but not yet approved by an administrator
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Approved</b>
+</td>
+<td>
+Galleries that have been approved and are currently waiting to be displayed on one of your TGP pages
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Used</b>
+</td>
+<td>
+Galleries that are currently displayed on one (or more) of your TGP pages
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Holding</b>
+</td>
+<td>
+Galleries that have been displayed on one of your TGP pages in the past, but are no longer displayed
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Disabled</b>
+</td>
+<td>
+Galleries that have been disabled by an administrator or the gallery scanner and are not eligible for display
+</td>
+</tr>
+</table>
+</ul>
+
+The gallery status can be changed at any time by editing the gallery, however galleries cannot be moved back to unconfirmed status once they have been confirmed.  Additional
+information on how the gallery status is used by the software can be found in the <a href="page-building.html">Page Building Overview</a> section of this manual.
+
+<br />
+<br />
+
+<b class="heading">Reviewing Pending Galleries<a name="review"></a></b>
+
+<br />
+<br />
+
+TGPX has a dedicated interface for reviewing pending galleries that allows you to quickly view each gallery and edit any of the gallery settings before you approve it.  
+The <a href="galleries-review.html">Reviewing Galleries</a> section of this manual covers this software feature in greater detail.
+
+<br />
+<br />
+
+<b class="heading">Editing a Gallery<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a gallery you will first need to locate it through the <a href="#search">Gallery Search</a> interface.  When you locate the gallery you want to edit, click on the <img src="../images/edit.png"> icon
+to bring up the gallery editing interface.  This interface is nearly identical to the gallery addition interface, and has the same form fields with the same properties.  You can make the changes that you want,
+and then press the Update Gallery button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Gallery<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete a gallery you will first need to locate it through the <a href="#search">Gallery Search</a> interface.
+When you locate the gallery you want to delete, click on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

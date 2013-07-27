@@ -1,0 +1,123 @@
+Overview
+--------
+This template will show two tables of thumbnails, with one large thumbnail in each
+table.  The large thumbnail will have 250x310 dimensions and all other thumbnails
+will have 120x150 dimensions.
+
+In the first table new galleries will be added each time you do a "Build With New".
+The second table will display previously used galleries.
+
+
+
+Template Code
+-------------
+{define name=globaldupes value=true}
+{define name=pagedupes value=false}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>TGP</title>
+<style type="text/css">
+body { font-size: 12px; font-family: Verdana; }
+td { font-size: 12px; font-family: Verdana; }
+.jmbfoot { font-size: 8pt; font-family: Verdana; text-align: center; }
+.jmblink { font-size: 8pt; font-family: Verdana; }
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+
+<div align="center">
+<span style="font-size: 20pt; font-weight: bold;">TGP</span><br />
+Links to {$total_thumbnails|tnumber_format} free pictures and movies!<br />
+Updated {date value='today' format='m-d-Y'}
+</div>
+
+<br />
+
+<table class="thumb_table" align="center" cellpadding="4" cellspacing="0" border="0">
+<tr>
+{* Load the big thumbnail *}
+{galleries
+var=$big_thumb
+type=any
+amount=1
+category=MIXED
+getnew=true
+allowused=true
+preview=true
+previewsize=250x310
+order=date_approved
+reorder=date_displayed DESC, date_approved}
+
+{* Display the big thumbnail *}
+{foreach from=$big_thumb var=$gallery counter=$counter}
+<td colspan="2" rowspan="2"><a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{/foreach}
+
+{galleries
+var=$galleries
+type=any
+amount=16
+category=MIXED
+getnew=true
+allowused=true
+preview=true
+previewsize=120x150
+order=date_approved
+reorder=date_displayed DESC, date_approved}
+
+{* Display the smaller thumbnails *}
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=3,6,11 counter=$counter max=11}
+</tr><tr>
+{/insert}
+{/foreach}
+</tr>
+</table>
+
+<br />
+
+<table class="thumb_table" align="center" cellpadding="4" cellspacing="0" border="0">
+<tr>
+{* Load the big thumbnail *}
+{galleries
+var=$big_thumb
+type=any
+amount=1
+category=MIXED
+getnew=false
+preview=true
+previewsize=250x310
+order=date_displayed DESC, date_approved}
+
+{* Display the big thumbnail *}
+{foreach from=$big_thumb var=$gallery counter=$counter}
+<td colspan="2" rowspan="2"><a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{/foreach}
+
+{galleries
+var=$galleries
+type=any
+amount=16
+category=MIXED
+getnew=false
+preview=true
+previewsize=120x150
+order=date_displayed DESC, date_approved}
+
+{* Display the smaller thumbnails *}
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=3,6,11 counter=$counter max=11}
+</tr><tr>
+{/insert}
+{/foreach}
+</tr>
+</table>
+
+<br />
+
+</body>
+</html>

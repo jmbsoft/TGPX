@@ -1,0 +1,212 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">General Settings</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The General Settings interface allows you to configure the software options as you like.  There are a number of settings that you can adjust, and each of them 
+is described in this section of the manual.
+
+<br />
+<br />
+
+<b class="heading">Basic Settings</b>
+
+<ul>
+<b>Document Root</b> - This is the full directory path to the root of your website where TGPX is installed.  For example, when you access http://www.yoursite.com/index.html
+the index.html file is located in your Document Root folder.  TGPX will try to automatically set this value for you, so in most cases you do not need
+to change this setting.<br /><br />
+
+<b>TGPX URL</b> - This is the the base URL where TGPX is installed on your server<br /><br />
+
+<b>Thumbnail URL</b> - This is the URL that points to the directory on your server where you want the TGPX generated preview thumbnails to be
+stored.  This should point to an empty directory with 777 permissions that is located inside the Document Root.<br /><br />
+
+<b>Page Permissions</b> - The file permissions to set on the generated TGP pages.
+<br /><br />
+
+<b>E-mail Address</b> - This is the e-mail address will appear in the From field of all e-mails sent by TGPX<br /><br />
+<b>E-mail Name</b> - This is the name that will appear in the From field of all e-mails sent by TGPX<br /><br />
+<b>E-mail Sender</b> - Choose the method that TGPX will use for sending emails.  In most cases you should leave this set to the default PHP mail() Function
+option.
+
+<br />
+<br />
+
+<ul>
+<b>PHP mail() Function</b> - TGPX will use PHP's built in mail() function for sending e-mail messages.<br />
+<b>Sendmail</b> - TGPX will use sendmail on your server to send e-mail messages.  This will require that PHP is not running
+in safe mode and the popen() function is not disabled.  You will need to enter the full path to sendmail in the text input box
+after the drop down selection field.<br />
+<b>SMTP Server</b> - TGPX will use a SMTP server to send e-mail messages.  This will require that the SMTP server has authorized your
+server to send e-mail messages through it.  You will need to enter the hostname of the SMTP server in the input box after the drop
+down selection field.
+</ul>
+
+<br />
+<br />
+
+<b>Date Format</b> - The string that specifies the <a href="date-time-formats.html">format</a> to use for date values<br /><br />
+<b>Time Format</b> - The string that specifies the <a href="date-time-formats.html">format</a> to use for time values<br /><br />
+<b>Timezone</b> - Select the timezone you are located in so that dates and times can be calculated properly<br /><br />
+<b>Decimal Point</b> - The value to use for the decimal point in numbers<br /><br />
+<b>Thousands Separator</b> - The value to use for the thousands separator in numbers<br /><br />
+
+<b>Reset click, build, and used counters when permanent gallery is rotated from holding to approved</b> - If this option is checked, the click, used, and build counters will be reset
+to 0 for permanent galleries that are rotated from the holding queue to the approved queue.  This is useful if you want permanent galleries to start fresh each time they are selected
+for display.  If the counters are not reset, a permanent gallery that is selected for display more than once will continue to increment these counters.<br /><br />
+
+</ul>
+
+<b class="heading">Image Manipulation Settings</b>
+
+<br />
+<br />
+
+<div class="note">
+To use the image cropping and resizing features of TGPX your sever will either need to have the PHP compiled with the GD extension or
+have the ImageMagick command line tools installed and able to be used through PHP.  PHP cannot be running in safe mode or have the shell_exec
+function disabled if you want to use the ImageMagick command line tools.
+</div>
+
+<ul>
+<b>Image Library</b> - If available you will have the choice of using GD or ImageMagick for the image cropping and resizing features of the software.
+In most cases ImageMagick will produce better looking images, so if it is available that is recommended.<br /><br />
+
+<b>Bad Sized Uploaded Thumb</b> - This option specifies what should be done when a preview thumbnail is uploaded that does not meet the size requirements you have set.
+The Reject option will reject the gallery submission and ask the user to resubmit.  The Automatically Crop option will have the software automatically resize and crop
+the thumbnail to the correct size<br /><br />
+
+<b>ImageMagick Arguments</b> - Enter the command line arguments to pass to ImageMagick when creating your preview thumbnails.  You can use this field to customize the sharpening, contrast,
+brightness, etc that is applied to the preview thumbnails that are created.  A complete list of the available command line options and their descriptions can be found at the
+<a href="http://www.imagemagick.org/script/command-line-options.php" target="_blank">ImageMagick website</a>.  The default value for this field is:<br />
+-modulate 110,102,100 -sharpen 1x1 -enhance<br /><br />
+
+<b>JPEG Quality</b> - Set the quality to use for the JPEG preview thumbnails generated by TGPX.  This value can be any number from 0 to 100.  Larger numbers will
+produce better looking images, but the filesize of the images will be larger.
+
+<br /><br />
+
+<b>Portrait Bias</b> - The bias to use for portrait oriented images (image height is greater than width) when automatically cropping them.  Center will crop the center of the
+image, Top will crop from the top of the image, and Bottom will crop from the bottom of the image.
+
+<br /><br />
+
+<b>Landscape Bias</b> - The bias to use for landscape oriented images (image width is greater than height) when automatically cropping them.  Center will crop from the center of the
+image, Left will crop from the left side of the image, and Right will crop from the right side of the image.
+
+</ul>
+
+<b class="heading">Gallery Submission Settings</b>
+
+<ul>
+<b>Global Submissions Per Day</b> - The maximum number of galleries that can be submitted per day.  Once this number has been reached, no further submissions will be accepted until the next day<br /><br />
+<b>Submissions Per Person</b> - The maximum number of galleries a single person can submit per day.<br /><br />
+<b>Description Length</b> - The minimum and maximum number of characters allowed in a gallery description<br /><br />
+<b>Keywords Allowed</b> - The maximum number of keywords that can be submitted with a gallery<br /><br />
+<b>Default Gallery Weight</b> - The default weight value assigned to newly submitted galleries<br /><br />
+<b>Minimum Gallery Thumb Size</b> - Set the minimum thumbnail size that can appear on the gallery pages (in WxH format).  This setting only tells the software what size of images to look for on the gallery page, and does not have any affect on the size of thumbnails that you use on your TGP.<br /><br />
+<b>Maximum Links Allowed</b> - The maximum number of links that can appear on submitted galleries, not including the links that point to the gallery content<br /><br />
+<b>Permanent Holding Period</b> - The number of days to keep permanent galleries in the holding queue after they are displayed.  Once this time elapses, the galleries will be moved back to the Approved queue<br /><br />
+<b>Submitted Holding Period</b> - The number of days to keep submitted galleries in the holding queue after they are displayed.  Once this time elapses, the galleries will be deleted from the database<br /><br />
+<b>Submission Status</b>
+
+<br />
+<br />
+
+<ul>
+<b>Open to all</b> - Anyone can submit galleries at your TGP<br />
+<b>Open only to partners</b> - Only users with partner accounts can submit galleries<br />
+<b>Closed for all</b> - Do not accept gallery submissions at all
+</ul>
+
+<br />
+<br />
+
+<b>Allow user to submit the number of thumbs on their gallery</b> - If this option is checked, the user will be able to enter the number of thumbnails that appear on their gallery.  If this is not
+checked, the software will automatically determine the number of thumbnails on every submitted gallery<br /><br />
+
+<b>Allow user to submit the format (pictures or movies) of their gallery</b> - If this option is checked, the user will be able to select the format of their gallery when they submit.  If this is not
+checked, the software will automatically detect the gallery format.  In most cases you should leave this option unchecked<br /><br />
+
+<b>Make the blacklist be transparent to the gallery submitter</b> - If this option is checked, the gallery submission process will appear to succeed when blacklisted data is found, but the gallery
+data that the user submits will simply be discarded.<br /><br />
+
+<b>Require a gallery description for submission</b> - Check this if gallery submitters must submit a description of their gallery<br /><br />
+<b>Require a name/nickname for submission</b> - Check this if gallery submitters must submit their name<br /><br />
+<b>Require a reciprocal link for submission</b> - Check this if galleries must have a reciprocal link to be accepted as a submission.  
+                                                  You must tell the software what code to search for using the <a href="reciprocals.html">Manage Recip Links</a> function<br /><br />
+<b>Give galleries with a reciprocal link a +1 weight boost</b> - Check this to give a +1 increase to the weight value of galleries that have reciprocal links<br /><br />
+<b>Allow duplicate gallery URLs to be submitted</b> - Check this box if you want duplicate gallery URLs to be submitted<br /><br />
+<b>Allow galleries with the same MD5 hash as an existing gallery to be submitted</b> - Check this to allow two galleries with the same MD5 hash (which essentially means that the galleries have the exact same HTML) to be submitted<br /><br />
+<b>Require 2257 code to appear on the gallery for submission</b> - Check this to require that 2257 code appear on every submitted gallery.
+                                                                   You must tell the software what code to search for by using the <a href="2257.html">Manage 2257 Code</a> function<br /><br />
+<b>Allow keywords to be submitted with gallery data</b> - Check this box to allow submitters to provide keywords that describe their gallery with their submissions<br /><br />
+<b>Require keywords to be submitted with gallery data</b> - Check this if you are requiring that submitters provide keywords when submitting their galleries.  The
+                                                            <i>Allow keywords to be submitted with gallery data</i> option must also be checked<br /><br />
+<b>Allow only partners to submit preview thumbnails with their galleries</b> - Check this box to only allow users with partner accounts to submit preview thumbnails with their galleries<br /><br />
+<b>Require that gallery submissions must be confirmed through e-mail</b> - Check this to require that gallery submissions be confirmed by users clicking on a link that appears in an e-mail
+                                                                           message that is sent to them when they submit a gallery<br /><br />
+<b>Require that gallery content be hosted on same server as the gallery</b> - Check this to have the software check to make sure that the gallery content (full sized images or movies) is hosted on the same
+                                                                              server as the gallery itself<br /><br />
+<b>Automatically approve galleries after being scanned and confirmed</b> - Check this to have galleries be automatically approved and placed in the Approved gallery queue after being submitted<br /><br />
+<b>Check size of gallery content during submission</b> - Check this to have the gallery scanner check the filesize of the gallery content during gallery submission.  This option can cause gallery submissions to take an extra 5 - 30 seconds to complete<br /><br />
+<b>Gallery download speed must be KB/s or faster</b> - Check this to require that the download speed from the submitted gallery be at least the number of kilobytes per second that you enter<br /><br />
+<b>Keep a log of all e-mail addresses used for gallery submissions</b> - Check this to keep a log of all e-mail addresses used for gallery submissions<br /><br />
+<b>Send e-mail message to gallery submitter when gallery is approved</b> - Check this to have an e-mail message sent to gallery submitters when their galleries are approved
+</ul>
+
+<b class="heading">Review Galleries Settings</b>
+
+<ul>
+<b>Do not display rejection e-mail selection field when rejecting a gallery</b> - Check this box if you will not be sending rejection e-mails to galleries that
+you reject through the gallery review interface.  This will allow you to more quickly reject galleries.<br /><br />
+<b>Do not display confirmation messages when approving, rejecting, or deleting an gallery</b> - Check this box if you do not want to have the confirmation messages
+displayed asking if you are sure you want to approve, reject, or delete a gallery while working in the gallery review interface.
+</ul>
+
+<b class="heading">Verification Code Settings</b>
+
+<br />
+<br />
+
+Please also review the <a href="verification-codes.html">Verification Codes</a> section of this manual
+
+<ul>
+<b>Font Directory</b> - The full directory path to the location of the TGPX fonts directory.<br /><br />
+<b>Code Length</b> - The minimum and maximum number of characters that will appear in a verification code.<br /><br />
+<b>Use words file for verification codes</b> - Check this box to use the values stored in the words file for the verification codes.<br /><br />
+<b>Require verification code on gallery submission form for general submitters</b> - Check this box to require a verification code during gallery submission for non-partner submitters.<br /><br />
+<b>Require verification code on gallery submission form for partner submitters</b> - Check this box to require a verification code during gallery submission for partner submitters.<br /><br />
+<b>Require verification code on partner account request form</b> - Check this box to require a verification code during partner account request submission.<br /><br />
+<b>Require verification code on bad gallery reporting form</b> - Check this box to require a verification code during cheater/broken gallery link reporting
+</ul>
+
+</div>
+</div>
+
+<br />
+<br />
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

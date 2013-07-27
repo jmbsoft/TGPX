@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Add a Trade</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+    <span class="header-section">Overview</span>
+    <div class="section">
+      Use this dialog to add a single trade to your database.  The following settings are available when adding trades:
+
+      <br /><br />
+
+      <div class="large bold">Base Settings</div>
+      <ul>
+        <b>Return URL -</b> <span>The URL where surfers should be sent</span><br />
+        <b>Status -</b> <span>
+                          The status of this trade
+
+                          <br /><br />
+
+                          <div class="bold">Unconfirmed</div>
+                          The confirmation e-mail message has been sent, but the trade owner has not yet clicked the link in that message.
+                          The trade will not get return traffic or appear in your toplists.
+
+                          <br /><br />
+
+                          <div class="bold">New</div>
+                          The trade either needs to be manually enabled by an administrator OR needs to meet the Start requirements set.  New
+                          trades will not get return traffic or appear in your toplists until they become active.
+
+                          <br /><br />
+
+                          <div class="bold">Active</div>
+                          The trade can receive traffic from your site and appear in your toplists.
+
+                          <br /><br />
+
+                          <div class="bold">Autostopped</div>
+                          The trade has been stopped by the software because it fell below one of the Minimum requirements.  The trade will not
+                          get return traffic or appear in your toplists until you enable it.
+
+                          <br /><br />
+
+                          <div class="bold">Disabled</div>
+                          You have disabled the trade.  The trade will not
+                          get return traffic or appear in your toplists until you enable it.
+
+                        </span><br />
+        <b>Color -</b> <span>A custom color to use in the control panel stats displays.  This can either be a hex value or color name</span><br />
+        <b>Display in toplist -</b> <span>Include this trade in your toplists</span><br />
+        <b>Grab thumbs -</b> <span>Grab thumbnail images from this trade's site</span><br />
+        <b>E-mail Address -</b> <span>The owner's e-mail address</span><br />
+        <b>Require confirmation -</b> <span>Check this box to require confirmation by e-mail.  An e-mail message will be sent to the e-mail address, and the user must click on a link
+                                        in that e-mail message to confirm their trade account.
+                                      </span><br />
+        <b>Password -</b> <span>
+                            A password for the owner to access their stats.  When editing a trade the <img src="../images/key-16x16.png" style="margin-bottom: 0;"> icon will appear if a
+                            password is set for this trade
+                          </span><br />
+        <b>Nick -</b> <span>The owner's name/nickname</span><br />
+        <b>ICQ # -</b> <span>The owner's ICQ number</span><br />
+        <b>Site Name -</b> <span>The site's name</span><br />
+        <b>Site Description -</b> <span>A description of the site</span><br />
+        <b>Groups -</b> <span>The group(s) of the site</span><br />
+        <b>Categories -</b> <span>The category(ies) of the site</span><br />
+        <b>Grabber URL -</b> <span>The URL to grab thumbnails from (only if Grab Thumbs is checked)</span><br />
+        <b>Custom Thumbs -</b> <span>The URLs of thumbnails to use for this trade, one per line</span><br />
+        <b>Banner -</b> <span>The URL of a banner to use for this trade</span><br />
+        <b>Notes -</b> <span>Space to keep notes on this trade, for administrative use only</span><br />
+      </ul>
+
+      <br />
+
+      <div class="large bold">Forces</div>
+      <ul>
+        <b>Instant -</b> <span>
+                           Use this to force a set number of outs to a trade.  Once this number has been reached, the force will be disabled.
+                           If you select the high-priority option, this trade will be put on top of the main outlist so it will receive these
+                           forced outs sooner.  Without that option, the trade will be in the regular forces outlist.
+                         </span><br />
+        <b>Hourly -</b> <span>Use this to force a set number of outs to a trade every hour.  You can specify the date and time when this force
+                        should end, or leave that value blank to have it continue until you manually set this force back to 0.</span><br />
+      </ul>
+
+      <br />
+
+      <div class="large bold">Trade Settings</div>
+      <ul>
+        <b>Skim Scheme -</b> <span>Select the skim scheme to use for this trade</span><br />
+        <b>Weight -</b> <span>Assign a weight to this trade.  If you want a trade to have a higher priority than others, enter a value larger than 100.  To have a lower priority, enter a value less than 100.</span><br />
+        <b>Push To -</b> <span>Use this to set the number of ins you want to push this trade to.  This will give the trade an extra out boost so you will get more ins.  Once
+                         the push value has been reached, the trade will get traffic as normal.</span><br />
+        <b>Push Weight -</b> <span>This weight value will be used for a trade that is being pushed until it reaches it's push to value.  Once it does, the regular weight value will take over.</span><br />
+        <b>Start Raws -</b> <span>Specify the number of raw ins a trade must send to become active.  This will only affect trades with New status.</span><br />
+        <b>Start Clicks -</b> <span>Specify the number of clicks a trade must generate to become active.  This will only affect trades with New status.</span><br />
+        <b>Start Prod -</b> <span>Specify the productivity a trade must reach to become active.  This will only affect trades with New status.</span><br />
+        <b>Min Raws -</b> <span>Specify the minimum number of raw ins a trade must send in a 24 hour period to remain active.  If the trade drops below this value, it will be autostopped.</span><br />
+        <b>Min Clicks -</b> <span>Specify the minimum number of clicks a trade must generate in a 24 hour period to remain active.  If the trade drops below this value, it will be autostopped.</span><br />
+        <b>Min Prod -</b> <span>Specify the minimum productivity a trade must reach to remain active.  If the trade drops below this value, it will be autostopped.</span><br />
+        <b>Max Out -</b> <span>Specify the maximum number of outs a trade can receive in a 24 hour period.  If this value is exceeded, the trade will not get any more outs until it falls back below this maximum.</span><br />
+        <b>Hourly Cap -</b> <span>Specify the maximum return percentage a trade can reach in a 60 minute period.  If this value is exceeded, the trade will not get any more outs until it falls back below this maximum.</span><br />
+        <b>Daily Cap -</b> <span>Specify the maximum return percentage a trade can reach in a 24 hour period.  If this value is exceeded, the trade will not get any more outs until it falls back below this maximum.</span><br />
+        <b>Exclude Trades -</b> <span>Select the trade(s) where surfers coming from this site should not be sent.</span><br />
+        <b>External Info -</b> <span>The external info feature is used to make sure that a surfer doesn't get sent back to the same trade even after they have visited many of your trades.  For example,
+                                if a surfer comes from trade #1, gets sent to trade #2, and then gets sent on to trade #3 from trade #2, the external info feature can tell the script that the surfer has been to
+                                all three of these trades so it won't get sent back to them.  Each of the trade sites needs to be using a script that supports the External Info feature.</span><br />
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>

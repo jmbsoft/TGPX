@@ -1,0 +1,158 @@
+Overview
+--------
+This is a thumbnail only template that is designed to be used for sites where you
+will only be doing a "Build With New" once per day.  There are three sections of
+thumbnails on the page, one for the newly added galleries, one for the galleries
+from yesterday, and one for the galleries from two days ago.  In all sections there
+will be 20 thumbnails with 4 rows and 5 columns.
+
+The first {galleries} function will pull 20 new galleries each time a "Build With
+New" type of build is done.  When a "Build" type build is done, it will simply
+redisplay the galleries in the same order.  This is a good way to build up 
+clicks on the newly added galleries so that they can be sorted by their 
+productivity when they move to the yesterday and two-day old sections.
+
+The second {galleries} function will pull the 20 galleries from the previous
+day that were displayed in the top section.  They will be sorted by their
+productivity.
+
+The third {galleries} function will pull the 20 galleries from two days ago
+that were displayed in the top section.  They will also be sorted by their
+productivity.
+
+Make sure you configure the click.php click tracking script as described in the software
+manual and place it in the same directory as your TGP pages.
+
+
+
+
+Template Code
+-------------
+{define name=globaldupes value=true}
+{define name=pagedupes value=false}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>TGP</title>
+<style type="text/css">
+body { font-size: 12px; font-family: Verdana; }
+td { font-size: 12px; font-family: Verdana; }
+.jmbfoot { font-size: 8pt; font-family: Verdana; text-align: center; }
+.jmblink { font-size: 8pt; font-family: Verdana; }
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+
+<div align="center">
+<span style="font-size: 20pt; font-weight: bold;">TGP</span><br />
+Links to {$total_thumbnails|tnumber_format} free pictures and movies!<br />
+Updated {date value='today' format='m-d-Y'}
+</div>
+
+
+<br />
+
+{* TODAYS GALLERIES SECTION *}
+<table align="center" cellpadding="5" border="0">
+<tr>
+<td colspan="5">
+<span style="font-weight: bold; font-size: 18pt;">Today's Galleries</span>
+</td>
+</tr>
+<tr>
+{* Load 20 new galleries *}
+{galleries
+var=$galleries
+preview=true
+type=submitted
+category=MIXED
+amount=20
+getnew=true
+allowused=true
+age=0
+order=date_approved
+reorder=date_displayed DESC, date_approved}
+
+{* Display loaded galleries as thumbnails in a 5 per row format *}
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=+5 counter=$counter max=15}
+</tr><tr>
+{/insert}
+{/foreach}
+</tr>
+</table>
+
+<br />
+
+{* YESTERDAYS GALLERIES SECTION *}
+<table align="center" cellpadding="5" border="0">
+<tr>
+<td colspan="5">
+<span style="font-weight: bold; font-size: 18pt;">Yesterday's Galleries</span>
+</td>
+</tr>
+<tr>
+{* Load 20 galleries from yesterday *}
+{galleries
+var=$galleries
+preview=true
+type=submitted
+category=MIXED
+amount=20
+getnew=false
+age=1
+order=clicks/used_counter DESC}
+
+{* Display loaded galleries as thumbnails in a 5 per row format *}
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=+5 counter=$counter max=15}
+</tr><tr>
+{/insert}
+{/foreach}
+</tr>
+</table>
+
+<br />
+
+{* 2 DAYS AGO GALLERIES SECTION *}
+<table align="center" cellpadding="5" border="0">
+<tr>
+<td colspan="5">
+<span style="font-weight: bold; font-size: 18pt;">{datelocale value='-2 day' format="%A"}'s Galleries</span>
+</td>
+</tr>
+<tr>
+{* Load 20 galleries from 2 days ago *}
+{galleries
+var=$galleries
+preview=true
+type=submitted
+category=MIXED
+amount=20
+getnew=false
+age=2
+order=clicks/used_counter DESC}
+
+{* Display loaded galleries as thumbnails in a 5 per row format *}
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=+5 counter=$counter max=15}
+</tr><tr>
+{/insert}
+{/foreach}
+</tr>
+</table>
+
+<br />
+
+<div align="center">
+<b><a href="{$config.install_url}/submit.php">Submit A Gallery</a></b>
+</div>
+
+<br />
+
+</body>
+</html>

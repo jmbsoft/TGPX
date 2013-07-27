@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">The LinkX Cache System</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+LinkX includes a powerful page caching system that will reduce the load on your server and allow you to configure how long the caching periods last.  This
+document will give an overview of how the page caching system works.
+
+<br />
+<br />
+
+<b class="heading">Page Caching Overview</b>
+
+<br />
+<br />
+
+The page caching system in LinkX is a time-based caching system which checks the time when the cached page was last updated and then performs an action based on that value.  If the
+software finds that the page cache is still valid (i.e. the time period has not elapsed) that cached page is shown to the user instead of rebuilding the page with new data.  If the cache 
+period has elapsed, an updated version of the page is created and stored in the cache file for future use.
+
+<br />
+<br />
+
+For each of the link directory templates (those with a filename that starts with directory-) you will be able to configure the cache lifetime through the 
+<a href="settings.html">General Settings</a> interface.  The cache lifetime is specified in seconds so you can fine tune the values for each of the pages.  
+So, for example, consider this scenario:
+
+<ul>
+<li> The Index Page cache lifetime is set to 3600 seconds (one hour)
+     <br /><br />
+
+<li> No one has viewed your index page for the past 90 minutes
+     <br /><br />
+
+<li> A surfer comes to your site and views the index page.  LinkX will check the cached
+     version of that page to see if it is more than 3600 seconds old.
+     <br /><br />
+     
+<li> In this case it is over 3600 seconds old, since the last visitor was 90 minutes ago.
+     Since the cache is outdated, LinkX connects to the MySQL database to get the information needed for your index page
+     and builds a new copy of that page with the latest information in your database.  The cached copy of that page is updated
+     and then displayed to the user.
+     <br /><br />
+
+<li> A new surfer comes to your site 15 minutes after the surfer above.  Again, LinkX will check the
+     cached version of that page to see if it is more than 3600 seconds old.
+     <br /><br />
+
+<li> In this case, it is not over 3600 seconds old, so LinkX does not need to connect to MySQL and can simply
+     show the cached version of the page to the new surfer.
+     <br /><br />
+
+<li> This process will repeat itself for each person that views your index page, even if they have already viewed it.  If LinkX
+     determines that the cache is outdated for any user, an updated version of that page will be generated.
+     <br /><br />
+</ul>
+
+This same scenario plays out for all of the cached directory pages each time a user views that page.  This system can provide a significant reduction in server load, since
+connecting to and retrieving data from a MySQL database is much more server intensive than simply displaying an already existing file.
+
+<br />
+<br />
+
+<b class="heading">Caching Recommendations</b>
+
+<br />
+<br />
+
+The best recommendation for caching is to use the largest cache lifetime values that you can.  The more often the software has to update the cache pages, the more server load
+will be generated.  The default cache lifetime settings that are configured when you initially install the software should be a good starting point, but of course you can adjust them
+to suit the needs of your site and server.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

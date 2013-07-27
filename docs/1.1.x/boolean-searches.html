@@ -1,0 +1,205 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Boolean Searches</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+TGPX takes advantage of MySQL's fulltext search functions to provide you with powerful boolean mode search features.  This will allow you to search for matches on any words of a phrase, all words of
+a phrase, an exact phrase, and much more.  However, this type of search is only available for certain database fields, and will not work with all of the search functions.  Throughout the TGPX manual
+you will find information on which fields and functions support boolean mode searches.
+
+<br />
+<br />
+
+<b class="heading">Boolean Search Overview</b>
+
+<br />
+<br />
+
+For fields that support boolean mode searches, the search type dropdown selection box (matches, contains, starts with, etc) will have no effect.  The search will be done based on the
+search term and operators that you enter in the search field as described below.
+
+<br />
+<br />
+
+<div class="note">
+Much of this information is taken directly from the <a href="http://dev.mysql.com/doc/refman/4.1/en/index.html" target="_blank">MySQL manual</a>.
+</div>
+
+<br />
+
+Some words are ignored in boolean mode searches:
+
+<ul>
+<li> Any word that is too short is ignored. The default minimum length of words that are found by boolean mode searches is four characters.
+<li> Words in the stopword list are ignored. A stopword is a word such as “the” or “some” that is so common that it is considered to have zero semantic value. 
+</ul>
+
+
+The boolean full-text search capability supports the following
+operators:
+<div class="itemizedlist"><ul type="disc">
+
+<li>
+<p>
+            <code class="literal">+</code>
+          </p>
+<p>
+            A leading plus sign indicates that this word
+            <span class="emphasis"><em>must</em></span> be present in each row that is
+            returned.
+          </p>
+</li>
+<li>
+<p>
+
+            <code class="literal">-</code>
+          </p>
+<p>
+            A leading minus sign indicates that this word must
+            <span class="emphasis"><em>not</em></span> be present in any of the rows that
+            are returned.
+          </p>
+<p>
+            Note: The <code class="literal">-</code> operator acts only to exclude
+            rows that are otherwise matched by other search terms. Thus,
+            a boolean-mode search that contains only terms preceded by
+            <code class="literal">-</code> returns an empty result. It does not
+            return “<span class="quote">all rows except those containing any of the
+            excluded terms.</span>”
+          </p>
+
+</li>
+<li>
+<p>
+            (no operator)
+          </p>
+<p>
+            By default (when neither <code class="literal">+</code> nor
+            <code class="literal">-</code> is specified) the word is optional, but
+            the rows that contain it are rated higher.
+          </p>
+
+</li>
+<li>
+<p>
+            <code class="literal">*</code>
+
+          </p>
+<p>
+            The asterisk serves as the truncation (or wildcard)
+            operator. Unlike the other operators, it should be
+            <span class="emphasis"><em>appended</em></span> to the word to be affected.
+            Words match if they begin with the word preceding the
+            <code class="literal">*</code> operator.
+          </p>
+</li>
+<li>
+<p>
+            <code class="literal">"</code>
+
+          </p>
+<p>
+            A phrase that is enclosed within double quote
+            (‘<code class="literal">"</code>’) characters matches only
+            rows that contain the phrase <span class="emphasis"><em>literally, as it was
+            typed</em></span>. 
+          </p>
+</li>
+</ul></div>
+<p>
+        The following examples demonstrate some search strings that use
+        boolean full-text operators:
+      </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+<p>
+            <code class="literal">apple banana</code>
+          </p>
+
+<p>
+            Find rows that contain at least one of the two words.
+          </p>
+</li>
+<li>
+<p>
+            <code class="literal">+apple +juice</code>
+          </p>
+<p>
+            Find rows that contain both words.
+          </p>
+</li>
+
+<li>
+<p>
+            <code class="literal">+apple macintosh</code>
+          </p>
+<p>
+            Find rows that contain the word “<span class="quote">apple</span>”, but
+            rank rows higher if they also contain
+            “<span class="quote">macintosh</span>”.
+          </p>
+</li>
+<li>
+
+<p>
+            <code class="literal">+apple -macintosh</code>
+          </p>
+<p>
+            Find rows that contain the word “<span class="quote">apple</span>” but not
+            “<span class="quote">macintosh</span>”.
+          </p>
+</li>
+<li>
+<p>
+            <code class="literal">apple*</code>
+          </p>
+<p>
+            Find rows that contain words such as “<span class="quote">apple</span>”,
+            “<span class="quote">apples</span>”, “<span class="quote">applesauce</span>”, or
+            “<span class="quote">applet</span>”.
+          </p>
+
+</li>
+<li>
+<p>
+            <code class="literal">"some words"</code>
+          </p>
+<p>
+            Find rows that contain the exact phrase “<span class="quote">some
+            words</span>” (for example, rows that contain “<span class="quote">some
+            words of wisdom</span>” but not “<span class="quote">some noise
+            words</span>”). Note that the
+            ‘<code class="literal">"</code>’ characters that enclose
+            the phrase are operator characters that delimit the phrase.
+            They are not the quotes that enclose the search string
+            itself.
+          </p>
+
+</li>
+</ul>
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

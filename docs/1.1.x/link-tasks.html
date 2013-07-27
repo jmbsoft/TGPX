@@ -1,0 +1,131 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Link Quick Tasks</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The quick tasks interface allows you to perform search and replace, search and set, and search and delete functions against your link database.  This allows you to quickly make mass changes
+to your links.  Each of these functions is described in detail in this document.
+
+<br />
+<br />
+
+<b class="heading">Accessing Quick Tasks</b>
+
+<br />
+<br />
+
+The quick tasks functions can be accessed either through the <a href="directory-browse.html">Directory Browsing</a> or <a href="link-search.html">Link Search</a> interfaces.  In those interfaces
+you will find the <img src="../images/tasks.png" width="16" height="16" border="0" alt=""> icon in the header bar next to the help icons.  You can click on that icon to bring up the quick tasks interface.
+
+<br />
+<br />
+
+<b class="heading">Search and Replace</b>
+
+<br />
+<br />
+
+The search and replace function will search for a value in the field you specify and replace it with a new value.  For example, if you wanted to update all of your link descriptions so that the word "cars"
+would become "automobiles" you would use this function.  Each of the fields for this function are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Find</b>
+</td>
+<td>
+Enter the value you want to search for
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>In Field</b>
+</td>
+<td>
+Select the field in which the search and replace should be done.<br />
+Descriptions of the fields can be found in the <a href="link-search.html">Link Search</a> section of the manual.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Replace With</b>
+</td>
+<td>
+Enter the replacement value to use
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have the fields setup how you want them press the Search and Replace button.  The software will update perform this task and then let you know how many replacements were made.
+
+<br />
+<br />
+
+<div class="note">
+Be careful when using this function.  It uses loose matching, so if you enter "tire" for the search value and "radial" for the replacement value, this will match not only the word tire, but also
+"tiresome", "tired", etc.  This would produce replacements of "radialsome" and "radiald", which you most likely do not want.
+</div>
+
+<br />
+
+<b class="heading">Search and Set</b>
+
+<br />
+<br />
+
+The search and set function will search for a value in the field you specify and set another field to a specific value.  For example, if you wanted to update all of link descriptions that contained
+the word "truck" and set the keywords to "automobile pickup bedliners offroad" you would use this function.  Each of the fields for this function are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Find</b>
+</td>
+<td>
+Select the field to search in, the <a href="standard-searches.htmla#dvanced">search type</a> to perform, and the value to search for.<br />
+Descriptions of the fields can be found in the <a href="link-search.html">Link Search</a> section of the manual.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Set</b>
+</td>
+<td>
+Select the field who's value you want to set, and the value to set that field to.<br />
+Descriptions of the fields can be found in the <a href="link-search.html">Link Search</a> section of the manual.
+</td>
+</tr>
+</table>
+</ul>
+
+<div class="note">
+Note that this does not do partial replacements, it sets the field you select to the exact value you enter, overwriting the existing value of that field.
+</div>
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+body, td, input, textarea, select, button {
+  font-family: Tahoma;
+  font-size: 9pt;
+}
+
+form {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: #009dd9;
+}
+
+#main-content {
+  margin: 0px 20px 0px 20px;
+  font-family: Tahoma; 
+  font-size: 9pt;
+  text-align: center;
+}
+
+#centered-content {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+}
+
+#disabler {
+  display: none; 
+  position: absolute; 
+  border: 1px solid #404040; 
+  padding: 8px; 
+  background-color: #FFFFE1
+}
+
+.small {
+  font-size: 8pt;
+}
+
+.error {
+  font-weight: bold;
+  color: #d52727;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #FEE7E8;
+}
+
+.notice {
+  font-weight: bold;
+  color: #0097FF;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #EFF8E0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.hilite {
+  background-color: yellow;
+}
+
+.plain {
+  text-decoration: none;
+}
+
+.content-section {
+  padding: 8px 12px 8px 12px;
+}
+
+.header {
+  font-size: 16pt;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.click {
+  cursor: pointer;
+}
+
+.gallery-div {
+  border-bottom: 1px solid #dcdcdc; 
+  padding-bottom: 5px; 
+  margin-bottom: 5px; 
+  clear: both;
+}

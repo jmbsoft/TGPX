@@ -1,0 +1,421 @@
+1.1.0 SNAPSHOT
+==============
+- Updated shuffle.php utility script to work with the new 1.1.0 release (July 4, 2008)
+- Fixed issue with RAND() used in the order attribute of {ad} template functions causing SQL error (August 4, 2008)
+- Fixed issue with gallery submission form saying "This category allows only picture galleries" on movies-only categories (August 4, 2008)
+- Fixed issue with the Thumb and Scan checkboxes on the review galleries form not working properly when unchecked (August 4, 2008)
+- Improved detection and download of image files for cropping from non-standard TGP galleries (August 19, 2008)
+- Updated ftpthumbs.php utility script to prevent it from attempting to delete non-jpg image files (August 19, 2008)
+- SERVER EDITION: Fixed issue with category as exclusion list in domain settings not working properly (October 15, 2008)
+- Fixed issue with Finished time not reporting correctly in the build history (October 23, 2008)
+- Added ability to select Holding status when creating/editing a gallery scanner configuration (October 23, 2008)
+- Fixed issue with bulk added pages being placed first in the build order instead of last (October 23, 2008)
+- Added ability to keep the original preview thumbnail image when generating resized thumbs through the gallery scanner (October 23, 2008)
+- Added option to overwrite existing preview thumbnails when generating resized thumbs through the gallery scanner (October 23, 2008)
+- Added ability to create multiple sized thumbnails all at one time when generating resized thumbs through the gallery scanner  (October 23, 2008)
+- Fixed issue with search of Keyword field not working properly in the Search Galleries interface (October 23, 2008)
+- Code cleanup and optimizations (October 28, 2008)
+- Fixed issue with gallery ID not displaying when searching for empty thumb size in the Search Galleries interface (November 18, 2008)
+- Fixed issue with Search Galleries interface not displaying correctly in IE8 (January 8, 2009)
+- Fixed issue with configuration settings that started with the string 'true' being incorrectly convereted to a PHP boolean TRUE value (January 13, 2009)
+- Fixed MySQL error message when searching in sponsor field and sorting by sponsor in the Search Galleries interface (January 20, 2009)
+- Fixed issue with blackisting domains from the Review Galleries interface not being recorded properly (February 2, 2009)
+- Updated reciprocal link detection to better handle large blocks of HTML code (March 11, 2009)
+- Added ability to prefix category names with a + in the category option of {galleries} template functions (March 27, 2009)
+- Documentation update only (April 9, 2009)
+- Removed requirement of Zend Optimizer (March 22, 2010)
+- Removed requirement of OpenSSL extension (March 22, 2010)
+- Software now provided completely as source with no encoded files (March 22, 2010)
+- Fixed issue with test code left in the click.php script (March 25, 2010)
+- Improved support for PHP 5.3 (April 15, 2010)
+
+	Modified Files
+	--------------
+	For reference only; may be incomplete! Use software manual patching instructions to update your installation
+	click.php
+	code.php
+	search.php
+	submit.php
+	admin/ajax.php
+	admin/cron.php
+	admin/index.php
+	admin/install.php
+	admin/scanner.php
+	admin/docs/galleries-scanner.html
+	admin/docs/index.html
+	admin/docs/pages-manage.html
+	admin/docs/patching.html
+	admin/docs/shuffle.html
+	admin/docs/templates-common.html
+	admin/docs/templates-tgp.html
+	admin/includes/admin.css
+	admin/includes/admin.js
+	admin/includes/functions.php
+	admin/includes/galleries-scanner-add.php
+	admin/includes/galleries-search.php
+	admin/includes/json.class.php
+	admin/includes/menu.php
+	admin/includes/pages-build-history.php
+	admin/includes/review-galleries-form.php
+	admin/includes/review-galleries.php
+
+
+
+1.1.0 - June 30, 2008
+=====================
+- SERVER EDITION: Fixed issue with cookies not being set for correct domain in the partner.php script
+
+
+
+1.1.0 BETA
+==========
+- Added ability to configure RSS feeds from which galleries can be imported (April 4, 2008)
+- Added ability to automatically import galleries from RSS feeds through the gallery scanner (April 4, 2008)
+- Added ability to assign and display a meta description for each category (April 4, 2008)
+- Added ability to assign and display meta keywords for each category (April 4, 2008)
+- Added ability to click an icon in the Manage Partners interface to view all of the galleries from a specific partner (April 4, 2008)
+- Partner signup date is now displayed in the Manage Partners interface (April 4, 2008)
+- Partner last submission date is now displayed in the Manage Partners interface (April 4, 2008)
+- Software will now look for binary named php-cli when looking for the CLI version of PHP (April 4, 2008)
+- Updated web-based thumbnail cropping interface to support click-and-drag selection of the cropping area (April 7, 2008)
+- Updated web-based thumbnail cropping interface to display a preview of the generated thumbnail (April 7, 2008)
+- Added quick cropping with automatic crop bias (top, bottom, left, right, center) feature to the web-based cropping interface (April 8, 2008)
+- Added ability to set the crop bias (top, bottom, left, right, center) for automatically created thumbnails (April 8, 2008)
+- Added ability to use keyboard shortcuts to move the cropping area in the web-based cropping interface (April 8, 2008)
+- Added ability to display all categories a gallery is assigned to on MIXED pages (April 8, 2008)
+- Added select attribute to the {categories} template function to allow specifying the exact SQL query to use (April 8, 2008)
+- Added ability to sort by user-defined fields in the Search Galleries interface (April 8, 2008)
+- Added ability to search the user defined fields in the Manage Partners interface (April 8, 2008)
+- Added ability to search and sort by user defined fields in the Review Partner Requests interface (April 8, 2008)
+- Updated timezone selection field in the settings interface with more detailed options (April 8, 2008)
+- Added ability to use keyboard shortcuts in the gallery review interface (a, r, d, right arrow) (April 8, 2008)
+- Added Build History function which shows when page builds were run, number of pages built, and any errors encountered (April 9, 2008)
+- Added Test Page Permissions function to check the permissions of TGP pages and directories (April 9, 2008)
+- Added ability to lock TGP pages to prevent them from being built when running either of the 'Build All' functions (April 9, 2008)
+- Added ability to limit the categories to which each partner account can submit galleries (April 9, 2008)
+- Added ability to automatically create new sponsors from import data when importing galleries (April 9, 2008)
+- Added option to display detailed results (pages and replacements per page) in the TGP page search and replace interface (April 9, 2008)
+- Added search and replace in the Manage Pages interface (April 9, 2008)
+- Updated the command line arguments used for the database backup and restore cron functions (April 9, 2008)
+- Added ability to generate a backup file containing the preview thumbnails when using the Database Backup function (April 9, 2008)
+- Added ability to automatically create a tar.gz file of the SQL and thumbnail backup data (April 9, 2008)
+- Added ability to export galleries from the database into text files (April 14, 2008)
+- Added option to track statistics for end-user searches (April 15, 2008)
+- Added {searches} template function to display end-user searches (April 15, 2008)
+- SERVER EDITION: Added the Manage Domains interface for easier configuration of domain page creation, gallery submission, partner, and search forms (April 15, 2008)
+- SERVER EDITION: Added the ability to restrict which domains to which a partner account is allowed to submit galleries (April 15, 2008)
+- SERVER EDITION: Added ability to use custom templates for each domain's submission and search forms (April 15, 2008)
+- SERVER EDITION: Added domain selection in the Add TGP Pages interface to quickly fill in the base URL and document root values (April 16, 2008)
+- Added ability to crop thumbnails (in control panel cropper) from galleries where the images don't link directly to the full sized image or movie file (April 16, 2008)
+- Added {foreachdone} template function to allow breaking out of a {foreach} section early (April 16, 2008)
+- Added {storeglobal} and {getglobal} template functions to allow saving and using values between pages (April 16, 2008)
+- Gallery scanner can now detect galleries with a format that is not allowed by the category they are in (April 17, 2008)
+- Fixed issue with error message being generated when trying to delete an RSS feed (April 18, 2008)
+- Fixed issue with error message being generated when adding a partner account request (April 22, 2008)
+- Fixed issue with the prefixed error-nice.tpl template not being created when adding a new domain (April 22, 2008)
+- Updated the TGP page editing interface to not include the Domain drop down selection field since that is only to assist when adding new pages (April 23, 2008)
+- Added a simple ad management and rotation system (April 23, 2008)
+- Fixed issue with category names not showing up properly when setting the category attribute to a specific category (April 25, 2008)
+- Fixed issue with not being able to read the <title> value from some RSS feeds (May 14, 2008)
+- Added search and append to the galleries quick tasks interface (May 14, 2008)
+- Fixed issue with changes made to RSS feed field mappings not being saved when editing an RSS feed (May 16, 2008)
+- Added ability to whitelist galleries from the search galleries interface (May 16, 2008)
+- Added ability to resize existing preview thumbnail images to a new size through the gallery scanner (May 16, 2008)
+- Improved the software's ability to locate the CLI version of PHP and ImageMagick command line tools on the server (May 30, 2008)
+- Fixed issue with domain templates not appearing in the Script Page Templates interface for the Server Edition (June 19, 2008)
+- Fixed issue with blank lines in gallery import data being incorrectly processed as a valid gallery (June 19, 2008)
+- Fixed issue with default search settings overriding sponsor ID when viewing sponsor galleries from the Manage Sponsors interface (June 19, 2008)
+
+
+
+1.0.1 SNAPSHOT
+==============
+- Gallery URLs now link to the gallery in the statistics interface (July 18, 2007)
+- Fixed issues with database backup/restore when not using the mysql and mysqldump programs (July 22, 2007)
+- Fixed issue with gallery scanner not properly disabling galleries (July 24, 2007)
+- Updated JSON class to use JSON extension if available on PHP5 installations (July 24, 2007)
+- Added support for galleries where the image/movie URLs contain spaces (July 27, 2007)
+- Added ability for partners to edit the name/nickname associated with their account (July 27, 2007)
+- If nickname is required for submission, error message will be displayed to partners if their account
+  does not have a name/nickname set (July 27, 2007)
+- Added select and reselect options to the {galleries} template function (July 27, 2007)
+- Fixed issue with use of $category variable on TGP pages overwriting value of $page_category (July 29, 2007)
+- Added ability to set the file permissions used for generated TGP pages (July 30, 2007)
+- Fixed issue with MySQL error message being generated during page building process (July 31, 2007)
+- Updated database backup/restore to handle different methods of backup working when restoring (July 31, 2007)
+- Updated thumbnail cropping interface to darken portion of image not being cropped (August 1, 2007)
+- Fixed issue with incorrect report of recip link and 2257 code in quickscan interface (August 2, 2007)
+- Updated Search Galleries interface to close the preview thumbnail filters interface when the image is remotely hosted (August 3, 2007)
+- Fixed issue with gallery scanner not properly setting the size of downloaded and resized thumbnails (August 3, 2007)
+- Fixed issue with uploaded images not having proper permissions set (August 27, 2007)
+- Fixed issue with web-based cropper not displaying and working properly for uploaded images (August 27, 2007)
+- Removed +nottlid from the dig command line arguments (not all servers support this option) (September 18, 2007)
+- Added test for Zend Optimizer in the install.php script (October 25, 2007)
+- Fixed PHP error message when partner was viewing galleries in the partner.php script that did not have a preview thumb (October 31, 2007)
+- Fixed issue with mysqldump not properly quoting field names in the database backup file (November 5, 2007)
+- TGP templates will now report an error when the var and from values of the {foreach} template function are set to the same value (November 5, 2007)
+- General settings interface now checks that the 'Minimum Gallery Thumb Size' setting is in WxH format (November 5, 2007)
+- Galleries approved using the in-place editing feature of the Search Galleries interface now have their approve date set properly (November 5, 2007)
+- reorder option of the {galleries} template function now defaults to the order setting (if provided) (November 5, 2007)
+- Added {$gallery.sponsor_url} TGP page template value (November 5, 2007)
+- AGS template conversion in ags-convert.php updated to handle 'TYPE Any' setting in GALLERIES directives (November 5, 2007)
+- Added option to send the email-partner-added.tpl e-mail message when adding a partner account through the control panel (November 5, 2007)
+- TGP page add function in Server Edition now checks that the Path & Filename field is not set to a HTTP URL (November 5, 2007)
+- Fixed issue that caused // to appear in page URLs when bulk adding them in the base directory of a site (November 5, 2007)
+- Added ability to build a range of pages using the cron.php script and x-y format (November 5, 2007)
+- Changed the global {$page} TGP page template variable to {$this_page} to avoid conflicts with the {pages} template function (November 5, 2007)
+- Shuffle script has been updated to automatically repair the database if an error is encountered (November 6, 2007)
+- Shuffle script has been updated to check database consistency and cleanup the database before starting the shuffle process (November 6, 2007)
+- Optimizations to page building code (November 8th, 2007)
+- Added ability to built pages by tags with the cron.php script (November 8th, 2007)
+- Fixed issue that cause allowused to fail when mixing submitted and permanent galleries (November 19, 2007)
+- Fixed {galleries} compiler issue that prevented the preview_width/preview_height values from being set when previewsize was specified (November 20, 2007)
+- Added ability to search for empty sponsor ID in the Search Galleries interface (December 13th, 2007)
+- Added ability to have submit forms on other sites with TGPX Server Edition: http://www.jmbsoft.com/kbase/article/471/ (December 14th, 2007)
+- Fixed issue with e-mail message not being sent after the gallery scanner completed (December 23rd, 2007)
+- Updated gallery scanner configuration interface category and sponsor selection fields (March 19, 2008)
+- Error message will display and TGP page templates will not save when they contain raw PHP code enclosed in <? and ?> (March 19, 2008)
+- Setting preview=any in {galleries} template function will now pull a preview thumbnail for galleries that have them (March 19, 2008)
+- Added a check to make sure gallery tags are at least 4 characters long and contain valid characters (March 19, 2008)
+- Updated Search Galleries interface to allow searching for empty keywords and tags fields (March 19, 2008)
+- Updated the cron script to issue an error message when a filename is not supplied for the --backup or --restore functions (March 19, 2008)
+- Fixed issue when using sponsor=any,-Sponsor Name in the {galleries} function not pulling galleries with no sponsor assigned (March 19, 2008)
+- Updated reciprocal link checking to be case-insensitive (March 19, 2008)
+- Updated 2257 checking to be case-insensitive (March 19, 2008)
+- Added check in the TGP page adding interface to make sure that a page pointing to the TGPX index.php script cannot be created (March 19, 2008)
+- Added an error message in the install.php script to prevent TGPX from being installed in the base directory of a website (March 19, 2008)
+- When adding categories, if a category name already exists it will be skipped over instead of displaying an error message (March 19, 2008)
+- Added ability to reset click counts through cron (March 19, 2008)
+- Updated end user search function to support searching within categories (March 19, 2008)
+- Updated end user search function to support displaying the gallery category in the search results (March 19, 2008)
+- Updated end user search function to support searching within the different gallery formats (March 19, 2008)
+- Updated the thumbnail cropping interface to allow quick selection of the maximum area of the image by double clicking on the greyed out area (March 19, 2008)
+- Added special optimized code for the {categories} template function for use when only putting each gallery in one category (March 20, 2008)
+- Fixed issue with black line appearing on cropped images when using GD image library and selecting the entire image (March 21, 2008)
+- Updated bulk page add function to remove trailing - or _ characters from page filenames (March 21, 2008)
+- Added indexes to the tx_pages table to increase the speed of bulk page adding and {categories} template function (March 21, 2008)
+- Updated bulk page add function to display page URLs as they are generated to prevent server timeout issues (March 21, 2008)
+
+
+
+1.0.1 - July 18, 2007
+=====================
+- Updated AGS, AGP, and TGPR conversion scripts to correctly convert the category name template values (July 3, 2007)
+- Fixed compatibility issue with older versions of MySQL when confirming galleries (July 3, 2007)
+- Added workaround for PHP versions that contain the glob() bug (July 3, 2007)
+- Updated page building functions to reduce memory usage (July 3, 2007)
+- Updated TGP page recompiling function to reduce memory usage (July 3, 2007)
+- Updated function that locates php and mysql executables to not display warning messages
+  if the open_basedir restriction is in effect (July 3, 2007)
+- Fixed issue with older versions of MySQL generating error message when viewing gallery stats by sponsor (July 3, 2007)
+- Added tooltip display to long reciprocal links in the Manage Recip Links interface (July 3, 2007)
+- Added pagination icons to the bottom of all search results pages in the control panel (July 5, 2007)
+- Added Per Page field to most search pages in the control panel (July 5, 2007)
+- Updated the popup calendar to automatically disappear when the field loses focus (July 6, 2007)
+- Pre-defined thumbnail preview sizes will be cleaned up when saving General Settings (July 6, 2007)
+- Added setting that allows configuring the minimum thumb size that the scanner will look for on galleries (July 6, 2007)
+- Added mouseover_thumbs.txt example template (July 6, 2007)
+- Fixed issue with automatic cropping of improperly sized uploaded thumbs not working (July 9, 2007)
+- Added ability to show thumbnail previews in end-user search engine (July 9, 2007)
+- Added 'Cleanup broken thumbnail previews' function to the gallery quick tasks interface (July 9, 2007)
+- Fixed issue with gallery scanner status not updating properly (July 10, 2007)
+- Fixed issue with partner gallery submissions not being auto-approved unless the no confirmation e-mail option was enabled (July 10, 2007)
+- Added "saved searches" to the Search Galleries interface for quick access to your commonly used searches (July 10, 2007)
+- Fixed issue with Search Galleries not working when PHP zlib.output_compression option is enabled (July 10, 2007)
+- Added ability to use tab key to navigate through the in-place editing fields of the Search Galleries interface (July 10, 2007)
+- Fixed issue with rejection e-mail selector not hiding after rejecting a gallery in the review tool (July 10, 2007)
+- Added option to disable confirmation messages in the gallery review tool (July 10, 2007)
+- Added option to disable display of rejection e-mail messages in the gallery review tool (July 10, 2007)
+- Fixed MySQL error message when trying to reject galleries (July 10, 2007)
+- Fixed issue with ~ characters in whitelist, blacklist, recips, and 2257 code causing regex errors (July 11, 2007)
+- Added ability to sort galleries randomly in the Search Galleries interface (July 11, 2007)
+- Added default UTF-8 encoding to the header.php file for the control panel (July 11, 2007)
+- Added ability to search for all categories except those selected in the Search Galleries interface (July 11, 2007)
+- Added automatic window closing after 3 seconds for page building and recompiling functions (July 11, 2007)
+- Added secondary sorting option in the Search Galleries interface (July 11, 2007)
+- Added reject and approve icons for single galleries in the Search Galleries interface (July 11, 2007)
+- Added ability to search date fields in MM-DD-YYYY format in the Search Galleries interface (July 11, 2007)
+- Fixed compatibility issue with PHP5 not supporting the use of today for the {date} function (July 12, 2007)
+- Fixed shuffle.php script issue with MySQL error messages when shuffling galleries (July 12, 2007)
+- Gallery submission form now does not require partners to submit e-mail address or nickname; taken from database instead (July 13, 2007)
+- Added ability for submitters to select multiple categories for their gallery (July 13, 2007)
+- Added ability to start a chat session with a partner using Yahoo, AIM, or ICQ in the Manage Partners interface (July 11, 2007)
+- Added ability to run the conversion scripts (AGP, AGS, and TGPR) from the command line (July 16, 2007)
+- Added partner option to the {galleries} template function (July 16, 2007)
+- Fixed issue with galleries remaining in the db after their category had been deleted when they were imported with
+  a comma separated category list that had a comma at the end of the list (July 16, 2007)
+- Fixed issue with TGP page template search and replace not setting proper category requirement when recompiling template (July 16, 2007)
+- Added ability to view gallery breakdown by sponsor (July 16, 2007)
+- Added reload icon to the TGP page template editing interface (July 16, 2007)
+- Changed {$category.name} to {$page_category.name} to avoid conflicts with {categories} function loading into variable named $category (July 16, 2007)
+- Added startswith option to the {categories} TGP page template function (July 18, 2007)
+- Updated gallery content check to allow subdomain.domain.com for gallery with hostname www.domain.com (July 18, 2007)
+
+
+
+1.0.0 - July 2, 2007
+====================
+- Added gzip compression on the Search Galleries interface to reduce load times when moving between pages of results (June 28, 2007)
+- Added ability to click on preview thumbnails in Search Galleries interface to view them full size (June 28, 2007)
+- Fixed issue with gallery scanner report not properly displaying the number of thumbs a gallery changed from (June 29, 2007)
+- Tweaked gallery scanner for more accurate counting of thumbnails on galleries (June 30, 2007)
+- Fixed issue with gallery submissions being incorrectly rejected for content not hosted on same server (June 30, 2007)
+- Fixed issue with page jump text input field at the bottom of search results not working properly (June 30, 2007)
+- Searching for a thumbnail size in Search Galleries interface will now default to display the thumb
+  of that size if the gallery has more than one sized thumbnail (June 30, 2007)
+
+
+
+1.0.0 BETA - June 27, 2007
+==========================
+- Fixed issue with pagedupes option of the {galleries} function not working correctly (June 27, 2007)
+
+
+
+1.0.0 BETA - June 26, 2007
+==========================
+- Fixed JavaScript error message when bulk adding TGP pages (June 22, 2007)
+- Manage TGP Pages interface now refreshes after bulk adding TGP pages (June 22, 2007)
+- Added the fillvar option to the {galleries} directive to allow for filler galleries (June 22, 2007)
+- Added the filler_galleries.txt example template to demonstrate the use of the fillvar option (June 22, 2007)
+- Added {$total_categories} TGP page template value (June 22, 2007)
+- Fixed issue with skipping over duplicate galleries during import not working properly (June 25, 2007)
+- Fixed issue with search and set on sponsor field not working properly (June 25, 2007)
+- Added display of number of galleries in each sponsor in the Manage Sponsors interface (June 25, 2007)
+- Added function to view galleries from a specific sponsor in the Manage Sponsors interface (June 25, 2007)
+- Added ImageMagick arguments setting in the General Settings interface (June 25, 2007)
+- Tweaked the image cropping/resizing functions to better handle unusual image sizes and produce nicer thumbs (June 25, 2007)
+- Added ability to assign icons to galleries through the Search Galleries interface (June 26, 2007)
+- Added additional ImageMagick filters in the Search Galleries interface (June 26, 2007)
+
+
+
+1.0.0 BETA - June 22, 2007
+==========================
+- Added documentation for the mysql-change.php, reset-access.php, and reset-install.php utility scripts (June 19, 2007)
+- Added documentation (as a screencast) for the web-based thumbnail cropping interface (June 19, 2007)
+- Fixed compatibility issue with use of the DATE() function in older versions of MySQL (June 19, 2007)
+- Gallery submission script will now display an error message if there are no thumbnails to crop on the gallery (June 20, 2007)
+- Search Galleries bulk in-place edit now updates all modified galleries with the new value (June 20, 2007)
+- Added display of allowed thumbnail preview sizes on the gallery submission form (June 20, 2007)
+- Added function to view galleries from a specific category in the Manage Categories interface (June 20, 2007)
+- Added Close Window link in the web-based thumbnail cropper when the cropping has been completed (June 20, 2007)
+- Added ability to search in the Type, Format, and Status fields for gallery quick tasks (June 20, 2007)
+- Added ability to apply filters to preview thumbnails through the Search Galleries interface (June 20, 2007)
+- Added check for duplicate category name when adding a new category (June 21, 2007)
+- Fixed issue with bulk import of galleries not adding categories when using a comma separated list and at least one category exists (June 21, 2007)
+- Fixed issue with template wizard not inserting the amount option for the {galleries} functions (June 21, 2007)
+- Updated the template wizard to generate RSS feed templates (June 21, 2007)
+- TGP page template value {$category} changed to {$category.name} (June 22, 2007)
+- Added the {pages} template function to automatically create links between TGP pages (June 22, 2007)
+- Added pages.txt example template which shows an example of how to use the {pages} template function (June 22, 2007)
+
+
+
+1.0.0 BETA - June 19, 2007
+==========================
+- Updated gallery scanner to handle gallery content that have URLs with query strings (June 12, 2007)
+- Fixed issues with search-and-replace in the TGP page templates (June 12, 2007)
+- Fixed TGPR and AGS conversion scripts to properly convert the AGE, MINAGE, and MAXAGE options (June 12, 2007)
+- Added display of the number of galleries in each category in the Manage Categories interface (June 12, 2007)
+- Fixed issues with search and set on user-defined fields, thumbnail settings, and sponsor (June 13, 2007)
+- Conversion scripts for AGP/AGS/TGPR now keep a log of the conversion process (June 13, 2007)
+- Added interface to e-mail or delete inactive partner accounts (June 13, 2007)
+- Fixed issue with empty error message on the gallery submission form (June 13, 2007)
+- Fixed issue with {insert} template command when using a comma separated list of location values (June 13, 2007)
+- Review galleries popup window will open wider if screen resolution allows (June 14, 2007)
+- Added wizard for creation of {galleries} template commands (June 14, 2007)
+- Added shuffle.php utility script (June 14, 2007)
+- Fixed issue with checking of gallery content filesize for movie galleries (June 18, 2007)
+- Added ability to bulk-edit galleries in the Search Galleries interface (June 18, 2007)
+- Fixed Per Page setting not being taken into account on the Manage TGP Pages interfae (June 19, 2007)
+- When a category is deleted it's associated TGP pages are now also deleted (June 19, 2007)
+- Improved the documentation for the Search Galleries interface (June 19, 2007)
+
+
+
+1.0.0 BETA - June 11, 2007
+==========================
+- Added a few more example templates (June 4, 2007)
+- Added ability to rebuild pages through cron (June 4, 2007)
+- Added documentation for the end-user gallery search function (June 4, 2007)
+- Added high traffic version of click.php click tracking script (June 4, 2007)
+- Added ags-convert.php script to convert AutoGallery SQL 3.6.2 data (June 5, 2007)
+- Added tgpr-convert.php script to convert TGP Rotator 1.2.1-SS data (June 5, 2007)
+- Fixed issue with MySQL error message during install.php script execution (June 5, 2007)
+- Added reset-install.php utility script to reset the installation so it can be re-initialized (June 6, 2007)
+- Fixed issues with confirmation and auto-approval of gallery submissions (June 6, 2007)
+- Moved default TGP page template to the templates directory and renamed to default-tgp.tpl so it can be edited through the control panel (June 6, 2007)
+- Added instructions on the submit-crop.tpl template to assist submitters with cropping their preview thumb (June 6, 2007)
+- Added agp-convert.php script to convert AutoGallery Pro 3.0.0+ data (June 6, 2007)
+- Added function to download the stored list of e-mail addresses used for submission (June 6, 2007)
+- Updated general settings interface so the unchecked checkboxes don't appear checked before submission (June 7, 2007)
+- Added quick tasks interface to perform search and replace, search and set, etc on galleries (June 8, 2007)
+
+
+
+1.0.0 BETA - June 4, 2007
+=========================
+- Added function to automatically cleanup the cache directory when logging into the control panel (May 30, 2007)
+- Added gallery scanner history function to view details on past executions of the gallery scanner (May 30, 2007)
+- Added documentation for gallery scanner history function (May 30, 2007)
+- Added end-user search engine (May 30, 2007)
+- Updated page parser to handle unclosed HTML comments within CSS (May 31, 2007)
+- Fixed issue with web-based cropping tool not being able to download thumbnails from galleries that redirect (May 31, 2007)
+- Fixed issue with gallery scanner reports not displaying the error message for connection errors (May 31, 2007)
+- Added option to allow submitters to provide the format of their gallery when they submit (May 31, 2007)
+- Added option to either reject or automatically crop uploaded preview thumbs that are improperly sized (May 31, 2007)
+- Gallery import function will no longer create empty categories (June 1, 2007)
+- Added report of galleries that were skipped during import (June 1, 2007)
+- Added more options for handling duplicate galleries during import (June 1, 2007)
+- Added option to notify administrators when there are partner account requests waiting (June 1, 2007)
+- Added the patch.php script which will perform any necessary updates after upgrading an installation (June 1, 2007)
+- Added gallery statistics interface to view most clicked and most productive galleries, sponsors, and categories (June 1, 2007)
+- Added ftpthumbs.php utility script to transfer preview thumbnails to a remote server (June 3, 2007)
+- Added ability to search in the sponsor name from the search galleries interface (June 4, 2007)
+
+
+
+1.0.0 BETA - May 29, 2007
+=========================
+- Fixed issue with http.class.php not downloading binary files correctly when not using cURL (May 22, 2007)
+- Fixed issue with sponsor data not getting passed through when importing galleries (May 22, 2007)
+- Fixed issue with category and thumbnail preview not showing up on the gallery confirmation page (May 25, 2007)
+- Fixed issue with category not showing up on the gallery submission recorded page after cropping a preview thumbnail (May 25, 2007)
+- Fixed issue with partner accounts not being properly associated with submitted galleries (May 25, 2007)
+- Fixed issue with sponsor not being assigned correctly in the review galleries interface (May 25, 2007)
+- Added {phpcode} TGP page template function to allow PHP code to be embedded in generated pages (May 22, 2007)
+- Added notification when starting the gallery scanner if no galleries match the scanner config criteria (May 22, 2007)
+- Increased size of the page navigation icons in the control panel interface (May 22, 2007)
+- Added page navigation icons to the bottom of several search results pages (May 22, 2007)
+- Added Per Page setting on the gallery search interface (May 22, 2007)
+- Added Per Page setting on the manage categories interface (May 22, 2007)
+- Added Per Page setting on the manage pages interface (May 22, 2007)
+- Added support for uploading of preview thumbnail images through the search galleries and review galleries interfaces (May 22, 2007)
+- Added character counter for the description field on the end-user gallery submission form (May 26, 2007)
+- Added character counter for the description field on the review galleries control panel interface (May 26, 2007)
+- Added character counter for the description field on the add/edit a gallery control panel interface (May 26, 2007)
+- Added in-place editing of gallery data in the search galleries interface (May 29, 2007)
+- Added character counter for the in place editing fields in the search galleries control panel interface (May 29, 2007)
+
+
+
+1.0.0 BETA - May 21, 2007
+=========================
+- Fixed issue with array_merge error message after saving software settings on servers using CGI version of PHP (May 19, 2007)
+- Fixed issue with PHP 5 not being able to pull galleries from the database properly (May 19, 2007)
+- Fixed issue with end-user web-based cropping tool not working properly in IE (May 20, 2007)
+- Updated submit-complete.tpl template to say Submission Confirmed instead of Recorded when confirming submissions (May 20, 2007)
+- Fixed issue with SQL error message when editing a gallery or partner account (May 20, 2007)
+- Fixed issue with download speed check in gallery submission script (May 21, 2007)
+- Fixed issue with {$confirmed} template value not being properly set when a gallery is confirmed (May 21, 2007)
+- Fixed issue with gallery scanner not updating thumbnail counts for galleries with a 0 thumbnail count (May 21, 2007)
+- Fixed issue with category not displaying when using MIXED,-Category format for category setting of {galleries} function (May 21, 2007)
+- Code cleanup in gallery scanner functions to reduce memory usage (May 21, 2007)
+- Multiple documentation updates
+
+
+
+1.0.0 BETA - May 18, 2007
+=========================
+- Initial public release of TGPX

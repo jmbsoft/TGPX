@@ -1,0 +1,163 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div align="center">
+<span class="large">ftpthumbs.php Utility Script</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+For very high traffic sites it may be useful to split the load between two servers, and have one that serves all of the preview thumbnail files separate
+from the one that serves the HTML files for your TGP pages.  With the ftpthumbs.php utility script, this can be done.
+
+<br />
+<br />
+
+<b class="heading">Requirements</b>
+
+<br />
+<br />
+
+This script makes use of the PHP FTP extension.  If you are unsure if the FTP extension is compiled into PHP on your server, you can contact your server
+administrator or check the phpinfo() function through the TGPX control panel.  If the FTP extension is not available, you can ask your server administrator
+to reinstall PHP with support for the FTP extension.
+
+<br />
+<br />
+
+Your server will also need to have the command line interface (CLI) version of PHP installed.  If you are not sure about this, contact
+your server administrator and ask them if the CLI version of PHP is installed on the server.  You will also need to know where the CLI PHP binary is located
+on the server.  In most cases it is in /usr/bin or /usr/local/bin
+
+<br />
+<br />
+
+<b class="heading">How It Works</b>
+
+<br />
+<br />
+
+This script uses an FTP connection to transfer your thumbnails from the server where TGPX is installed to a remote server.  During this process
+the thumbnail URL stored in the database will be updated to point to the remote server for every gallery that has it's thumbnail transferred there.  This function
+only works when you run this script, any new galleries that get added or thumbnails that are created through the control panel will have their thumbnails
+stored on the local server until you run this script again.  If you plan on hosting all of your thumbnails from the remote server, you will want to setup this
+script to run by cron once a day (or at whatever interval you like) so it can transfer any new thumbnails that have been created.
+
+<br />
+<br />
+
+If your remote thumbnail hosting server goes offline, the thumbnail images will not appear on your TGP pages, so you should take that into account when 
+deciding whether or not to use this feature.  You will want to make sure that you are using a very stable server so that your thumbs will always be available
+for surfers to view when they visit your TGP page.
+
+<br />
+<br />
+
+<b class="heading">Configuring the ftpthumbs.php Script</b>
+
+<br />
+<br />
+
+You will need to edit the ftpthumbs.php script before you can use it.  It is located in the utilities directory of the TGPX software
+distribution and can be edited in your favorite text editor (<a href="http://www.editplus.com/" target="_blank" class="link">EditPlus</a>
+is recommended for Windows users).  Once you have that file opened in your text editor, you will find several variable settings near the
+top of that file.  Each of the variables that needs to be set is described below.
+
+<ul>
+$remote_url - The full URL on the remote server where the thumbnail files will be served from<br />
+$ftp_host - The FTP hostname of the remote server where the thumbnail files will be transferred<br />
+$ftp_user - The FTP username to login to the remote server<br />
+$ftp_pass - The FTP password to login to the remote server<br />
+$ftp_port - The port number that the remote FTP server is running on<br />
+$ftp_dir - The directory on the remote server that the program needs to change into after logging in
+</ul>
+
+Once you have those variables set, upload the ftpthumbs.php script to your server.  It will need to be placed in the admin directory of your TGPX
+installation.
+
+<br />
+<br />
+
+It is also highly recommended that you make a backup of your gallery database and preview thumbnails before you run this script.  You can backup your
+gallery database using the software's built in or database backup function.
+
+<br />
+<br />
+
+<b class="heading">Running the ftpthumbs.php Script</b>
+
+<br />
+<br />
+
+The ftpthumbs.php script must be run from the command line of your server, it cannot be accessed through a browser.  You will need SSH or telnet 
+access to your server in order to use this script, or you will need to run it through cron at specific intervals.
+
+<br />
+<br />
+
+You can now login to the server through telnet or SSH and change into the directory where the ftpthumbs.php script is located.  It is recommended
+that you run the ftpthumbs.php script during off-peak hours, since it will be using some of your available server bandwidth to transfer the thumbnail
+files to the remote server.  Execute the following command to begin the thumbnail transfer process (where /usr/local/bin/php is the full path to the
+CLI version of PHP on your server):
+
+<br />
+<br />
+
+/usr/local/bin/php ftpthumbs.php -v
+
+<br />
+<br />
+
+When you execute this command, the script will begin running and will display some output to let you know what it is doing.  If you remove the -v portion of the
+command, the script will not output anything at all.  You should allow several minutes for the transfer process to be completed, depending on how many preview thumbnails you have.  
+When the script is done it simply return you to the command line of your server.  You can now login to the TGPX control panel and use the <a href="galleries.html">Search Galleries</a>
+interface to view the galleries and make sure the thumbs are showing up properly.
+
+<br />
+<br />
+
+<b class="heading">Running the ftpthumbs.php Script Through Cron</b>
+
+<br />
+<br />
+
+To automate the process of transferring the thumbnail files to your remote server, you can setup the ftpthumbs.php script to run as a cron job at whatever interval
+you specify.  For the basics of setting up a cron job, see the <a href="cron.html">Cron</a> section of the software manual.  Once you have figured out
+the interval you want to use, you can setup your crontab entry along with any other TGPX entries you have.  For example:
+
+<br />
+<br />
+
+0 6,18 * * * /usr/local/bin/php /full/directory/path/to/ftpthumbs.php 2>&amp;1 &amp;
+
+<br />
+<br />
+
+This example would run the ftpthumbs.php script twice per day; once at 6am and once at 6pm.  Note that the /full/directory/path/to/ portion would be replaced with the
+directory path on your server to the directory where the ftpthumbs.php script is located.  It is also important to have the &amp; character at the end.  This tells it
+to run in the background so that the server's cron system can go about it's business and not wait for the ftpthumbs.php utility to finish it's task. 
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

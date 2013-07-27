@@ -1,0 +1,269 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Importing Galleries from RSS Feeds</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The RSS feed feature of TGPX will allow you to setup and manage URLs to RSS feeds and in turn automatically extract gallery information from those
+RSS feeds.  This document will describe how to add RSS feeds and extract the gallery information from those feeds.
+
+<br />
+<br />
+
+<b class="heading">Searching RSS Feeds<a name="search"></a></b>
+
+<br />
+<br />
+
+To view the currently configured RSS feeds so you can modify or delete them, access the Galleries &gt; Import From RSS function from the control panel menu.  This will display a 
+page where you will be able to see all of the currently configured RSS feeds, and search them if necessary.
+
+<br />
+<br />
+
+In the table that displays the RSS feeds, you will find several functions that you can run on a single feed.  Each of those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/expand.png" border="0" alt="">
+</td>
+<td>
+Click this icon to import galleries from this RSS feed
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the feed settings.  A window will appear where you will be able to edit all of the feed settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this RSS feed.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running these functions on single feeds, you can also delete several feeds at one time by checking the checkbox for each feed that you want to delete and
+then pressing the Delete button at the bottom of the RSS feed interface.
+
+<br />
+<br />
+
+<b class="heading">Adding a RSS Feed</b>
+
+<br />
+<br />
+
+To add a new RSS feed access the Galleries &gt; Import From RSS function from the control panel menu.  Near the top of the page in the header
+bar that reads "Configured RSS Feeds" click on the <img src="../images/add.png" border="0" alt=""> icon.  This will display a popup 
+window where you will be able to enter the feed information that you want to use.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap>
+<b>RSS Feed URL</b>
+</td>
+<td>
+Enter the full URL to the RSS feed
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Sponsor</b>
+</td>
+<td>
+Select the sponsor that this RSS feed should be associated with.  You can also choose to create a new sponsor if you like; in that case a text input box
+will appear where you can enter the sponsor name.
+<br /><br />
+<div class="note">
+The field that allows you to enter the sponsor name also accepts a special format:
+<br /><br />
+
+Sponsor Name|Sponsor URL
+
+<br /><br />
+
+Using this format you can quickly add both the sponsor name and the URL to the sponsor's website.
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Access This Feed</b>
+</td>
+<td>
+Press this button to have the software access the feed and display the first item that it extracts from the feed.  This
+will assist you in configuring the next 4 fields.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Gallery URL From</b>
+</td>
+<td>
+Select the XML tag from the RSS feed that contains the gallery URL
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Description From</b>
+</td>
+<td>
+Select the XML tag from the RSS feed that contains the gallery description.  The software will automatically strip out any HTML code, so you
+can safely select tags that contain more than just plain text.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Added From</b>
+</td>
+<td>
+Select the XML tag from the RSS feed that contains the date the gallery was added.  You can also select SKIP if you would like the software
+to automatically assign the added date when the gallery is actually added to your database.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Preview Thumb From</b>
+</td>
+<td>
+Select the XML tag from the RSS feed that contains the URL to an already existing preview thumbnail.  The software will automatically be able to find
+the URLs to images within the tag, so you can select any tag that contains the URL to an image (even if it is embedded in HTML code).
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Status</b>
+</td>
+<td>
+Select the status to assign to all of the imported galleries.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+Select the type to assign to the imported galleries.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Format</b>
+</td>
+<td>
+Select the format to assign to the imported galleries.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Category</b>
+</td>
+<td>
+Select the category to assign to the imported galleries.
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have filled in all of the fields as you want them, press the Add RSS Feed button.  This will add the new feed to the database, and you will then be able
+to start importing galleries from that feed.
+
+<br />
+<br />
+
+<b class="heading">Editing a RSS Feed<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a RSS feed you will first need to locate it through the <a href="#search">RSS Feed Searching</a> interface.  When you locate the feed you want to edit, click on the
+<img src="../images/edit.png"> icon to bring up the feed editing interface.  This interface is nearly identical to the feed creation interface,
+and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update RSS Feed button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a RSS Feed<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete a RSS feed you will first need to locate it through the <a href="#search">RSS Feed Searching</a> interface.  When you locate the feed you want to delete, click
+on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several feeds at once by putting a check in the box next to the feeds that you want to delete, then pressing the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Getting Galleries From Your Feeds<a name="delete"></a></b>
+
+<br />
+<br />
+
+Once you have configured at least one RSS feed, you can begin importing galleries at any time.  There are two ways to import galleries from your RSS feeds:
+
+<ol>
+<li> Through the Galleries &gt; Import From RSS interface you can click on the <img src="../images/expand.png" border="0" alt=""> icon for the RSS feed from which you wish to import galleries.
+     
+     <br /><br/>
+     
+<li> To import galleries in bulk from all of your RSS feeds, you can run the gallery scanner with the <i>Import galleries from your configured RSS feeds before scanning</i> option
+     enabled.  When this is enabled, the gallery scanner will access all of your RSS feeds and import any new galleries before it starts scanning.
+</ol>
+
+The gallery scanner is obviously a more convenient method, especially if you have a large number of feeds configured.  You can also use cron to automatically run the gallery scanner, so
+you can have it check for and get new galleries from your feeds on a daily basis.
+
+<br />
+<br />
+
+No matter how you choose to import galleries from your RSS feeds, the software will always grab the entire feed and check it for galleries that you already have in your database.  It
+will only import galleries that are not already in your database, so you don't have to worry about getting duplicates if you run the import function multiple times.  
+
+<br />
+<br />
+
+Keep in mind that
+the amount of new galleries you get from your RSS feeds will depend on who is maintaining those feeds.  If a feed does not get updated very often, it could be weeks or months before new
+galleries are available!
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

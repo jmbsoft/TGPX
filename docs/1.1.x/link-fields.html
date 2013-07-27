@@ -1,0 +1,229 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">User Defined Link Fields</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+LinkX allows you to have an unlimited number of user defined fields to store additional information about the links that are submitted.  This document provides an overview of how to enable and use
+the user defined link fields.
+
+<br />
+<br />
+
+<b class="heading">Viewing User Defined Link Fields</b>
+
+<br />
+<br />
+
+To see the currently defined link fields use the Database &gt; User Defined Link Fields function from the control panel menu.  This will load a page which will show you all of the link fields you have
+defined thus far.  You will see an overview of the field name, label, field type, the options you have set on the field, and functions that can be run.
+
+<br />
+<br />
+
+<b class="heading">Adding A User Defined Link Field</b>
+
+<br />
+<br />
+
+To add a new user defined link field, click on the <img src="../images/add.png" width="16" height="16" border="0" alt=""> icon in the header bar of the user defined link fields interface.
+This will display a window where you will be able to enter all of the information for the new field you are adding.  Each of those fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Field Name</b>
+</td>
+<td>
+The name to use for the database field.  This should contain only English letters, numbers, and the underscore character.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Label</b>
+</td>
+<td>
+The label that will appear next to this field on the submission forms
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+The type of HTML input field to use
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Tag Attributes</b>
+</td>
+<td>
+Any custom attribute values you want to appear in the HTML form field tag
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Options</b>
+</td>
+<td>
+A comma separated list of options the user will be presented with (for select fields only)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Validation</b>
+</td>
+<td>
+The <a href="validations.html">type of validation</a> that should be done on this field
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Validation Error</b>
+</td>
+<td>
+The error message to display if the data provided does not validate
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Display on link submission form</b>
+</td>
+<td>
+Check this box to display this field on the link submission form
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Display on link editing form</b>
+</td>
+<td>
+Check this box to display this field on the link editing form
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Display on site details page</b>
+</td>
+<td>
+Check this box to display the data assigned to this field on the link details page
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Field is required for submission</b>
+</td>
+<td>
+Check this box if this field is required during link submission/editing
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have filled in all of the fields as you want them, press the Add Link Field button.  This will add the new link field to the database.
+
+<br />
+<br />
+
+<b class="heading">Field Types</b>
+
+<br />
+<br />
+
+There are four different field types that you can select from when adding/updating a user defined link field.  Each of those are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Text</b>
+</td>
+<td>
+A standard one line text input field
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Textarea</b>
+</td>
+<td>
+A multi-line text input field
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Select</b>
+</td>
+<td>
+A drop down selection box
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Checkbox</b>
+</td>
+<td>
+A standard checkbox
+</td>
+</tr>
+</table>
+</ul>
+
+<b class="heading">Editing a Link Field<a name="edit"></a></b>
+
+<br />
+<br />
+
+Locate the link field you want to delete using the user defined link fields interface.  When you locate the link field you want to edit, click on the 
+<img src="../images/edit.png" width="9" height="12" border="0" alt=""> icon to bring up the link field editing interface.  This interface is nearly identical
+to the link field creation interface, and has the same form fields with the same properties.  You can make the changes that you want, and then press the
+Update Link Field button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Link Field<a name="delete"></a></b>
+
+<br />
+<br />
+
+<div class="note">
+Deleting a link field will also delete all of the data associated with that field for every link in the database
+</div>
+
+<br />
+
+Locate the link field you want to delete using the user defined link fields interface.
+When you locate the link field you want to delete, click on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several link fields at once by putting a check in the box next to the link fields you want to delete and pressing the Delete button
+at the bottom of the user defined link fields interface.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1349 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Directory Templates</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The directory templates are the templates that control the appearance of your link directory which surfers will be viewing.  This document will give you an overview
+of the custom functions and variables available in each of the directory templates.
+
+<br />
+<br />
+
+<b class="heading">Editing Directory Templates</b>
+
+<br />
+<br />
+
+To edit the directory templates access the Templates &gt; Directory Templates function from the control panel menu.  This will display a page where you can select which
+template you want to edit.  Once you have selected the template you want to edit, press the Load Template button.  You will be returned to the same page, but there will now
+be a large text box where you can make changes to the template.  When you are done making changes, press the Save Template button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Custom Functions</b>
+
+<br />
+<br />
+
+In addition to the <a href="templates.html">standard template functions</a>, the directory templates have several custom functions available which allow you to
+display catgories, links, news items, etc.  Each of those custom functions are described here.
+
+<ul>
+
+<b>{ad}</b>
+
+<xmp>{ad
+tags=programming programmers
+pagedupes=false
+order=times_displayed, (unique_clicks/times_displayed) DESC}</xmp>
+
+The {ad} template function will display a single advertisement from the pool of advertisments you have configured through the control panel.  This function can be used on 
+any of your defined TGP pages and has a few attributes that you can specify to control how it operates.  Each of those attributes are described below.
+
+<br />
+<br />
+
+<ul>
+<b>order</b> <span class="small grey">(optional, defaults to times_displayed, (unique_clicks/times_displayed) DESC)</span><br />
+The order in which advertisements will be pulled from the database.  The following order options are available:
+
+<br />
+<br />
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>times_displayed</b>
+</td>
+<td>
+The number of times the advertisements has been displayed
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>raw_clicks</b>
+</td>
+<td>
+The number of raw clicks the advertisement has received
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>unique_clicks</b>
+</td>
+<td>
+The number of unique clicks the advertisement has received
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>weight</b>
+</td>
+<td>
+The weight value assigned to the advertisement
+</td>
+</tr>
+<tr>
+<td colspan="2" style="font-size: 9pt;">
+<br />
+All of these values can be modified with DESC to sort in descending order instead of ascending order.  Additionally, these values may be combined together to
+generate sub-sorting options.  Here are a few examples:
+<br />
+<br />
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>raw_clicks DESC</b>
+</td>
+<td>
+Sort by the number of raw clicks on the advertisement, from most to least
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>weight DESC</b>
+</td>
+<td>
+Sort by the weight assigned to the advertisement, from largest to smallest
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>(unique_clicks/times_displayed) DESC</b>
+</td>
+<td>
+A productivity value taking into account the number of times the advertisement has been displayed
+and the number of unique clicks it has received.  Ordered from most productive to least productive.
+</td>
+</tr>
+</table>
+</ul>
+
+<br />
+<br />
+
+<b>weight</b> <span class="small grey">(optional, defaults to any)</span><br />
+Use this option to specify what advertisement weights can be pulled for display.  You can use any type of comparison operator here, followed
+by the weight value that you want to restrict.  Below are all of the comparison options you can use.  Note that you are not restricted to
+using 10, that is only there as an example.  You can use any valid weight value in it's place.
+
+<br />
+<br />
+
+<ul  style="font-size: 8pt;">
+<b>weight="= 10"</b><br />
+Pull galleries that have a weight of exactly 10<br /><br />
+<b>weight="!= 10"</b><br />
+Pull galleries that have a weight which is anything except 10<br /><br />
+<b>weight="&gt; 10"</b><br />
+Pull galleries that have a weight greater than 10<br /><br />
+<b>weight="&lt; 10"</b><br />
+Pull galleries that have a weight less than 10<br /><br />
+<b>weight="&gt;= 10"</b><br />
+Pull galleries that have a weight greater than or equal to 10<br /><br />
+<b>weight="&lt;= 10"</b><br />
+Pull galleries that have a weight less than  or equal to 10
+</ul>
+
+<br /><br />
+
+<b>tags</b> <span class="small grey">(optional)</span><br />
+Use this option to specify a <a href="boolean-searches.html">boolean mode search</a> term in the tags assigned to your advertisements.
+Here are some examples:
+
+<br /><br />
+
+<ul  style="font-size: 8pt;">
+<b>tags=main</b><br />
+Pull pages that have the word main in their tag list<br /><br />
+<b>tags=movies videos</b><br />
+Pull pages that have either the word movies or videos in their tag list<br /><br />
+<b>tags=+movies +main</b><br />
+Pull pages that have both the word movies and main in their tag list<br /><br />
+<b>tags=movies -main</b><br />
+Pull pages that have the word movies but not the word main in their tag list
+</ul><br /><br />
+
+<b>pagedupes</b> <span class="small grey">(optional, defaults false)</span><br />
+Use this option to specify whether or not advertisements which have already been displayed on this page can be pulled for display again on this page.  
+If you set this to true, repeats will be allowed.  Setting this to false means that no repeats will be allowed.<br /><br />
+
+</ul>
+
+<br />
+<br />
+
+<b>{searches}</b>
+
+<xmp>{searches var=$searches amount=50 order=searches DESC alphabetize=true}</xmp>
+
+The {searches} template function will load, into a variable, information about the end-user searches that have been entered.  You can then use the stock {foreach} function
+to display the search terms that your users have entered.  This is useful for creating a list or tag cloud of the most commonly searched terms.  This function has a few 
+attributes that you can specify to control how it operates.  Each of those attributes are described below.
+
+<br />
+<br />
+
+<ul>
+<b>var</b> <span class="small grey">(required)</span><br />
+The name of the template variable that the search data will be loaded into
+<br /><br />
+
+<b>amount</b> <span class="small grey">(optional, defaults to all)</span><br />
+Specify a numerical value to limit the number of search terms that are pulled, or enter the text string all to have all search terms pulled
+<br /><br />
+
+<b>order</b> <span class="small grey">(optional, defaults to searches DESC)</span><br />
+The order in which the searches will be displayed.  The following order options are available:
+
+<br />
+<br />
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>term</b>
+</td>
+<td>
+Sort alphabetically by the search term itself
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>searches</b>
+</td>
+<td>
+Sort numerically by the number of searches that have been executed for each term
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>date_last_search</b>
+</td>
+<td>
+Sort by the date that this term was most recently searched for
+</td>
+</tr>
+<tr>
+<td colspan="2" style="font-size: 9pt;">
+<br />
+All of these values can be modified with DESC to sort in descending order instead of ascending order.  Additionally, these values may be combined together to
+generate sub-sorting options.  Here are a few examples:
+<br />
+<br />
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>searches DESC</b>
+</td>
+<td>
+Sort by the number of searches that have been executed, from most to least
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>date_last_search DESC</b>
+</td>
+<td>
+Sort by the date that this term was most recently searched for, from newest to oldest
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>searches DESC, date_last_search DESC</b>
+</td>
+<td>
+Sort by the number of searches that have been executed, from most to least.
+If two search terms have the same number of searches, they will be sub-sorted 
+by the date that this term was most recently searched for, from newest to oldest
+</td>
+</tr>
+</table>
+</ul>
+
+<br />
+<br />
+
+<b>alphabetize</b> <span class="small grey">(optional, defaults to false)</span><br />
+true or false.  If this is set to true, the search terms will be alphabetized <b>after</b> having the order sorting option applied.
+If set to false, no alphabetizing will be applied.  This is useful, for example, if you want to pull the to 50 most searched terms
+but display them alphabetized rather than in order of how many searches have been performed for each.
+<br /><br />
+
+</ul>
+
+<br />
+<br />
+
+<b>{categories}</b>
+
+<xmp>{categories var=category order="name"}
+</xmp>
+
+The {categories} template function will load categories into a variable you specify, so that they can be displayed using the stock {foreach} function.  This function
+will be used on page where you want to display the root level categories, the sub-categories of a specific category, or related categories of a specific category.  The
+templates this function can be used on are:
+
+<br />
+<br />
+
+<ul>
+directory-category.tpl<br />
+directory-index.tpl
+</ul>
+
+<br />
+
+This template function has a number of attributes that you can specify to control how this function operates.  Each of those attributes are described below.
+
+<br />
+<br />
+
+<ul>
+<b>var</b> - The name of the template variable that the categories will be loaded into<br />
+<b>order</b> - The order in which the categories will be displayed (explained below)<br />
+<b>parent</b> - The parent category; the sub-categories of this category will be loaded<br />
+<b>amount</b> - The maximum number of categories to load<br />
+<b>related</b> - Include this option and set it to true to display the related categories of a specific category<br />
+</ul>
+
+<br />
+
+The order attribute allows you to specify how the categories should be sorted when they are displayed.  There are a few different sorting options you can use, each
+of which are described below.
+
+<br />
+<br />
+
+<ul>
+<b>name</b> - Sort alphabetically by the category name<br />
+<b>links</b> - Sort by the number of links in the category, from least to most<br />
+<b>links DESC</b> - Sort by the number of links in the category, from most to least<br />
+<b>subcategories</b> - Sort by the number of sub-categories this category has, from least to most<br />
+<b>subcategories DESC</b> - Sort by the number of sub-categories this category has, from most to least<br />
+<b>RAND()</b> - Sort randomly
+</ul>
+
+<br />
+<br />
+
+<b>{links}</b>
+
+<xmp>{links var=regular_links type=regular perpage=20 order="RAND()"}
+</xmp>
+
+The {links} template function will load links into a variable you specify, so that they can be displayed using the stock {foreach} function.  This function
+will be used on page where you want to display the links contained in a category, link search results, new links, top rated links, etc.  The
+templates this function can be used on are:
+
+<br />
+<br />
+
+<ul>
+directory-index.tpl<br />
+directory-category.tpl<br />
+directory-new.tpl<br />
+directory-popular.tpl<br />
+directory-search.tpl<br />
+directory-top-rated.tpl
+</ul>
+
+<br />
+
+This template function has a number of attributes that you can specify to control how this function operates.  Each of those attributes are described below.
+
+<br />
+<br />
+
+<ul>
+<b>var</b> - The name of the template variable that the links will be loaded into<br />
+<b>order</b> - The order in which the links will be displayed (explained below)<br />
+<b>type</b> - The type of links to display (explained below)<br />
+<b>amount</b> - The maximum number of links to load (explained below)<br />
+<b>perpage</b> - The maximum number of links to display per page (explained below)<br />
+<b>category</b> - The category to pull links from
+</ul>
+
+<br />
+
+The type attribute of this function will determine the type of links displayed, and only certain types can be displayed on certain templates.  The available type
+options, including the templates they can be used on, are described below.
+
+<br />
+<br />
+
+<ul>
+<b>regular</b> - Loads regular and premium links; valid on directory-category.tpl<br />
+<b>featured</b> - Loads featured links; valid on directory-category.tpl<br />
+<b>top</b> - Loads the top rated links; valid on directory-index.tpl and directory-top.tpl<br />
+<b>new</b> - Loads the newest links; valid on directory-index.tpl and directory-new.tpl<br />
+<b>popular</b> - Loads the most clicked links; valid on directory-index.tpl and directory-popular.tpl<br />
+<b>search</b> - Loads the links that match the search term entered; valid on directory-search.tpl<br />
+</ul>
+
+<br />
+
+The amount attribute of this function will limit the number of links that are loaded for the top, new, and popular types.  So, for example, if you wanted to 
+load the 5 newest links you would set the type to new and the amount to 5.
+
+<br />
+<br />
+
+The perpage attribute of this function allows for automatic pagination on the directory-category.tpl and directory-search.tpl templates.  It is valid in {links} template
+tags where the type is set to regular or search.  For example, if you set this to 20 on the directory-search.tpl template, this will display 20 search results per page.  
+Using additional template tags you will be able to automatically create links to the other pages of results.
+
+<br />
+<br />
+
+The category attribute allows you to specify the category from which the links will be pulled.  On the directory-category.tpl template you do not need to use this 
+attribute, as the software automatically knows which category topull the links from.  This can be used on other pages, however, to display links from a specific category.
+The category can be specified as it's ID number or using a template variable that has been assigned a category (such as from the {categories} template function).
+
+<br />
+<br />
+
+The order attribute allows you to specify how the links should be sorted when they are displayed.  This attribute can be used in {links} tags where the type is set to
+regular, featured, or search.  There are a few different sorting options you can use, each of which are described below.
+
+<br />
+<br />
+
+<ul>
+<b>title</b> - Sort alphabetically by the site title<br />
+<b>clicks</b> - Sort by the number of clicks the link has received, from least to most<br />
+<b>clicks DESC</b> - Sort by the number of clicks the link has received, from most to least<br />
+<b>ratings</b> - Sort by the number of ratings the link has received, from least to most<br />
+<b>ratings DESC</b> - Sort by the number of ratings the link has received, from most to least<br />
+<b>rating_avg</b> - Sort by the average rating the link has received, from lowest to highest<br />
+<b>rating_avg DESC</b> - Sort by the average rating the link has received, from highest to lowest<br />
+<b>weight</b> - Sort by the weight assigned to the link, from lowest to highest<br />
+<b>weight DESC</b> - Sort by the weight assigned to the link, from highest to lowest<br />
+<b>date_added</b> - Sort by the date when the link was added, from oldest to newest<br />
+<b>date_added DESC</b> - Sort by the date when the link was added, from newest to oldest<br />
+<b>date_modified</b> - Sort by the date when the link was last modified, from oldest to newest<br />
+<b>date_modified DESC</b> - Sort by the date when the link was last modified, from newest to oldest<br />
+<b>RAND()</b> - Sort randomly
+</ul>
+
+<br />
+<br />
+
+<b>{news}</b>
+
+<xmp>{news var=news_items amount=5}
+</xmp>
+
+The {news} template function will load news items into a variable you specify, so that they can be displayed using the stock {foreach} function.  This function
+will be used on page where you want to display the news items you have configured in the LinkX control panel.  The templates this function can be used on are:
+
+<br />
+<br />
+
+<ul>
+directory-index.tpl<br />
+directory-category.tpl<br />
+directory-new.tpl<br />
+directory-popular.tpl<br />
+directory-top-rated.tpl
+</ul>
+
+<br />
+
+This template function has a couple of attributes that you can specify to control how this function operates.  Each of those attributes are described below.
+
+<br />
+<br />
+
+<ul>
+<b>var</b> - The name of the template variable that the news items will be loaded into<br />
+<b>amount</b> - The maximum number of news items to load<br />
+</ul>
+
+<br />
+
+News items will automatically be sorted by the date assigned to them, from newest to oldest.  So, for example, if you set the amount value to 5, this will load
+the 5 newest news items.
+</ul>
+
+
+<b class="heading">Common Variables<a name="common"></a></b>
+
+<br />
+<br />
+
+There are some variables that get used in multiple templates, so to avoid describing them for every template they appear in, the are described in this section.
+
+<ul>
+<b>{$config}</b>
+
+<br />
+<br />
+
+This template value contains the LinkX configuration settings.
+
+<br />
+<br />
+
+{$config.base_url} - Base URL setting<br />
+{$config.cookie_domain} - Cookie Domain setting<br />
+{$config.from_email} - E-mail Address setting<br />
+{$config.from_email_name} - E-mail Name setting<br />
+{$config.page_new} - New Links Page setting<br />
+{$config.page_popular} - Popular Links Page setting<br />
+{$config.page_top} - Top Links Page setting<br />
+{$config.page_details} - Link Details Page setting<br />
+{$config.extension} - File Extension setting<br />
+{$config.date_format} - Date Format setting<br />
+{$config.time_format} - Time Format setting<br />
+{$config.timezone} - Timezone setting<br />
+{$config.dec_point} - Decimal Point setting<br />
+{$config.thousands_sep} - Thousands Separator setting<br />
+{$config.mod_rewrite} - Use mod_rewrite to create search engine friendly URLs setting<br />
+{$config.custom_categories} - Using custom templates for category pages setting<br />
+{$config.min_desc_length} - Min Description Length setting<br />
+{$config.max_desc_length} - Max Description Length setting<br />
+{$config.min_title_length} - Min Title Length setting<br />
+{$config.max_title_length} - Max Title Length setting<br />
+{$config.max_keywords} - Keywords Allowed setting<br />
+{$config.link_weight} - Default Link Weight setting<br />
+{$config.allow_redirect} - Allow URL redirection setting<br />
+{$config.recip_required} - Require a reciprocal link setting<br />
+{$config.user_for_links} - Only registered users can submit links setting<br />
+{$config.email_links} - Send confirmation e-mail message to new links setting<br />
+{$config.confirm_links} - New links must be confirmed through e-mail before activation setting<br />
+{$config.approve_link_edits} - Edited links must be approved by an administrator before activation setting<br />
+{$config.min_comment_length} - Min Comment Length setting<br />
+{$config.max_comment_length} - Max Comment Length setting<br />
+{$config.comment_delay} - Comment Delay setting<br />
+{$config.user_for_comments} - Only registered users can leave comments for links setting<br />
+{$config.approve_comments} - New comments must be approved by an administrator before display setting<br />
+{$config.max_rating} - Maximum Rating setting<br />
+{$config.user_for_rate} - Only registered users can rate links setting<br />
+{$config.email_accounts} - Send confirmation e-mail message to new accounts setting<br />
+{$config.confirm_accounts} - New accounts must be confirmed through e-mail before activation setting<br />
+{$config.approve_accounts} - New accounts must be approved by an administrator before activation setting<br />
+{$config.dsbl_link} - Check dsbl.org for banned IP addresses during link submission setting<br />
+{$config.dsbl_rate} - Check dsbl.org for banned IP addresses during link rating setting<br />
+{$config.dsbl_comment} - Check dsbl.org for banned IP addresses during link comment submission setting<br />
+{$config.dsbl_account} - Check dsbl.org for banned IP addresses during account creation setting<br />
+{$config.dsbl_report} - Check dsbl.org for banned IP addresses during bad link reporting setting<br />
+{$config.font_dir} - Font Directory setting<br />
+{$config.min_code_length} - Min Code Length setting<br />
+{$config.max_code_length} - Max Code Length setting<br />
+{$config.use_words} - Use words file for verification codes setting<br />
+{$config.link_captcha} - Require verification code on link submission form setting<br />
+{$config.account_captcha} - Require verification code on account signup form setting<br />
+{$config.rate_captcha} - Require verification code to rate links setting<br />
+{$config.comments_captcha} - Require verification code to leave comments setting<br />
+{$config.cache_index} - Index Page Cache setting<br />
+{$config.cache_category} - Category Page Cache setting<br />
+{$config.cache_new} - New Links Page Cache setting<br />
+{$config.cache_popular} - Popular Links Page Cache setting<br />
+{$config.cache_top} - Top Links Page Cache setting<br />
+{$config.cache_search} - Search Page Cache setting<br />
+{$config.cache_details} - Details Page Cache setting<br />
+{$config.logged_in} - A session value specifying whether the user is logged into their account
+
+<br />
+<br />
+<br />
+
+<b>{$account}</b>
+
+<br />
+<br />
+
+This template value contains the user account data for a specific account.
+
+<br />
+<br />
+
+{$account.username} - The account's username<br />
+{$account.password} - The account's password (this is only valid on the account-created.tpl template)<br />
+{$account.email} - The e-mail address associated with the account<br />
+{$account.name} - The name associated with the account
+
+<br />
+<br />
+
+In addition to these default values, all of your user defined account fields will be available from this template value as well.  So, for example, if you create
+a user defined field with the name icq_number you can access this value using {$account.icq_number}
+
+<br />
+<br />
+<br />
+
+<b>{$category}</b>
+
+<br />
+<br />
+
+This template value contains the data for a specific category.  Each item of a template variable set with the {categories} function contains these values.
+
+<br />
+<br />
+
+{$category.category_id} - The unique ID number assigned to this category<br />
+{$category.name} - The name of this category<br />
+{$category.description} - The description assigned to this category<br />
+{$category.meta_description} - The meta description assigned to this category<br />
+{$category.meta_keywords} - The meta keywords assigned to this category<br />
+{$category.parent_id} - The ID number of the parent of this category<br />
+{$category.path} - The path to this category for use in URLs when using mod_rewrite<br />
+{$category.path_parts} - An array containing the names of all the categories in this category's path<br />
+{$category.template} - The custom template filename assigned to this category<br />
+{$category.crosslink_id} - The ID number of the category this points to, if any<br />
+{$category.related_ids} - The ID numbers of the categories this category is related to<br />
+{$category.subcategories} - The number of sub-categories this category contains<br />
+{$category.links} - The number of links this category contains<br />
+{$category.status} - The status of this category
+
+<br />
+<br />
+<br />
+
+<b>{$link}</b>
+
+<br />
+<br />
+
+This template value contains the data for a specific link.  Each item of a template variable set with the {links} function contains these values.
+
+<br />
+<br />
+
+{$link.link_id} - The unique ID number assigned to this link<br />
+{$link.site_url} - The site URL for this link<br />
+{$link.recip_url} - The recip URL for this link<br />
+{$link.title} - The title assigned to this link<br />
+{$link.description} - The descrition assigned to this link<br />
+{$link.type} - The type of link (one of regular, premium, or featured)<br />
+{$link.expires} - The expiration date of this link when it changes from premium or featured back to regular<br />
+{$link.name} - The name associated with this link<br />
+{$link.email} - The e-mail address associated with this link<br />
+{$link.keywords} - The keywords assigned to this link<br />
+{$link.clicks} - The number of clicks this link has received<br />
+{$link.comments} - The number of comments this link has received<br />
+{$link.ratings} - The number of ratings this link has received<br />
+{$link.rating_avg} - The average rating this link has received<br />
+{$link.weight} - The weight value assigned to this link<br />
+{$link.date_added} - The timestamp when this link was added<br />
+{$link.date_modified} - The timestamp when this link was last modified<br />
+{$link.icons} - The icon HTML code assigned to this link<br />
+{$link.username} - The username of the account that submitted this link, if any<br />
+{$link.has_recip} - An indicator of whether this link has a reciprocal link to your site
+
+<br />
+<br />
+
+In addition to these default values, all of your user defined link fields will be available from this template value as well.  So, for example, if you create
+a user defined field with the name icq_number you can access this value using {$link.icq_number}
+
+<br />
+<br />
+<br />
+
+<b>{$news}</b>
+
+<br />
+<br />
+
+This template value contains the data for a news item.
+
+<br />
+<br />
+
+{$news.headline} - The headline of the news item<br />
+{$news.body} - The full text of the news item<br />
+{$news.date_added} - The timestamp when the news item was added
+
+<br />
+<br />
+
+In addition to these default values, all of your user defined account fields will be available from this template value as well.  So, for example, if you create
+a user defined field with the name icq_number you can access this value using {$account.icq_number}
+
+<br />
+<br />
+<br />
+
+<b>{$pagination}</b>
+
+<br />
+<br />
+
+This template value contains details on the pagination (multiple pages of links or search results) available for the page being viewed.
+
+<br />
+<br />
+
+{$pagination.prev} - An indicator of whether there is a previous page of results<br />
+{$pagination.next} - An indicator of whether there is a next page of results<br />
+{$pagination.start} - The starting position of results displayed on this page<br />
+{$pagination.end} - The ending position of results displayed on this page<br />
+{$pagination.total} - The total number of results<br />
+
+<br />
+<br />
+<br />
+
+
+<b>%%Powered_By%%</b>
+
+<br />
+<br />
+
+<div class="note">
+Removing or making the powered by link invisible to surfers is a violation of the software license agreement and will result in license termination.
+The powered by link can only be removed if you have purchased the <a href="http://www.jmbsoft.com/owners/kb/index.php?a=416">link removal license</a>.
+</div>
+
+<br />
+
+This is a special template value which does not conform to the standard format.  It is not necessary to enclose this template value in curly braces.
+This will control where the <i>Powered By LinkX</i> link appears on your pages.  If you remove this template value, the powered by link will automatically
+be placed on your page before the closing &lt;/body&gt; tag.
+
+<br />
+<br />
+
+</ul>
+
+<b class="heading">Templates and Their Variables</b>
+
+<br />
+<br />
+
+This section will describe all of the available templates and the variables you can use within each template.
+
+<ul>
+<b>account-created.tpl</b>
+
+<br />
+<br />
+
+This template is displayed to the user during the account registration process after their account has been created
+
+<br />
+<br />
+
+<ul>
+{$status} - The account status; one of unconfirmed, pending, or active<br />
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$account} - The account data; see the <a href="#common">Common Variables</a> section for details<br />
+{$user_fields} - The user defined fields for this account (array value)
+</ul>
+
+<br />
+<br />
+
+<b>account-edit.tpl</b>
+
+<br />
+<br />
+
+This template is displayed when a user wishes to edit their account
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$account} - The account data; see the <a href="#common">Common Variables</a> section for details<br />
+{$user_fields} - The user defined fields for this account (array value)<br />
+{$errors} - If any errors were encountered when editing the account, this value will contain them
+</ul>
+
+<br />
+<br />
+
+<b>account-forgot-confirm.tpl</b>
+
+<br />
+<br />
+
+This template is displayed when a user has entered their e-mail address to locate their lost account login information and the
+software has found a matching account.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$account} - The account data; see the <a href="#common">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>account-forgot-confirmed.tpl</b>
+
+<br />
+<br />
+
+This template value is displayed when a user has lost their login information and requested that they be reminded.  A confirmation
+e-mail will be sent to them and will contain a link to a page that they must visit to get a new password for their account.  This
+page is displayed when they click on the link in that e-mail message.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$account} - The account data; see the <a href="#common">Common Variables</a> section for details<br />
+{$error} - If any errors were encountered with the confirmation link, this value will contain them
+</ul>
+
+<br />
+<br />
+
+<b>account-forgot.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed when a user has lost their login information and they will need to enter their e-mail address
+in the form on this page.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$errors} - If any errors were encountered, this value will contain them
+</ul>
+
+<br />
+<br />
+
+<b>account-login.tpl</b>
+
+<br />
+<br />
+
+This template will display the account login screen.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$errors} - If any errors were encountered, this value will contain them<br />
+{$request.login_username} - The username that was entered on the login form<br />
+{$request.login_password} - The password that was etnered on the login form<br />
+{$request.u} - The URL that the user came from, so they can be redirected there once they login
+</ul>
+
+<br />
+<br />
+
+<b>account-logout.tpl</b>
+
+<br />
+<br />
+
+This template will display the account logout confirmation screen.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$http_referrer} - The URL that the user came from, so they can be redirected there once they logout
+</ul>
+
+<br />
+<br />
+
+<b>account-overview.tpl</b>
+
+<br />
+<br />
+
+This template will be shown after the user logs in and will contain their account information and the links they have submitted
+
+<br />
+<br />
+
+<ul>
+{$message} - This will be set to accountupdate if the user just edited their account<br />
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$account} - The account data; see the <a href="#common">Common Variables</a> section for details<br />
+{$links} - The links this account has submitted (array value); each item will contain the {$link} <a href="#common">Common Variables</a> values
+</ul>
+
+<br />
+<br />
+
+<b>account-register.tpl</b>
+
+<br />
+<br />
+
+This template will be shown when a user wants to create a new account; this is the account signup form
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$account} - The account data entered in the registration form; see the <a href="#common">Common Variables</a> section for details<br />
+{$user_fields} - The user defined fields for this account (array value)<br />
+</ul>
+
+<br />
+<br />
+
+<b>directory-category.tpl</b>
+
+<br />
+<br />
+
+This template will be shown when a surfer selects to view a specific category.  This page will be used to display the
+sub-categories and links within a category.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$this_category} - The current category being viewed; same values as the {$category} <a href="#common">Common Variable</a><br />
+{$pagination} - The pagination values for this page; see the <a href="#common">Common Variables</a> section for details<br />
+Each item from variables loaded by the {links} function will contain the {$link} <a href="#common">Common Variables</a> values<br />
+Each item from variables loaded by the {categories} function will contain the {$category} <a href="#common">Common Variables</a> values<br />
+</ul>
+
+<br />
+<br />
+
+<b>directory-index.tpl</b>
+
+<br />
+<br />
+
+This is the main link directory page that will contain the list of root level categories.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$total_categories} - The total number of categories in the database<br />
+{$total_links} - The total number of links in the database<br />
+{$index_page} - A value indicating that this is the index page that is being viewed<br />
+Each item from variables loaded by the {links} function will contain the {$link} <a href="#common">Common Variables</a> values<br />
+Each item from variables loaded by the {categories} function will contain the {$category} <a href="#common">Common Variables</a> values<br />
+</ul>
+
+<br />
+<br />
+
+<b>directory-link-details.tpl</b>
+
+<br />
+<br />
+
+This is the template that will display the details for a specific link
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$categories} - The categories this link is in (array value); each item will contain the {$category} <a href="#common">Common Variables</a> values<br />
+{$link} - The link data; see the <a href="#common">Common Variables</a> section for details<br />
+{$user_fields} - The user defined fields for this link<br />
+{$message} - Set to 'rated' if the user just rated this link, or 'commented' if the user just submitted a comment<br />
+{$logged_in} - An indicator of whether the user viewing this page is logged in<br />
+{$comments} - The comments this link has received (array value)<br />
+{$ref_url} - The URL of this page so that a user can return to it after logging in
+
+<br />
+<br />
+
+Each item in the {$comments} array will have these values (assuming comment was used for the variable name):
+
+<br />
+<br />
+
+{$comment.comment_id} - The unique ID number assigned to this comment<br />
+{$comment.username} - The username of the account that submitted this comment, if any<br />
+{$comment.email} - The e-mail address submitted with this comment<br />
+{$comment.name} - The name submitted with this comment<br />
+{$comment.submit_ip} - The IP address used to submit this comment<br />
+{$comment.date_added} - The timestamp of when this comment was added<br />
+{$comment.comment} - The comment itself
+</ul>
+
+<br />
+<br />
+
+<b>directory-new.tpl</b>
+
+<br />
+<br />
+
+This template will display the most recently added links
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+Each item from variables loaded by the {links} function will contain the {$link} <a href="#common">Common Variables</a> values<br />
+</ul>
+
+<br />
+<br />
+
+<b>directory-popular.tpl</b>
+
+<br />
+<br />
+
+This template will display the most clicked links
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+Each item from variables loaded by the {links} function will contain the {$link} <a href="#common">Common Variables</a> values<br />
+</ul>
+
+<br />
+<br />
+
+<b>directory-search.tpl</b>
+
+<br />
+<br />
+
+This template will display the search results
+
+<br />
+<br />
+
+<ul>
+{$search_too_short} - An indicator of whether the search term they entered was too short (too few characters)<br />
+{$pagination} - The pagination values for the search results; see the <a href="#common">Common Variables</a> section for details<br />
+{$search_term} - The search term that was entered by the user<br />
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+Each item from variables loaded by the {links} function will contain the {$link} <a href="#common">Common Variables</a> values<br />
+</ul>
+
+<br />
+<br />
+
+<b>directory-top-rated.tpl</b>
+
+<br />
+<br />
+
+This template will display the top rated links
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+Each item from variables loaded by the {links} function will contain the {$link} <a href="#common">Common Variables</a> values<br />
+</ul>
+
+<br />
+<br />
+
+<b>global-header.tpl</b>
+
+<br />
+<br />
+
+This is the global header that will be included at the top of all of the other templates.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$index_page} - This value will be set to true if the user is viewing the main page of your link directory<br />
+{$this_category} - The current category being viewed, if on a category page; same values as the {$category} <a href="#common">Common Variable</a><br />
+</ul>
+
+<br />
+<br />
+
+<b>global-footer.tpl</b>
+
+<br />
+<br />
+
+This is the global footer that will be included at the bottom of all of the other templates.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$index_page} - This value will be set to true if the user is viewing the main page of your link directory<br />
+{$this_category} - The current category being viewed, if on a category page; same values as the {$category} <a href="#common">Common Variable</a><br />
+</ul>
+
+<br />
+<br />
+
+<b>error-fatal.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed when a fatal, unrecoverable error has occurred.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$error} - The error message<br />
+{$trace} - A stack trace showing what functions were called<br />
+{$file} - The file that the error occurred in<br />
+{$line} - The line number where the error occurred
+</ul>
+
+<br />
+<br />
+
+<b>error-nice.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed when the user has done some action to trigger an error condition
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$error} - The error message
+</ul>
+
+<br />
+<br />
+
+<b>report-submit.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed when the user wants to report a broken or cheating link
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$errors} - Any error messages that indicate a problem with the information submitted<br />
+{$report} - The message that the user is sending as the report for this link<br />
+{$link} - The link data for the link being reported;  see the <a href="#common">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>report-submitted.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed to confirm that the user's report has been submitted
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$link} - The link data for the link being reported;  see the <a href="#common">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>style.css</b>
+
+<br />
+<br />
+
+This is the stylesheet that is used throughout the directory templates
+
+<br />
+<br />
+
+<ul>
+No template variables
+</ul>
+
+<br />
+<br />
+
+<b>submit-add.tpl</b>
+
+<br />
+<br />
+
+This template will display a form so that users can submit their links
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$errors} - Any error messages that indicate a problem with the information submitted<br />
+{$account} - The account data, if the user is logged in; see the <a href="#common">Common Variables</a> section for details<br />
+{$ref_url} - The URL to this page, which will be used to return the user to this page if they need to go login first<br />
+{$categories} - The categories you have defined (array value; only set if you have 200 or less categories)<br />
+{$category} - The category the user has selected to add this link to (only set if you have more than 200 categories)<br />
+{$user_fields} - The user defined link fields<br />
+{$link} - The link data that the user has submitted; see the <a href="#common">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>submit-added.tpl</b>
+
+<br />
+<br />
+
+This template is displayed when the user has successfully submitted their link data
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$status} - The status assigned to this link (one of unconfirmed, pending, or active)<br />
+{$category} - The category the user has selected to add this link to<br />
+{$user_fields} - The user defined link fields<br />
+{$link} - The link data that the user has submitted; see the <a href="#common">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>submit-edit-login.tpl</b>
+
+<br />
+<br />
+
+The login screen displayed when a user wants to edit their link information but they do not have an account
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$errors} - Any error messages that indicate a problem with the information submitted<br />
+{$request.login_site_url} - The site URL entered on the login form<br />
+{$request.login_email} - The e-mail address entered on the login form<br />
+{$request.login_password} - The password entered on the login form
+</ul>
+
+<br />
+<br />
+
+<b>submit-edit.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed allowing a user to edit their link information
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$errors} - Any error messages that indicate a problem with the information submitted<br />
+{$account} - The account data, if the user is logged in; see the <a href="#common">Common Variables</a> section for details<br />
+{$link} - The link data; see the <a href="#common">Common Variables</a> section for details<br />
+{$user_fields} - The user defined link fields<br />
+{$login_site_url} - The site URL entered on the login form<br />
+{$login_email} - The e-mail address entered on the login form<br />
+{$login_password} - The password entered on the login form
+</ul>
+
+<br />
+<br />
+
+<b>submit-edited.tpl</b>
+
+<br />
+<br />
+
+This template is displayed to confirm that the user modifications have been recorded
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+{$link} - The link data; see the <a href="#common">Common Variables</a> section for details
+{$user_fields} - The user defined link fields<br />
+{$categories} - The catgories this link is in (array value)
+</ul>
+
+<br />
+<br />
+
+<b>submit-info.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed if the user needs to login to submit a link or if they need to locate the category for their
+link and click on the link submission link from that category page.
+
+<br />
+<br />
+
+<ul>
+{$config} - The LinkX configuration settings; see the <a href="#common">Common Variables</a> section for details<br />
+</ul>
+
+</ul>
+
+<br />
+<br />
+
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

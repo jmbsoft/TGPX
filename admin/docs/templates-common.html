@@ -1,0 +1,174 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Common Template Variables</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+Many of the script and e-mail templates share the same template values.  This document will describe the commonly used template values that are available.
+
+<br />
+<br />
+
+<b class="heading">Common Template Variables</b>
+
+<br />
+<br />
+
+
+<ul>
+<b>{$config}</b>
+
+<br />
+<br />
+
+TGPX configuration settings
+
+<br />
+<br />
+
+{$config.install_url} - TGPX installation URL<br />
+{$config.preview_url} - The thumbnail URL setting<br />
+{$config.from_email} - E-mail Address setting<br />
+{$config.from_email_name} - E-mail Name setting<br />
+{$config.date_format} - Date Format setting<br />
+{$config.time_format} - Time Format setting<br />
+{$config.timezone} - Timezone setting<br />
+{$config.dec_point} - Decimal Point setting<br />
+{$config.thousands_sep} - Thousands Separator setting
+
+<br />
+<br />
+<br />
+
+
+<b>{$gallery}</b>
+
+<br />
+<br />
+
+The data for a specific gallery
+
+<br />
+<br />
+
+{$gallery.gallery_id} - The gallery's ID number<br />
+{$gallery.gallery_url} - The gallery URL <br />
+{$gallery.description} - The gallery description<br />
+{$gallery.keywords} - The keywords assigned to the gallery<br />
+{$gallery.thumbnails} - The number of thumbnails that appear on the gallery<br />
+{$gallery.email} - The e-mail address associated with the gallery<br />
+{$gallery.nickname} - The name/nickname associated with the gallery<br />
+{$gallery.weight} - The gallery's assigned weight<br />
+{$gallery.clicks} - The number of clicks the gallery has received<br />
+{$gallery.submit_ip} - The IP address of the gallery submitter<br />
+{$gallery.gallery_ip} - The IP address of the gallery itself<br />
+{$gallery.type} - The type of gallery; either submitted or permanent<br />
+{$gallery.format} - The format of the gallery; either pictures or movies<br />
+{$gallery.status} - The status of the gallery; one of unconfirmed, pending, approved, used, holding or disabled<br />
+{$gallery.date_scanned} - The date and time the gallery was last scanned<br />
+{$gallery.date_added} - The date and time the gallery was added to the database<br />
+{$gallery.date_approved} - The date and time the gallery was approved<br />
+{$gallery.date_scheduled} - The date and time the gallery is scheduled to become eligible for display<br />
+{$gallery.date_displayed} - The date and time the gallery was selected for display<br />
+{$gallery.date_deletion} - The date and time the gallery is scheduled to be deleted<br />
+{$gallery.partner} - The username of the partner account that submitted the gallery<br />
+{$gallery.administrator} - The username of the administrator that approved the gallery<br />
+{$gallery.has_recip} - A flag to indicate if the gallery has a reciprocal link to your site; 1 for yes, 0 for no<br />
+{$gallery.has_preview} - A flag to indicate if the gallery has one or more preview thumbnails; 1 for yes, 0 for no<br />
+{$gallery.times_selected} - The number of times the gallery has been selected for display from approved status<br />
+{$gallery.used_counter} - The number of times the gallery has been used during a build<br />
+{$gallery.build_counter} - The number of builds that have occurred since the gallery was selected for display<br />
+{$gallery.tags} - The tags assigned to the gallery
+
+<br />
+<br />
+
+In addition to these default values, all of your user defined gallery fields will be available from this template value as well.  So, for example, if you create
+a user defined field with the name icq_number you can access this value using {$gallery.icq_number}
+
+<br />
+<br />
+<br />
+
+<b>{$partner}</b>
+
+<br />
+<br />
+
+The data for a specific partner account
+
+<br />
+<br />
+
+{$partner.username} - The partner account username<br />
+{$partner.name} - The name/nickname associated with the partner account<br />
+{$partner.email} - The e-mail address associated with the partner account<br />
+{$partner.ip_address} - <br />
+{$partner.date_added} - The date and time the partner account was added<br />
+{$partner.date_last_submit} - The date and time of the last gallery submission from this account<br />
+{$partner.date_start} - The date and time that the partner account becomes eligible to submit galleries<br />
+{$partner.date_end} - The date and time after which the partner account can no longer submit galleries<br />
+{$partner.per_day} - The number of galleries this account can submit per day<br />
+{$partner.weight} - The weight value assigned to all galleries submitted by this account<br />
+{$partner.submitted} - The number of galleries submitted by this account<br />
+{$partner.removed} - The number of galleries that have been deleted by administrators<br />
+{$partner.status} - The partner account status; one of pending, active, or suspended<br />
+{$partner.allow_redirect} - A flag to indicate if URL redirection is allowed for this account; 1 for yes, 0 for no<br />
+{$partner.allow_norecip} - A flag to indicate if this account is not required to have reciprocal links on their galleries; 1 for yes, 0 for no<br />
+{$partner.allow_autoapprove} - A flag to indicate if this account's galleries will be automatically approved; 1 for yes, 0 for no<br />
+{$partner.allow_noconfirm} - A flag to indicate if this account is not required to confirm gallery submissions by e-mail; 1 for yes, 0 for no<br />
+{$partner.allow_blacklist} - A flag to indicate if this account's galleries can have blacklisted data; 1 for yes, 0 for no
+
+<br />
+<br />
+
+In addition to these default values, all of your user defined partner fields will be available from this template value as well.  So, for example, if you create
+a user defined field with the name icq_number you can access this value using {$partner.icq_number}
+
+<br />
+<br />
+<br />
+
+<b>{$pagination}</b>
+
+<br />
+<br />
+
+This template value contains details on the pagination available for the page being viewed.
+
+<br />
+<br />
+
+{$pagination.prev} - An indicator of whether there is a previous page of results<br />
+{$pagination.next} - An indicator of whether there is a next page of results<br />
+{$pagination.start} - The starting position of results displayed on this page<br />
+{$pagination.end} - The ending position of results displayed on this page<br />
+{$pagination.total} - The total number of results<br />
+
+</ul>
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

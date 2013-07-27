@@ -1,0 +1,196 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div align="center">
+<span class="large">Converting AutoGallery Pro Data</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+If you are currently running AutoGallery Pro on one of your sites and would like to import it's data into a TGPX installation, you can use
+the included agp-convert.php script to do just that.  This document will outline the steps necessary to convert your AutoGallery Pro data.
+
+<br />
+<br />
+
+<b class="heading">Requirements</b>
+
+<br />
+<br />
+
+To convert your AutoGallery Pro data you will need to be using version 3.0.0 or newer.  If you are not using at least version 3.0.0, follow the
+instructions in the AutoGallery Pro software manual to upgrade your installation.
+
+<br />
+<br />
+
+<b class="heading">Converted Data</b>
+
+<br />
+<br />
+
+The conversion script will convert and import the following data from your AutoGallery Pro installation:
+
+<ul>
+<li> Font files used for verification codes
+<li> Thumbnail preview images
+<li> Submitter e-mail log
+<li> Blacklist settings
+<li> Whitelist settings
+<li> Reciprocal link settings
+<li> Icons
+<li> Categories
+<li> Gallery data
+<li> TGP pages and their templates
+</ul>
+
+The conversion script will attempt to convert your TGP page templates to the new TGPX format, however some template directives cannot be
+converted or may need some tweaking after the conversion is complete.  Here are the known limitations of template conversion:
+
+<ul>
+<li> The SWITCH sub-directive cannot be converted
+<li> Script page templates (gallery submission form, partner request form, etc) cannot be converted
+</ul>
+
+
+<b class="heading">Running From The Command Line</b>
+
+<br />
+<br />
+
+<div class="note">
+You will need shell access (through telnet or SSH) to your server to run the conversion script from the command line
+</div>
+
+<br />
+
+
+The conversion script can be run from the command line of your server, and this is the recommended method if you have a large number of galleries to
+convert (20,000+).  The conversion process is the same as listed below, however instead of accessing the conversion script through your browser you
+will run it from the command line of your server using the PHP CLI executable.  The command you will use will be something like this:
+
+<br />
+<br />
+
+/usr/local/bin/php agp-convert.php /full/path/to/agp
+
+<br />
+<br />
+
+Where /usr/local/bin/php is the full path to the PHP CLI executable on your server and /full/path/to/agp is the full path to the AutoGallery Pro installation
+on your server.
+
+<br />
+<br />
+
+<b class="heading">Conversion Process</b>
+
+<br />
+<br />
+
+Follow the steps below to convert your AutoGallery Pro data:
+
+<br />
+<br />
+
+<div class="note">
+The conversion process will not affect your AutoGallery Pro installation.  The AutoGallery Pro data will be left unchanged and you will be able to continue
+using AutoGallery Pro as normal after the conversion has been completed.
+</div>
+
+<br />
+
+<div class="note">
+Before you start the conversion you should process all of the waiting partner account requests in AutoGallery Pro.  Partner account requests will not be copied
+over to TGPX, but if you process them first in AutoGallery Pro it won't matter since you will have either created the necessary partner accounts or deleted
+the requests you don't want.
+</div>
+
+<ol>
+<li> Install a clean copy of TGPX on your server using the standard <a href="installation.html">installation instructions</a>.  Do not add any
+galleries, categories, or setup any pages before you convert your AutoGallery Pro data.  Anything that you configure in TGPX will be deleted during
+the conversion process.  You will need to setup the TGPX settings through the General Settings interface, however.
+
+<br /><br />
+
+<li> When configuring the TGPX settings, make sure you use a different Thumbnail URL setting than what your AutoGallery Pro installation is currently
+configured for.  The TGPX installation should not point to the same Thumbnail URL as your AutoGallery Pro installation.
+
+<br /><br />
+
+<li> Once TGPX is installed and has had it's initial settings configured through the General Settings interface, upload the agp-convert.php file
+from the utilities directory of the TGPX distribution to the admin directory of your TGPX installation on your server.
+
+<br /><br />
+
+<li> You will need to temporarily change the permissions on the TGPX fonts directory to 777 so the font files from AutoGallery Pro can be
+copied over.
+
+<br /><br />
+
+<li> Point your web browser to the agp-convert.php script that you uploaded to the admin directory of your TGPX installation.  This will load a
+page where you will need to enter the full directory path to the location of the AutoGallery Pro installation on your server.  This should point to
+the directory where the agp.pl and common.pl files are located.
+
+<br /><br />
+
+<li> Once you have filled in the directory path to your AutoGallery Pro installation, you can press the Convert Data button.  You will be asked to confirm
+that you do want to convert this data.
+
+<br /><br />
+
+<li> The conversion script will run a few tests to make sure you have entered a valid directory path to your AutoGallery Pro installation and that you have
+the correct version of AutoGallery Pro installed.  If any errors are encountered, it will display them and terminate the conversion process.
+
+<br /><br />
+
+<li> If all of the pre-conversion tests pass, the script will begin converting your AutoGallery Pro data.  The conversion process can take anywhere from a few
+seconds to several minutes depending on the size of your gallery database.  During the conversion process, the script will output some text to let you know what
+it is doing.  Don't be alarmed if you don't see any text, as some web servers will wait for the script to complete before outputting the information it is generating.
+You can also check the convert.log file which will be located in the data directory of your TGPX installation.
+
+<br /><br />
+
+<li> When the conversion process is complete you will see a message that says "Data conversion complete!" (check the convert.log file in the data directory of your
+TGPX installation if you don't get output in your browser).  You can login to your TGPX control panel to check
+that all of the data has been properly imported.
+
+<br /><br />
+
+<li> Run the TGP Pages &gt; Recompile TGP Templates function to force the software to recompile all of the imported TGP page templates.
+
+<br /><br />
+
+<li> Change the permissions on the annotations and fonts directories back to their original setting (generally 755)
+</ol>
+
+Once you have completed these steps, the coversion process is complete.  You should remove the agp-convert.php file from your server to prevent it from being
+accidentally run again.
+
+<br />
+<br />
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

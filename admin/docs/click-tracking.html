@@ -1,0 +1,234 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+    pre { border: 1px solid #afafaf; background-color: #ececec; padding: 10px; overflow: auto }
+    </style>
+</head>
+<body>
+
+<div align="center">
+<span class="large">Click Tracking</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+TGPX includes a script that you can use to track how many clicks each of the galleries gets.  This can be useful if you want to 
+sort your galleries by their productivity.  This document will explain how to setup TGPX to track the clicks sent to the galleries.
+
+<br />
+<br />
+
+<b class="heading">The click.php script</b>
+
+<br />
+<br />
+
+The first thing you need to do is edit the click.php script to setup it's variables.  Open the click.php file in a text editor 
+(<a href="http://www.editplus.com/" class="link" target="_blank">EditPlus</a> is recommended for Windows users) and locate the $USERNAME variable at the top of the file.
+You will see something similar to the following:
+
+<xmp class="code">$USERNAME = 'username';
+$PASSWORD = 'password';
+$DATABASE = 'database';
+$HOSTNAME = 'localhost';</xmp>
+
+These values hold the information for your MySQL database.  You should configure these settings so that they point to the same MySQL database that you
+used when you installed TGPX on your server.
+
+<br />
+<br />
+
+Below the MySQL settings are some other options that you can configure.  Each of the variables has a comment above it that describes what the setting does.
+Once you have set the variables in the click.php script, you will need to upload it back to your server, overwriting the default copy of that file.  You can
+also optionally upload the click.php script to pretty much any directory of your website except the cgi-bin; it does not have to be located in the TGPX installation
+directory.
+
+<br />
+<br />
+
+<b class="heading">The High Traffic Version of click.php<a name="traffic"></a></b>
+
+<br />
+<br />
+
+With the standard click.php click tracking script a MySQL connection is made each time someone clicks on one of your gallery links.  On high traffic sites this can
+have an impact on your overall server load, so you can use the alternative high traffic version of click.php if you have a high traffic site.   Testing has shown a
+50-75% increase in performance over the standard version.
+
+<br />
+<br />
+
+The high traffic click.php script is located in the utilities directory of the software distribution and is a drop in replacement for the standard click.php click
+tracking script.  You configure it exactly the same way you would the standard version, the only differences are that you will not need to setup any MySQL information
+since it does not connect to the database.  Instead you will need to set the $DDIR value to point to the data directory of your TGPX installation.
+
+<br />
+<br />
+
+Because this version of the script does not connect to MySQL on each click, the click stats are not available to you in real time through the software control panel.  When you run
+the page building functions of the software the click tracking log will be analyzed and the updated click stats will be added to the database.  You can also configure the cron.php
+script to update the click stats at a specified interval.  For very high traffic sites, it is recommended that you update the clicks stats through cron at least once every 30 minutes.
+If you are having cron automatically update your pages at an interval smaller than that, you do not need to setup a separate command for processing the click log.
+
+<br />
+<br />
+
+<b class="heading">Configuring Your Templates</b>
+
+<br />
+<br />
+
+The basic format that the click.php script expects to be called as is:
+
+<br />
+
+<ul>
+click.php?id=GALLERY_ID&u=GALLERY_URL
+</ul>
+
+Where GALLERY_ID is the ID number assigned to the gallery by TGPX and GALLERY_URL is the URL to the gallery.  This is fairly simple to setup
+in your template; here is an example:
+
+<pre>{galleries var=$galleries amount=10 category=MIXED}
+
+{foreach var=$gallery from=$galleries}
+  &lt;a href="<span style="background-color: yellow">click.php?id={$gallery.gallery_id|urlencode}&u={$gallery.gallery_url|urlencode}</span>"&gt;
+  {$gallery.thumbnails} {$gallery.category}&lt;/a&gt;&lt;br /&gt;
+{/foreach}
+</pre>
+
+Note that the link to the gallery contains the click.php code.  For every section of galleries that you want to have clicks tracked for, you will
+need to setup the links to the galleries using the click.php code.
+
+<br />
+<br />
+
+<b class="heading">Traffic Trading Scripts</b>
+
+<br />
+<br />
+
+If you are using a traffic trading script on your TGP and also want to count the number of clicks on each gallery, you will need to do some
+further editing to the click.php file.  The $TEMPLATE variable is used to setup your traffic trading script URL.  The default value for the $TEMPLATE 
+setting is {$gallery_url} which will simply send the surfer directly to the gallery instead of through your traffic trading script.  You will
+need to change the $TEMPLATE value so it points to your traffic trading script, and you will need to include the specific code that your traffic
+trading script needs to determine where it should send the surfer.  For example, your traffic trading script may use a URL like this:
+
+<br />
+
+<ul>
+http://www.yoursite.com/cgi-bin/tradescript/c.cgi?p=80&url=http://www.site.com/gallery001/index.html
+</ul>
+
+In this example, the p= value tells the traffic trading script what percent to skim and the url= tells the script what URL it should send the surfer
+to if it decides not to send the surfer to one of your trades.  You will need to modify this URL to insert template values that the click.php script can
+understand.  There are two template values you can use in the URL:
+
+<br />
+
+<ul>
+{$skim} - This is the skim value that you want your traffic trading script to use<br />
+{$gallery_url} - This is the URL of the gallery that the surfer clicked on
+</ul>
+
+For the example traffic trading script URL above, your template would look like this:
+
+<br />
+
+<ul>
+http://www.yoursite.com/cgi-bin/tradescript/c.cgi?p={$skim}&url={$gallery_url}
+</ul>
+
+The click.php script will take care of filling in those template values based on the information that you pass to it.  For example, if you call the click.php
+script as the following:
+
+<br />
+
+<ul>
+click.php?id=1256&u=http://www.site.com/gallery001/index.html&s=70
+</ul>
+
+The click.php script will call your traffic trading script like this:
+
+<br />
+
+<ul>
+http://www.yoursite.com/cgi-bin/tradescript/c.cgi?p=70&url=http://www.site.com/gallery001/index.html
+</ul>
+
+The s= value that you pass to the click.php script is the value that will be used for the {$skim} template value.  Make sure when you setup your TGP page templates
+that you pass a s= value to the click.php script if your traffic trading script supports skim values.  Using the example above, your template would become this:
+
+
+<pre>{galleries var=$galleries amount=10 category=MIXED}
+
+{foreach var=$gallery from=$galleries}
+  &lt;a href="<span style="background-color: yellow">click.php?id={$gallery.gallery_id|urlencode}&u={$gallery.gallery_url|urlencode}&s=70</span>"&gt;
+  {$gallery.thumbnails} {$gallery.category}&lt;/a&gt;&lt;br /&gt;
+{/foreach}
+</pre>
+
+<b class="heading">Passing Arbitrary Values to Traffic Trading Scripts</b>
+
+<br />
+<br />
+
+If there is any additional information that you want to pass on to your traffic trading script through the click.php script, you can configure
+custom template values in the $TEMPLATE setting to support them.  For example, if you wanted to pass the gallery's category on to your
+traffic trading script, you could do this by adding the value to the click.php query string and then configuring the $TEMPLATE value to
+include that information in the traffic trading script URL.
+
+<br />
+<br />
+
+Here is a brief example.  Assume that your traffic trading script supports passing the gallery's category through it's c= option and
+the skim value through it's p= option, like so:
+
+<ul>
+http://www.yoursite.com/cgi-bin/tradescript/c.cgi?p=80&c=CATEGORY&url=http://www.site.com/gallery001/index.html
+</ul>
+
+To pass these values through the click.php script you would configure your template to look like this:
+
+<pre>{galleries var=$galleries amount=10 category=MIXED}
+
+{foreach var=$gallery from=$galleries}
+  &lt;a href="<span style="background-color: yellow">click.php?id={$gallery.gallery_id|urlencode}&u={$gallery.gallery_url|urlencode}&p=70&c={$gallery.category|urlencode}</span>"&gt;
+  {$gallery.thumbnails} {$gallery.category}&lt;/a&gt;&lt;br /&gt;
+{/foreach}
+</pre>
+
+Then you would need to configure the $TEMPLATE setting so the click.php script knows where to insert your arbitrary values.  Each value that
+you pass through the click.php script will be converted into the standard template value format of {$value}.  So, for the category value of
+c=CATEGORY, this will become {$c} in the $TEMPLATE setting.  Here is an example of how your $TEMPLATE setting would look:
+
+<ul>
+http://www.yoursite.com/cgi-bin/tradescript/c.cgi?p={$p}&c={$c}&url={$gallery_url}
+</ul>
+
+The click.php script will then replace the {$p} value with the p= value that was passed through it, and the {$c} value with the c= value that
+was passed through it.  So, for example, if the p= value was 75 and the c= value was Hardcore, the converted URL would look like this:
+
+<ul>
+http://www.yoursite.com/cgi-bin/tradescript/c.cgi?p=75&c=Hardcore&url=http://www.site.com/gallery001/index.html
+</ul>
+
+</div>
+</div>
+
+<div style="height: 1200px"></div>
+
+</body>
+</html>

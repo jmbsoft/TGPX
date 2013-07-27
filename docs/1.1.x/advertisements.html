@@ -1,0 +1,280 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+    pre { border: 1px solid #afafaf; background-color: #ececec; padding: 10px; overflow: auto }
+    </style>
+</head>
+<body>
+
+<div align="center">
+<span class="large">Managing Advertisements</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+TGPX has a built in feature that will allow you to manage advertisements that can be displayed on your TGP pages.  This document will give an overview of how to add,
+update, and delete advertisements through the control panel interface.
+
+<br />
+<br />
+
+<b class="heading">The ad.php script</b>
+
+<br />
+<br />
+
+The ad.php script can be used if you want to track the clicks that your advertisements receive.  The first thing you need to do is edit the ad.php script to setup it's variables.  
+Open the ad.php file in a text editor (<a href="http://www.editplus.com/" class="link" target="_blank">EditPlus</a> is recommended for Windows users) and locate the $USERNAME variable
+at the top of the file. You will see something similar to the following:
+
+<xmp class="code">$USERNAME = 'username';
+$PASSWORD = 'password';
+$DATABASE = 'database';
+$HOSTNAME = 'localhost';</xmp>
+
+These values hold the information for your MySQL database.  You should configure these settings so that they point to the same MySQL database that you
+used when you installed TGPX on your server.  Once you have set the variables in the ad.php script, you will need to upload it back to your server, overwriting the default copy
+of that file.  You can also optionally upload the ad.php script to pretty much any directory of your website except the cgi-bin; it does not have to be located in the TGPX installation
+directory.
+
+<br />
+<br />
+
+<b class="heading">Searching Advertisements<a name="search"></a></b>
+
+<br />
+<br />
+
+To search the current advertisements you have configured so you can modify or delete them, access the Settings &gt; Manage Advertisements function from the control panel menu.  This will display a 
+page where you will be able to see and search the current advertisements you have configured.  All of the database fields that you can search use the software's 
+<a href="standard-searches.html">Standard Search</a> function with the exception of the Tags field which uses the <a href="boolean-searches.html">Boolean Search</a> feature. 
+In the table that displays the advertisements, you will find a couple of functions that you can run on a single
+advertisement at a time.  Those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the advertisement.  A window will appear where you will be able to edit all of the advertisement settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this advertisement.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running functions on single advertisements at a time, you can also delete multiple advertisements at once by putting a check in the box for each advertisement you want to delete
+and then pressing the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Adding an Advertisement<a name="add"></a></b>
+
+<br />
+<br />
+
+To add a new advertisement, access the Settings &gt; Manage Advertisements function from the control panel menu.  Near the top of the page in the header
+bar that reads "Manage Advertisements" click on the <img src="../images/add.png" border="0" alt=""> icon.  This will display a popup 
+window where you will be able to enter the advertisement information that you want to use.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Weight</b>
+</td>
+<td>
+The weight value to assign to this advertisement.  The weight value can be any whole number from -2147483648 to 2147483647.
+Ad weight values only come into play if you are using the weight attribute of the {ad} template function OR the weight sorting option in the order setting
+of the {ad} template function.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Raw Clicks</b>
+</td>
+<td>
+This is the number of raw clicks that the advertisement has received.  You will generally want to set this to 0 when you are adding a new advertisement.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Unique Clicks</b>
+</td>
+<td>
+This is the number of unique clicks that the advertisement has received.  You will generally want to set this to 0 when you are adding a new advertisement.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Tags</b>
+</td>
+<td>
+A space separated list of tags for this advertisement.  Tags can be used in the {ad} template function to control which advertisements are
+selected for display.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Categories</b>
+</td>
+<td>
+The categories that the advertisment fits into.  Multiple categories can be selected by clicking the <img src="../images/add-small.png"> icon.
+You can remove categories by clicking on the <img src="../images/remove-small.png" border="0" alt=""> icon.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Ad URL</b>
+</td>
+<td>
+Enter the full URL to which this advertisment will be linking
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Ad HTML</b>
+</td>
+<td>
+Enter the complete HTML code for this advertisement.  Note that if you reference image files in this HTML code, the images will already need
+to exist on your server.  Use a full HTTP URL for your images to make sure they display correctly on all pages.
+
+<br />
+<br />
+
+<b>Template Values</b><br />
+The Ad HTML has a few template values that you can use:
+
+<br />
+<br />
+
+<ul>
+{$ad.ad_id} - The ID number of the advertisment<br />
+{$ad.ad_url} - The Ad URL that you entered for this advertisement<br />
+{$config.install_url} - TGPX installation URL<br />
+{$config.preview_url} - The thumbnail URL setting<br />
+{$config.from_email} - E-mail Address setting<br />
+{$config.from_email_name} - E-mail Name setting<br />
+{$config.date_format} - Date Format setting<br />
+{$config.time_format} - Time Format setting<br />
+{$config.timezone} - Timezone setting<br />
+{$config.dec_point} - Decimal Point setting<br />
+{$config.thousands_sep} - Thousands Separator setting
+</ul>
+
+</td>
+</tr>
+</table>
+</ul>
+
+
+Once you have filled in all of the fields as you want them, press the Add Advertisement button.  This will add the new advertisement to the database.
+
+<br />
+<br />
+
+<b class="heading">Advertisement Click Tracking<a name="click"></a></b>
+
+<br />
+<br />
+
+To have the clicks on your advertisements tracked by TGPX, it is necessary to do a bit of customization to your advertisement HTML code.  You should
+also make sure that the ad.php script has been configured as described at the top of this document.
+
+<br />
+<br />
+
+For an example, assume you have the following HTML code that you want to use for one of your advertisements:
+
+<pre>&lt;a href="http://www.jmbsoft.com/r/username/"&gt;
+&lt;img src="/images/affiliate-banner-general.png" border="0"&gt;&lt;br /&gt;
+Our site uses scripts from JMB Software!
+&lt;/a&gt;</pre>
+
+As you can see, the code simply links directly to <span style="color: blue;">http://www.jmbsoft.com/r/username/</span> which will not track the clicks. 
+You will need to replace that URL with a link to the ad.php script (the script that will track the clicks on your advertisements).  
+The basic format that the ad.php script expects to be called as is:
+
+<xmp class="code">ad.php?id=AD_ID&u=AD_URL</xmp>
+
+Where AD_ID is the ID number assigned to the advertisement by TGPX and AD_URL is the URL to the advertised site.  So, for this example you would enter 
+<span style="color: blue;">http://www.jmbsoft.com/r/username/</span> for the <b>Ad URL</b> setting and use the following value for the Ad HTML setting:
+
+<pre>&lt;a href="<span style="background-color: yellow">{$config.install_url}/ad.php?id={$ad.ad_id|urlencode}&u={$ad.ad_url|urlencode}</span>"&gt;
+&lt;img src="/images/affiliate-banner-general.png" border="0"&gt;&lt;br /&gt;
+Our site uses scripts from JMB Software!
+&lt;/a&gt;</pre>
+
+Note that the only thing changed in the HTML code is the link.  Instead of linking directly to the site, the link now goes through the ad.php script
+and passes it both the Ad ID and the Ad URL so it can track the click and forward the surfer to the correct site.
+
+<br />
+<br />
+
+<b class="heading">Editing an Advertisement<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit an advertisement you will first need to locate it through the <a href="#search">Manage Advertisements</a> interface.
+When you locate the advertisement you want to edit, click on the <img src="../images/edit.png" border="0" alt=""> icon to bring up the advertisement editing interface.
+This interface is nearly identical to the advertisement creation interface, and has the same form fields with the same properties.  You can make the changes that you want, and then press the
+Update Advertisement button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting an Advertisement<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete an advertisement you will first need to locate it through the <a href="#search">Manage advertisements</a> interface.
+When you locate the advertisement you want to delete, click on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+<b class="heading">Displaying Advertisments on Your TGP Pages<a name="delete"></a></b>
+
+<br />
+<br />
+
+To display the advertisements you have configured through the control panel interface, you will use the {ad} template function.  This template function (as well as
+all of the other template functions) is described in detail in the <a href="templates-tgp.html">TGP Page Templates</a> section of this manual.
+
+<br />
+<br />
+
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Link Scanner</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The link scanner function will allow you to automatically check some/all of the links in your database to make sure the URLs are still working and that they are following your
+rules for blacklist items and reciprocal links.  This document will describe how to setup and run the link scanner through the LinkX control panel.
+
+<br />
+<br />
+
+<b class="heading">Viewing Scanner Configurations<a name="search"></a></b>
+
+<br />
+<br />
+
+To view the scanner configurations that have been created, access the Links &gt; Scan Links function from the control panel menu.  This will display a 
+page where you will be able to see all of the scanner configurations that are currently defined.
+
+<br />
+<br />
+
+In the table that displays the scanner configurations, you will find several functions that you can run on each configuration.  Each of those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/report.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to view the <a href="link-scan-results.html">results of the last scan</a> completed using this configuration
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/start.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to start the link scanner with this configuration
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/stop.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to stop the link scanner with this configuration
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to edit this scanner configuration
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this scanner configuration
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running these functions on single configurations, you can also delete several configurations at once.  To delete several configurations at once, put a check in the checkbox next to the
+configurations you want to delete, then press the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Starting/Stopping the Scanner<a name="start"></a></b>
+
+<br />
+<br />
+
+<div class="note">
+The link scanner requires that your server have the CLI (command line interface) version of PHP installed in one of the common binary directories.  If LinkX is unable to find the CLI version of PHP
+on your server, you won't be able to use the link scanner.  In this case you should contact your server administrator and ask them to install the CLI version of PHP for you and/or make sure it is placed
+in one of the common binary directories on the server (/bin, /usr/bin, /usr/local/bin).
+
+<br />
+<br />
+
+On some servers it may not be possible to start the link scanner through the LinkX control panel.  If your server's PHP installation is running in safe mode or has the exec() function disabled you
+will not be able to start the link scanner through the LinkX control panel.  In that case, please see the <a href="#alternate">alternate scanner starting methods</a> for possible workarounds.
+
+<br />
+<br />
+
+The link scanner will run as a background process on your server, so you may need to confirm with your server administrator that you are allowed to run background processes.
+</div>
+
+<br />
+
+To start the link scanner, first locate the configuration you want to run and make sure the status shows that it is Not Running.  You can then click on the 
+<img src="../images/start.png" width="12" height="12" border="0" alt=""> icon to start the link scanner.  You will be asked to confirm that you want to start the scanner, and
+if you select ok the process of starting the scanner will continue.  A confirmation box will appear to let you know that the process has been completed, and you should now see
+the Status value updated with the current progress of the scanner.
+
+<br />
+<br />
+
+To stop the link scanner, first locate the configuration you want to stop and make sure the status shows that it is scanning links.  You can then click on the
+<img src="../images/stop.png" width="12" height="12" border="0" alt=""> icon to halt the scanning process.  It may take a few minutes for the scanner to stop, so
+during that time it is normal for the Status to still show that the scanner is working.
+
+<br />
+<br />
+
+<b class="heading">Adding a Scanner Configuration<a name="add"></a></b>
+
+<br />
+<br />
+
+To add a new scanner configuration access the Links &gt; Scan Links function from the control panel menu.  This will display your scanner configurations that have been created.
+Near the top of the page in the header bar that reads "Link Scanner Configurations" click on the <img src="../images/add.png" width="16" height="16" border="0" alt=""> icon.  This will display
+a popup window where you will be able to enter the settings for the scanner configuration that you want to add.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Identifier</b>
+</td>
+<td>
+Enter a short identifier so you can 
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Link Status</b>
+</td>
+<td>
+Select the link statuses you want to scan (or leave all unchecked to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Link Type</b>
+</td>
+<td>
+Select the link types you want to scan (or leave all unchecked to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Link Added</b>
+</td>
+<td>
+Enter a date range of when the links were added that you want to scan (leave blank to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Link Modified</b>
+</td>
+<td>
+Enter a date range of when the links were last modified that you want to scan (leave blank to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Link Scanned</b>
+</td>
+<td>
+Enter a date range of when the links were last scanned that you want to scan (leave blank to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Categories</b>
+</td>
+<td>
+Select the categories that you want to scan, or leave blank to scan all categories.  If you do select a category, it will also scan all of the links in that category's sub-categories.  
+Click the <img src="../images/add-small.png"> icon to select categories or the <img src="../images/remove-small.png"> icon to clear the current selected categories.  You will use
+the <a href="category-selector.html">Category Selector</a> interface to select categories.
+</td>
+</tr>
+</table>
+</ul>
+
+Next you can select processing options for the links that are scanned.  The available processing options are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Extract value from the site's &lt;title&gt; tag and use for the Title value</b><br />
+If this option is checked and the site does not yet have a title set, the scanner will extract the title from the page referenced by the Site URL and assign that
+to the Title value for this site in your database.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Extract value from the site's &lt;meta&gt; description tag and use for the Description value</b><br />
+If this option is checked and the site does not yet have a description set, the scanner will extract the meta description from the page referenced by the Site URL and assign that
+to the Description value for this site in your database.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Extract value from the site's &lt;meta&gt; keywords tag and use for the Keywords value</b><br />
+If this option is checked and the site does not yet have keywords set, the scanner will extract the meta keywords from the page referenced by the Site URL and assign that
+to the Keywords value for this site in your database.
+</td>
+</tr>
+</table>
+</ul>
+
+
+
+
+You will also have the option to select what action will be taken for links that are found to be no longer working or breaking your rules.  The available actions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Ignore</b>
+</td>
+<td>
+No action will be taken
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Display in report only</b>
+</td>
+<td>
+The link will be displayed in the scanner report
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Change link status to disabled</b>
+</td>
+<td>
+The link status will be changed to disabled and will be displayed in the scanner report
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Delete link from database</b>
+</td>
+<td>
+The link will be deleted from the database and will be displayed in the scanner report
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Delete link and blacklist</b>
+</td>
+<td>
+The link will be deleted from the database, the link data will be blacklisted, and the link will appear in the scanner report.
+The site URL, e-mail address, and submit IP will be added to the blacklist.
+</td>
+</tr>
+</table>
+</ul>
+
+A different action can be set for each type of issue that the scanner encounters with the link.  Each of the issue types are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Links with connection errors</b>
+</td>
+<td>
+Select the action to take for links that the scanner cannot connect to.  This could be the result of a DNS lookup failure, the server being offline, or internet
+connection issues.  For this issue type it is not recommended that you delete or blacklist links because this can simply indicate that the server is temporarily offline.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Links that are broken URLs</b>
+</td>
+<td>
+Select the action to take for links that the scanner has found are no longer working.  Broken URLs are those that return a HTTP status code of 400 or greater.  For example,
+a 404 Not Found status code for pages that no longer exist, or a 500 Internal Server Error for pages that are causing a server error.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Links that forward</b>
+</td>
+<td>
+Select the action to take for links that the scanner has found are forwarding to a different URL.  Forwarding URLs are those that return a HTTP status code in the 300 range,
+for example 302 Found.  The scanner will take into account the 'Allow URL redirection' setting for each link.  If the link is allowed to redirect, it will not be flagged for this
+issue type if it produces a 300 level HTTP status code.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Links with blacklisted data</b>
+</td>
+<td>
+Select the action to take for links that the scanner has found to contain one or more items on your blacklist.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Links with no reciprocal link</b>
+</td>
+<td>
+Select the action to take for links that the scanner has found to not contain a link back to your site.  Both the Site URL and the Recip URL pages will be checked for a reciprocal link.
+The scanner will take into account the 'Require a reciprocal link' setting for each link.  If the link is not required to have a reciprocal link, it will not be flagged for this
+issue type.
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have filled in all of the fields as you want them, press the Add Scanner Configuration button.  This will add the new configuration to the database, and you will be able
+to immediately run the link scanner using this configuration.
+
+<br />
+<br />
+
+<b class="heading">Editing a Scanner Configuration<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a scanner configuration you will fist need to locate it through the <a href="#search">Link Scanner Configurations</a> interface.  When you locate the configuration you want to edit,
+click on the <img src="../images/edit.png"> icon to bring up the editing interface.  This interface is nearly identical to the scanner configuration creation interface,
+and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update Scanner Configuration button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Configuration<a name="delete"></a></b>
+
+<br />
+<br />
+
+To edit a scanner configuration you will fist need to locate it through the <a href="#search">Link Scanner Configurations</a> interface.  When you locate the configuration you want to delete, click
+on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several configurations at once by putting a check in the box next to the configurations you want to delete, then pressing the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Alternate Methods for Starting/Stopping the Scanner<a name="alternate"></a></b>
+
+<br />
+<br />
+
+If you are not able to start the link scanner through the control panel, there is currently one alternate method to run the scanner.  This requires that you have shell access to your server and
+are comfortable working with the server's shell environment.  You can login to your server using your favorite shell access software.  Once logged in, change into the admin directory of your
+LinkX installation and issue the following command:
+
+<xmp>php scanner.php CONFIG_ID >/dev/null 2>&1 &</xmp>
+
+You will need to replace CONFIG_ID with the ID number of the configuration you want to run (ID numbers are enclosed in [] before the configuration identifier in the Link Scanner Configurations interface).
+This command will start the scanner running in the background, and you will be able to monitor it's status through the LinkX control panel.  Depending on your server, you may need to stay logged in 
+during the entire time the scanner is running; logging out may terminate the scanner process.  To prevent this you can use the nohup program if it is available on your server.  In that case you can use
+this command to start the scanner:
+
+<xmp>nohup php scanner.php CONFIG_ID >/dev/null 2>&1 &</xmp>
+
+You should be able to logout after executing this command, and the scanner will continue to run.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

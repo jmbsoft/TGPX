@@ -1,0 +1,239 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Language File</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The TGPX language file allows you to translate error and other informative messages into your native language.  This document describes how to modify the language file settings.
+
+<br />
+<br />
+
+<b class="heading">Control Panel Editing Interface</b>
+
+<br />
+<br />
+
+All changes to your language settings will be made through the control panel.  To edit your language settings access the Templates &gt; Language File function from the control panel
+menu.  A page will load where you can edit all of the available language settings.  Each of the items should be self-explanatory by reading the existing text.  You can modify the settings
+to change the messages or translate them into your language.  Once you have made the changes you want, press the Save Language File button at the top of the page.
+
+<br />
+<br />
+
+<b class="heading">Value Placeholders</b>
+
+<br />
+<br />
+
+Some of the default messages have value placeholders (%d, %s, etc) embedded in them so that dynamic information can be inserted into them.  Each of the language file settings that has
+these placeholder values are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>CURLE_COULDNT_CONNECT</b>
+</td>
+<td>
+%s will be replaced by a software generated error message
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>CURLE_HTTP_RETURNED_ERROR</b>
+</td>
+<td>
+%s will be replaced by a the returned HTTP status
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>INVALID_URL</b>
+</td>
+<td>
+%s will be replaced by the name of the improperly formatted URL
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>DESCRIPTION_LENGTH</b>
+</td>
+<td>
+The first %d will be the minimum description length<br />
+The second %d will be the maximum description length
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>MAXIMUM_KEYWORDS</b>
+</td>
+<td>
+%d will be replaced by the maximum keywords value you specified in the General Settings interface
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>ACCOUNT_EXPIRED</b>
+</td>
+<td>
+The first %s will be the starting date of the account<br />
+The second %s will be the ending date of the account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>CATEGORY_FULL</b>
+</td>
+<td>
+%s will be replaced by the category name
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>BLACKLISTED</b>
+</td>
+<td>
+The first %s will be the blacklist item that was matched
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>BLACKLISTED_REASON</b>
+</td>
+<td>
+The first %s will be the blacklist item that was matched<br />
+The second %s will be the reason why this item is in the blacklist
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>BROKEN_URL</b>
+</td>
+<td>
+The first %s is the type of URL submitted<br />
+The second %s is the error message associated with this URL
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>EXCESSIVE_LINKS</b>
+</td>
+<td>
+%d is the maximum number of links you allow, taken from the general settings interface
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>INVALID_FORMAT</b>
+</td>
+<td>
+%s is the format (pictures or movies) allowed in the associated category
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>BAD_THUMB_COUNT</b>
+</td>
+<td>
+The first %d is the minimum number of thumbs allowed<br />
+The second %s is the maximum number of thumbs allowed
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>USERNAME_LENGTH</b>
+</td>
+<td>
+The first %d will be the minimum username length<br />
+The second %d will be the maximum username length
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>PASSWORD_LENGTH</b>
+</td>
+<td>
+The first %d will be the minimum password length<br />
+The second %d will be the maximum password length
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>INVALID_IMAGE_SIZE</b>
+</td>
+<td>
+The first %d will be allowed image width<br />
+The second %d will be the allowed image height
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>PREVIEW_DOWNLOAD_FAILED</b>
+</td>
+<td>
+%s will be an error message indicating why the download failed
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>IMAGE_DOWNLOAD_FAILED</b>
+</td>
+<td>
+%s will be an error message indicating why the download failed
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>SLOW_DOWNLOAD</b>
+</td>
+<td>
+The first %f will be the download speed received from the server<br />
+The second %d will be the minimum allowed download speed
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>SMALL_CONTENT</b>
+</td>
+<td>
+%f will contain the minimum allowed content size
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>EXCESSIVE_CATEGORIES</b>
+</td>
+<td>
+%d is the maximum number of categories you are allowing to be submitted
+</td>
+</tr>
+</table>
+</ul>
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

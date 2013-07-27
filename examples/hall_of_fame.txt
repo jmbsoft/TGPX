@@ -1,0 +1,167 @@
+Overview
+--------
+This template is an all thumbnail template that will display a top section
+that is a "Hall of Fame".  Galleries in this section are sorted by their 
+productivity, with the most productive at the top.  There are two other sections
+which display new galleries and galleries from yesterday.  This is designed
+to have a "Build With New" run once per day and several "Build" type builds
+run to re-order the hall of fame.
+
+The first section of galleries is the hall of fame.  It will display galleries that
+are between 1 and 7 days old and will sort them by their productivity.  Once a gallery
+is older than 7 days it will no longer be eligible for display in this section.
+No new galleries will ever show up in this section, it will only display previously
+used galleries that have had a chance to accumulate clicks.
+
+The second section of galleries is where the new galleries will be added.  20 new thumbnails
+will be added in this section each time a "Build With New" is executed.  When a "Build"
+type of build is executed, the galleries will be displayed in the same order.
+
+The final section of galleries is where the galleries from yesterday will be displayed.
+20 thumbnails that were dislayed in the new galleries section yesterday will appear
+here.  Notice that the pagedupes option is set to true so that even if a gallery
+from yesterday appears in the hall of fame it can also appear in this section.  You
+can change that to meet your needs.
+
+Make sure you configure the click.php click tracking script as described in the software
+manual and place it in the same directory as your TGP pages.
+
+
+
+
+Template Code
+-------------
+{define name=globaldupes value=true}
+{define name=pagedupes value=false}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>TGP</title>
+<style type="text/css">
+body { font-size: 12px; font-family: Verdana; }
+td { font-size: 12px; font-family: Verdana; }
+.jmbfoot { font-size: 11px; font-family: Verdana; }
+.jmblink { font-size: 11px; font-family: Verdana; }
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+
+<div align="center">
+<span style="font-size: 20pt; font-weight: bold;">TGP</span><br />
+Links to {$total_thumbnails|tnumber_format} free pictures and movies!<br />
+Updated {date value='today' format='m-d-Y'}
+</div>
+
+
+<br />
+
+<table align="center" cellpadding="5" border="0">
+<tr>
+<td colspan="5">
+<span style="font-size: 18pt; font-weight: bold;">Hall Of Fame</span>
+</td>
+</tr>
+<tr>
+
+{* Load 20 galleries for the Hall of Fame section *}
+{galleries
+var=$galleries
+preview=true
+type=submitted
+category=MIXED
+amount=20
+getnew=false
+minage=1
+maxage=7
+order=clicks/build_counter DESC}
+
+{* Display loaded galleries as thumbnails in a 5 per row format *}
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="click.php?id={$gallery.gallery_id|urlencode}&u={$gallery.gallery_url|urlencode}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=+5 counter=$counter max=15}
+</tr><tr>
+{/insert}
+{/foreach}
+
+</tr>
+</table>
+
+<br />
+<br />
+
+<table align="center" cellpadding="5" border="0">
+<tr>
+<td colspan="5">
+<span style="font-size: 18pt; font-weight: bold;">Today's Galleries</span>
+</td>
+</tr>
+<tr>
+
+{* Load 20 new galleries here for Today's Galleries section *}
+{galleries
+var=$galleries
+preview=true
+type=submitted
+category=MIXED
+amount=20
+getnew=true
+allowused=true
+age=0
+order=date_approved
+reorder=date_displayed DESC, date_approved}
+
+{* Display loaded galleries as thumbnails in a 5 per row format *}
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="click.php?id={$gallery.gallery_id|urlencode}&u={$gallery.gallery_url|urlencode}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=+5 counter=$counter max=15}
+</tr><tr>
+{/insert}
+{/foreach}
+
+</tr>
+</table>
+
+<br />
+<br />
+
+<table align="center" cellpadding="5" border="0">
+<tr>
+<td colspan="5">
+<span style="font-size: 18pt; font-weight: bold;">Yesterday's Galleries</span>
+</td>
+</tr>
+<tr>
+
+{* Load 20 galleries here for Yesterday's Galleries section *}
+{galleries
+var=$galleries
+preview=true
+type=submitted
+category=MIXED
+amount=20
+getnew=false
+age=1
+order=date_displayed DESC, date_approved}
+
+{* Display loaded galleries as thumbnails in a 5 per row format *}
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="click.php?id={$gallery.gallery_id|urlencode}&u={$gallery.gallery_url|urlencode}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=+5 counter=$counter max=15}
+</tr><tr>
+{/insert}
+{/foreach}
+
+</tr>
+</table>
+
+<br />
+
+<div align="center">
+<b><a href="{$config.install_url}/submit.php">Submit A Gallery</a></b>
+</div>
+
+<br />
+
+</body>
+</html>

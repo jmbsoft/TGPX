@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Patching Your Installation</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+
+    <span class="header-section">Overview</span>
+    <div class="section">
+      Unless otherwise noted, use these instructions for updating your TradeX installation from any older version to any newer version. You can patch the installation any
+      time there is a new release, but it is not required that you upgrade to every new release. These instructions can be used to upgrade your installation even if you
+      skipped a previous version of the software.
+    </div>
+
+
+
+    <span class="header-section">Automated Patching</span>
+    <div class="section">
+      <div class="message-notice">
+        The automated patching process will only work if you also used the automated installation method.  If you used the manual installation method,
+        use the <a href="#manual-patch">Manual Patching</a> instructions below.
+      </div>
+
+      <br />
+
+      TradeX can automatically update your installation to the latest version.  To perform an update use these steps:
+
+      <ol>
+        <li>
+          In the control panel access the Tools > Check for Update function.  This will display a page where you can see the version you have installed
+          and the latest version available.  If you want to install a newer version, or need to reinstall your existing version, select the appropriate
+          version from the drop down selection field at the bottom of the page and press the Install button.
+        </li>
+
+        <br />
+
+        <li>
+          The software will begin downloading the updated installer file, extract the files and directories from the installer, and run the patching function
+          to perform any updates required.  This process is all automated, so you just have to wait for it to finish.
+        </li>
+      </ol>
+    </div>
+
+
+
+    <span class="header-section">Manual Patching<a name="manual-patch"></a></span>
+    <div class="section">
+      Manually patching your installation requires a bit more work, but is still fairly simple.  Use the steps listed below to manually patch your installation.
+
+      <ol>
+        <li> Upload the files from the new version of the software to your server, overwriting the existing copies.  All of the files that will need to be uploaded are listed below, where
+        Base directory is the directory on your server in which TradeX is installed and the remaining are the actual sub-directory names within that directory.
+
+        <br /><br />
+
+        <ul>
+          <b>Base directory -</b> all .php files<br />
+          <b>assets directory -</b> all files<br />
+          <b>cp directory -</b> all files and all sub-directories <br />
+          <b>js directory -</b> all files<br />
+          <b>lib directory -</b> all files <i class="bold" style="color: blue;">except config.php</i><br />
+          <b>templates directory -</b> only files that do not already exist<br />
+        </ul>
+
+        <br />
+
+        <li> In the TradeX control panel, access the Settings &gt; Global Settings interface.  Depending on what features were added, there
+        may be some new settings for you configure.  Even if there are not any new settings, you will need to save the settings which will force the
+        software to check the values you have supplied and perform any necessary updates.
+
+
+        <br />
+        <br />
+
+        <li> The final step in the control panel is to run the Templates &gt; Recompile Templates function.  This will update your templates with any changes or fixes that have been made to the
+        template compiler so that the script page and e-mail templates will be generated properly.
+
+      </ol>
+
+      The upgrade process is now complete and you can continue using the software as you regularly would.
+    </div>
+
+  </div>
+
+</body>
+</html>

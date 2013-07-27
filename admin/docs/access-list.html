@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div align="center">
+<span class="large">Setting up an Access List</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+To increase the security level in the TGPX control panel, it has an access list feature.  This feature allows you to specify a list of "safe" IP addresses or hostnames
+which will be allowed to access all functions of the control panel.  Anyone who connects to your control panel from an IP address or hostname other than those in the list
+will not be able to access those functions.  By default the access list feature is disabled, but it is highly recommended that all users utilize this feature
+for increased security.
+
+<br />
+<br />
+
+<b class="heading">Enabling the Access List Feature</b>
+
+<br />
+<br />
+
+To enable this feature you will need to edit the access-list.php file that is included with the software.  Each IP address or hostname that is listed in this file will be able to
+access all functions of the software control panel (assuming the administrator account privileges are set accordingly).  You should keep this list as small as possible so that
+only the absolutely necessary IP addresses and hostnames are listed.
+
+<br />
+<br />
+
+Open the access-list.php script in a plain text file editor.  When you open that file it will look something like this:
+
+<xmp><?php
+// Uncomment the next line and enter your IP address(es) or hostname(s)
+//$allowed_ips = array();
+?>
+</xmp>
+
+You will need to uncomment the $allowed_ips variable and configure it with a list of the allowed IP addresses and hostnames.  So, for example, if you want to allow access to
+the IP addresses 193.194.69.66, the IP range 201.235.88.0 to 201.235.88.255 and the hostname containing .your-isp.com, the updated access-list.php file would look like this:
+
+<xmp><?php
+// Uncomment the next line and enter your IP address(es) or hostname(s)
+$allowed_ips = array('193.194.69.66', '201.235.88.*', '*.your-isp.com');
+?>
+</xmp>
+
+If you only want to allow access to one IP address, it would look like this:
+
+<xmp><?php
+// Uncomment the next line and enter your IP address(es)
+$allowed_ips = array('193.194.69.66');
+?>
+</xmp>
+
+Once you have modified the access-list.php file, upload that file to the includes directory of your TGPX installation, replacing the existing copy.  Set the
+permissions on this file to 444.  Having this file in your includes directory will immediately enable the access list feature.
+
+<br />
+<br />
+
+<div class="note">
+Setting the permissions to 444 on this file will enhance the security of this feature, however if you need to make changes to the access list you will need to
+temporarily change the permissions to 644.  Once you have made the necessary changes, be sure to change the permissions back to 444.
+</div>
+
+<br />
+
+<b class="heading">Wildcards</b>
+
+<br />
+<br />
+
+It is possible to use the * character within your IP address and hostname list to indicate a wildcard character.  As you may have noticed, the example above includes a wildcard in the
+third IP address in the list and the hostname.  That * character means any value can appear in that position, which would give access to anyone coming from an IP address in the
+201.235.88.0 through 201.235.88.255 range.  You can use multiple wildcards, but this is not recommended since it will open up a large range of IP addresses.
+
+<br />
+<br />
+
+<b class="heading">Ignoring the Warning Message</b>
+
+<br />
+<br />
+
+If you don't want to use the access list feature and want to get rid of the warning message that one is not configured, simply uncomment the $allowed_ips
+setting in the access-list.php file and do not add any IP addresses to the list.  The updated access-list.php file would look like this:
+
+<xmp><?php
+// Uncomment the next line and enter your IP address(es)
+$allowed_ips = array();
+?>
+</xmp>
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+Overview
+--------
+This example template shows how to have a page of text links that will display
+the preview thumbnail when the surfer places their mouse pointer over the
+link.  The template uses JavaScript code to display the thumbnail when the
+surfer places their mouse pointer over one of the gallery links.
+
+This template makes use of the jquery.js JavaScript library included with TGPX
+so you may need to adjust the reference to that script if it is located in a
+directory other than /tgpx/includes on your server.
+
+
+
+Template Code
+-------------
+{define name=globaldupes value=true}
+{define name=pagedupes value=false}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>TGP</title>
+  <script type="text/javascript" src="/tgpx/includes/jquery.js"></script>
+  <style type="text/css">
+  body { font-size: 12px; font-family: Verdana; }
+  td { font-size: 12px; font-family: Verdana; }
+  #img-float { position: absolute; }
+  .jmbfoot { font-size: 8pt; font-family: Verdana; text-align: center; }
+  .jmblink { font-size: 8pt; font-family: Verdana; }
+  </style>
+  {literal}
+  <script language="JavaScript">
+  var offsetX = 15;
+  var offsetY = 15;
+  $(function()
+    {
+        // Handle the mouseover effect
+        $('a.m-over')
+        .bind('mouseover', function(event)
+                           {
+                               $('body').append('<img src="'+this.id+'" border="1" id="img-float">');
+
+                               event = $.event.fix(event);
+                                
+                               $('#img-float').css({top: event.pageY+offsetY+'px', left: event.pageX+offsetX+'px'}).show();
+
+                               $(this).bind('mouseout', function() { $('#img-float').remove(); $('body').unbind('mousemove'); });
+                               $('body').bind('mousemove', function(event)
+                                                           {
+                                                               event = $.event.fix(event);
+                                                               $('#img-float').css({top: event.pageY+offsetY+'px', left: event.pageX+offsetX+'px'});
+                                                           });
+                            });
+    });
+  </script>
+  {/literal}
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+
+<div align="center">
+<span style="font-size: 20pt; font-weight: bold;">TGP</span><br />
+Links to {$total_thumbnails|tnumber_format} free pictures and movies!<br />
+Updated {date value='today' format='m-d-Y'}
+</div>
+
+<br />
+
+<table align="center">
+<tr>
+<td valign="top">
+{* Load 50 galleries *}
+{galleries
+var=$galleries
+preview=true
+type=any
+category=MIXED
+amount=50
+getnew=true
+allowused=true
+order=date_approved
+reorder=date_displayed DESC, date_approved}
+
+{* Display loaded galleries as text links *}
+{foreach from=$galleries var=$gallery counter=$counter}
+{$gallery.date|tdate} <a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank" class="m-over" id="{$gallery.preview_url|htmlspecialchars}">{$gallery.thumbnails|htmlspecialchars} {$gallery.category|htmlspecialchars}</a><br />
+{/foreach}
+</td>
+</tr>
+</table>
+
+
+<br />
+
+<div align="center">
+<b><a href="{$config.install_url}/submit.php">Submit A Gallery</a></b>
+</div>
+
+<br />
+
+</body>
+</html>

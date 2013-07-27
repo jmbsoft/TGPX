@@ -1,0 +1,261 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Toplists - Add a Toplist</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+    <span class="header-section">Overview</span>
+    <div class="section">
+      From this dialog you will be able to add toplists.  The toplist feature allows you to generate lists that will show your traders sorted by a value that you select.
+      For example, you may want to create a list of your traders that sent you the most unique ins in the past 24 hours.  You can then display that list embedded in other
+      pages of your site, such as a TGP or Tube page.
+    </div>
+
+
+    <span class="header-section">Toplist Settings</span>
+    <div class="section">
+      When adding or editing a toplist there are several settings you can configure. Those are as follows:
+
+      <ul>
+        <b>Source - </b> <span>Select the source for this toplist.  The source can either be a file containing the template code, or a template that you enter in the Template field</span><br />
+        <b>Template - </b> <span>When Source is set to Template, this text input box will appear allowing you to enter the template code for this toplist</span><br />
+        <b>Input File - </b> <span>When Source is set to File, enter the full directory path and filename of the file that contains the toplist template code</span><br />
+        <b>Output File - </b> <span>Enter the full directory path and filename of the file where you want the toplist written</span><br />
+        <b>Groups - </b> <span>If you want to limit the traders that can appear in this toplist by group, select those groups here.
+                           To allow trades from any group, leave all the groups un-selected.
+                         </span><br />
+        <b>Categories - </b> <span>If you want to limit the traders that can appear in this toplist by category, select those categories here
+                               To allow trades from any category, leave all the categories un-selected.
+                             </span><br />
+        <b>Sort By - </b> <span>Select how the traders should be sorted</span><br />
+        <b>Requirement - </b> <span>If you want a certain requirement to be met in order to be listed in this toplist, enter that requirement here</span><br />
+
+      </ul>
+    </div>
+
+
+
+    <span class="header-section">Toplist Template Code</span>
+    <div class="section">
+      The toplist templates use the <a href="templates.html">same basic syntax</a> as the other TradeX templates and has the following template variables available:
+
+      <br /><br />
+
+      <ul>
+        <b>$g_timestamp - </b> <span> The timestamp when the build occurred</span><br />
+        <b>$g_date - </b> <span> The date when the build occurred (using Date Format setting)</span><br />
+        <b>$g_datetime - </b> <span> The date and time when the build occurred (using Date Format and Time Format settings)</span><br />
+      </ul>
+
+      <b class="large">$g_config</b><br />
+      The software configuration settings
+
+      <div style="margin-left: 30px; margin-top: 10px;">
+        <b>$g_config.site_name -</b> <span>Site Name</span><br />
+        <b>$g_config.traffic_url -</b> <span>Traffic URL</span><br />
+        <b>$g_config.base_url -</b> <span>TradeX URL</span><br />
+        <b>$g_config.cookie_domain -</b> <span>Cookie Domain</span><br />
+        <b>$g_config.cookie_path -</b> <span>Cookie Path</span><br />
+        <b>$g_config.email_address -</b> <span>E-mail Address</span><br />
+        <b>$g_config.email_name -</b> <span>E-mail Name</span><br />
+        <b>$g_config.date_format -</b> <span>Date Format</span><br />
+        <b>$g_config.time_format -</b> <span>Time Format</span><br />
+        <b>$g_config.flag_accept_new_trades -</b> <span>Accepting new trades</span><br />
+        <b>$g_config.flag_captcha_register -</b> <span>Use CAPTCHA on registration form</span><br />
+        <b>$g_config.flag_allow_login -</b> <span>Allow users to login with a password to view their stats</span><br />
+        <b>$g_config.site_name_min -</b> <span>Site name minimum length</span><br />
+        <b>$g_config.site_name_max -</b> <span>Site name maximum length</span><br />
+        <b>$g_config.site_description_min -</b> <span>Site description minimum length</span><br />
+        <b>$g_config.site_description_max -</b> <span>Site description maximum length</span><br />
+        <b>$g_config.flag_req_email -</b> <span>E-mail address required</span><br />
+        <b>$g_config.flag_req_site_name -</b> <span>Site name required</span><br />
+        <b>$g_config.flag_req_site_description -</b> <span>Site description required</span><br />
+        <b>$g_config.flag_req_icq -</b> <span>ICQ required</span><br />
+        <b>$g_config.flag_req_nickname -</b> <span>Name/Nickname required</span><br />
+        <b>$g_config.flag_req_banner -</b> <span>Banner URL required</span><br />
+      </div>
+
+      <br />
+
+      <b class="large">$g_trades</b><br />
+      The trades that are eligible for display in this toplist.  You can either iterate through each trade using a {foreach} or you can access each ranked trade
+      by number.  To access each ranked trade by number, use square brackets around the rank number.  For example, to access the #1 ranked site use [1] as shown below:
+
+      <div style="margin-left: 30px; margin-top: 10px;">
+        <b>$g_trades[1].domain -</b> <span>Domain name</span><br />
+        <b>$g_trades[1].return_url -</b> <span>Traffic URL</span><br />
+        <b>$g_trades[1].status -</b> <span>Account status</span><br />
+        <b>$g_trades[1].email -</b> <span>E-mail address</span><br />
+        <b>$g_trades[1].nickname -</b> <span>Name/Nickname</span><br />
+        <b>$g_trades[1].icq -</b> <span>ICQ number</span><br />
+        <b>$g_trades[1].site_name -</b> <span>Site name</span><br />
+        <b>$g_trades[1].site_description -</b> <span>Site description</span><br />
+        <b>$g_trades[1].banner -</b> <span>Banner URL</span><br />
+        <b>$g_trades[1].i_raw_60 - </b> <span>60 Minutes - In Raw</span><br/>
+        <b>$g_trades[1].i_uniq_60 - </b> <span>60 Minutes - In Unique</span><br/>
+        <b>$g_trades[1].i_uniq_pct_60 - </b> <span>60 Minutes - In Unique %</span><br/>
+        <b>$g_trades[1].i_proxy_60 - </b> <span>60 Minutes - In Proxy</span><br/>
+        <b>$g_trades[1].i_ctry_g_60 - </b> <span>60 Minutes - In Good Country</span><br/>
+        <b>$g_trades[1].i_ctry_n_60 - </b> <span>60 Minutes - In Normal Country</span><br/>
+        <b>$g_trades[1].i_ctry_b_60 - </b> <span>60 Minutes - In Bad Country</span><br/>
+        <b>$g_trades[1].i_ctry_g_pct_60 - </b> <span>60 Minutes - In Good Country %</span><br/>
+        <b>$g_trades[1].i_ctry_n_pct_60 - </b> <span>60 Minutes - In Normal Country %</span><br/>
+        <b>$g_trades[1].i_ctry_b_pct_60 - </b> <span>60 Minutes - In Bad Country %</span><br/>
+        <b>$g_trades[1].o_raw_60 - </b> <span>60 Minutes - Out Raw</span><br/>
+        <b>$g_trades[1].o_proxy_60 - </b> <span>60 Minutes - Out Proxy</span><br/>
+        <b>$g_trades[1].o_ctry_g_60 - </b> <span>60 Minutes - Out Good Country</span><br/>
+        <b>$g_trades[1].o_ctry_n_60 - </b> <span>60 Minutes - Out Normal Country</span><br/>
+        <b>$g_trades[1].o_ctry_b_60 - </b> <span>60 Minutes - Out Bad Country</span><br/>
+        <b>$g_trades[1].o_ctry_g_pct_60 - </b> <span>60 Minutes - Out Good Country %</span><br/>
+        <b>$g_trades[1].o_ctry_n_pct_60 - </b> <span>60 Minutes - Out Normal Country %</span><br/>
+        <b>$g_trades[1].o_ctry_b_pct_60 - </b> <span>60 Minutes - Out Bad Country %</span><br/>
+        <b>$g_trades[1].c_raw_60 - </b> <span>60 Minutes - Clicks Raw</span><br/>
+        <b>$g_trades[1].c_proxy_60 - </b> <span>60 Minutes - Clicks Proxy</span><br/>
+        <b>$g_trades[1].c_trades_60 - </b> <span>60 Minutes - Clicks To Trades</span><br/>
+        <b>$g_trades[1].c_ctry_g_60 - </b> <span>60 Minutes - Clicks Good Country</span><br/>
+        <b>$g_trades[1].c_ctry_n_60 - </b> <span>60 Minutes - Clicks Normal Country</span><br/>
+        <b>$g_trades[1].c_ctry_b_60 - </b> <span>60 Minutes - Clicks Bad Country</span><br/>
+        <b>$g_trades[1].c_ctry_g_pct_60 - </b> <span>60 Minutes - Clicks Good Country %</span><br/>
+        <b>$g_trades[1].c_ctry_n_pct_60 - </b> <span>60 Minutes - Clicks Normal Country %</span><br/>
+        <b>$g_trades[1].c_ctry_b_pct_60 - </b> <span>60 Minutes - Clicks Bad Country %</span><br/>
+        <b>$g_trades[1].prod_60 - </b> <span>60 Minutes - Productivity</span><br/>
+        <b>$g_trades[1].t_prod_60 - </b> <span>60 Minutes - Trade Productivity</span><br/>
+        <b>$g_trades[1].return_60 - </b> <span>60 Minutes - Return</span><br/>
+        <b>$g_trades[1].skim_60 - </b> <span>60 Minutes - Skim</span><br/>
+        <b>$g_trades[1].i_raw_24 - </b> <span>24 Hours - In Raw</span><br/>
+        <b>$g_trades[1].i_uniq_24 - </b> <span>24 Hours - In Unique</span><br/>
+        <b>$g_trades[1].i_uniq_pct_24 - </b> <span>24 Hours - In Unique %</span><br/>
+        <b>$g_trades[1].i_proxy_24 - </b> <span>24 Hours - In Proxy</span><br/>
+        <b>$g_trades[1].i_ctry_g_24 - </b> <span>24 Hours - In Good Country</span><br/>
+        <b>$g_trades[1].i_ctry_n_24 - </b> <span>24 Hours - In Normal Country</span><br/>
+        <b>$g_trades[1].i_ctry_b_24 - </b> <span>24 Hours - In Bad Country</span><br/>
+        <b>$g_trades[1].i_ctry_g_pct_24 - </b> <span>24 Hours - In Good Country %</span><br/>
+        <b>$g_trades[1].i_ctry_n_pct_24 - </b> <span>24 Hours - In Normal Country %</span><br/>
+        <b>$g_trades[1].i_ctry_b_pct_24 - </b> <span>24 Hours - In Bad Country %</span><br/>
+        <b>$g_trades[1].o_raw_24 - </b> <span>24 Hours - Out Raw</span><br/>
+        <b>$g_trades[1].o_proxy_24 - </b> <span>24 Hours - Out Proxy</span><br/>
+        <b>$g_trades[1].o_ctry_g_24 - </b> <span>24 Hours - Out Good Country</span><br/>
+        <b>$g_trades[1].o_ctry_n_24 - </b> <span>24 Hours - Out Normal Country</span><br/>
+        <b>$g_trades[1].o_ctry_b_24 - </b> <span>24 Hours - Out Bad Country</span><br/>
+        <b>$g_trades[1].o_ctry_g_pct_24 - </b> <span>24 Hours - Out Good Country %</span><br/>
+        <b>$g_trades[1].o_ctry_n_pct_24 - </b> <span>24 Hours - Out Normal Country %</span><br/>
+        <b>$g_trades[1].o_ctry_b_pct_24 - </b> <span>24 Hours - Out Bad Country %</span><br/>
+        <b>$g_trades[1].c_raw_24 - </b> <span>24 Hours - Clicks Raw</span><br/>
+        <b>$g_trades[1].c_proxy_24 - </b> <span>24 Hours - Clicks Proxy</span><br/>
+        <b>$g_trades[1].c_trades_24 - </b> <span>24 Hours - Clicks To Trades</span><br/>
+        <b>$g_trades[1].c_ctry_g_24 - </b> <span>24 Hours - Clicks Good Country</span><br/>
+        <b>$g_trades[1].c_ctry_n_24 - </b> <span>24 Hours - Clicks Normal Country</span><br/>
+        <b>$g_trades[1].c_ctry_b_24 - </b> <span>24 Hours - Clicks Bad Country</span><br/>
+        <b>$g_trades[1].c_ctry_g_pct_24 - </b> <span>24 Hours - Clicks Good Country %</span><br/>
+        <b>$g_trades[1].c_ctry_n_pct_24 - </b> <span>24 Hours - Clicks Normal Country %</span><br/>
+        <b>$g_trades[1].c_ctry_b_pct_24 - </b> <span>24 Hours - Clicks Bad Country %</span><br/>
+        <b>$g_trades[1].prod_24 - </b> <span>24 Hours - Productivity</span><br/>
+        <b>$g_trades[1].t_prod_24 - </b> <span>24 Hours - Trade Productivity</span><br/>
+        <b>$g_trades[1].return_24 - </b> <span>24 Hours - Return</span><br/>
+        <b>$g_trades[1].skim_24 - </b> <span>24 Hours - Skim</span><br/>
+
+      </div>
+
+      <br />
+
+      To access the #2 ranked site replace [1] with [2] and so on...
+
+    </div>
+
+
+
+    <span class="header-section">Example Templates</span>
+    <div class="section">
+
+      Below are a few example toplist templates showing the different ways to access the trades in the $g_trades variable.
+
+      <br /><br />
+
+      <div class="large bold">Accessing by Rank Number</div>
+
+      This example shows how to access trades by their rank number in the $g_trades template variable.  A total of 5 trades
+      will be displayed with their domain linked to their return URL setting.  This will also show the raw in value from the
+      past 24 hours.
+
+<xmp class="code"><table>
+  <tr>
+    <td>
+    1. <a href="{$g_config.base_url}/out.php?t={$g_trades[1].domain}" target="_blank">{$g_trades[1].domain}</a> ({$g_trades[1].i_raw_24})
+    </td>
+    <td>
+    2. <a href="{$g_config.base_url}/out.php?t={$g_trades[2].domain}" target="_blank">{$g_trades[2].domain}</a> ({$g_trades[2].i_raw_24})
+    </td>
+    <td>
+    3. <a href="{$g_config.base_url}/out.php?t={$g_trades[3].domain}" target="_blank">{$g_trades[3].domain}</a> ({$g_trades[3].i_raw_24})
+    </td>
+    <td>
+    4. <a href="{$g_config.base_url}/out.php?t={$g_trades[4].domain}" target="_blank">{$g_trades[4].domain}</a> ({$g_trades[4].i_raw_24})
+    </td>
+    <td>
+    5. <a href="{$g_config.base_url}/out.php?t={$g_trades[5].domain}" target="_blank">{$g_trades[5].domain}</a> ({$g_trades[5].i_raw_24})
+    </td>
+  </tr>
+</table>
+</xmp>
+
+      <br />
+
+      <div class="large bold">Accessing Using {foreach}</div>
+
+      This example uses a {foreach} template function to iterate over the trades in the $g_trades template variable.  A total
+      of 30 trades will be displayed with their domain linked to their return URL setting.  The {foreachdone} triggers an exit
+      from displaying trades, so even if you have more than 30 available only the top 30 will be listed.
+
+<xmp class="code"><table>
+  {foreach var=$trade from=$g_trades counter=$counter}
+  <tr>
+    <td>
+    {$counter}. <a href="{$g_config.base_url}/out.php?t={$trade.domain}" target="_blank">{$trade.domain}</a> ({$trade.i_raw_24})
+    </td>
+  </tr>
+  {if $counter == 30}{foreachdone}{/if}
+  {/foreach}
+</table>
+</xmp>
+
+      <br />
+
+      <div class="large bold">Accessing Using {range}</div>
+
+      This example uses a {range} template function to iterate over the trades in the $g_trades template variable.  A total
+      of 10 trades will be displayed with their domain linked to their return URL setting.  This is useful when you want to
+      display trades from a certain starting point to a certain ending point.  For this example, the trades ranked 11 through
+      20 will be displayed.
+
+      This example also shows how to display an "Add Your Site" link if there are not enough trades to fill the entire table.
+
+<xmp class="code"><table>
+  {range start=11 end=20 counter=$i}
+  {assign var=$trade code=$g_trades[$i]}
+  <tr>
+    <td>
+    {if !empty($trade)}
+    {$i}. <a href="{$g_config.base_url}/out.php?t={$trade.domain}" target="_blank">{$trade.domain}</a> ({$trade.i_raw_24})
+    {else}
+    {$i}. <a href="{$g_config.base_url}/register.php" target="_blank">Add Your Site</a>
+    {/if}
+    </td>
+  </tr>
+  {/range}
+</table>
+</xmp>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

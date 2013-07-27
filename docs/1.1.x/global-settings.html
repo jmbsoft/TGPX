@@ -1,0 +1,181 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Global Settings</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+    <span class="header-section">Overview</span>
+    <div class="section">
+      The Global Settings dialog allows you to configure the software settings.  Each of the available settings is described below.
+    </div>
+
+
+    <span class="header-section">Base Settings</span>
+    <div class="section">
+      <ul>
+        <b>Site Name -</b> <span>The name of your website</span><br />
+        <b>Traffic URL -</b> <span>The URL where your trades should send their traffic.  This page must include the <a href="stats-tracking-in.html">incoming stats tracking code</a>.</span><br />
+        <b>TradeX URL -</b> <span>The full HTTP URL to the base directory of your TradeX installation</span><br />
+        <b>Cookie Domain -</b> <span>The domain name to use when setting authentication and other cookies for users.  This must contain
+                             the domain name on which the software is installed.</span><br />
+
+      <b>Cookie Path -</b> <span>The directory path to use when setting authentication and other cookies for users.  This must at least
+                           include the directory in which TradeX is installed</span><br />
+        <b>Passphrase -</b> <span>Any phrase of characters that you like.  Used for generating cookie signatures, so do not share this value with anyone</span><br />
+        <b>Date Format -</b> <span>A string that specifies the <a href="date-time-formats.html">format</a> to use for date values</span><br />
+
+      <b>Time Format -</b> <span>A string that specifies the <a href="date-time-formats.html">format</a> to use for time values</span><br />
+      </ul>
+    </div>
+
+
+
+    <span class="header-section">E-mail Settings</span>
+    <div class="section">
+      <ul>
+        <b>E-mail Address -</b> <span>Enter the e-mail address that will be used for the From address of all messages sent by TradeX
+                              </span><br />
+
+      <b>E-mail Name -</b> <span>Enter the name that will appear in user's e-mail programs for e-mail messages sent by TradeX
+                           </span><br />
+
+      <b>E-mail Method -</b> <span>Select the method to use for sending e-mail messages.  In most cases the PHP mail() function should
+                             work fine.  If it does not, contact your server administrator to see which method they recommend
+                             </span><br />
+
+      <b>Sendmail Path -</b> <span>If you are using Sendmail for the E-mail Method, enter the full directory path and filename of the
+                             sendmail executable on your server.</span><br />
+
+      <b>SMTP Hostname -</b> <span>If using SMTP, enter the hostname of the SMTP server</span><br />
+
+      <b>SMTP Port -</b> <span>If using SMTP, enter the port on which the SMTP server is listening</span><br />
+
+      <b>Use SSL -</b> <span>Check this if your SMTP server requires an SSL encrypted connection</span><br />
+
+      <b>SMTP Username -</b> <span>If using SMTP and the SMTP server requires a username and password, enter the username here</span><br />
+
+      <b>SMTP Password -</b> <span>If using SMTP and the SMTP server requires a username and password, enter the password here</span><br />
+      </ul>
+    </div>
+
+
+
+    <span class="header-section">CAPTCHA Settings</span>
+    <div class="section">
+      TradeX supports the use of verification codes displayed as images, otherwise known as a CAPTCHA.  Use these settings to configure the
+      strings that will appear on the CAPTCHA images on the trade account registration form.
+
+      <ul>
+      <b>String Length -</b> <span>The minimum and maximum number of characters to use for CAPTCHA codes.  Note that this does not
+                             apply if you are using the words file for CAPTCHA codes.</span><br />
+
+      <b>Use Words -</b> <span>Use the assets/captcha-words.txt file as the source for values displayed as CAPTCHA codes.</span><br />
+      </ul>
+    </div>
+
+
+
+    <span class="header-section">Registration &amp; Account Settings</span>
+    <div class="section">
+      <ul>
+        <b>Accepting new -</b> <span>Check this to allow new trades to signup through the end-user registration form</span><br />
+        <b>Use CAPTCHA -</b> <span>Check this to require that users enter a CAPTCHA verification code on the registration form</span><br />
+        <b>Allow login -</b> <span>Check this to allow your traders to login and view their stats</span><br />
+        <b>Site Name Length -</b> <span>Enter the minimum and maximum allowed site name length</span><br />
+        <b>Site Description Length -</b> <span>Enter the minimum and maximum allowed site description length</span><br />
+        <b>Required Fields -</b> <span>Check the fields that are required on the registration form</span><br />
+      </ul>
+    </div>
+
+
+
+    <span class="header-section">Points Modifiers - Bonuses</span>
+    <div class="section">
+      Bonuses can be given to trades that meet certain criteria, and this section allows you to configure those bonuses.  The Modifier percentage tells the script the amount
+      of bonus to apply.  To give no bonus for a specific modifier, use 100%.
+
+      <ul>
+        <b>Good Productivity -</b> <span>
+                                     This will give a points bonus to trades who's productivity falls within the range that you specify.
+                                   </span><br />
+
+        <b>Good % of Uniques -</b> <span>
+                                     This will give a points bonus to trades who's percentage of incoming uniques falls within the range that you specify.
+                                   </span><br />
+
+        <b>Low Return % -</b> <span>
+                                 This will give a points bonus to trades who's return percentage is within the range that you specify.
+                              </span><br />
+      </ul>
+    </div>
+
+
+
+    <span class="header-section">Points Modifiers - Penalties</span>
+    <div class="section">
+      Penalties can be given to trades that meet certain criteria, and this section allows you to configure those penalties.  The Modifier percentage tells the script the amount
+      of penalty to apply.  To give no penalty for a specific modifier, use 100%.
+
+      <ul>
+        <b>Proxy % -</b> <span>
+                           This will give a points penalty to trades who's percentage of incoming proxies falls outside of the range that you specify.
+                         </span><br />
+
+        <b>Unique % -</b> <span>
+                            This will give a points penalty to trades who's percentage of incoming uniques falls outside of the range that you specify.
+                          </span><br />
+
+        <b>High Return % -</b> <span>
+                                 This will give a points penalty to trades who's return percentage falls outside of the range that you specify.
+                               </span><br />
+      </ul>
+    </div>
+
+
+    <span class="header-section">Traffic Distribution</span>
+    <div class="section">
+      Use these settings to configure how much of your outgoing trade traffic should go to each of outlists.  These values must total 100%
+
+      <ul>
+        <b>Forces -</b> <span>The percentage to give to any set forces.  If no forces are set, this will be combined with Main</span><br />
+        <b>Main -</b> <span>The percentage to give to trades in the Main outlist</span><br />
+        <b>Primary Bonus -</b> <span>The percentage to give to trades in the Primary Bonus outlist</span><br />
+        <b>Secondary Bonus -</b> <span>The percentage to give to trades in the Secondary Bonus outlist</span><br />
+      </ul>
+    </div>
+
+
+
+    <span class="header-section">Other Settings</span>
+    <div class="section">
+      <ul>
+        <b>Count Clicks -</b> <span>The maximum number of clicks to count from an individual surfer.  After this amount, additional clicks will be tallied in the not-counted system trade.</span><br />
+
+        <b>Fast Click -</b> <span>Enter the number of seconds (this can be fractional) that must elapse between clicks in order for them to not be considered fast clicks.</span><br />
+
+        <b>Filter image.php -</b> <span>Check this box if you want to filter users that do not load the image.php script.  This will require adding an &lt;img&gt; tag to your Traffic URL page
+                                  that loads the image.php script.  For example:
+
+                                  <xmp class="code"><img src="/tx/image.php" style="width: 0; height: 0;"></xmp></span><br />
+
+        <b>Autostop Interval -</b> <span>
+                                     Enter the number of hours that a trade is allowed before it will start being checked against it's autostop rules (Min Raws, Min Clicks, and Min Prod).
+                                     This interval will reset any time a trade has it's stats reset or it is re-enabled after being disabled or autostopped.
+                                   </span><br />
+
+        <b>Toplist Build Invterval -</b> <span>Enter the number of minutes between updates of your toplists</span><br />
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>

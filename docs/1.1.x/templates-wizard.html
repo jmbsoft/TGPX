@@ -1,0 +1,238 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Template Wizard</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The template wizard will assist you in creating the necessary {galleries} functions to pull galleries from the database and will also generate the {foreach} function to
+display each of the galleries on your page.  This document will cover how to use the template wizard.
+
+<br />
+<br />
+
+<b class="heading">Accessing the Template Wizard</b>
+
+<br />
+<br />
+
+To access the template wizard use the TGP Pages &gt; Edit Templates function.  This will load the page where you edit your templates.  In the header bar of this page that
+reads TGP Page Templates you can click on the <img src="../images/wizard.png" border="0"> icon to access the template wizard.
+
+<br />
+<br />
+
+<b class="heading">Basic Overview</b>
+
+<br />
+<br />
+
+The template wizard is something that will help you to generate the {galleries} and {foreach} commands that you will need to use to pull galleries from the database and
+display them on your page.  
+
+<br />
+<br />
+
+For HTML templates, the wizard will not generate a complete template for you with all of the HTML code that you need for a full page.  It is designed to give you
+the code you need for a specific section of galleries.  For example, if you want to quickly generate the template code necessary to display 20 thumbnail galleries on the
+page, you can use the template wizard.  The code that the wizard creates will need to be inserted into your TGP page template code at the location where you want the
+galleries to appear.
+
+<br />
+<br />
+
+For RSS feed templates, the wizard will generate the complete template for you.  You will simply need to copy the entire generated template code and save it for the 
+RSS feed template.  Make sure your RSS feed templates have a .xml, .rdf, or .rss file extension!
+
+<br />
+<br />
+
+<div class="note">
+Remember, you are not limited to a single section of galleries per page; you can have as many sections as you want.  Therefore, you can use the wizard multiple times to
+create all of the template code you will need for your page to pull galleries for each of the sections of galleries that you want to display on the page.
+</div>
+
+<br />
+
+<b class="heading">General Options</b>
+
+<br />
+<br />
+
+The General Options section of the template wizard will allow you to conifgure some basic settings for the template functions you will be generating.  Each of the settings
+you can configure are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Number of Galleries</b>
+</td>
+<td>
+Enter the total number of galleries you would like to display in the section you are generating
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Display As</b>
+</td>
+<td>
+Select how you would like the galleries displayed<br />
+<b>Thumbnails</b> - This will generate some default HTML code to display thumbnail previews for the galleries<br />
+<b>Text Links</b> - This will generate some default HTML code to display text links for the galleries 
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Display in Rows</b>
+</td>
+<td>
+This is mainly useful when you are displaying the galleries as thumbnails and will tell the wizard to automatically
+generate the HTML table code necessary to display the thumbnails in several rows.  For example, if you tell the wizard
+to display 25 galleries and enter 5 galleries per row, this will generate an HTML table that will display the thumbnails
+in a 5x5 table.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type of Galleries</b>
+</td>
+<td>
+This allows you to select the type(s) of galleries you would like displayed in this section.  You can select a percentage
+of submitted and permanent galleries to display.  When you change the percentages, the number of each type will be displayed
+in parenthesis after the type name.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Mix Method</b>
+</td>
+<td>
+If you select a mixed percentage of galleries for the <i>Type of Galleries</i> setting, you will be able to select how the
+galleries are mixed together.<br />
+<b>Random</b> - Permanent galleries will be placed at random locations within the submitted galleries.<br />
+<b>Specific Interval</b> - Enter a number which indicates the interval at which galleries will be mixed.  For example, using 2 will place a permanent gallery after every 2nd submitted gallery.<br />
+<b>Specific Locations</b> - Enter a comma seprated list of where you want the galleries placed.  For example, using 2,4,6,8 would place a permanent gallery after the 2nd, 4th, 6th, and 8th submitted gallery.<br />
+</td>
+</tr>
+</table>
+</ul>
+
+
+<b class="heading">Submitted Gallery Options</b>
+
+<br />
+<br />
+
+This section will allow you to configure the settings that will determine which submitted galleries will be pulled for display in this section.  These options will only be available if the
+submitted gallery percentage is greater than 0.  The majority of these options should be self explanitory.  Those that require additional explanation are listed below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Preview Size</b>
+</td>
+<td>
+If you are requiring that galleries in this section have a preview thumbnail, select the size of preview thumbnail that should be displayed.  You can also enter
+a custom size by selecting the Custom --&gt; option and filling in the width and height in the text box following the drop down selection field.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Categories</b>
+</td>
+<td>
+Select the categories that you want displayed in this section.  The ANY CATEGORY option will allow galleries from all categories in this section.  You can select more
+than one category by clicking the <img src="../images/add-small.png" border="0"> icon.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Exclude Categories</b>
+</td>
+<td>
+If you want to display all categories in this section except for a few, set the <i>Categories</i> option to ANY CATEGORY and select the categories that you don't want to 
+show for this setting.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Sponsors</b>
+</td>
+<td>
+Select the sponsors that you want displayed in this section.  The ANY SPONSOR option will allow galleries from all sponsors in this section.  You can select more
+than one sponsor by clicking the <img src="../images/add-small.png" border="0"> icon.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Exclude Sponsors</b>
+</td>
+<td>
+If you want to display all sponsors in this section except for a few, set the <i>Sponsors</i> option to ANY SPONSOR and select the sponsors that you don't want to 
+show for this setting.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Gallery Weight</b>
+</td>
+<td>
+If you select anything other than Don't Care you will need to enter the weight value in the text box following this drop down selection field.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Sort new galleries by</b>
+</td>
+<td>
+Use this option to select the order in which new galleries will be displayed when they are pulled from the database during a Build With New type of build.  You can 
+select sub-sorting options by clicking the <img src="../images/add-small.png" border="0"> icon.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Sort new galleries by</b>
+</td>
+<td>
+Use this option to select the order in which galleries will be displayed when a Build type of build is done.  You can 
+select sub-sorting options by clicking the <img src="../images/add-small.png" border="0"> icon.
+</td>
+</tr>
+</table>
+</ul>
+
+<b class="heading">Permanent Gallery Options</b>
+
+<br />
+<br />
+
+This section will allow you to configure the settings that will determine which permanent galleries will be pulled for display in this section.  These options will only be available if the
+permanent gallery percentage is greater than 0.  The options in this section are the same as the Submitted Gallery Options.
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

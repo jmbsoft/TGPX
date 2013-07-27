@@ -1,0 +1,526 @@
+<html>
+<head>
+    <title>ToplistX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Accounts</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The main function of ToplistX is to maintain a database of member accounts and track their stats, so it is obviously important to understand how the software handles them.  This document will give
+you an overview of how to add, maintain, and remove accounts.
+
+<br />
+<br />
+
+<b class="heading">Searching Accounts<a name="search"></a></b>
+
+<br />
+<br />
+
+To search the current accounts in your database so you can modify or delete them, access the Accounts &gt; Search Accounts function from the control panel menu.  This will display a 
+page where you will be able select a number of different search options so you can quickly locate the account(s) you want to work with.  Most of the database fields that you can search
+use the software's <a href="standard-searches.html">Standard Search</a> function, however the <b>Title, Description &amp; Keywords</b> field uses the <a href="boolean-searches.html">Boolean Search</a> feature.  The
+When you perform a search, the accounts that match your search terms will be displayed like the following example:
+
+<br />
+<br />
+
+<img src="accounts-search.png" border="1">
+
+<ol style="list-style-type: upper-alpha">
+<li> Use this checkbox to select this account when you want to run a function on multiple accounts at once
+<li> This section displays the account's current settings.
+<li> This is the value that the current search results were sorted by
+<li> These are the functions that you can run on this specific account
+</ol>
+
+
+The functions that you can run on each individual account (marked D in the image above) are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/banner.png" border="0" alt="">
+</td>
+<td>
+Click this icon to view the banner assigned to the account.  The banner will display as a floating element that you can click on to close.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/comments.png" border="0" alt="">
+</td>
+<td>
+Click this icon view the surfer comments for this account.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/enabled.png" border="0" alt="">
+</td>
+<td>
+Click this icon to disable this account (only shows when the account is enabled)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/disabled.png" border="0" alt="">
+</td>
+<td>
+Click this icon to enable this account (only shows when the account is disabled)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/unlocked.png" border="0" alt="">
+</td>
+<td>
+Click this icon to lock this account (only shows when the account is unlocked)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/locked.png" border="0" alt="">
+</td>
+<td>
+Click this icon to unlock this account (only shows when the account is locked)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/stats.png" border="0" alt="">
+</td>
+<td>
+Click this icon to view the stats for this account.  A window eill appear showing the account stats.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/search.png" border="0" alt="">
+</td>
+<td>
+Click this icon to scan the account.  A window will appear showing you the scan results.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the account.  A window will appear where you will be able to edit all of the account settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/mail.png" border="0" alt="">
+</td>
+<td>
+Click this icon to send an e-mail to the account submitter.  A window will appear where you will enter the e-mail text.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this account.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running functions on single accounts at a time, you can also run a few functions on multiple accounts at once.  At the bottom of the search
+results table you will several buttons which can be used for this purpose.  Each of these bulk functions is described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Delete</b>
+</td>
+<td>
+Use this function to bulk delete accounts
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>E-mail</b>
+</td>
+<td>
+Use this function to bulk e-mail account submitters. A window will appear where you will be able to enter the e-mail text.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Approve</b>
+</td>
+<td>
+Use this function to bulk approve accounts; the email-account-added.tpl e-mail message will be sent if you have that option enabled
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Reject</b>
+</td>
+<td>
+Use this function to bulk reject accounts.  The rejection e-mail you have selected for each account (if any) will be sent.
+</td>
+</tr>
+</table>
+</ul>
+
+Running functions on a large number of accounts can take some time to complete, so be sure to allow the function to run completely before you run other software functions.
+
+<br />
+<br />
+
+<b class="heading">Adding a New Account<a name="add"></a></b>
+
+<br />
+<br />
+
+To add a new account access the Accounts &gt; Add Account function from the control panel menu.  This will display a popup 
+window where you will be able to enter the account data that you want to use.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Username</b>
+</td>
+<td>
+The username that should be associated with this account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Password</b>
+</td>
+<td>
+The password that should be associated with this account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>E-mail Address</b>
+</td>
+<td>
+The e-mail address that should be associated with this account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Site URL</b>
+</td>
+<td>
+The base URL of the website associated with the account
+</td>
+</tr>
+<tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Site Title</b>
+</td>
+<td>
+The title/name of the website
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Description</b>
+</td>
+<td>
+A detailed description of the website
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Keywords</b>
+</td>
+<td>
+A space separated list of keywords that describe the website.  Keywords must be at least 4 characters long
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Banner URL</b>
+</td>
+<td>
+The full URL to a banner to associate with the account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Banner Size</b>
+</td>
+<td>
+The width and height of the banner being assigned to the account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Category</b>
+</td>
+<td>
+The category assigned to this account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Ratings/Total</b>
+</td>
+<td>
+The number of ratings the account has received followed by the total value of all the ratings added together.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Date Added</b>
+</td>
+<td>
+The date and time the account was added to the database.<br />
+Must be in YYYY-MM-DD HH:MM:SS format
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Status</b>
+</td>
+<td>
+The account status.  Pending accounts are not eligible for display in the ranking list; active accounts are eligible for display.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Admin Comments</b>
+</td>
+<td>
+Any comments you would like to associate with the account; useful for making notes for your own internal use.
+</td>
+</tr>
+
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+
+</td>
+<td>
+<b>Locked for editing</b><br />
+Check this box if you do not want to allow the site owner to edit their account information, but you do want them to appear in the ranking list
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+
+</td>
+<td>
+<b>Disabled</b><br />
+Check this box to disable the account; disabled accounts will not be displayed in the ranking list and the site owner cannot login to maintain their account
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to the standard account data, you will also be able to configure the account click tracking data.  The click tracking data is broken down by hour, so you
+can configure stats for each hour of the day for each type of stat.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Return Percent</b>
+</td>
+<td>
+The percentage of clicks to return to this account.  This will come into play when you are using the skimming feature of the outgoing click tracking script.  
+Accounts with a higher return percent will have a better chance of receiving return traffic from skimming than accounts with a lower return percent.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Raw Incoming</b>
+</td>
+<td>
+A count of the total number of visits to your site sent from this account.  This is a raw count, which means that the same user <b>will</b> be counted more than once
+in this statistic.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Unique Incoming</b>
+</td>
+<td>
+A count of the total number of unique visitors to your site sent from this account.  This is a unique count, which means that the same user <b>will not</b> be counted more than once
+in this statistic.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Raw Outgoing</b>
+</td>
+<td>
+A count of the total number of visits sent to this account from your site.  This is a raw count, which means that the same user <b>will</b> be counted more than once
+in this statistic.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Unique Outgoing</b>
+</td>
+<td>
+A count of the total number of unique visitors sent to this account from your site.  This is a unique count, which means that the same user <b>will not</b> be counted more than once
+in this statistic.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Clicks</b>
+</td>
+<td>
+A count of the total number of unique clicks generated by this account.  Clicks are generated for an account when a surfer that they send to your site clicks on links tracked
+by the ToplistX out.php script.  This includes the links in your ranking list and any skimming links you are using on your site.
+</td>
+</tr>
+</table>
+</ul>
+
+You will also find all of the user defined fields that you have configured, and will be allowed to fill in or select the appropriate values for those fields.
+Once you have filled in all of the fields as you want them, press the Add Account button.  This will add the new account to the database.
+
+<br />
+<br />
+
+<b class="heading">Account Status<a name="status"></a></b>
+
+<br />
+<br />
+
+When accounts are submitted they are assigned a status which determines how they will be handled by the software and when they will be displayed on your ranking pages.  
+Each of the available status options are described below.
+
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Unconfirmed</b>
+</td>
+<td>
+Accounts that have been submitted but not yet confirmed through the submitter's e-mail address
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Pending</b>
+</td>
+<td>
+Accounts that have been submitted (and optionally confirmed) but not yet approved by an administrator
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Active</b>
+</td>
+<td>
+Accounts that have been approved and are currently actively tracking stats and eligible to display on your ranking pages.
+</td>
+</tr>
+</table>
+</ul>
+
+The account status can be changed at any time by editing the account, however accounts cannot be moved back to unconfirmed status once they have been confirmed.
+
+<br />
+<br />
+
+<b class="heading">Reviewing Pending Accounts<a name="review"></a></b>
+
+<br />
+<br />
+
+Pending accounts can be reviewed directly from the Search Accounts interface.  Using the ToDO &gt; Review New Accounts function you can quickly access the Search Accounts
+interface to see only the pending accounts.  Once the page has loaded, you will see all of your pending accounts, and you can begin processing them.
+
+<br />
+<br />
+
+For each pending account, there will be two additional icons and a drop down selection field in their Functions column.  You can click on the <img src="../images/check.png" border="0" alt="">
+icon to approve the account, or the <img src="../images/x.png" border="0" alt=""> icon to reject the account.  It is also possible to approve or reject multiple accounts at once.  To do this,
+put a check in the checkbox for each account that you want to approve, then scroll to the bottom of the page and press the Approve button.  The same can be done for rejecting several accounts
+at once.
+
+<br />
+<br />
+
+When an account is approved, it's status will be set to Active and it will be eligible for display on your ranking pages.  The contents of the email-account-added.tpl template will be sent to
+the account owner if the e-mail option is enabled in the General Settings interface.
+
+<br />
+<br />
+
+When an account is rejected, it will be immediately deleted from the database.  Using the drop down selection field in the Functions column, you can select the rejection e-mail message that should
+be sent to the account.  If you select None, no e-mail message will be sent.
+
+<br />
+<br />
+
+<b class="heading">Reviewing Edited Accounts<a name="review-edit"></a></b>
+
+<br />
+<br />
+
+If you have selected the option to review account edits, you will be able to review them directly from the Search Accounts interface.  Using the ToDo &gt; Review Edited Accounts function you 
+can quickly access the Search Accounts interface to see only the accounts that have been edited.  Once the page has loaded, you will see all of the edited accounts, and you can begin processing them.
+
+<br />
+<br />
+
+For each pending account, there will be a yellow colored section of data following the normal account data.  This section will show the information that the site owner has changed, so you can quickly
+compare it with the existing information and decide if you want to accept the changes.  You can click on the <img src="../images/check.png" border="0" alt="">
+icon to approve the new information, or the <img src="../images/x.png" border="0" alt=""> icon to reject the new information and leave the account as it currently is listed.
+
+<br />
+<br />
+
+<b class="heading">Editing a Account<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a account you will first need to locate it through the <a href="#search">Account Search</a> interface.  When you locate the account you want to edit, click on the <img src="../images/edit.png"> icon
+to bring up the account editing interface.  This interface is nearly identical to the account addition interface, and has the same form fields with the same properties.  You can make the changes that you want,
+and then press the Update Account button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Account<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete a account you will first need to locate it through the <a href="#search">Account Search</a> interface.
+When you locate the account you want to delete, click on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

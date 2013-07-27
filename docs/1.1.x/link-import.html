@@ -1,0 +1,286 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<style>
+table.small td {
+  font-size: 8pt;
+}
+</style>
+<body>
+
+<div align="center">
+<span class="large">Importing Links</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The link importing function of LinkX allows you to quickly add many links to the database.  This document will provide an overview of the link importing process.
+
+<br />
+<br />
+
+<b class="heading">Import Data Format</b>
+
+<br />
+<br />
+
+To import links you will need to either place them in a text file or paste them into a text box in the link importing interface.
+In either case, the format needs to be the same.  There should be only one link per line.  Each line should have pipe (|) delimited data,
+with each field representing one piece of information about the link.  The pieces may be in any order, but that order must remain the
+same throughout all of the links.  For example:
+
+<ul>
+<pre>
+user1@email.com|http://www.site1.com/index.html|Site #1 Title|Description of site #1|Roger
+user2@email.com|http://www.site2.com/main.html|Site #2 Title|Description of site #2|James
+user3@email.com|http://www.site3.com/index.php|Site #3 Title|Description of site #3|Susan
+</pre>
+</ul>
+
+The above example has three links each with an e-mail address, site URL, site title, description, and submitter name.  Once you have your
+links in the proper format, you can begin the importing process.
+
+<br />
+<br />
+
+<b class="heading">Control Panel Interface</b>
+
+<br />
+<br />
+
+To use the link importing feature access the Links &gt; Import Links function from the control panel menu.  This will load a page where
+you will be able to tell the software if you want to import from a file that you uploaded or if you want to paste your link data into the supplied text box.
+Each option is explained on the link importing interface.  You will need to press the Analyze Input button if you have pasted data into the text box or
+the Analyze File button if you are importing from an uploaded text file.
+
+<br />
+<br />
+
+After you press the correct Analyze button you will be taken to a page where you will see the first link split out into it's individual fields.
+On the left hand site of the Import Data section you will see drop down menus.  From these menus you will need to select what each field represents.  
+If one of the pieces of data for the link does not fit into any of the drop down menu options, select the IGNORE option.  LinkX will
+ignore all the IGNORE fields when importing the links.
+
+<br />
+<br />
+
+In addition to assigning each of the fields from the data you are importing, there are three additional items that you will need to setup.  Each of
+those items are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Categories</b>
+</td>
+<td>
+Select at least one category for the links to be placed in.  This uses the <a href="category-selector.html">Category Selector</a> interfrace.
+<br /><br />
+<div class="note">
+If you have included the category information in the import data, you do not need to select a category here
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Status</b>
+</td>
+<td>
+Select the status to assign to the imported links or 'From Import Data' if you have included the status in the import data.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+Select the type to assign to the imported links or 'From Import Data' if you have included the type in the import data.  If you select Premium or Featured, enter
+an expiration date in the text input box following the drop down selection field.
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have each of the fields setup how you want it, press the Import Links button.  LinkX will begin importing the links from the
+data you have provided.  Once it is complete, you will be returned to the link importing interface with information on how many links were imported.
+
+<br />
+<br />
+
+<b class="heading">Including Categories in the Import Data</b>
+
+<br />
+<br />
+
+As of version 1.1.0 you can include categories directly in the import data rather than selecting the categories that the links will be imported into.
+This will allow you to import links into many different categories at once instead of having to import individually for each category.  When including the
+categories in the import data, there are a few rules that you will need to follow:
+
+<br />
+<br />
+
+<div class="note">
+For this example, assume that you have the following categories defined:
+<br /><br />
+
+<table class="small" cellspacing="4">
+<tr>
+<td>
+<b>Category</b>
+</td>
+<td>
+<b>mod_rewrite URL</b>
+</td>
+</tr>
+<tr>
+<td>
+Algorithms
+</td>
+<td>
+http://www.yoursite.com/algorithms/
+</td>
+<tr>
+<td>
+Algorithms / Sorting and Searching
+</td>
+<td>
+http://www.yoursite.com/algorithms/sorting-and-searching/
+</td>
+<tr>
+<td>
+Algorithms / Compression
+</td>
+<td>
+http://www.yoursite.com/algorithms/compression/
+</td>
+<tr>
+<td>
+Programming
+</td>
+<td>
+http://www.yoursite.com/programming/
+</td>
+<tr>
+<td>
+Programming / C++
+</td>
+<td>
+http://www.yoursite.com/programming/c-plus-plus/
+</td>
+</tr>
+<tr>
+<td>
+Programming / C++ / Sorting and Searching
+</td>
+<td>
+http://www.yoursite.com/programming/c-plus-plus/sorting-and-searching/
+</td>
+</tr>
+</table>
+</div>
+
+<ol>
+<li> Categories must always be provided as their full path.  You cannot simply provide the name of a sub-category in the import data.
+
+<br /><br />
+
+<li> Category names and mod_rewrite URLs are case-sensitive, so the categories that you include in your import data much match exactly 
+with the information stored in the LinkX database.
+
+<br /><br />
+
+<li> The full path can either be the path as it appears in your mod_rewrite URLs or the path as it appears in the Manage Categories interface.
+For example, if you were importing a link into the "Algorithms / Sorting and Searching" category, your import data could look like this:
+
+<xmp>user1@email.com|Algorithms / Sorting and Searching|http://www.site1.com/...</xmp>
+
+Or like this:
+
+<xmp>user1@email.com|algorithms/sorting-and-searching|http://www.site1.com/...</xmp>
+
+
+<li> You can import links into multiple categories during the import by providing a list of every category separated by a double-colon (::)
+For example, to import a link into both the "Algorithms / Compression" and "Programming / C++" categories, you would use this:
+
+<xmp>user1@email.com|Algorithms / Compression::Programming / C++|http://www.site1.com/...</xmp>
+
+Or this for the mod_rewrite URL format:
+
+<xmp>user1@email.com|algorithms/compression::programming/c-plus-plus|http://www.site1.com/...</xmp>
+
+</ol>
+
+<br />
+<br />
+
+<b class="heading">Field Formats</b>
+
+<br />
+<br />
+
+Some of the items that you may want to import have specific formats that must be met in order for the galleries to be imported correctly.  Each of those
+is discussed below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Status</b>
+</td>
+<td>
+Possible values: unconfirmed, pending, active, or disabled
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+Possible values: regular, premium, or featured
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Expires</b>
+</td>
+<td>
+YYYY-MM-DD HH:MM:SS
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Added</b>
+</td>
+<td>
+YYYY-MM-DD HH:MM:SS
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Modified</b>
+</td>
+<td>
+YYYY-MM-DD HH:MM:SS
+</td>
+</tr>
+</table>
+</ul>
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

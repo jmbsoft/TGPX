@@ -1,0 +1,265 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Server Edition Multiple Domain Support</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+With the Server Edition of TGPX you have the ability to create TGP pages for any of the sites hosted on the same server as your TGPX installation.  This also gives you the ability
+to have separate gallery submission forms, search forms, and partner management interfaces for each site.  This document will provide information on how to configure domains in
+your TGPX installation and also how to setup the scripts on the domains you add.
+
+<br />
+<br />
+
+<b class="heading">Searching Domains<a name="search"></a></b>
+
+<br />
+<br />
+
+To search the current domains you have configured so you can modify or delete them, access the Settings &gt; Manage Domains function from the control panel menu.  This will display a 
+page where you will be able to see and search the current domains you have configured.  All of the database fields that you can search use the software's 
+<a href="standard-searches.html">Standard Search</a> function.  In the table that displays the domains, you will find a couple of functions that you can run on a single
+domain at a time.  Those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the domain.  A window will appear where you will be able to edit all of the domain settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this domain.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running functions on single domains at a time, you can also delete multiple domains at once by putting a check in the box for each domain you want to delete
+and then pressing the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Adding a Domain<a name="add"></a></b>
+
+<br />
+<br />
+
+To add a new domain, access the Settings &gt; Manage Domains function from the control panel menu.  Near the top of the page in the header
+bar that reads "Manage Domains" click on the <img src="../images/add.png" border="0" alt=""> icon.  This will display a popup 
+window where you will be able to enter the domain information that you want to use.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Domain</b>
+</td>
+<td>
+Enter the domain name of the site, excluding the www. portion.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Base URL</b>
+</td>
+<td>
+Enter the base URL of the website (i.e. http://www.domain.com)
+This is used only to assist when creating new TGP pages, and will not restrict you to creating TGP pages only in the base of your website.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Document Root</b>
+</td>
+<td>
+Enter the document root directory of the website.  This should be a full directory path to the main directory of the site on your server.
+This is used only to assist when creating new TGP pages, and will not restrict you to creating TGP pages in only this directory.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Tags</b>
+</td>
+<td>
+Enter the tags that should be assigned to any galleries submitted from this domain
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Template Prefix</b>
+</td>
+<td>
+If you would like to use custom templates for the script pages (gallery submission form, partner form, search) enter a prefix to use for
+the template files.  This field can be left blank if you want to use the default templates on this domain.
+<br /><br />
+
+<b>Create templates with this prefix</b><br />
+If you check this box, the software will automatically make copies of the partner, submit, report, search, and e-mail templates with this
+prefix.  To use this feature, the templates directory will need to have it's permissions set to 777.  If you enter a template prefix, but do
+not check this box you will need to create the template files manually.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Categories</b>
+</td>
+<td>
+Select the categories that submitters will be allowed to select from when submitting galleries through this domain.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Use the above selected categories as an exclusion list</b><br />
+If you would rather select the categories that will NOT appear on the gallery submission form, check this box.  When this
+is checked, the gallery submission form will display all of your categories EXCEPT for those listed in the Categories setting.
+</td>
+</tr>
+</table>
+</ul>
+
+
+Once you have filled in all of the fields as you want them, press the Add Domain button.  This will add the new domain to the database.
+
+<br />
+<br />
+
+<b class="heading">Editing a Domain<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a domain you will first need to locate it through the <a href="#search">Manage Domains</a> interface.
+When you locate the domain you want to edit, click on the <img src="../images/edit.png" border="0" alt=""> icon to bring up the domain editing interface.
+This interface is nearly identical to the domain creation interface, and has the same form fields with the same properties.  You can make the changes that you want, and then press the
+Update Domain button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Domain<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete a domain you will first need to locate it through the <a href="#search">Manage Domains</a> interface.
+When you locate the domain you want to delete, click on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+<b class="heading">Creating TGP Pages for Domains</b>
+
+<br />
+<br />
+
+Creating TGP pages for other domains is no different than <a href="pages-manage.html">creating pages</a> for the domain on which TGPX is installed.  You will simply need to enter the appropriate 
+Path &amp; Filename and Page URL settings when adding the new page.  Be sure that you use a full directory path when adding new pages; you must tell the software exactly where to create the file 
+on your server so it is necessary to include the complete directory path.
+
+<br />
+<br />
+
+If you have setup domains through the Manage Domains interface, you will be able to select them from a drop-down list on the interface where you add pages.  This
+will speed up adding pages, as it will fill in the filename and page URL values with an initial setting which you can then edit rather than having to fill in the entire field.
+
+<br />
+<br />
+
+<b class="heading">Configuring TGPX Scripts on Other Domains</b>
+
+<br />
+<br />
+
+If you would like to use a separate gallery submission form, partner account form, search form, or gallery reporting form on each of your domains, that can be done with TGPX but will
+require a bit of configuration.  Use these steps to setup the scripts on your other domains:
+
+<ol>
+<li> Make sure the domain has been configured in the Manage Domains interface first.
+     <br /><br />
+     
+<li> Decide on a directory where you would like the TGPX scripts to reside on the domain.  For this example, let's assume that you will be placing them in a directory named tgpx.
+     <br /><br />
+     
+<li> Make copies of the following scripts, and place them in the tgpx directory on the addon domain:
+     <br /><br />
+     
+     <ul>
+     code.php<br />
+     cropper.php<br />
+     index.php<br />
+     partner.php<br />
+     report.php<br />
+     search.php<br />
+     submit.php
+     </ul>
+     <br />
+     
+<li> You will now need to edit each of these files (except the index.php file) in a text editor.  Locate this comment near the top of each file:
+
+     <xmp class="code">// If you are using this script on one of the domains you have defined in the
+// Manage Domains interface, uncomment the following line and set the directory
+// path to your TGPX Server Edition installation
+//chdir('/full/path/to/tgpxse/install');</xmp>
+
+      Uncomment the chdir line like so:
+      
+      <xmp class="code">// If you are using this script on one of the domains you have defined in the
+// Manage Domains interface, uncomment the following line and set the directory
+// path to your TGPX Server Edition installation
+chdir('/full/path/to/tgpxse/install');</xmp>
+
+      In the Manage Domains interface in the green box near the top of the page you will find the chdir() value you will need to use.  Copy
+      that value in place of the current chdir() value in the file.  For example, if the Manage Domains interface gave you this:
+      
+      <xmp class="code">chdir('/var/www/vhosts/yoursite.com/html/tgpx');</xmp>
+      
+      The updated code in the script file would look like this:
+      
+      <xmp class="code">// If you are using this script on one of the domains you have defined in the
+// Manage Domains interface, uncomment the following line and set the directory
+// path to your TGPX Server Edition installation
+chdir('/var/www/vhosts/yoursite.com/html/tgpx');</xmp>
+
+
+<li> After editing the files, be sure to put the updated versions of the files on your server.  The scripts are now configured and ready for use.
+     Just be sure that any template which links to these scripts is not pointing to the domain where TGPX is installed - the links should point
+     to the scripts that you have copied to the addon domain.
+</ol>
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

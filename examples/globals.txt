@@ -1,0 +1,57 @@
+Overview
+--------
+This sample template shows an example of how the {storeglobal} and {getglobal}
+template functions can be used.  In this case, assume that we want to generate
+two pages that have the same galleries, but on the first page the galleries will
+be displayed with their preview thumbnails and on the second page the galleries
+will be displayed with their descriptions.
+
+
+
+
+Template Code Page #1
+---------------------
+{galleries
+var=$galleries
+amount=30
+description=true
+preview=true
+type=any
+category=MIXED
+getnew=true
+allowused=true
+order=date_approved
+reorder=date_displayed DESC, date_approved}
+
+{storeglobal name=thumb_galleries value=$galleries}
+
+<table align="center" cellpadding="5" border="0">
+<tr>
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=+5 counter=$counter max=30}
+</tr><tr>
+{/insert}
+{/foreach}
+</tr>
+</table>
+
+
+
+
+
+
+
+Template Code Page #2
+---------------------
+{getglobal name=thumb_galleries var=$galleries galleries=true}
+
+<table align="center" cellpadding="5" border="0">
+<tr>
+<td>
+{foreach from=$galleries var=$gallery}
+<a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank">{$gallery.description|htmlspecialchars}</a><br />
+{/foreach}
+</td>
+</tr>
+</table>

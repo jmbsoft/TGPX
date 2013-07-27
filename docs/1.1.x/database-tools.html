@@ -1,0 +1,199 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Database Tools</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The database tools interface allows you to use functions to manage the MySQL database that the TGPX data is being stored in.  The functions available in the Database Tools interface
+are described in this document.
+
+<br />
+<br />
+
+<b class="heading">Database Backup and Restore</b>
+
+<br />
+<br />
+
+The database backup and restore functions provide you with an internal method to create a backup of the MySQL database tables that TGPX uses to store it's data.  On some servers, depending on the
+server configuration and size of your database, this internal function may not work and you may need to use an <a href="#alternates">alternate method</a>.  The method that you use is really not that
+important, as long as the data is in a format that MySQL can read.
+
+<br />
+<br />
+
+<b class="heading">Database Backup<a name="backup"></a></b>
+
+<br />
+<br />
+
+To use the database backup feature access the Database &gt; Tools function from the control panel menu.  This will load a page with a section header bar labeled 'Database Backup and Restore' which
+is where you will run the database backup function.   This warning message may appear, depending on your server configuration:
+
+
+<ul>
+The database backup and restore functions will have to be run through your browser...
+</ul>
+
+
+If you do get this error message, it may still be possible to backup your data.  This method will work with smaller databases, but will most likely fail with larger databases.  The backup process must run
+through your browser which means that it can be prematurely terminated by PHP script execution time limits or server timeout settings.  If you try using this method and it fails, check
+the <a href="#alternates">alternate methods</a> that you can use.
+
+<br />
+<br />
+
+The database backup feature has a few options that you can configure.  Each of those is described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>SQL Filename</b>
+</td>
+<td>
+Enter the filename to which you would like the data from your MySQL database written.  This field is required, and the file will be created in the data directory
+of your TGPX installation.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Thumbs Filename</b>
+</td>
+<td>
+If you would like to generate a backup file containing your preview thumbnail images, enter the filename to which you would like them written.  This field is optional; if it is
+left blank the thumbnails will not be backed up.  If you do specify a filename, it will be created in the data directory of your TGPX installation.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Archive Filename</b>
+</td>
+<td>
+<div class="note">This option will not be available on all servers.  It requires that your server have the CLI version of PHP, the tar program, and the gzip program installed and
+available for you to use</div>
+<br />
+If you would like the software to automatically create a gzipped tarball archive of your backup file(s), enter the filename to use in this field.  This field is optional;  if it
+is left blank, no archive file will be created.  If you do specify a filename, it will be created in the data directory of your TGPX installation.  This will also automatically
+remove the SQL and Thumbs backup files after they have been added to the archive.
+</td>
+</tr>
+</table>
+</ul>
+
+
+Once you have configured the options as you want them, click on the Backup button to start the process.  After you run the backup function, check the data directory to make sure
+the backup files have been created.  You can also monitor the size of those files to determine when the backup process is complete.  When the file size stops increasing,
+you can download the files to your local computer for safe keeping.
+
+<br />
+<br />
+
+<b class="heading">Database Restore</b>
+
+<br />
+<br />
+
+To use the database restore feature access the Database &gt; Tools function from the control panel menu.  This will load a page with a section header bar labeled 'Database Backup and Restore'.
+You may again see a warning message, in which case it may not be possible to restore your data from the web-based interface.
+
+<br />
+<br />
+
+To do the actual database restore, you will first need to upload the backup file(s) to the data directory of your TGPX installation.  You can upload only the SQL backup file or you
+can upload both the SQL and Thumbs backup files.  Note that the restore function cannot automatically read from an archive file, so you will need to have extracted the backup files
+first if they are in a gzipped tarball.
+
+<br />
+<br />
+
+Once the files are uploaded, enter their names in the appropriate text input boxes and then press the Restore button.  The data in the file(s) will be read back into your TGPX installation.  
+You should allow a few minutes for this process to complete (more time will be needed for larger databases) before you begin accessing the other software functions.
+
+<br />
+<br />
+
+<b class="heading">Alternate Backup/Restore Methods<a name="alternates"></a></b>
+
+<br />
+<br />
+
+Backing up your MySQL data can be done using any tool that creates a file containing the raw SQL queries needed to restore the database.  Programs such as phpMyAdmin offer this capability,
+so you can try using that to backup your SQL data.  Your server may also have a web-based control panel that has a feature to backup your MySQL data.  If you still are unable to find a
+solution to backup your MySQL data, contact your server administrator to discuss with them the options you have for backing up your MySQL data.
+
+<br />
+<br />
+
+Most utilities that allow you to backup your MySQL data also have a function to restore the MySQL data from the file that was generated.  You can again try using one of these tools if they
+are available to you on your server, or you can contact your server administrator to discuss with them the options you have for restoring MySQL data from a file.
+
+<br />
+<br />
+
+For your thumbnail preview images, you can download the contents of your TGPX Thumbnail URL folder to your local computer for safe keeping.  If you ever need to restore them, simply upload
+them back to your server and set their permissions to 666.
+
+<br />
+<br />
+
+<b class="heading">Database Repair/Optimize<a name="backup"></a></b>
+
+<br />
+<br />
+
+This function allows you to "cleanup" the MySQL database tables that it uses so they are optimized for both
+speed and disk usage.  In general, you will not need to run this command more than once every few weeks, as MySQL is quite efficient in
+maintaining it's datafiles.  The only time you may need to run it more often is if you delete a large number of galleries from your database.
+
+<br />
+<br />
+
+In some cases, usually after your server recovers from a serious error, your MySQL database may become corrupted.  When this happens you will
+get error messages from TGPX indicating that there is a problem with one or more of your database tables.  In most circumstances MySQL
+is able to repair damaged tables with it's built in functions.  TGPX allows you to run these built in functions through the Database Tools
+interface.  If you ever get these types of error messages, simply login to the control panel and use the Optimize/Repair function.
+
+<br />
+<br />
+
+To use the database repair/optimize feature access the Database &gt; Tools function from the control panel menu.  This will load a page with a section header bar labeled 'Database Backup and Restore'.  In the
+header bar, click on the <img src="../images/repair.png"> icon to start the repair/optimize process.
+
+<br />
+<br />
+
+<b class="heading">Raw Database Query<a name="raw"></a></b>
+
+<br />
+<br />
+
+This function allows you to run a raw SQL query against the MySQL database that is storing the TGPX data.  This feature is intended for advanced users who have experience working
+with SQL queries and understand the impact they will have on the database.  In most cases you will not need to use this feature, unless you have been specifically instructed to
+do so for tech support purposes.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

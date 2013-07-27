@@ -1,0 +1,215 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">User Defined Field Validations</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+Validations allow you to check the data that has been submitted for your user defined fields to make sure it meets a certain requirement.  This document provides an overview of the different types of
+validations that are available and any special settings required for them.
+
+<br />
+<br />
+
+<b class="heading">Validation Types</b>
+
+<br />
+<br />
+
+A number of different validation types are available when you add or edit a user defined database field.  Each of those types are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>None</b>
+</td>
+<td>
+No validation will be done on this field
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Alphanumeric</b>
+</td>
+<td>
+This field must contain only English letters and numbers
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Between</b>
+</td>
+<td>
+This field must be a numerical field that falls in a range between two values
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>E-mail Address</b>
+</td>
+<td>
+This field must be a properly formatted e-mail address
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Greater Than</b>
+</td>
+<td>
+This field must be a numerical value that is greater than the specified value
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Less Than</b>
+</td>
+<td>
+This field must be a numerical value that is less than the specified value
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Length</b>
+</td>
+<td>
+This field must be a string that has a length in a range of two values
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Numeric</b>
+</td>
+<td>
+This field must be a valid integer or decimal number
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Regular Expression</b>
+</td>
+<td>
+This field must conform to the specified regular expression
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>HTTP URL</b>
+</td>
+<td>
+This field must contain a properly formatted HTTP URL
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Working URL (Redirection OK)</b>
+</td>
+<td>
+This field must contain a properly formatted HTTP URL that is working (the URL is allowed to redirect to another URL)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Working URL (No Redirection)</b>
+</td>
+<td>
+This field must contain a properly formatted HTTP URL that is working (the URL is not allowed to redirect to another URL)
+</td>
+</tr>
+</table>
+</ul>
+
+<b class="heading">Special Settings</b>
+
+<br />
+<br />
+
+Some of the validation types require special settings so that the data can be checked against a value(s) that you specify.  When you add or edit a user defined field, you will notice
+that there is a text input box following the validation type selection field.  This is where you will enter the settings for the validation type, if it is required.  Each of the validation
+types that require a special setting are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Between</b>
+</td>
+<td>
+Enter two numbers separated by a comma, with the smaller number first.  For example, to allow values in the range of 5 to 100 enter 5,100 in the text input box
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Greater Than</b>
+</td>
+<td>
+Enter the number that this field must be greater than
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Less Than</b>
+</td>
+<td>
+Enter the number that this field must be less than
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Length</b>
+</td>
+<td>
+Enter two numbers separated by a comma, with the smaller number first.  For example, to allow strings with lengths of 10 to 200 characters, enter 10,200 in the text input box.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Regular Expression</b>
+</td>
+<td>
+Enter the regular expression to test against in the text input box.  This must conform to PHP's built in <a href="http://us3.php.net/manual/en/reference.pcre.pattern.syntax.php">Perl Compatible Regular Expression syntax</a>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Working URL (Redirection OK)</b>
+</td>
+<td>
+Enter the error message to display if the URL is not working.  For this validation type, set the Validation Error field to a message that indicates the URL is not properly formatted.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Working URL (No Redirection)</b>
+</td>
+<td>
+Enter the error message to display if the URL is not working.  For this validation type, set the Validation Error field to a message that indicates the URL is not properly formatted.
+</td>
+</tr>
+</table>
+</ul>
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

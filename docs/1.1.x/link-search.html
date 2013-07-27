@@ -1,0 +1,534 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Link Searching</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The link search function in LinkX allows you to quickly locate links so they can be approved, edited, deleted, etc.  This document provides an overview of the link search
+interface.
+
+
+<br />
+<br />
+
+<b class="heading">Searching Links</b>
+
+<br />
+<br />
+
+To access the link search interface use the Links &gt; Search Links function from the control panel menu.  This will load a page which will initially indicate
+that no search term has been entered.  To start your search, enter the term you would like to search for in the text input box and select the field that you would like to search in.
+Each of the search fields is described below.
+
+<br />
+<br />
+
+<div class="note">
+The Title, Description or Keywords field supports <a href="boolean-searches.html">boolean mode searching</a>; the other fields support <a href="standard-searches.html">standard searching</a>.
+</div>
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Title, Description or Keywords</b>
+</td>
+<td>
+This will search in the link title, description, and keywords and will return results that match in any of those fields.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Link ID</b>
+</td>
+<td>
+The ID number that was assigned to the link when it was added
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Site URL</b>
+</td>
+<td>
+The full URL of the site that surfers are sent to when they click on this site link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Recip URL</b>
+</td>
+<td>
+The full URL of the page where the site owner plans to place a link back to your site
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Title</b>
+</td>
+<td>
+The site title that was provided when the link was created or last updated
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Description</b>
+</td>
+<td>
+The site description that was provided when the link was created or last updated
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Status</b>
+</td>
+<td>
+The current link status (one of unconfirmed, pending, active, or disabled)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+The current link type (one of regular, premium, or featured)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Expires</b>
+</td>
+<td>
+The date that the link becomes a regular link (must be in YYYY-MM-DD format; applies to links that currently have premium or featured status)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Name</b>
+</td>
+<td>
+The name that was provided when the link was created or last updated
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>E-mail Address</b>
+</td>
+<td>
+The e-mail address that was provided when the link was created or last updated
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Submit IP</b>
+</td>
+<td>
+The IP address that was used when the link was created or last updated
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Keywords</b>
+</td>
+<td>
+The keywords that were used when the link was created or last updated
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Clicks</b>
+</td>
+<td>
+The number of clicks this link has received
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Number of Ratings</b>
+</td>
+<td>
+The number of ratings this link has received
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Average Rating</b>
+</td>
+<td>
+The average rating this link has received
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Weight</b>
+</td>
+<td>
+The weight value assigned to this link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Added</b>
+</td>
+<td>
+The date this link was added (must be in YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Modified</b>
+</td>
+<td>
+The date this link was last modified (must be in YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Scanned</b>
+</td>
+<td>
+The date this link was last scanned (must be in YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Icon HTML</b>
+</td>
+<td>
+The icon HTML code assigned to this link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Admin Comments</b>
+</td>
+<td>
+The admin comments assigned to this link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Username</b>
+</td>
+<td>
+The username of the account that this link was submitted by
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to searching the fields above, you can also select to display links that have a specific status.  Each of the possible status options are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>All</b>
+</td>
+<td>
+This will display all links, no matter what their status
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Unconfirmed</b>
+</td>
+<td>
+This will display links that have not yet been confirmed through the submitter's e-mail address
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Pending</b>
+</td>
+<td>
+This will display links that have been submitted but are awaiting approval by an administrator
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Active</b>
+</td>
+<td>
+This will display links that have been approved and are currently displayed in the link directory
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Disabled</b>
+</td>
+<td>
+This will display links that are disabled and are not visible in the link directory
+</td>
+</tr>
+</table>
+</ul>
+
+If you would like to view links that have been edited and are awaiting approval of the changes they have made, check the Edited checkbox.  You can also choose
+how the links are sorted by selecting the sorting field from the drop down list.  The available sorting fields correspond with the search fields which are 
+described above.  Once you have the search values filled in how you want them, press the search button to display the links that meet your criteria.
+
+<br />
+<br />
+
+<b class="heading">Link Functions</b>
+
+<br />
+<br />
+
+In the links section you will be able to run a number of different functions on the links that are displayed.  By default the following link information will
+be displayed:
+
+<ul>
+<li> The site title, which is linked to the site URL
+<li> The site description
+<li> The link weight value
+<li> The number of clicks the link has received
+<li> The number of comments for the link
+<li> The number of ratings the link has received
+<li> The link's average rating
+</ul>
+
+To display additional information about the link, click on the <img src="../images/go-down.png" width="11" height="10" border="0" alt=""> icon.  This will send a 
+request to your server for the information, so it may take a couple of seconds to load.  Once it has been loaded, the information will slide into view.  All pending
+links will have this additional information automatically displayed so you can see it quickly when you are processing new submissions.
+
+<br />
+<br />
+
+Clicking on the icons in the Functions column of the
+table will allow you to run that function on a single link.  You can also check the boxes next to multiple links to perform the functions listed at the bottom
+of the page.  The single link function icons are each described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the link.  A window will appear where you will be able to edit all of the link settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/scan.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to scan the link.  A window will appear with the scan results.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/blacklist.png" width="10" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to blacklist the link.  A window will appear allowing you to select which items to blacklist.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/user.png" width="10" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to view the user account that submitted the link (visible only on links submitted by an account)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/comments.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to view the comments that have been submitted for this link (visible only on links with comments)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/app-edit.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to <a href="links.html#processedited">approve the user modifications</a> to this link (visisble only on edited links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/rej-edit.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to <a href="links.html#processedited">reject the user modifications</a> to this link (visisble only on edited links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/go.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to re-activate a disabled link (visible only on disabled links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/suspend.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to disable an active link (visible only on active links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/app_rej.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to <a href="links.html#processnew">approve or reject</a> a pending link (visible only on pending or unconfirmed links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/mail.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to send an e-mail message to the link submitter.  A window will appear where you can enter the e-mail text
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to delete the link.  You will be asked to confirm the deletion before it is done.
+</td>
+</tr>
+</table>
+</ul>
+
+You can also run a function on multiple links by putting a check in the box next to the links you want, selecting the function to run
+from the drop down selection field at the bottom of the page, and pressing the Execute button.  Each of the available functions are
+described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>E-mail Selected</b>
+</td>
+<td>
+This function will display a window where you can enter your e-mail text and send an e-mail message to the selected links
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Delete Selected</b>
+</td>
+<td>
+This will permanently delete the links you have selected
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Approve Selected</b>
+</td>
+<td>
+This will approve the links you have selected, allowing you to select the e-mail message to send to the link submitters (this function
+should be used only for pending or unconfirmed links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Reject Selected</b>
+</td>
+<td>
+This will reject the links you have selected, allowing you to select the e-mail message to send to the link submitters (this function
+should be used only for pending or unconfirmed links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Disable Selected</b>
+</td>
+<td>
+This will set the selected links' status to disabled
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Activate Selected</b>
+</td>
+<td>
+This will set the selected links' status to active
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Blacklist Selected</b>
+</td>
+<td>
+This will automatically blacklist the selected links.  The site URL, e-mail address, and submit IP will be added to the blacklist
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Accept Edits of Selected</b>
+</td>
+<td>
+This will accept the user modifications of the selectd links (this function should only be used for edited links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Reject Edits of Selected</b>
+</td>
+<td>
+This will reject the user modifications of the selectd links (this function should only be used for edited links)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Change Category of Selected</b>
+</td>
+<td>
+This will display a window where you will be able to select the categories to move the selected links into
+</td>
+</tr>
+</table>
+</ul>
+
+You can add a new link by clicking on the <img src="../images/add.png" width="16" height="16" border="0" alt=""> icon in the header bar.  Clicking on this icon
+will display a window where you can enter the link details.
+
+<br />
+<br />
+
+<b class="heading">Link Quick Tasks</b>
+
+<br />
+<br />
+
+The quick tasks interface for links will allow you to perform search and replace, search and set, and search and delete functions.  You can
+access the quick tasks interface by clicking on the <img src="../images/tasks.png" width="16" height="16" border="0" alt=""> icon in the
+header bar above the search section.  Please see the <a href="link-tasks.html">Link Quick Tasks</a> section of the software manual for additional information.
+
+<br />
+<br />
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

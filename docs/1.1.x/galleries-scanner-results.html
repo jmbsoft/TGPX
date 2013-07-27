@@ -1,0 +1,216 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Gallery Scanner Results</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+After you have run the gallery scanner you will be able to display the results to see what actions were taken for the galleries that were found to be no longer working or breaking
+your rules.  This document will describe how to view the gallery scanner results and the functions you can use from that interface.
+
+
+<br />
+<br />
+
+<b class="heading">Viewing Gallery Scanner Results</b>
+
+<br />
+<br />
+
+To view the gallery scanner results use the Galleries &gt; Gallery Scanner function from the control panel menu.  This will load a page which will show the current
+gallery scanner configurations that are defined.  You can click on the <img src="../images/report.png" border="0" alt=""> icon for any of those
+configurations to see the results from the last scan that was run.
+
+<br />
+<br />
+
+When you click on one of those icons you will come to a page where you will see the gallery scanner results and be able to search them.  To start your search, enter the
+term you would like to search for in the text input box and select the field that you would like to search in. Each of the search fields is described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Gallery ID</b>
+</td>
+<td>
+The ID number of the gallery that was scanned
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Gallery URL</b>
+</td>
+<td>
+The Gallery URL of the gallery that was scanned
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>HTTP Status</b>
+</td>
+<td>
+The HTTP status code of the gallery that was scanned
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Scanned</b>
+</td>
+<td>
+The date and time when the gallery was scanned (YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Action Taken</b>
+</td>
+<td>
+The action that was taken on the gallery.  One of Unchanged, Disabled, Deleted, or Blacklisted
+</td>
+</tr>
+</table>
+</ul>
+
+You can also choose how the galleries are sorted by selecting the sorting field from the drop down list.  The available sorting fields correspond with the search fields which are 
+described above.  Once you have the search values filled in how you want them, press the search button to display the galleries that meet your criteria.
+
+<br />
+<br />
+
+<b class="heading">Link Functions</b>
+
+<br />
+<br />
+
+In the results table you will be able to run a number of different functions on the gallery scan results that are displayed.  Clicking on the icons in the Functions column of the
+table will allow you to run that function on a single gallery.  You can also check the boxes next to multiple galleries to perform the functions listed at the bottom
+of the page.  The single link function icons are each described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the gallery.  A window will appear where you will be able to edit all of the gallery settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/blacklist.png" border="0" alt="">
+</td>
+<td>
+Click this icon to blacklist the gallery.  A window will appear allowing you to select which items to blacklist.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/enable.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to re-activate a disabled gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/disable.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to disable an active gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/mail.png" border="0" alt="">
+</td>
+<td>
+Click this icon to send an e-mail message to the gallery submitter.  A window will appear where you can enter the e-mail text
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete the gallery.  You will be asked to confirm the deletion before it is done.
+</td>
+</tr>
+</table>
+</ul>
+
+You can also run a function on multiple galleries by putting a check in the box next to the galleries you want, selecting the function to run
+from the drop down selection field at the bottom of the page, and pressing the Execute button.  Each of the available functions are
+described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>E-mail Selected</b>
+</td>
+<td>
+This function will display a window where you can enter your e-mail text and send an e-mail message to the selected galleries
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Delete Selected</b>
+</td>
+<td>
+This will permanently delete the galleries you have selected
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Disable Selected</b>
+</td>
+<td>
+This will set the selected galleries' status to disabled
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Activate Selected</b>
+</td>
+<td>
+This will set the selected galleries' status back to the status they had before they were disabled
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Blacklist Selected</b>
+</td>
+<td>
+This will automatically blacklist the selected galleries.  The hostname from the gallery URL, e-mail address, and submitter IP will be added to the blacklist
+</td>
+</tr>
+</table>
+</ul>
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

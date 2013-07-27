@@ -1,0 +1,264 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">E-mail Templates</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The e-mail templates are the templates that control the content of the e-mail messages that will be sent to your users when their galleries are processed, if they
+need to reset their partner account password, etc.  This document will give you an overview of the variables available in each of the e-mail templates.
+
+<br />
+<br />
+
+<b class="heading">Editing E-mail Templates</b>
+
+<br />
+<br />
+
+To edit the e-mail templates access the Templates &gt; E-mail Messages function from the control panel menu.  This will display a page where you can select which
+template you want to edit.  Once you have selected the template you want to edit, press the Load Template button.  You will be returned to the same page, but there will now
+be three fields that you will need to fill in:
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Subject</b>
+</td>
+<td>
+The full subject of the e-mail message
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Text Body</b>
+</td>
+<td>
+The text body of the e-mail message.  This message will be displayed for users that have text-only e-mail readers.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>HTML Body</b>
+</td>
+<td>
+The HTML body of the e-mail message.  This message will be displayed for users that have HTML capable e-mail readers.<br />
+TIP: Click on the <img src="../images/html.png" border="0" alt=""> icon to automatically convert the text
+body to HTML format.
+</td>
+</tr>
+</table>
+</ul>
+
+When you are done making changes to the template, press the Save Template button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Templates and Their Variables</b>
+
+<br />
+<br />
+
+This section will describe all of the available templates and the variables you can use within each template.
+
+<ul>
+<b>email-admin-reports.tpl</b>
+
+<br />
+<br />
+
+This e-mail message is sent to administrator accounts when there are cheat/broken gallery link reports waiting to be processed
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$reports_waiting} - The number of cheat reports waiting to be processed
+</ul>
+
+<br />
+<br />
+
+
+<b>email-admin-requests.tpl</b>
+
+<br />
+<br />
+
+This e-mail message is sent to administrator accounts when there are partner account requests waiting to be processed
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$requests_waiting} - The number of partner account requests waiting to be processed
+</ul>
+
+<br />
+<br />
+
+
+
+<b>email-admin-scanner.tpl</b>
+
+<br />
+<br />
+
+This e-mail message is sent to administrator accounts when the gallery scanner has finished running
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$scanned} - The number of galleries that were scanned<br />
+{$total} - The total number of galleries that should have been scanned
+</ul>
+
+<br />
+<br />
+
+
+<b>email-gallery-approved.tpl</b>
+
+<br />
+<br />
+
+This e-mail message is sent to a gallery submitter when their gallery is approved
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$gallery} - The gallery data; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+
+<b>email-gallery-confirm.tpl</b>
+
+<br />
+<br />
+
+This e-mail message is sent to a gallery submitter when their submission must be confirmed by e-mail
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$gallery} - The gallery data; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+
+<b>email-partner-added.tpl</b>
+
+<br />
+<br />
+
+This e-mail message is sent to a partner when their account request is approved
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$partner} - The partner account data; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+
+<b>email-partner-expiring.tpl</b>
+
+<br />
+<br />
+
+This e-mail message is sent to a partner when their account is about to expire
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$partner} - The partner account data; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+
+
+<b>email-partner-reset-confirm.tpl</b>
+
+<br />
+<br />
+
+This e-mail message is sent to a partner when they request that their password be reset
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$partner} - The partner account data; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$confirm_id} - The confirmation ID that must be present in the confirmation URL
+</ul>
+
+<br />
+<br />
+
+
+<b>email-partner-reset-confirmed.tpl</b>
+
+<br />
+<br />
+
+This e-mail message is sent to a partner containing their username and password when they reset their password
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$partner} - The partner account data; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

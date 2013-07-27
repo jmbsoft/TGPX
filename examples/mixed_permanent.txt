@@ -1,0 +1,142 @@
+Overview
+--------
+This is the default template that ships with the software, however it has been
+modified to display permanent galleries mixed in with the submitted galleries.
+
+It will show a top section of 20 thumbnail links and a bottom section of 100 text
+links.  This is designed for a site that will be doing only one "Build With New" per
+day.  Each of the defined {galleries} functions is configured to pull new galleries from
+the database each time a "Build With New" is done.
+
+The first section of galleries will show 10 submitted galleries and 10 permanent galleries.
+After each submitted gallery a permanent gallery will be displayed.  This will be a table
+of 20 thumbnails with 5 per row and 4 columns.
+
+The second section of galleries will display 100 text links.  50 of them will be submitted
+galleries and 50 will be permanent galleries.  After each submitted gallery a permanent
+gallery will be displayed.  They will be divided into 2 columns of 50 galleries each.
+
+
+
+
+
+Template Code
+-------------
+{define name=globaldupes value=true}
+{define name=pagedupes value=false}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>TGP</title>
+<style type="text/css">
+body { font-size: 12px; font-family: Verdana; }
+td { font-size: 12px; font-family: Verdana; }
+.jmbfoot { font-size: 8pt; font-family: Verdana; text-align: center; }
+.jmblink { font-size: 8pt; font-family: Verdana; }
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+
+<div align="center">
+<span style="font-size: 20pt; font-weight: bold;">TGP</span><br />
+Links to {$total_thumbnails|tnumber_format} free pictures and movies!<br />
+Updated {date value='today' format='m-d-Y'}
+</div>
+
+
+<br />
+
+<table align="center" cellpadding="5" border="0">
+<tr>
+{* Load 10 submitted galleries *}
+{galleries
+var=$submitted
+preview=true
+type=submitted
+category=MIXED
+amount=10
+getnew=true
+allowused=true
+order=date_approved
+reorder=build_counter}
+
+{* Load 10 permanent galleries *}
+{galleries
+var=$permanent
+preview=true
+type=permanent
+category=MIXED
+amount=10
+getnew=true
+allowused=true
+order=date_approved
+reorder=build_counter}
+
+{* Mix the two sets of loaded galleries, putting a permanent gallery after each submitted gallery *}
+{intermix var=$galleries from=$submitted,$permanent location=+1}
+
+{* Display loaded galleries as thumbnails in a 5 per row format *}
+{foreach from=$galleries var=$gallery counter=$counter}
+<td><a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank"><img src="{$gallery.preview_url|htmlspecialchars}" border="0" alt="Thumb"></a></td>
+{insert location=+5 counter=$counter max=15}
+</tr><tr>
+{/insert}
+{/foreach}
+</tr>
+</table>
+
+<br />
+
+<table align="center">
+<tr>
+<td valign="top">
+{* Load 50 submitted galleries *}
+{galleries
+var=$submitted
+preview=any
+type=submitted
+category=MIXED
+amount=50
+getnew=true
+allowused=true
+order=date_approved
+reorder=build_counter}
+
+{* Load 50 permanent galleries *}
+{galleries
+var=$permanent
+preview=any
+type=permanent
+category=MIXED
+amount=50
+getnew=true
+allowused=true
+order=date_approved
+reorder=build_counter}
+
+{* Mix the two sets of loaded galleries, putting a permanent gallery after each submitted gallery *}
+{intermix var=$galleries from=$submitted,$permanent location=+1}
+
+{* Display loaded galleries as text links in 2 columns (50 per column) *}
+{foreach from=$galleries var=$gallery counter=$counter}
+{$gallery.date|tdate::$config.date_format} <a href="{$gallery.gallery_url|htmlspecialchars}" target="_blank">{$gallery.thumbnails|htmlspecialchars} {$gallery.category|htmlspecialchars}</a><br />
+{if $counter == 50}
+</td><td width="100"></td><td valign="top">
+{/if}
+{/foreach}
+</td>
+</tr>
+</table>
+
+
+<br />
+
+<div align="center">
+<b><a href="{$config.install_url}/submit.php">Submit A Gallery</a></b>
+</div>
+
+<br />
+
+</body>
+</html>

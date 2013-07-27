@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div align="center">
+<span class="large">Moving Your TGPX Installation</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+Use the instructions in this document if you need to move your TGPX installation to a different server or to a new domain on the same
+server.  Following these instructions will allow you to save all of your current data and will ensure that the new installation will function
+properly.
+
+<br />
+<br />
+
+<b class="heading">Moving Your Installation</b>
+
+<br />
+<br />
+
+Follow these steps to move your TGPX installation:
+
+<ol>
+
+<li> Use the instructions in the <a href="database-tools.html">Database Tools</a> section of this manual to create a backup of your TGPX database.
+<br /><br />
+
+<li> Install a new copy of TGPX on the new server/domain using the normal <a href="installation.html">installation instructions</a>.
+<br /><br />
+
+<li> Use the instructions in the <a href="database-tools.html">Database Tools</a> section of this manual to restore the database in your new installation using
+the backup file created in step 1.
+<br /><br />
+
+<li> Copy the files from the templates directory (but not any of it's sub-directories) of the old installation to the templates directory of the new installation
+to restore your templates.
+
+</div>
+</div>
+
+</body>
+</html>

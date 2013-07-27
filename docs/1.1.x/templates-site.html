@@ -1,0 +1,225 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Site Templates</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+    <span class="header-section">Template Editing Interface</span>
+    <div class="section">
+      Editing the site templates is done through the Templates &gt; Site Templates function in the control panel.  That interface will look
+      something like this:
+
+      <br /><br />
+
+      <div class="centered">
+        <img src="images/templates-site.png" title="Site Templates" />
+      </div>
+
+      <ul>
+        <b>Available Templates -</b> <span>This section will list all of the available site templates that you can edit.  When you first access
+                                     the page, only this section will be shown.  Click on a template name to load that template for editing.</span><br />
+
+        <b>Code Editor -</b> <span>This is the text input box where you can make modifications to the template code.  When you first access this interface,
+                             this field will not be visisble.  Click on one of the available templates to load that template and make the code editor visible.</span><br />
+
+        <b>Toolbar Functions -</b> <span>Use the toolbar functions to peform the following actions:
+
+                                   <br /><br />
+
+                                   <img src="../images/search-replace-32x32.png" />
+                                   <span>Click this icon to bring up the Search and Replace dialog where you can perform a search and replace on many templates at once.</span><br />
+
+
+                                   <img src="../images/save-32x32.png" />
+                                   <span>Click this icon to save the currently loaded template</span><br />
+
+                                   <img src="../images/reload-32x32.png" />
+                                   <span>Click this icon to reload the template code for the currently loaded template.  This is useful when you do a search and replace which
+                                   affects the current template you are editing.</span><br />
+
+                                   <img src="../images/help-32x32.png" />
+                                   <span>Click this icon to access this documentation file</span>
+                                   </span>
+      </ul>
+    </div>
+
+
+    <span class="header-section">Search and Replace</span>
+    <div class="section">
+      TradeX allows you to make quick changes to your templates in bulk with the Search and Replace function.  When you access the Search and Replace function a dialog will appear that will allow you
+      to select the templates that you want to perform this action on, the code to search for in the template, and the replacement code to use.  Multiple templates can be selected by holding down the shift or ctrl
+      keys on your keyboard as you click on templates in the selection list.  Once you have selected the templates and entered the search and replacement code, press the Apply Changes button to start the task.
+      Once completed a notification message will be displayed letting you know how many replacements were made.
+    </div>
+
+
+    <span class="header-section">Templates &amp; Their Variables</span>
+    <div class="section">
+      All of the site templates will have the following variable set:
+
+      <br /><br />
+
+      <b class="large">$g_config</b><br />
+      The software configuration settings
+
+      <div style="margin-left: 30px; margin-top: 10px;">
+        <b>$g_config.site_name -</b> <span>Site Name</span><br />
+        <b>$g_config.traffic_url -</b> <span>Traffic URL</span><br />
+        <b>$g_config.base_url -</b> <span>TradeX URL</span><br />
+        <b>$g_config.cookie_domain -</b> <span>Cookie Domain</span><br />
+        <b>$g_config.cookie_path -</b> <span>Cookie Path</span><br />
+        <b>$g_config.email_address -</b> <span>E-mail Address</span><br />
+        <b>$g_config.email_name -</b> <span>E-mail Name</span><br />
+        <b>$g_config.date_format -</b> <span>Date Format</span><br />
+        <b>$g_config.time_format -</b> <span>Time Format</span><br />
+        <b>$g_config.flag_accept_new_trades -</b> <span>Accepting new trades</span><br />
+        <b>$g_config.flag_captcha_register -</b> <span>Use CAPTCHA on registration form</span><br />
+        <b>$g_config.flag_allow_login -</b> <span>Allow users to login with a password to view their stats</span><br />
+        <b>$g_config.site_name_min -</b> <span>Site name minimum length</span><br />
+        <b>$g_config.site_name_max -</b> <span>Site name maximum length</span><br />
+        <b>$g_config.site_description_min -</b> <span>Site description minimum length</span><br />
+        <b>$g_config.site_description_max -</b> <span>Site description maximum length</span><br />
+        <b>$g_config.flag_req_email -</b> <span>E-mail address required</span><br />
+        <b>$g_config.flag_req_site_name -</b> <span>Site name required</span><br />
+        <b>$g_config.flag_req_site_description -</b> <span>Site description required</span><br />
+        <b>$g_config.flag_req_icq -</b> <span>ICQ required</span><br />
+        <b>$g_config.flag_req_nickname -</b> <span>Name/Nickname required</span><br />
+        <b>$g_config.flag_req_banner -</b> <span>Banner URL required</span><br />
+      </div>
+
+      <br />
+
+      Below you will find a list of all the site templates shipped with the software, a description of when the template is used, and details on the template variables
+      available (if any) on that template.
+
+      <br />
+
+      <div class="bold large mt">global-footer.tpl</div>
+      <ul>
+        This template is designed to be used with the {template} function, and contains the template code that will be used as the footer for all of the site pages
+      </ul>
+
+
+      <div class="bold large mt">global-header.tpl</div>
+      <ul>
+        This template is designed to be used with the {template} function, and contains the template code that will be used as the header for all of the site pages
+      </ul>
+
+
+      <div class="bold large mt">register-closed.tpl</div>
+      <ul>
+        This template will be displayed when you are not accepting new registrations
+      </ul>
+
+
+      <div class="bold large mt">register-complete.tpl</div>
+      <ul>
+        This template will be displayed when a user completes the registration process
+
+        <br /><br />
+
+        <b>$g_trade - </b> <span class="nmb">This will contain the trade account data that was submitted</span>
+        <b>$g_trade.domain -</b> <span class="nmb">Domain name</span><br />
+        <b>$g_trade.return_url -</b> <span class="nmb">Traffic URL</span><br />
+        <b>$g_trade.status -</b> <span class="nmb">Account status</span><br />
+        <b>$g_trade.email -</b> <span class="nmb">E-mail address</span><br />
+        <b>$g_trade.nickname -</b> <span class="nmb">Name/Nickname</span><br />
+        <b>$g_trade.icq -</b> <span class="nmb">ICQ number</span><br />
+        <b>$g_trade.site_name -</b> <span class="nmb">Site name</span><br />
+        <b>$g_trade.site_description -</b> <span class="nmb">Site description</span><br />
+      </ul>
+
+
+      <div class="bold large mt">register.tpl</div>
+      <ul>
+        This template will be displayed when a wishes to register a new trade account
+
+        <br /><br />
+
+        <b>$g_trade_rules - </b> <span class="nmb">This will contain the trade rules you have setup in the control panel</span><br />
+        <b>$g_trade_rules_array - </b> <span class="nmb">This will contain the trade rules you have setup in the control panel, broken up into an array with one line per array index</span><br />
+        <b>$g_trade_defaults -</b> <span class="nmb">This will contain the default values assigned to new trades as you have configured in the control panel</span>
+      </ul>
+
+
+      <div class="bold large mt">style.css</div>
+      <ul>
+        This is not actually a template, but can still be edited through the template editor.  This is the style sheet that is used for all of the site templates.
+      </ul>
+
+
+      <div class="bold large mt">trade-stats-disabled.tpl</div>
+      <ul>
+        This template will be displayed you have selected to not allow logins to view stats
+      </ul>
+
+
+      <div class="bold large mt">trade-stats-forgot-confirm.tpl</div>
+      <ul>
+        This template will be displayed when a user submits valid information to retrieve their lost password
+      </ul>
+
+
+      <div class="bold large mt">trade-stats-forgot-confirmed.tpl</div>
+      <ul>
+        This template will be displayed when a user clicks on the confirmation link in the e-mail message sent to confirm retrieval of a lost password
+
+        <br /><br />
+
+        <b>$g_trade - </b> <span class="nmb">This will contain the trade account data</span><br />
+        <b>$g_trade.password - </b> <span class="nmb">This will contain the new password for the trade account</span>
+      </ul>
+
+
+      <div class="bold large mt">trade-stats-forgot.tpl</div>
+      <ul>
+        This template will be displayed when a user clicks the "Lost Password?" link
+      </ul>
+
+
+      <div class="bold large mt">trade-stats-login.tpl</div>
+      <ul>
+        This template will be displayed when a user wishes to login to view their stats
+      </ul>
+
+
+      <div class="bold large mt">trade-stats.tpl</div>
+      <ul>
+        This template display the user's stats after they have logged in
+
+        <br /><br />
+
+        <b>$g_trade - </b> <span class="nmb">This will contain the trade account data</span><br />
+        <b>$g_trade.domain -</b> <span class="nmb">Domain name</span><br />
+        <b>$g_trade.return_url -</b> <span class="nmb">Traffic URL</span><br />
+        <b>$g_trade.status -</b> <span class="nmb">Account status</span><br />
+        <b>$g_trade.email -</b> <span class="nmb">E-mail address</span><br />
+        <b>$g_trade.nickname -</b> <span class="nmb">Name/Nickname</span><br />
+        <b>$g_trade.icq -</b> <span class="nmb">ICQ number</span><br />
+        <b>$g_trade.site_name -</b> <span class="nmb">Site name</span><br />
+        <b>$g_trade.site_description -</b> <span class="nmb">Site description</span><br />
+        <b>$g_stats - </b> <span class="nmb">This will contain the trade account stats</span><br />
+        <b>$g_stats.i_raw_60 - </b> <span class="nmb">Raw in from the past 60 minutes</span><br />
+        <b>$g_stats.o_raw_60 - </b> <span class="nmb">Raw out from the past 60 minutes</span><br />
+        <b>$g_stats.c_raw_60 - </b> <span class="nmb">Raw clicks from the past 60 minutes</span><br />
+        <b>$g_stats.prod_60 - </b> <span class="nmb">Productivity from the past 60 minutes</span><br />
+        <b>$g_stats.i_raw_24 - </b> <span class="nmb">Raw in from the past 24 hours</span><br />
+        <b>$g_stats.o_raw_24 - </b> <span class="nmb">Raw out from the past 24 hours</span><br />
+        <b>$g_stats.c_raw_24 - </b> <span class="nmb">Raw clicks from the past 24 hours</span><br />
+        <b>$g_stats.prod_24 - </b> <span class="nmb">Productivity from the past 24 hours</span><br />
+      </ul>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

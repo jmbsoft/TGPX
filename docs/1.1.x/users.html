@@ -1,0 +1,243 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">User Accounts</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+Surfers who view your link directory have the option of creating an account.  Depending on your LinkX settings, user accounts may be required in order to add links, rate links,
+or leave comments.  This document will give you an overview of how to add, maintain, and remove user accounts.
+
+<br />
+<br />
+
+<b class="heading">Adding a New User Account<a name="add"></a></b>
+
+<br />
+<br />
+
+To add a new user account access the Accounts &gt; Add an Account function from the control panel menu.  This will display a popup 
+window where you will be able to enter the account data that you want to use.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Username</b>
+</td>
+<td>
+The username for this account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Password</b>
+</td>
+<td>
+The password for this account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Status</b>
+</td>
+<td>
+The current status of this account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>E-mail Address</b>
+</td>
+<td>
+The e-mail address that should be associated with this account
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Name</b>
+</td>
+<td>
+The name of the account owner
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Weight</b>
+</td>
+<td>
+The weight value assigned to this account; links submitted through this account will be assigned this weight
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Added</b>
+</td>
+<td>
+The date this account was added (must be in YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Modified</b>
+</td>
+<td>
+The date this account was last modified (must be in YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Require a reciprocal link</b>
+</td>
+<td>
+Check this box if this account's links must have a reciprocal link back to your site.  This overrides the global setting.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Allow URL redirection</b>
+</td>
+<td>
+Check this box to allow this account's site URLs to redirect to other URLs.  This overrides the global setting.
+</td>
+</tr>
+</table>
+</ul>
+
+
+You will also find all of the user defined fields that you have configured, and will be allow to fill in or select the appropriate values for those fields.
+Once you have filled in all of the fields as you want them, press the Add Account button.  This will add the new account to the database.
+
+<br />
+<br />
+
+<b class="heading">Account Status<a name="status"></a></b>
+
+<br />
+<br />
+
+When accounts are created they are assigned a status which determines if the user is able to login and use the account.  Each of the available status options are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Unconfirmed</b>
+</td>
+<td>
+Accounts that have been submitted but not yet confirmed through the submitter's e-mail address have this status
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Pending</b>
+</td>
+<td>
+Accounts that have been submitted but not yet approved by an administrator have this status
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Active</b>
+</td>
+<td>
+Accounts that have been approved and can be used to login have this status
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Suspended</b>
+</td>
+<td>
+Accounts that have been suspended by an administrator; the user will not be able to login
+</td>
+</tr>
+</table>
+</ul>
+
+The account status can be changed at any time by editing the account or by using the functions available in the <a href="user-search.html">Account Search</a> interface.
+
+<br />
+<br />
+
+<b class="heading">Processing New Accounts<a name="processnew"></a></b>
+
+<br />
+<br />
+
+If you have the setting enabled to require approval of new accounts, you will need to login to the control panel from time-to-time to review newly created accounts.
+To view the newly created accounts, select To Do &gt; Review User Accounts from the control panel menu.  This will load the Account Search interface with the appropriate options set to 
+display only accounts with pending status.
+
+<br />
+<br />
+
+New accounts can be processed one at a time, or in bulk.  When viewing the new accounts, you will see the <img src="../images/check.png"> and <img src="../images/x.png"> icons added
+to the Functions column along with a drop down selection list.  To approve an account, select the e-mail message you want to send (if any) from the drop down selection list and then
+click on the <img src="../images/check.png"> icons.  Rejecting an account works the same way, except you will click the <img src="../images/x.png"> icon.
+
+<br />
+<br />
+
+To process many accounts at once, put a check in the box next to the accounts you want to process.  At the bottom of the page select either 'Approve Selected' or 'Reject Selected' from
+the drop down list of functions.  When you do this, an additional drop down selection box will appear that will allow you to select which e-mail message (if any) you want to send.
+Select the appropriate e-mail message and then press the Execute function to process all of the selected accounts.
+
+<br />
+<br />
+
+<b class="heading">Editing an Account<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit an account you will first need to locate it through the <a href="user-search.html">Account Search</a> interface.
+When you locate the account you want to edit, click on the <img src="../images/edit.png" width="9" height="12" border="0" alt=""> icon to bring up the account editing interface.
+This interface is nearly identical to the account creation interface, and has the same form fields with the same properties.  You can make the changes that you want, and then press the
+Update Account button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting an Account<a name="delete"></a></b>
+
+<br />
+<br />
+
+<div class="note">
+Deleting an account will also delete all of the links associated with that account
+</div>
+
+<br />
+
+To delete an account you will first need to locate it through the <a href="user-search.html">Account Search</a> interface.
+When you locate the account you want to delete, click on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several accounts at once by putting a check in the box next to the accounts you want to delete, selecting the 'Delete Selected' function from the drop down list
+at the bottom of the page and pressing the Execute button.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

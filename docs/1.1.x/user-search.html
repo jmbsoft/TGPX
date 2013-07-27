@@ -1,0 +1,144 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+    pre { border: 1px solid #afafaf; background-color: #ececec; padding: 10px; overflow: auto }
+    </style>
+</head>
+
+<body>
+
+<div align="center">
+<span class="large">End User Gallery Search</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+TGPX includes a script that your website visitors can use to search your gallery database.  This will allow them to quickly find the content they are looking for on your site.
+The search function is not enabled on the software's default template set, so this document will assist you in setting it up.
+
+<br />
+<br />
+
+<b class="heading">Adding a Search Box</b>
+
+<br />
+<br />
+
+Adding a search box on your TGP pages is pretty straightforward, and you will have the option of allowing users to search in a specific category and a specific gallery format if you wish.  The following
+shows the complete code for an advanced search box that you can use on your TGP page templates:
+
+<xmp class="code"><form method="get" action="{$config.install_url}/search.php">
+<input type="text" name="s" size="30" value="">
+<select name="c">
+  <option value="">All Categories</option>
+  {options from=$search_categories key=tag value=name}
+</select>
+<select name="f">
+  <option value="">All Formats</option>
+  <option value="pictures">Pictures</option>
+  <option value="movies">Movies</option>
+</select>
+<input type="hidden" name="pp" value="20">
+<input type="hidden" name="mt" value="180x130">
+<input type="hidden" name="pt" value="150x150">
+<input type="submit" value="Search">
+</form></xmp>
+
+Let's examine each of the form fields so you can customize them to meet your needs.
+
+<xmp class="code"><input type="text" name="s" size="30" value=""></xmp>
+
+The first form field is a text input box where the user will enter their search term.  This field is required for the search and cannot be removed.
+
+<xmp class="code"><select name="c">
+  <option value="">All Categories</option>
+  {options from=$search_categories key=tag value=name}
+</select></xmp>
+
+The second form field is a drop down selection box that will allow the user to search within a specific category.  This field is optional and can be removed
+if you do not want to allow searching within categories.
+
+<xmp class="code"><select name="f">
+  <option value="">All Formats</option>
+  <option value="pictures">Pictures</option>
+  <option value="movies">Movies</option>
+</select></xmp>
+
+The third form field is another drop down selection box that will allow the user to search specific gallery formats.  This field is optional and can be removed
+if you do not want to allow searching for specific gallery formats.
+
+<xmp class="code"><input type="hidden" name="pp" value="20"></xmp>
+
+This form field is actually hidden and not displayed on the page, but it controls the number of search results displayed per page.  You can adjust this to any
+numerical value you like.  This field is required and cannot be removed.
+
+<xmp class="code"><input type="hidden" name="mt" value="180x130"></xmp>
+
+This form field is also hidden and not displayed on the page, but controls the size of preview thumbnail images displayed in the search results for movie galleries.
+You can adjust this to any value you like as long as it is in WIDTHxHEIGHT format.  This field is required and cannot be removed.
+
+<xmp class="code"><input type="hidden" name="pt" value="150x150"></xmp>
+
+This form field is also hidden and not displayed on the page, but controls the size of preview thumbnail images displayed in the search results for picture galleries.
+You can adjust this to any value you like as long as it is in WIDTHxHEIGHT format.  This field is required and cannot be removed.
+
+<br />
+<br />
+
+<b class="heading">Searched Fields</b>
+
+<br />
+<br />
+
+The end-user gallery search function will search both the description and keywords fields for all of the galleries that currently have Used status.
+Since only galleries with Used status are searched, this will ensure that your pending galleries or galleries waiting in the approved queue will not
+show up as search results.  If you plan on using the end-user search function it is a good idea to require that your gallery submitters provide
+at least a description with their gallery, and possibly also keywords.  Galleries that do not have a description and keywords set will not be eligible
+to show up in the search results.
+
+<br />
+<br />
+
+<b class="heading">Boolean Mode Search</b>
+
+<br />
+<br />
+
+The end-user gallery search function uses boolean mode searches, just like you can use for some fields in the TGPX control panel.  The <a href="boolean-searches.html">Boolean Searches</a>
+section of the software manual describes the available options and restrictions for using boolean mode searches.  You may want to provide your users with
+details on the different search formats they can use.  Feel free to copy the information from the <a href="boolean-searches.html">Boolean Searches</a> section of the software manual to use
+for your end-user documentation.
+
+<br />
+<br />
+
+<b class="heading">Search Caching</b>
+
+<br />
+<br />
+
+To help reduce the load caused by offering a search feature, the software uses a caching system.  Search results will be cached for 1 hour, so if another user comes along within 1 hour and
+enters the same search term as a previous user, the cached results will be displayed.  This will reduce the number of database queries required, but you do need to be aware of
+the caching system when you are testing the search feature.  If you do a search and then build your pages with new galleries added, don't expect those new galleries to immediately
+appear in the search results if you search for the exact same term.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

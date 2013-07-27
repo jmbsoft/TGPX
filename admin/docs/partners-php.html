@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">The partner.php Interface</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The partner.php interface for your end-users allows them to request a partner account, edit their existing partner account, view the current galleries
+they have submitted, and reset their password if necessary.  This document will cover the different URLs you need to use to provide your users with
+access to these functions and a brief overview of the account maintenance interface.
+
+<br />
+<br />
+
+<b class="heading">Linking to partner.php</b>
+
+<br />
+<br />
+
+There are several ways to link to the partner.php script, and the value(s) that you pass as part of the link will determine what function the partner.php
+script executes.  The available links you can use are:
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>partner.php</b>
+</td>
+<td>
+Accessing the partner.php script directly will show the account login interface
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>partner.php?r=reset</b>
+</td>
+<td>
+This will display the account password reset form
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>partner.php?r=request</b>
+</td>
+<td>
+This will display the partner account request form
+</td>
+</tr>
+</table>
+</ul>
+
+<b class="heading">Partner Account Maintenance</b>
+
+<br />
+<br />
+
+Your partner account holders will be able to login to their accounts so they can see their current stats, the galleries they have submitted, and to edit their account details.
+They can also disable galleries they have submitted if they need to.  They can access this interface using the direct partner.php link described above.  To access their account
+they will be required to enter their current username and password.
+
+<br />
+<br />
+
+Once they are logged in they will see an overview of their account that shows when they last submitted a gallery, how many galleries they currently have in the database, etc.
+At the top of the page will be links to allow them to view their current galleries and edit their account.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

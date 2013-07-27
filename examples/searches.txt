@@ -1,0 +1,51 @@
+Overview
+--------
+The templates contained in this file show you examples of how the {searches}
+template function can be used to list the search terms that your users have
+entered.  There are a total of 3 templates included in this file, each showing
+a different way to list the search terms:
+
+Template #1 - Display the most entered search terms in a tag cloud
+Template #2 - Display the most entered search terms in a list
+Template #3 - Display the most recent search terms in a list
+
+
+Template Code #1
+----------------
+{searches var=$searches amount=30 order=searches DESC alphabetize=true}
+
+<div style="width: 300px;">
+{foreach var=$search from=$searches}
+<a href="{$config.install_url}/search.php?s={$search.term|tsearchterm}" style="font-size: {$search.font_size|htmlspecialchars}%">{$search.term|htmlspecialchars}</a> &nbsp;&nbsp; 
+{/foreach}
+</div>
+
+
+
+
+Template Code #2
+----------------
+{searches var=$searches amount=10 order=searches DESC}
+
+<b>Top 10 Searches:</b>
+<ol>
+{foreach var=$search from=$searches}
+<li> <a href="{$config.install_url}/search.php?s={$search.term|tsearchterm}">{$search.term|htmlspecialchars}</a><br />
+{/foreach}
+</ol>
+
+
+
+
+
+Template Code #3
+----------------
+{searches var=$searches amount=10 order=date_last_search DESC}
+
+<b>10 Most Recent Searches:</b>
+<ol>
+{foreach var=$search from=$searches}
+<li> <a href="{$config.install_url}/search.php?s={$search.term|tsearchterm}">{$search.term|htmlspecialchars}</a><br />
+{/foreach}
+</ol>
+

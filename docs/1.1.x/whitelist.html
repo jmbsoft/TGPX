@@ -1,0 +1,263 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Whitelist</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The whitelist feature of TGPX allows you to create and manage a list of items that will allow special privileges for galleries submitted that match one or
+more of these items.  For example, if you want to allow galleries from a certain domain to be able to redirect surfers you can add that domain to the whitelist
+and specify that redirection is allowed for that domain.  This document will give an overview of the whitelist feature of TGPX.
+
+<br />
+<br />
+
+<b class="heading">Whitelist Types</b>
+
+<br />
+<br />
+
+There are several different whitelist types which allow you to configure your whitelist to accurately find and allow the items that you want to appear which
+otherwise would be rejected.  Each of the whitelist types are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Submitter IP</b>
+</td>
+<td>
+This will search the IP address of the user submitting the gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>E-mail Address</b>
+</td>
+<td>
+This will search the e-mail address submitted for a gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Domain/URL</b>
+</td>
+<td>
+This will search the gallery URL submitted for a gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Domain IP</b>
+</td>
+<td>
+This will search the IP address of the gallery URL submitted for a gallery
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>DNS Server</b>
+</td>
+<td>
+This will search the DNS servers assigned for a gallery
+</td>
+</tr>
+</table>
+</ul>
+
+<b class="heading">Whitelist Search Type</b>
+
+<br />
+<br />
+
+When you add a whitelist item you have the option of specifying if it is a regular expression.  Regular expressions are more complex than standard searches that simply look
+for the item as-is, but they add a great amount of flexibility.  In TGPX the Perl Compatible Regular Expressions format is used for regular expressions.  If you are not familiar
+with regular expressions, please see the <a href="http://us2.php.net/manual/en/reference.pcre.pattern.syntax.php">Pattern Syntax portion of the PHP manual</a> for additional
+information.  If you check the Regular Expression box on the whitelist add/edit form, the item(s) you enter will be treated as regular expressions and used to match against the
+values that are submitted by the user.
+
+<br />
+<br />
+
+If the values you enter are not regular expressions, be sure to leave that box unchecked.  This will cause a normal search to occur which will match the item you enter anywhere within
+the field that is being searched.  For example, if you enter the word "@hotmail.com" as a whitelisted e-mail address and someone submits with an e-mail address of "johnny@hotmail.com", this will match the
+"@hotmail.com" whitelist word item since it appears in the e-mail address.  Note that the search is case-insensitive and will match not only exact words, but also portions of words.
+
+<br />
+<br />
+
+<b class="heading">Viewing/Searching Whitelist Items<a name="search"></a></b>
+
+<br />
+<br />
+
+To view or search your currently configured whitelist items, access the Settings &gt; Manage Whitelist function from the control panel menu.  This will display a page where you will be able to 
+see the currently configured whitelist items and search them if you wish.
+
+<br />
+<br />
+
+In the table that displays the whitelist items, you will find a couple of functions that you can run on a single whitelist item.  Each of those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the whitelist item.  A window will appear where you will be able to edit all of it's settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this whitelist item.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running these functions on single whitelist items, you can also run the delete function on multiple whitelist items at once.  To run the delete function, put a check in the checkbox next to the
+whitelist items you want to delete, then press the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Adding a Whitelist Item</b>
+
+<br />
+<br />
+
+To add a new whitelist item access the Settings &gt; Manage Whitelist function from the control panel menu.  This will display your currently configured whitelist items.  Near the top of the page in the header
+bar that reads "Whitelist Items" click on the <img src="../images/add.png" border="0" alt=""> icon.  This will display a popup window where you will be able to enter the data
+for the new whitelist item that you want to add.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Value(s)</b>
+</td>
+<td>
+The value(s) you want to add to the whitelist.  You can enter one item per line to add multiple items at once.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Regular expression</b>
+</td>
+<td>
+Check this box if the value(s) is a regular expression
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+Select the type of whitelist item you are adding (described above)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Reason</b>
+</td>
+<td>
+Enter a reason why you are whitelisting this item, if you wish.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+</td>
+<td>
+<b>Allow URL redirection</b><br />
+If this is checked the gallery will be allowed to redirect to a different URL
+<br /><br />
+<b>No reciprocal link required</b><br />
+If this is checked the gallery will not be required to have a reciprocal link
+<br /><br />
+<b>Auto-approve galleries</b><br />
+If this is checked the gallery will be automatically approved
+<br /><br />
+<b>No confirmation e-mail required</b><br />
+If this is checked the gallery submitter will not be required to confirm their submission by e-mail
+<br /><br />
+<b>Allow blacklisted items</b><br />
+If this is checked the gallery will be allowed to contain blacklisted items
+</td>
+</tr>
+</table>
+</ul>
+
+<div class="note">
+When adding multiple whitelist items at once you can use a special format in the Value(s) field to add both the item and reason at the same time.  This special
+format still has one item per line, however after the item you want to whitelist enter a | character (pipe) followed by the reason.  For example:
+
+<br />
+<br />
+
+galleries.sponsor.com|These are galleries from a trusted sponsor<br />
+www.mysite.com|This is my own site
+</div>
+
+<br />
+
+Once you have filled in all of the fields as you want them, press the Add Whitelist Item button.  This will add the new item to the database, and it will
+be activated immediately.
+
+<br />
+<br />
+
+<b class="heading">Editing a Whitelist Item<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a whitelist item you will first need to locate it through the <a href="#search">View/Search</a> interface.  When you locate the item you want to edit, click on the
+<img src="../images/edit.png"> icon to bring up the whitelist item editing interface.  This interface is nearly identical to the whitelist item addition interface,
+and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update Whitelist Item button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Whitelist Item<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete a whitelist item you will first need to locate it through the <a href="#search">View/Search</a> interface.  When you locate the item you want to delete, click
+on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several items at once by putting a check in the box next to the items you want to delete, then pressing the Delete button at the bottom of the page.
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

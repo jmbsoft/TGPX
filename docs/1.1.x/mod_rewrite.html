@@ -1,0 +1,109 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">mod_rewrite Information</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+If you have an Apache server with the mod_rewrite module installed and available, you can use search engine friendly URLs for your link directory.  Not only are these
+URLs more visually appealing, they also allow search engines to index your entire link directory.  This document will give you an overview of how LinkX uses mod_rewrite.
+
+<br />
+<br />
+
+<b class="heading">mod_rewrite Overview</b>
+
+<br />
+<br />
+
+mod_rewrite is a module for the Apache webserver that provides a great deal of flexibility in the URLs you use to access the different pages of your site.  This module is not
+usually installed by default during an Apache installation, so before you go any further you should check with your server administrator to see if the mod_rewrite module is installed
+and available for you to use.
+
+<br />
+<br />
+
+LinkX can use mod_rewrite to create URLs that are more user friendly and appealing to your visitors, and also allow your entire link directory to be indexed by search engines.  A quick comparison
+between mod_rewrite URLs vs standard URLs should help clear this up a bit.
+
+<ul>
+Say, for example, that you have a category tree consisting of several sub-categories that looks like this:
+
+<br />
+<br />
+
+<span style="padding-left: 0px;">Computers</span><br />
+<span style="padding-left: 15px;">Hardware</span><br />
+<span style="padding-left: 25px;">Intel</span><br />
+<span style="padding-left: 35px;">Pentium</span>
+
+<br />
+<br />
+
+Without mod_rewrite all of your categories must be referenced by their ID number, so you end up with a URL that looks like this:
+
+<br />
+<br />
+
+http://www.yoursite.com/linkx/index.php?c=839
+
+<br />
+<br />
+
+Obviously, this URL is not very informative for the user, and most search engines will not index this page since it has a query string (?c=839).  To provide
+both a more appealing URL for the surfer and something that can be indexed by search engines, LinkX will take your category structure and create a "path" for
+every category in your database.  The path for the Pentium category would look like:
+
+<br />
+<br />
+
+Computers/Hardware/Intel/Pentium
+
+<br />
+<br />
+
+In conjunction with mod_rewrite, LinkX uses these paths in the link directory URLs instead of using the cateogry ID number.  This gives a much nicer looking URL, like this:
+
+<br />
+<br />
+
+http://www.yoursite.com/linkx/Computers/Hardware/Intel/Pentium/
+
+<br />
+<br />
+
+mod_rewrite is able to take that path information and pass it to the index.php script automatically so that it can pull up and display the correct category to the user.  This
+all happens seamlessly without any redirection in the browser.
+</ul>
+
+<b class="heading">mod_rewrite Configuration</b>
+
+<br />
+<br />
+
+If your server supports mod_rewrite, setting up LinkX to work with it is very simple.  In the LinkX control panel access the Settings &gt; mod_rewrite File function from the
+control panel menu.  This will display a popup window with a text box containing the entire code you need to use for the mod_rewrite .htaccess file.  Simply create a plain text
+file named .htaccess, copy the contents of the text input box to the .htaccess file, and then upload the .htaccess file to your server into the base directory of your LinkX installation.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

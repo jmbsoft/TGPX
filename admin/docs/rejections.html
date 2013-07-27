@@ -1,0 +1,177 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Rejection E-mails</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+With TGPX you can create custom rejection e-mail messages that will be sent to gallery submitters or partner account requests that you have rejected.  For each gallery or partner that you
+reject, you will be able to select which custom rejection e-mail you want to send.  This document will provide information on creating and maintaining rejection e-mails.
+
+<br />
+<br />
+
+<b class="heading">Viewing/Searching Rejection E-mails<a name="search"></a></b>
+
+<br />
+<br />
+
+To view or search your currently configured rejection e-mails, access the Templates &gt; Rejection E-mails function from the control panel menu.  This will display a page where you will be able to 
+see the currently configured rejection e-mails and search them if you wish.
+
+<br />
+<br />
+
+In the table that displays the rejection e-mails, you will find a couple of functions that you can run on a single rejection e-mail.  Each of those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the rejection e-mail.  A window will appear where you will be able to edit all of it's settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete the rejection e-mail.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running these functions on single rejection e-mails, you can also run the delete function on multiple rejection e-mails at once.  To run the delete function, put a check in the checkbox next to the
+rejection e-mails you want to delete, then press the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Adding a Rejection E-mail</b>
+
+<br />
+<br />
+
+To add a new rejection e-mail access the Templates &gt; Rejection E-mails function from the control panel menu.  This will display your currently configured rejection e-mail.  Near the top of the page in the header
+bar that reads "Rejection E-mails" click on the <img src="../images/add.png" width="16" height="16" border="0" alt=""> icon.  This will display a popup window where you will be able to enter the data
+for the new rejection e-mail that you want to add.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Identifier</b>
+</td>
+<td>
+Enter a short identifier for this rejection e-mail.  These identifiers will appear when you are selecting which rejection e-mail to send to a user.  Keep 
+in mind that these rejection e-mails will be shown for both links and user accounts, so you may want to indicate the type of rejection e-mail in the identifier.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Subject</b>
+</td>
+<td>
+The full subject of the rejection e-mail message
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Text Body</b>
+</td>
+<td>
+The text body of the rejection e-mail message.  This message will be displayed for users that have text-only e-mail readers.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>HTML Body</b>
+</td>
+<td>
+The HTML body of the rejection e-mail message.  This message will be displayed for users that have HTML capable e-mail readers.<br />
+TIP: Click on the <img src="../images/html.png" border="0" alt=""> icon to automatically convert the text
+body to HTML format.
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have filled in all of the fields as you want them, press the Add Rejection E-mail button.  This will add the new e-mail to the database, and it will
+be immediately available for use as a rejection e-mail message.
+
+<br />
+<br />
+
+<b class="heading">Rejection E-mail Template Values</b>
+
+<br />
+<br />
+
+The template values that are valid for your rejection e-mails depend on what type of item you are processing.  When you are adding rejection e-mails it is recommended
+that you create separate e-mails for account and link rejections, and label each according to their type in the Identifier field so you don't accidentally send a partner
+rejection message when you reject a gallery.  The template values available are:
+
+<ul>
+<li> If you are rejecting a gallery, the template values for the email-gallery-approved.tpl template are valid
+<li> If you are rejecting a partner account, the template values for the email-partner-added.tpl template are valid
+</ul>
+
+You can find details of the template values that are valid in these templates by viewing the <a href="templates-email.html">E-mail Templates</a> section of this manual.
+
+<br />
+<br />
+
+<b class="heading">Editing a Rejection E-mail<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a rejection e-mail you will first need to locate it through the <a href="#search">View/Search</a> interface.  When you locate the rejection e-mail you want to edit, click on the
+<img src="../images/edit.png"> icon to bring up the rejection e-mail editing interface.  This interface is nearly identical to the rejection e-mail addition interface,
+and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update Rejection E-mail button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Rejection E-mail<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete a rejection e-mail you will first need to locate it through the <a href="#search">View/Search</a> interface.  When you locate the rejection e-mail you want to delete, click
+on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several rejection e-mails at once by putting a check in the box next to the rejection e-mails you want to delete, then pressing the Delete button at the bottom of the page.
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

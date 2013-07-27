@@ -1,0 +1,104 @@
+/* calendar style */
+#calendarDiv {
+	display: block;
+	display: none;
+	position: relative;
+	border: 1px solid #777;
+    z-index: 3;
+}
+#calendarDiv a {
+	cursor: pointer;
+	cursor: hand;
+}
+#calendar {
+	background: #ddd;
+	clear: both;
+	text-align: center;
+	font-size: 105%;
+}
+#calendar, #linksTable {
+	width: 180px;
+}
+#calendar .calendarHeader {
+	background: #333;
+	border-bottom: 1px solid #444;
+	color: #fff;
+    height: 20px;
+}
+#calendar .weekDaysTitleRow {
+	background: #777;
+	color: #fff;
+}
+#calendar .weekDaysRow {
+	background: #eee;
+	color: #666;
+}
+#calendar .weekDaysCell {
+	color: #000;
+	border: 1px solid #ddd;
+}
+#calendar .weekDaysCellOver {
+	background: #fff;
+	border: 1px solid #777;
+}
+#closeCalender {
+	position: absolute;
+    width: 16px;
+    height: 16px;
+    right: 0;
+    top: 2px;
+}
+#closeCalender:hover {
+}
+#linksTable {
+	background: #777;
+}
+#linksTable a {
+	display: block;
+	color: #fff;
+	letter-spacing: 1px;
+	font-weight: bold;
+	padding: 2px 5px;
+}
+#linksTable a:hover {
+	background: #ddd;
+	color: #333;
+}
+#prevMonth {
+	float: left;
+    font-size: 8pt;
+}
+#nextMonth {
+	float: right;
+    font-size: 8pt;
+}
+#today {
+	background: #000;
+}
+
+#today a {
+  color: #fff;
+}
+
+#today a:hover {
+  color: #333;
+}
+
+.js-singleComment {
+	border: 2px solid #ddd;
+	background: #fff;
+	font-size: 1em;
+	width: 600px;
+}
+
+#calHideSelect {
+  background-color: #333;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  border: none;
+  filter: alpha(opacity=60); 
+  -moz-opacity: 0.6; 
+  opacity: 0.6;  
+}

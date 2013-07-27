@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Search Engines</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+    <span class="header-section">Overview</span>
+    <div class="section">
+      Use this dialog to configure the domains that should be tracked as search engines.  Enter one search engine domain per line.  If you would like TradeX to also track the search terms
+      that were entered at the search engines, provide the search term parameter after a pipe (|) character on each line.
+
+      <br /><br />
+
+      For example, when you do a search at Google for the word <b><i>exercise</i></b> the search URL is this:
+
+      <br /><br />
+
+      <div class="code">http://www.google.com/search?hl=en&source=hp&<b><i>q=exercise</i></b>&cts=1267229687100&aq=f&aqi=g10&aql=&oq=</div>
+
+      <br />
+
+      Notice that the search word is passed in the q= parameter, so that is what you would need to use in the Search Engine settings:
+
+      <br /><br />
+
+      <div class="code">google.|q</div>
+
+      <br />
+
+      For the best results, strip the www. from the front of the search engine domain and leave off the domain suffix (com, net, co.uk, etc).
+    </div>
+
+
+    <span class="header-section">Advanced Search Term Extraction</span>
+    <div class="section">
+      Some search engines are now using URLs with the search term embedded rather than using query string parameters.  TradeX can extract these search terms as well, but this requires
+      that you specify a regular expression to extract the search term from the URL path.  To indicate that a regular expression is being used, it must be prefixed with an @ character.
+
+      <br /><br />
+
+      For example, the dogpile.com search engine uses this type of search term embedding.  when you do a search at dogpile.com for the word <b><i>exercise</i></b> the search URL is this:
+
+      <br /><br />
+
+      <div class="code">http://www.dogpile.com/dogpile/ws/results/Web/<b>exercise</b>/1/417/TopNavigation/Relevance/iq=...</div>
+
+      <br />
+
+      Therefore, the entry for dogpile.com in the Search Engines list looks like this:
+
+      <br /><br />
+
+      <div class="code">dogpile.|@/dogpile/ws/results/Web/(.*?)/</div>
+
+      <br />
+
+      TradeX will capture the text in the location of (.*?) and that will be recorded as the search term.
+
+    </div>
+
+  </div>
+
+</body>
+</html>

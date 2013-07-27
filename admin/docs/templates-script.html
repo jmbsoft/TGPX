@@ -1,0 +1,544 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Script Page Templates</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The script page templates are the templates that control the appearance of the end-user interfaces such as the gallery submission form and partner account request and maintenance pages.
+This document will give you an overview of the variables available in each of the script page templates.
+
+<br />
+<br />
+
+<b class="heading">Editing Script Page Templates</b>
+
+<br />
+<br />
+
+To edit the script page templates access the Templates &gt; Script Pages function from the control panel menu.  This will display a page where you can select which
+template you want to edit.  Once you have selected the template you want to edit, press the Load Template button.  You will be returned to the same page, but there will now
+be a large text box where you can make changes to the template.  When you are done making changes, press the Save Template button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Templates and Their Variables</b>
+
+<br />
+<br />
+
+This section will describe all of the available templates and the variables you can use within each template.
+
+<ul>
+<b>crop.css</b>
+
+<br />
+<br />
+
+This is the style sheet used for the web-based thumbnail cropping interface
+
+<br />
+<br />
+
+<ul>
+No template variables
+</ul>
+
+<br />
+<br />
+
+<b>default-tgp.tpl</b>
+
+<br />
+<br />
+
+This template will be used as the template for every new TGP page that you add through the Manage Pages interface.
+If you would like to make some changes (for example, adding your traffic trading script code) so that all of your
+newly added TGP pages automatically have this code, edit this template file.  This template uses the functions
+and variables as described in the <a href="templates-tgp.html">TGP Page Templates</a> section of this manual.
+
+<br />
+<br />
+
+<b>error-fatal.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed when a fatal, unrecoverable error has occurred.
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$error} - The error message<br />
+{$trace} - A stack trace showing what functions were called<br />
+{$file} - The file that the error occurred in<br />
+{$line} - The line number where the error occurred
+</ul>
+
+<br />
+<br />
+
+<b>error-nice.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed when the user has done some action to trigger an error condition
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$error} - The error message
+</ul>
+
+<br />
+<br />
+
+<b>global-header.tpl</b>
+
+<br />
+<br />
+
+This is the global header that will be included at the top of all of the other templates.
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>global-footer.tpl</b>
+
+<br />
+<br />
+
+This is the global footer that will be included at the bottom of all of the other templates.
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>partner-edit.tpl</b>
+
+<br />
+<br />
+
+This template is shown when a partner chooses to edit their account
+
+<br />
+<br />
+
+<ul>
+{$errors} - Any errors that occurred with the account editing (array value)<br />
+{$updated} - A flag to indicate that the account has been successfully updated<br />
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$partner} - The partner account data; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$user_fields} - The user defined fields for this account (array value)
+</ul>
+
+<br />
+<br />
+
+<b>partner-galleries.tpl</b>
+
+<br />
+<br />
+
+This template is shown when a partner chooses to view their current galleries
+
+<br />
+<br />
+
+<ul>
+{$disabled} - A flag to indicate that a gallery has been disabled<br />
+{$disabled_id} - The ID number of the gallery that has been disabled<br />
+{$galleries} - The partner's galleries (array value)<br />
+{$pagination} - The pagination values; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$partner} - The partner account data; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$user_fields} - The user defined fields for this account (array value)<br />
+{$errors} - If any errors were encountered when editing the account, this value will contain them
+</ul>
+
+<br />
+<br />
+
+<b>partner-login.tpl</b>
+
+<br />
+<br />
+
+This template is shown when a partner wants to login to their account
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$errors} - Errors encountered during the login process (array value)<br />
+{$login.login_username} - The username entered on the login form<br />
+{$logged_out} - A flag to indicate that the user has logged out of their account
+</ul>
+
+<br />
+<br />
+
+<b>partner-overview.tpl</b>
+
+<br />
+<br />
+
+This template value is shown when a partner logs into their account or chooses to view their account overview
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$partner} - The partner account data; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$stats.galleries} - The total number of galleries this partner has in the database<br />
+{$stats.clicks} - The total number of clicks this partner's galleries have received<br />
+{$stats.unconfirmed} - The number of unconfirmed galleries this partner has in the database<br />
+{$stats.pending} - The number of pending galleries this partner has in the database<br />
+{$stats.approved} - The number of approved galleries this partner has in the database<br />
+{$stats.used} - The number of used galleries this partner has in the database<br />
+{$stats.holding} - The number of holding galleries this partner has in the database<br />
+{$stats.disabled} - The number of disabled galleries this partner has in the database<br />
+</ul>
+
+<br />
+<br />
+
+<b>partner-request-complete.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed after a user submits a partner account request
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$request.username} - The username submitted with the request<br />
+{$request.name} - The name/nickname submitted with the request<br />
+{$request.email} - The e-mail address submitted with the request<br />
+{$user_fields} - The user defined fields submitted with the request (array value)
+</ul>
+
+<br />
+<br />
+
+<b>partner-request.tpl</b>
+
+<br />
+<br />
+
+This template will be displayed when a user wants to submit a partner account request
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$errors} - If any errors were encountered, this value will contain them (array value)<br />
+{$request.username} - The username submitted with the request<br />
+{$request.name} - The name/nickname submitted with the request<br />
+{$request.email} - The e-mail address submitted with the request<br />
+{$user_fields} - The user defined partner account fields (array value)
+</ul>
+
+<br />
+<br />
+
+<b>partner-reset-confirm.tpl</b>
+
+<br />
+<br />
+
+This template will display when a partner requests that their password be reset
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$partner} - The partner account data; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>partner-reset-confirmed.tpl</b>
+
+<br />
+<br />
+
+This template will be shown when a partner has confirmed their password reset by e-mail and clicked on the link
+contained in that e-mail message
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$partner} - The partner account data; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>partner-reset.tpl</b>
+
+<br />
+<br />
+
+This template will be shown when a partner wants to reset their password
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$errors} - If any errors were encountered, this value will contain them (array value)
+</ul>
+
+<br />
+<br />
+
+<b>report-complete.tpl</b>
+
+<br />
+<br />
+
+This template will be shown after a surfer submits a cheater/broken gallery link report
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$report.referrer} - The page that the surfer came from before submitting the report<br />
+{$report.report_id} - The ID number assigned to their report
+</ul>
+
+<br />
+<br />
+
+<b>report-main.tpl</b>
+
+<br />
+<br />
+
+This template will be shown when a surfer wants to submit a cheater/broken gallery link report
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$errors} - If any errors were encountered, this value will contain them (array value)<br />
+{$gallery} - Data for the gallery being reported; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$report.reason} - The value the surfer enters for the reason this gallery is being reported<br />
+{$referrer} - The URL the surfer came from to get to the cheat report page
+</ul>
+
+<br />
+<br />
+
+
+<b>search-results.tpl</b>
+
+<br />
+<br />
+
+This template will be shown when a surfer performs a search
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$search_term} - The search term that the user entered<br />
+{$search_too_short} - A flag to indicate if the search term entered is too short<br />
+{$results} - The search results (array value, each item is a {$gallery} <a href="templates-common.html">Common Variable</a>)<br />
+{$pagination} - Values for generating pagination of search results (array value)<br />
+{$pagination.next} - A flag to indicate if there is a next page of results<br />
+{$pagination.next_page} - The numerical value of the next page of results<br />
+{$pagination.prev} - A flag to indicate if there is a previous page of results<br />
+{$pagination.prev_page} - The numerical value of the previous page of results<br />
+{$pagination.start} - The starting position of the search results on the current page<br />
+{$pagination.end} - The ending position of the search results on the current page<br />
+{$pagination.total} - The total number of search results
+</ul>
+
+<br />
+<br />
+
+<b>style.css</b>
+
+<br />
+<br />
+
+This is the stylesheet that is used throughout the script page templates
+
+<br />
+<br />
+
+<ul>
+No template variables
+</ul>
+
+<br />
+<br />
+
+<b>submit-closed.tpl</b>
+
+<br />
+<br />
+
+This is the template will be shown when gallery submissions are not being accepted
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>submit-complete.tpl</b>
+
+<br />
+<br />
+
+This template will display after a user has successfully submitted a gallery
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$confirmed} - A flag to indicate if this is being displayed as the result of a confirmation by e-mail<br />
+{$gallery} - The gallery data submitted; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$user_fields} - The user defined gallery fields submitted
+</ul>
+
+<br />
+<br />
+
+<b>submit-confirm.tpl</b>
+
+<br />
+<br />
+
+This template will be shown if you are requiring that users enter their confirmation code on a form instead of clicking
+a link in the confirmation e-mail message
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$errors} - If any errors were encountered, this value will contain them (array value)<br />
+{$request.id} - The confirmation ID that the user entered
+</ul>
+
+<br />
+<br />
+
+<b>submit-crop.tpl</b>
+
+<br />
+<br />
+
+This template will display the web-based thumbnail preview cropping interface
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$gallery] - The submitted gallery information<br />
+</ul>
+
+<br />
+<br />
+
+<b>submit-full-global.tpl</b>
+
+<br />
+<br />
+
+This template will display when no further gallery submissions are being accepted for today
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details
+</ul>
+
+<br />
+<br />
+
+<b>submit-main.tpl</b>
+
+<br />
+<br />
+
+This template displays the gallery submission form
+
+<br />
+<br />
+
+<ul>
+{$config} - The TGPX configuration settings; see the <a href="templates-common.html">Common Variables</a> section for details<br />
+{$errors} - Any error messages that indicate a problem with the information submitted (array value)<br />
+{$gallery} - The gallery data that was submitted<br />
+{$categories} - The categories that the user can select from for their gallery (array value)<br />
+{$user_fields} - The user defined gallery database fields
+</ul>
+
+<br />
+<br />
+
+</ul>
+
+<br />
+<br />

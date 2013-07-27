@@ -1,0 +1,113 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Patching Your TGPX Installation</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+TGPX will be updated when necessary to fix any bugs and add small features.  These releases can be recognized by a change 
+in the third digit of the software version number.  For example a change from version 1.0.1 to 1.0.2 is a patch release.  When these patches
+are released you should upgrade your installation to the new version.  This document contains instructions for doing just that.
+
+<br />
+<br />
+
+<b class="heading">Patching</b>
+
+<br />
+<br />
+
+Patching your installation is very simple, and can be done using the steps listed below.  
+
+<ol>
+<li> Upload the new files from the new version of the software to your server.  All of the files that need to be uploaded are listed below.
+
+<br />
+<br />
+
+<ul>
+base directory - all .php files<br />
+admin directory - all files <b>except install.php</b><br />
+admin/docs directory - all files<br />
+admin/images directory - all files<br />
+admin/includes directory - all files<br />
+includes directory - all files <b>except config.php and access-list.php</b>
+</ul>
+
+<br />
+
+<div class="note">
+The common.php script located in the includes directory of the TGPX distribution must be uploaded to your server in
+binary mode and <b>not ASCII mode</b>.  All of the other .php files can be uploaded in either binary or ASCII mode.
+</div>
+
+<div class="note">
+If you are using any of the software's utility scripts (shuffle.php, ftpthumbs.php, etc) be sure to upload those files as well.
+</div>
+
+<br />
+
+<li> Once those files have been transferred, point your browser to the patch.php script in the admin directory of your TGPX installation.  Accessing this
+script through your browser will perform any updates to the MySQL database that are needed.  Once you access the patch.php script and get a message indicating that the software 
+has been patched successfully, login to the TGPX control panel.
+
+
+<br />
+<br />
+
+<li> In the TGPX control panel, access the General Settings interface.  Depending on what features were added, there
+may be some new settings for you configure.  Even if there are not any new settings, you will need to press the Save Settings button which will force the
+software to re-scan your server configuration and check all of your settings.  
+
+
+<br />
+<br />
+
+<li> The final step in the control panel is to run the Recompile TGP Templates function.  This is an internal software function that will update your TGP
+page templates with any fixes or tweaks that have been made to the template system.
+
+<br />
+<br />
+
+<li> If you are using the click tracking feature of the software, remember to <a href="click-tracking.html">setup the click.php script</a> before you upload.
+
+</ol>
+
+The upgrade process is now complete and you can continue using the software as you regularly would.
+
+<br />
+<br />
+
+<b class="heading">Important Notes</b>
+
+<br />
+<br />
+
+It is not necessary to delete any files from your server before you upload the updated scripts. If you do delete any files, make sure you
+reset all permissions on the files you upload.  All file permissions are covered in the <a href="installation.html">Installation</a>
+section of the manual.
+
+</div>
+</div>
+
+<br />
+<br />
+
+</body>
+</html>

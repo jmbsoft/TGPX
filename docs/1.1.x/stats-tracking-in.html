@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Stats Tracking - Incoming</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+
+    <span class="header-section">The Traffic URL Setting</span>
+    <div class="section">
+      The Traffic URL setting specifies where your trades should send their traffic.  This will need to be a .php or .shtml page of your site so that the necessary stats
+      tracking code can be embedded and executed.  Once you have decided the file type you would like to use, get the appropriate code below.
+    </div>
+
+
+    <span class="header-section">Code for .php Pages</span>
+    <div class="section">
+
+      You have a couple of options when using a .php page for your Traffic URL.  The first option requires that PHP be running as an Apache webserver module and uses the
+      PHP virtual() function.  Assuming that you have installed TradeX in the <b><i>tx</i></b> directory of your server, the PHP code would look like this:
+
+      <xmp class="code"><?php virtual('/tx/in.php'); ?></xmp>
+
+
+      The second option can be used on any version of PHP and uses the include() function.  Assuming that you have installed TradeX in the <b><i>tx</i></b> directory of
+      your server and the page you are including this code in is in the base directory of your site, the PHP code would look like this:
+
+      <xmp class="code"><?php include('tx/in.php'); ?></xmp>
+
+    </div>
+
+
+    <span class="header-section">Code for .shtml Pages</span>
+    <div class="section">
+
+      Assuming that you have installed TradeX in the <b><i>tx</i></b> directory of your server, the SSI tag for a .shtml page would look like this:
+
+      <xmp class="code"><!--#include virtual="/tx/in.php?${QUERY_STRING}"--></xmp>
+
+    </div>
+
+
+    <span class="header-section">Placing the Code</span>
+    <div class="section">
+      For best results you should place the stats tracking code within the &lt;head&gt; section of your page.  For example, on a .shtml page you might use this:
+
+      <xmp class="code"><html>
+  <head>
+    <title>My Site</title>
+    <!--#include virtual="/tx/in.php"-->
+  </head></xmp>
+
+    </div>
+
+
+  </div>
+
+</body>
+</html>

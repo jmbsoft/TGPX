@@ -1,0 +1,239 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Importing Galleries From a File</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The gallery importing function of TGPX allows you to quickly add many galleries to the database.  This document will provide an overview of the gallery importing process.
+
+<br />
+<br />
+
+<b class="heading">Import Data Format</b>
+
+<br />
+<br />
+
+To import galleries you will need to either place them in a text file or paste them into a text box in the gallery importing interface.
+In either case, the format needs to be the same.  There should be only one gallery per line.  Each line should have pipe (|) delimited data,
+with each field representing one piece of information about the gallery.  The pieces may be in any order, but that order must remain the
+same throughout all of the galleries.  For example:
+
+<ul>
+<pre>
+user1@email.com|http://www.gallery1.com/index.html|Gallery #1 Description|Hardcore|12|Roger
+user2@email.com|http://www.gallery2.com/main.html|Gallery #2 Description|Softcore|15|James
+user3@email.com|http://www.gallery3.com/index.php|Gallery #3 Description|Fetish|16|Susan
+</pre>
+</ul>
+
+The above example has three galleries each with an e-mail address, gallery URL, description, category, number of thumbs, and submitter name.  Once you have your
+galleries in the proper format, you can begin the importing process.
+
+<br />
+<br />
+
+<b class="heading">Control Panel Interface</b>
+
+<br />
+<br />
+
+To use the gallery importing feature access the Galleries &gt; Import From File function from the control panel menu.  This will load a page where
+you will be able to tell the software if you want to import from a file that you uploaded or if you want to paste your gallery data into the supplied text box.
+Each option is explained on the gallery importing interface.  You will need to press the Analyze Input button if you have pasted data into the text box or
+the Analyze File button if you are importing from an uploaded text file.
+
+<br />
+<br />
+
+After you press the correct Analyze button you will be taken to a page where you will see the first gallery split out into it's individual fields.
+On the left hand site of the Import Data section you will see drop down menus.  From these menus you will need to select what each field represents.  
+If one of the pieces of data for the gallery does not fit into any of the drop down menu options, select the IGNORE option.  TGPX will
+ignore all the IGNORE fields when importing the galleries.
+
+<br />
+<br />
+
+In addition to assigning each of the fields from the data you are importing, there are additional items that you can configure.  Each of
+those items are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Status</b>
+</td>
+<td>
+Select the status to assign to all of the imported galleries.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+Select the type to assign to the imported galleries or 'From Import Data' if you have included the status in the import data.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Format</b>
+</td>
+<td>
+Select the format to assign to the imported galleries or 'From Import Data' if you have included the status in the import data.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Sponsor</b>
+</td>
+<td>
+Select the sponsor to assign to the imported galleries.  If the sponsor name is included in the import data, select 'From Import Data'.  You can also select
+the 'From Import Data' if you do not want to assign galleries to a specific sponsor.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+</td>
+<td>
+<b>Add new sponsor if imported sponsor name does not already exist</b><br />
+Check this box if you are importing the sponsor name from the import data and you want the software to automatically create a new sponsor when it encounters
+a sponsor name that does not already exist
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Bad Category</b>
+</td>
+<td>
+Select what action should be taken if a bad category name is encountered in the gallery import data.  By default your galleries will need to be imported with
+a category name that exactly matches one of the defined categories, otherwise they will be skipped.  If you select the 'Create new category' option, TGPX will
+create a new category for any that are imported with your galleries that do not match an existing category name.  You can also force galleries to be placed in
+a specific category by selecting the 'Place in this category' option.  When you select this option, a list of your currently configured categories will slide out
+and allow you to select the specific category you want the galleries placed in.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Duplicates</b>
+</td>
+<td>
+Select what action should be taken if a duplicate gallery URL (one that is already in the database) is encountered in the import data.
+<br /><br />
+
+<b>Skip over gallery</b><br />
+This option will skip over the gallery in the import data and it will not be added to your database
+<br /><br />
+
+<b>Replace old gallery data with new gallery data</b><br />
+This option will delete the current gallery and replace it with the new gallery from the import data
+<br /><br />
+
+<b>Add duplicates to database</b><br />
+This option will allow duplicate gallery URLs to be imported, so you will end up with the same gallery URL in the database twice (or more)
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have each of the fields setup how you want it, press the Import Galleries button.  TGPX will begin importing the galleries from the
+data you have provided.  Once it is complete, you will be returned to the gallery importing interface with information on how many galleries were imported.
+
+<br />
+<br />
+
+<b class="heading">Field Formats</b>
+
+<br />
+<br />
+
+Some of the items that you may want to import have specific formats that must be met in order for the galleries to be imported correctly.  Each of those
+is discussed below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+Possible values: submitted or permanent
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Format</b>
+</td>
+<td>
+Possible values: movies or pictures
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Categories</b>
+</td>
+<td>
+You can either enter a single category name or a comma separated list of category names to
+assign the gallery to multiple categories
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Scheduled</b>
+</td>
+<td>
+YYYY-MM-DD HH:MM:SS
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date of Deletion</b>
+</td>
+<td>
+YYYY-MM-DD HH:MM:SS
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Preview Size</b>
+</td>
+<td>
+WIDTHxHEIGHT
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Icons</b>
+</td>
+<td>
+A comma separated list of icon identifiers as configured in the Manage Icons interface
+</td>
+</tr>
+</table>
+</ul>
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Skim Schemes</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+    <span class="header-section">Overview</span>
+    <div class="section">
+      Skim schemes can be used to configure a specific skim pattern to be used for your outgoing links.  Rather than having a hard-coded skim percentage in the outgoing link URLs, you can instead
+      specify a skim scheme that has a different skim percentage based on the number of clicks the user has generated.
+    </div>
+
+
+
+    <span class="header-section">Toolbar Icons</span>
+    <div class="section">
+      On the toolbar at the bottom of the Tools &gt; Skim Schemes page you will find the following icons:
+
+      <br /><br />
+
+      <ul>
+      <img src="../images/add-32x32.png" />
+      <span>Click this icon to bring up the dialog where you can add a new skim scheme</span><br />
+
+      <img src="../images/save-32x32.png" />
+      <span>Click this icon to save the settings for the currently configured skim schemes</span><br />
+
+      <img src="../images/delete-32x32.png" />
+      <span>Click this icon to delete one or more of the skim schemes.  Use the checkboxes for each skim skim to select those that you want to delete.</span><br />
+
+      <img src="../images/help-32x32.png" />
+      <span>Click this icon to access this documentation file</span>
+      </ul>
+
+    </div>
+
+
+
+
+    <span class="header-section">Setting Skim Percentages</span>
+    <div class="section">
+      When you add or edit a skim scheme you will be able to set the skim percentages for the first 7 clicks along with a cycle value for every click after the 7th.  You are not required to
+      fill in every click value or cycle value.  The minimum required is the first cycle value.  Here are a few examples:
+
+      <br /><br />
+
+      <b>Skim all clicks at 70% to content</b>
+      <table cellspacing="0" cellpadding="4" border="1" width="400">
+        <tr>
+          <td align="center">1</td>
+          <td align="center">2</td>
+          <td align="center">3</td>
+          <td align="center">4</td>
+          <td align="center">5</td>
+          <td align="center">6</td>
+          <td align="center">7</td>
+          <td colspan="3" align="center">Cycle</td>
+        </tr>
+        <tr>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">70</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+        </tr>
+      </table>
+
+      <br />
+
+      <b>Skim 1st click 100% to content, 2nd click 0% to content, and all other clicks 70% to content</b>
+      <table cellspacing="0" cellpadding="4" border="1" width="400">
+        <tr>
+          <td align="center">1</td>
+          <td align="center">2</td>
+          <td align="center">3</td>
+          <td align="center">4</td>
+          <td align="center">5</td>
+          <td align="center">6</td>
+          <td align="center">7</td>
+          <td colspan="3" align="center">Cycle</td>
+        </tr>
+        <tr>
+          <td align="center">100</td>
+          <td align="center">0</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">70</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+        </tr>
+      </table>
+
+
+      <br />
+
+      <b>Cycle between 70% to content (1st, 3rd, 5th, etc) and 30% to content (2nd, 4th, 6th, etc)</b>
+      <table cellspacing="0" cellpadding="4" border="1" width="400">
+        <tr>
+          <td align="center">1</td>
+          <td align="center">2</td>
+          <td align="center">3</td>
+          <td align="center">4</td>
+          <td align="center">5</td>
+          <td align="center">6</td>
+          <td align="center">7</td>
+          <td colspan="3" align="center">Cycle</td>
+        </tr>
+        <tr>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">70</td>
+          <td align="center">30</td>
+          <td align="center">&nbsp;</td>
+        </tr>
+      </table>
+
+      <br />
+
+      <b>Skim 1st click 100% to content,<br />
+      2nd click 0% to content,<br />
+      then cycle between 70% to content (3rd, 6th, 9th, etc), 30% to content (4th, 7th, 10th, etc) and 90% to content (5th, 8th, 11th, etc)</b>
+      <table cellspacing="0" cellpadding="4" border="1" width="400">
+        <tr>
+          <td align="center">1</td>
+          <td align="center">2</td>
+          <td align="center">3</td>
+          <td align="center">4</td>
+          <td align="center">5</td>
+          <td align="center">6</td>
+          <td align="center">7</td>
+          <td colspan="3" align="center">Cycle</td>
+        </tr>
+        <tr>
+          <td align="center">100</td>
+          <td align="center">0</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">70</td>
+          <td align="center">30</td>
+          <td align="center">90</td>
+        </tr>
+      </table>
+
+
+    </div>
+
+
+
+    <span class="header-section">Dynamic Skim Schemes</span>
+    <div class="section">
+      Dynamic skim schemes allow you to setup rules so that TradeX can automatically adjust the skim percentages based on the day and/or time.  This can be useful if you want to adjust the skim percentages
+      during known times of decreased traffic (typically very early in the morning and weekends).  If you check the Dynamic checkbox for a skim scheme and then configure some rules by clicking on the
+      <img src="../images/edit-22x22.png"> icon, TradeX will automatically adjust the skim percentages based on the rules you set.
+
+      <br /><br />
+
+      Dynamic skim schemes have the same 7 click fields and 3 cycle fields that you can fill in with the % to content values that you want to use when that rule is in effect.  You can add as many rules as
+      you like, and the priority will be set by the rule number.  Rule #1 has top priority followed by rule #2 and so on.
+    </div>
+
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<html>
+<head>
+    <title>LinkX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Link Scanner Results</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+After you have run the link scanner you will be able to display the results to see what actions were taken for the links that were found to be no longer working or breaking
+your rules.  This document will describe how to view the link scanner results and the functions you can use from that interface.
+
+
+<br />
+<br />
+
+<b class="heading">Viewing Link Scanner Results</b>
+
+<br />
+<br />
+
+To view the link scanner results use the Directory &gt; Links &gt; Scan Links function from the control panel menu.  This will load a page which will show the current
+link scanner configurations that are defined.  You can click on the <img src="../images/report.png" width="12" height="12" border="0" alt=""> icon for any of those
+configurations to see the results from the last scan that was run.
+
+<br />
+<br />
+
+When you click on one of those icons you will come to a page where you will see the link scanner results and be able to search them.  To start your search, enter the
+term you would like to search for in the text input box and select the field that you would like to search in. Each of the search fields is described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Link ID</b>
+</td>
+<td>
+Thie ID number of the link that was scanned
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Site URL</b>
+</td>
+<td>
+The Site URL of the link that was scanned
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>HTTP Status</b>
+</td>
+<td>
+The HTTP status code of the Site URL for the link that was scanned
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Scanned</b>
+</td>
+<td>
+The date and time when the link was scanned (YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Action Taken</b>
+</td>
+<td>
+The action that was taken on the link.  One of Unchanged, Disabled, Deleted, or Blacklisted
+</td>
+</tr>
+</table>
+</ul>
+
+You can also choose how the links are sorted by selecting the sorting field from the drop down list.  The available sorting fields correspond with the search fields which are 
+described above.  Once you have the search values filled in how you want them, press the search button to display the links that meet your criteria.
+
+<br />
+<br />
+
+<b class="heading">Link Functions</b>
+
+<br />
+<br />
+
+In the results table you will be able to run a number of different functions on the link scan results that are displayed.  Clicking on the icons in the Functions column of the
+table will allow you to run that function on a single link.  You can also check the boxes next to multiple links to perform the functions listed at the bottom
+of the page.  The single link function icons are each described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the link.  A window will appear where you will be able to edit all of the link settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/blacklist.png" width="10" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to blacklist the link.  A window will appear allowing you to select which items to blacklist.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/go.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to re-activate a disabled link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/suspend.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to disable an active link
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/mail.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to send an e-mail message to the link submitter.  A window will appear where you can enter the e-mail text
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" width="12" height="12" border="0" alt="">
+</td>
+<td>
+Click this icon to delete the link.  You will be asked to confirm the deletion before it is done.
+</td>
+</tr>
+</table>
+</ul>
+
+You can also run a function on multiple links by putting a check in the box next to the links you want, selecting the function to run
+from the drop down selection field at the bottom of the page, and pressing the Execute button.  Each of the available functions are
+described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>E-mail Selected</b>
+</td>
+<td>
+This function will display a window where you can enter your e-mail text and send an e-mail message to the selected links
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Delete Selected</b>
+</td>
+<td>
+This will permanently delete the links you have selected
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Disable Selected</b>
+</td>
+<td>
+This will set the selected links' status to disabled
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Activate Selected</b>
+</td>
+<td>
+This will set the selected links' status to active
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Blacklist Selected</b>
+</td>
+<td>
+This will automatically blacklist the selected links.  The site URL, e-mail address, and submit IP will be added to the blacklist
+</td>
+</tr>
+</table>
+</ul>
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

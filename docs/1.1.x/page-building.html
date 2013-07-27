@@ -1,0 +1,207 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Page Building Overview</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+It is important to understand how the page building process works so that you know what to expect when you build your pages.  There are two different
+types of page builds and different ways to execute those page building functions, all of which will be covered in this document.  This will also
+cover some basic information about the galleries in your database, how they are handled and how the holding period works.
+
+<br />
+<br />
+
+<b class="heading">Overview of the Gallery Database</b>
+
+<br />
+<br />
+
+The gallery database stores all of the information about the galleries that have been added either through the gallery submission form or through
+the TGPX control panel.  There are several ways to add galleries to the database including importing them, submitting them through the control panel, 
+or using the submit.php script.  All of the galleries in your database have a status associated with them to let the software know which galleries can
+be selected for display, which are currently being used, etc. Galleries with Unconfirmed or Pending status are not eligible for display on your TGP pages.
+They must be approved before they can be shown on your TGP pages.  When you approve a gallery it will be placed in a queue which the software can then
+select from each time the page building process is executed.  These galleries have their status set to Approved.
+
+<br />
+<br />
+
+When an Approved gallery is selected for display, it's status changes to Used.  This means that the gallery has been selected for display and is currently
+being used on one or more of your TGP pages.  When this happens the display date is assigned to the gallery (more information on this later) so that the software
+can keep track of how "old" the gallery is.  The length of time that a gallery stays Used depends on the template configuration you are using and how often your
+pages are being updated with new galleries.  The gallery will remain Used until it is no longer displayed on at least one of your TGP pages.
+
+<br />
+<br />
+
+Once a gallery is no longer displayed on one of your TGP pages, it's status changes to Holding.  This means that the gallery is in a queue waiting to either be 
+deleted (for submitted galleries) or moved back to Approved status (for permanent galleries).  The holding period value (more on this below) determines when the
+gallery will be deleted or moved back to Approved.
+
+<br />
+<br />
+
+When the holding period elapses for permanent galleries, the gallery will be moved back to Approved status so that it can be selected for display again at some
+point in the future.  The click counter, build counter, and used counter will all be reset to 0 so that the gallery will start on an even
+playing field with other permanent galleries when it is once again selected for display. This entire process will repeat itself until the
+gallery is deleted from the database, which can either be done manually or by setting it's delete date.
+
+<br />
+<br />
+
+When the holding period elapses for submitted galleries, the gallery will be deleted from the database.  Submitted galleries do not get reused like permanent
+galleries do.  Once they are deleted it is not possible to restore them other than re-submitting the gallery.  If you want a submitted gallery to remain in the
+database, be sure to change it to a permanent gallery.
+
+<br />
+<br />
+
+<b class="heading">The Holding Period</b>
+
+<br />
+<br />
+
+TGPX has two holding period settings, one for permanent galleries and one for submitted galleries.  This setting tells the software how long to
+keep a gallery in the holding queue after it is no longer being used on one of your TGP pages.  What happens to a gallery after the holding period elapses
+depends on the type of gallery.  Permanent galleries will be moved back to approved status and submitted galleries will be deleted from the database.
+
+<br />
+<br />
+
+For both holding period settings, the value represents the number of days since the gallery was first selected for display.  So, for example, if an Approved
+gallery is selected for display on 2005-02-01 (February 1st) and your holding period is set to 10, the soonest the gallery will move out of the holding queue
+is on 2005-02-11 (February 11th).  If for some reason you do not run the rebuild function on February 11th, the gallery will remain in the holding queue until you do.
+
+<br />
+<br />
+
+It is possible for a gallery in the holding queue to be selected for display on your TGP pages.  Each time a build is executed, the galleries in the holding queue will
+be treated as Used galleries so that they can be used on your TGP pages if needed.  For example, if some of your galleries were deleted by the gallery scanner you might
+end up with too few Used galleries to fill all of your pages.  In that case it is possible that a gallery in the holding queue will be selected for display.  Note that
+in some cases it is not possible for a holding gallery to be selected.  If you are using the maxage option of the {galleries} function and there are no galleries in the
+holding queue that meet that criteria, they cannot be used in that section.
+
+<br />
+<br />
+
+Note that the holding period for permanent galleries is a very important setting and some consideration needs to be taken when determining what value you should
+use for that setting.  For example, say you have cron setup to automatically do a <i>Build With New</i> type build every 20 minutes and the page that you are building selects one new permanent
+gallery from the database each time it is updated.  This means that every day 72 new permanent galleries will be used on that page alone.  If you have your holding period set to 30, you will 
+need a bare minimum of 2160 permanent galleries in your database to support the number of new galleries you are displaying each day.  This does not take into account the other
+permanent galleries displayed on the same page, or other pages that you have that may also be selecting new permanent galleries.
+
+<br />
+<br />
+
+<b class="heading">Build Order</b>
+
+<br />
+<br />
+
+When you create or edit a TGP page using the <a href="pages-manage.html">Manage Pages</a> interface you can set it's build order.  This tells the software what order the 
+pages should be built in.  The page with the lowest number will be built first and the page with the highest number will be built last.  Depending on how you have decided
+to handle duplicate galleries (if you are allowing them or not) and how you are sorting your galleries, the build order may be of importance.  For example, say you have two
+pages that you want to be archive type pages, and on those pages you are displaying the galleries chronologically.  The first of the two pages that gets built will have the
+newer galleries, while the second page will have the older galleries.  If you did not have the build order set properly, the two might be flip-flopped and would be confusing
+to surfers viewing your site who are expecting the oldest galleries to be on the second page.
+
+<br />
+<br />
+
+<b class="heading">Build Types</b>
+
+<br />
+<br />
+
+There are two different types of builds that you can do.  You will notice these referred to as <i>Build With New</i> and <i>Build</i> in the other sections of the
+software manual.  The two different build types will produce different results, so it is important to understand what each one does.
+
+<ul>
+<b>Build With New</b><br />
+When this type of build is done, new galleries can be selected from the database.  Any {galleries} functions where the <i>getnew</i> option is set to true
+will pull new galleries from the Approved queue for display.  For {galleries} functions where the <i>getnew</i> option is set to false, only galleries that have been used previously
+will be pulled for display in those sections.  You can think of this as an update that adds new galleries and also re-orders the existing galleries.
+
+<br />
+<br />
+
+For this build type the <i>order</i> option of the {galleries} function is used when sorting the galleries.  You can specify both the <i>order</i> and <i>reorder</i> options,
+however with this build type only the <i>order</i> option will be used.  This is the case for all {galleries} functions, no matter if the <i>getnew</i> option is true
+or false.
+
+<br />
+<br />
+
+<b>Build</b><br />
+When this type of build is done, new galleries will not be selected from the database.  Any {galleries} functions where the <i>getnew</i> option is set to true
+will automatically be converted to false so that only previously used galleries will be pulled for display in that section. For {galleries} functions where the <i>getnew</i>
+option is set to false, the value is unchanged and they work as normal.  You can think of this as an update that only re-orders the existing galleries
+instead of adding new galleries to your pages.
+
+<br />
+<br />
+
+For this build type the <i>reorder</i> option of the {galleries} function is used when sorting the galleries.  You can specify both the <i>order</i> and <i>reorder</i> options,
+however with this build type only the <i>reorder</i> option will be used.  This is the case for all {galleries} functions, no matter if the <i>getnew</i> option is true
+or false.
+</ul>
+
+Every time a build is done, no matter what type, the TGP pages that you are building will be updated with any HTML code you have added to or removed from
+the template.  Any galleries that have been deleted from the database since the last build will also no longer appear on the page(s) that are being built.
+
+<br />
+<br />
+
+<b class="heading">Building From the Control Panel Interface</b>
+
+<br />
+<br />
+
+In the control panel menu there are a few different ways to build your pages.  If you want to build all of your pages at once, you can use the
+<i>Build All With New</i> or <i>Build All</i> functions located in the <i>TGP Pages</i> menu.  The <i>Build All With New</i> will run a <i>Build With New</i>
+type of build on all of your pages, while the <i>Build All</i> function will run the <i>Build</i> type of build on all of your pages.
+
+<br />
+<br />
+
+To build pages individually, you can use the Manage Pages interface.  Using that interface, locate the page you want to build and then click on the
+<img src="../images/build.png" width="12" height="12" border="0" alt=""> icon to run the <i>Build</i> type of build or the 
+<img src="../images/build-new.png" width="12" height="12" border="0" alt=""> icon to run the <i>Build With New</i> type of build.
+
+<br />
+<br />
+
+<b class="heading">Building Through Cron</b>
+
+<br />
+<br />
+
+By using your server's cron system, you can have TGPX run page building functions automatically at the times you specify.  This can be
+used to have TGPX update your pages automatically once per day, once every hour, or however often you want.  For complete details on using
+cron with TGPX, please see the <a href="cron.html">Cron</a> section of the manual.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

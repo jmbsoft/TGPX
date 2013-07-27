@@ -1,0 +1,182 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div align="center">
+<span class="large">Annotations</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The annotations feature of TGPX allows you to display a text string or an image overlayed onto the preview thumbnail.  So, for example, you could have
+the word "Babes" written on all of the thumbnails in the Babes category that are picture galleries and a small movie icon displayed on thumbnails from galleries
+that are movie galleries.
+
+<br />
+<br />
+
+<b class="heading">Adding an Annotation<a name="add"></a></b>
+
+<br />
+<br />
+
+To add a new annotation, access the Settings &gt; Manage Annotations function from the control panel menu.  Near the top of the page in the header
+bar that reads "Manage Annotations" click on the <img src="../images/add.png" border="0" alt=""> icon.  This will display a popup 
+window where you will be able to enter the annotation settings that you want to use.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Identifier</b>
+</td>
+<td>
+This is a short text string that you can use to identify each annotation
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Location</b>
+</td>
+<td>
+This is the location on the thumbnail where the annotation should appear
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Type</b>
+</td>
+<td>
+The type of annotation you would like to add.<br />
+Text - This will use a font file that you provide to render a text string on the thumbnail<br />
+Image - This will take a small image and overlay it on the thumbnail
+</td>
+</tr>
+</table>
+</ul>
+
+
+If you select a Text type annotation, the following additional fields will need to be filled in:
+
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>String</b>
+</td>
+<td>
+The string that should be written on the thumbnail
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Use category name</b><br />
+If you check this box, the first category that the gallery is assigned to will
+appear as the string on the thumbnail.  This allows you to create a single annotation
+that will work for all of your categories instead of setting up separate annotations
+for each.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Font File</b>
+</td>
+<td>
+The true type font file that should be used to render the string (must be uploaded to the annotations directory of your TGPX installation)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Font Size</b>
+</td>
+<td>
+The font size, in points, that should be used when rendering the string on the thumbnail
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Text Color</b>
+</td>
+<td>
+The color of the text that is rendered on the thumbnail<br />
+This must be in HTML color format, for example #FFFFFF for white or #000000 for black
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<b>Shadow Color</b>
+</td>
+<td>
+The color of the drop shadow that is rendered underneath the text on the thumbnail<br />
+This must be in HTML color format, for example #FFFFFF for white or #000000 for black
+</td>
+</tr>
+</table>
+</ul>
+
+
+If you select an Image type annotation, the following additional field will need to be filled in:
+
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Image File</b>
+</td>
+<td>
+The filename of the image that you want to overlay (must be uploaded to the annotations directory of your TGPX installation)
+</td>
+</tr>
+</table>
+</ul>
+
+
+
+<b class="heading">Editing an Annotation<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit an annotation you will first need to locate it through the Manage Annotations interface.  When you locate the annotation you want to edit, click on the
+<img src="../images/edit.png"> icon to bring up the annotation editing interface.  This interface is nearly identical to the annotation creation interface,
+and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update Annotation button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting an Annotation<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete an annotation you will first need to locate it through the Manage Annotations interface.  When you locate the annotation you want to delete, click
+on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several annotations at once by putting a check in the box next to the annotations you want to delete, then pressing the Delete button at the bottom of the page.
+
+</div>
+
+</body>
+</html>

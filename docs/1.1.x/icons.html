@@ -1,0 +1,167 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Icons</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+With the icons function of TGPX you can assign icons that will appear next to the galleries when they are displayed on the generated TGP pages.  Icons can be assigned
+either to specific galleries or to partner accounts so that all galleries submitted by that partner will have the same icons displayed.  This document will describe how
+to manage these icons.
+
+<br />
+<br />
+
+<b class="heading">Showing Icons on Your TGP Pages</b>
+
+<br />
+<br />
+
+In order for the icons to appear next to your galleries on your TGP pages you will need to configure your template to show them.  This involves using the {$gallery.icons} template value
+and looping over the assigned icons like so:
+
+<xmp>{foreach from=$gallery.icons var=$icon}
+  {$icon} &nbsp;
+{/foreach}</xmp>
+
+You can find more information about setting up your TGP pages in the <a href="templates-tgp.html">TGP Page Templates</a> section of this manual.
+
+<br />
+<br />
+
+<b class="heading">Viewing/Searching Icons<a name="search"></a></b>
+
+<br />
+<br />
+
+To view or search your currently configured icons, access the Settings &gt; Manage Icons function from the control panel menu.  This will display a page where you will be able to 
+see the currently configured icons and search them if you wish.
+
+<br />
+<br />
+
+In the table that displays the icons, you will find a couple of functions that you can run on a single icon at a time.  Each of those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this image to edit the icon.  A window will appear where you will be able to edit all of it's settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" width="8" height="12" border="0" alt="">
+</td>
+<td>
+Click this image to delete this icon.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running these functions on single icons, you can also run the delete function on multiple icons at once.  To run the delete function, put a check in the checkbox next to the
+icons you want to delete, then press the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Adding an Icon</b>
+
+<br />
+<br />
+
+To add a new icon, access the Settings &gt; Manage Icons function from the control panel menu.  This will display your currently configured icons.  Near the top of the page in the header
+bar that reads "Manage Icons" click on the <img src="../images/add.png" border="0" alt=""> icon.  This will display a popup window where you will be able to enter the data
+for the new icon that you want to add.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Identifier</b>
+</td>
+<td>
+A short identifier string
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Icon HTML</b>
+</td>
+<td>
+Enter the complete HTML code for the icon.
+</td>
+</tr>
+</table>
+</ul>
+
+<div class="note">
+Note that the Icon HTML setting should be configured to the exact HTML code that you want to use for the icon.  You can use any HTML code you like for your icons, which 
+allows them to be plain text, contain image files, or be pretty much anything you want.  If you want to use an image as an icon, for example, you would enter the complete
+HTML &lt;img&gt; tag in the Icon HTML field.  The image file itself would need to already be uploaded to your server and the &lt;img&gt; tag would need to point to that
+image file.
+</div>
+
+<br />
+
+Once you have filled in all of the fields as you want them, press the Add Icon button.  This will add the new icon to the database, and it will
+be immediately available for assignment to specific galleries or partner accounts.
+
+<br />
+<br />
+
+<b class="heading">Editing an Icon<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit an icon you will first need to locate it through the <a href="#search">View/Search</a> interface.  When you locate the icon you want to edit, click on the
+<img src="../images/edit.png"> image to bring up the icon editing interface.  This interface is nearly identical to the icon addition interface,
+and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update Icon button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting an Icon<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete an icon you will first need to locate it through the <a href="#search">View/Search</a> interface.  When you locate the icon you want to delete, click
+on the <img src="../images/trash.png"> image, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several icons at once by putting a check in the box next to the icons you want to delete, then pressing the Delete button at the bottom of the page.
+
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

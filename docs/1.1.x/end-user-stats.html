@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">End User - Stats</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+    <span class="header-section">Overview</span>
+    <div class="section">
+      If you are allowing your traders to login and view their stats you will wnat to create a link to the trade-stats.php script so they can access the login interface.
+      You can use a standard HTML link pointing to the trade-stats.php script.  For example, if TradeX is installed in the <b><i>tx</i></b> directory of your site, you could use a link like this:
+
+      <xmp class="code"><a href="/tx/trade-stats.php">Webmasters - Check Stats</a></xmp>
+
+      If a trader has lost their password, they can have a new one generated for their account using the password reset utility which is part of the trade-stats.php script.  Create a link
+      on your site like so:
+
+      <xmp class="code"><a href="/tx/trade-stats.php?r=forgot">Webmasters - Lost Password</a></xmp>
+
+      The appearance of the stats interface is controlled through the <a href="templates-site.html">Site Templates</a>, which you can modify to meet your needs.
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<html>
+<head>
+    <title>ToplistX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Account Scanner Results</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+After you have run the account scanner you will be able to display the results to see what actions were taken for the accounts that were found to be no longer working or breaking
+your rules.  This document will describe how to view the account scanner results and the functions you can use from that interface.
+
+
+<br />
+<br />
+
+<b class="heading">Viewing Account Scanner Results</b>
+
+<br />
+<br />
+
+To view the account scanner results use the Accounts &gt; Account Scanner function from the control panel menu.  This will load a page which will show the current
+account scanner configurations that are defined.  You can click on the <img src="../images/report.png" border="0" alt=""> icon for any of those
+configurations to see the results from the last scan that was run.
+
+<br />
+<br />
+
+When you click on one of those icons you will come to a page where you will see the account scanner results and be able to search them.  To start your search, enter the
+term you would like to search for in the text input box and select the field that you would like to search in. Each of the search fields is described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Account ID</b>
+</td>
+<td>
+The ID number of the account that was scanned
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Account URL</b>
+</td>
+<td>
+The Account URL of the account that was scanned
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>HTTP Status</b>
+</td>
+<td>
+The HTTP status code of the account that was scanned
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Scanned</b>
+</td>
+<td>
+The date and time when the account was scanned (YYYY-MM-DD HH:MM:SS format)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Action Taken</b>
+</td>
+<td>
+The action that was taken on the account.  One of Unchanged, Disabled, Deleted, or Blacklisted
+</td>
+</tr>
+</table>
+</ul>
+
+You can also choose how the scanner results are sorted by selecting the sorting field from the drop down list.  The available sorting fields correspond with the search fields which are 
+described above.  Once you have the search values filled in how you want them, press the search button to display the scanner results that meet your criteria.
+
+<br />
+<br />
+
+<b class="heading">Account Functions</b>
+
+<br />
+<br />
+
+In the results table you will be able to run a number of different functions on the account scan results that are displayed.  Clicking on the icons in the Functions column of the
+table will allow you to run that function on a single account.  You can also check the boxes next to multiple accounts to perform the functions listed at the bottom
+of the page.  The single link function icons are each described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/search.png" border="0" alt="">
+</td>
+<td>
+Click this icon to scan the account.  A window will appear showing you the scan results.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/enabled.png" border="0" alt="">
+</td>
+<td>
+Click this icon to disable this account (only shows when the account is enabled)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/disabled.png" border="0" alt="">
+</td>
+<td>
+Click this icon to enable this account (only shows when the account is disabled)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/unlocked.png" border="0" alt="">
+</td>
+<td>
+Click this icon to lock this account (only shows when the account is unlocked)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap="nowrap">
+<img src="../images/locked.png" border="0" alt="">
+</td>
+<td>
+Click this icon to unlock this account (only shows when the account is locked)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the account.  A window will appear where you will be able to edit all of the account settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/mail.png" border="0" alt="">
+</td>
+<td>
+Click this icon to send an e-mail message to the account submitter.  A window will appear where you can enter the e-mail text
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete the account.  You will be asked to confirm the deletion before it is done.
+</td>
+</tr>
+</table>
+</ul>
+
+You can also run a function on multiple accounts by putting a check in the box next to the accounts you want and pressing the appropriate
+button at the bottom of the scanner results page.  Each of the available functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>E-mail</b>
+</td>
+<td>
+This function will display a window where you can enter your e-mail text and send an e-mail message to the selected accounts
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Delete</b>
+</td>
+<td>
+This will permanently delete the accounts you have selected
+</td>
+</tr>
+</table>
+</ul>
+
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Outlists</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+    <span class="header-section">Overview</span>
+    <div class="section">
+
+      This interface will show you the trades that are currently in your outgoing lists.  The outgoing lists are updated each minute, and the trades are listed in order of which should
+      receive your outgoing traffic first.  There are 4 outlists maintained by the software, and those are:
+
+      <ul>
+        <b>Main - </b>
+        <span>
+          This outlist is where the majority of your trade traffic will go.  By default this will get 50% of your traffic; if no forces are set it will get 80%.  This list takes into account
+          the size of the trade, hourly and daily effect, and traffic quality.  High priority instant forces will also be included at the top of this list so they can get the traffic you
+          have specified more quickly.
+        </span>
+
+        <b>Primary Bonus - </b>
+        <span>
+          This outlist has a default setting of 10% of your traffic, and gives a bonus to trades with a good "effect" value (clicks/outs) taking into account both the past 24 hours and the past 60 minutes.
+        </span>
+
+        <b>Secondary Bonus - </b>
+        <span>
+          This outlist has a default setting of 10% of your traffic, and gives a bonus to trades based on the number of unique ins and the amount of outs owed in the past 60 minutes.
+        </span>
+
+        <b>Forces - </b>
+        <span>
+          This outlist contains your forces, if any are set, and has a default setting of 30% of your traffic.  Your hourly and instant (not high priority) forces will appear
+          hear and will be handled based on the percentage of traffic that is owed to the trade.
+        </span>
+      </ul>
+
+
+    </div>
+  </div>
+
+</body>
+</html>

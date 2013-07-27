@@ -1,0 +1,50 @@
+Overview
+--------
+This is an example template that shows how to setup an RSS feed using the standard
+TGPX template system.  This example will display 25 galleries in the RSS feed and
+will display the galleries with their associated thumbnail and description.
+The filename for your RSS feed should have a .xml, .rdf, or .rss file extension.
+
+The <pubDate> option should be updated to match your timezone setting in the General
+Settings interface.  The default value of -0600 is the GMT -6 timezone.
+
+
+Template Code
+-------------
+{define name=globaldupes value=true}
+{define name=pagedupes value=false}
+{php} echo '<?xml  version="1.0" ?>'; {/php}
+
+<rss version="2.0">
+  <channel>
+
+    <title>Your Site Title</title>
+    <description>Your site description</description>
+    <link>http://www.yoursite.com/</link>
+
+{galleries
+var=$galleries
+preview=true
+type=any
+category=MIXED
+amount=25
+getnew=true
+allowused=true
+order=date_approved
+reorder=date_displayed DESC, date_approved}
+
+{foreach var=$g from=$galleries}
+    <item>
+      <title>{$g.thumbnails|htmlspecialchars} {$g.category|htmlspecialchars} {$g.format|htmlspecialchars}</title>
+      <link>{$g.gallery_url|htmlspecialchars}</link>
+      <description>
+	  &lt;a href=&quot;{$g.gallery_url|htmlspecialchars}&quot; title=&quot;Thumb&quot;&gt;&lt;img src=&quot;{$g.preview_url|htmlspecialchars}&quot; alt=&quot;Thumb&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;
+	  &lt;br /&gt;&lt;br /&gt;
+	  {$g.description|htmlspecialchars}
+      </description>
+      <pubDate>{$g.date|tdate::'D, d M Y H:i:s -0600'}</pubDate>
+    </item>
+{/foreach}
+
+  </channel>
+</rss>

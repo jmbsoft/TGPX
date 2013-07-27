@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>ToplistX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Ranking Images</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The image.php script can be used to display banners on your member sites that show their current rank.  You can set it
+up to only display the rank on the banners for the top few sites, or you can have it show the rank for all sites in
+your database.  As an example, say you have a site that is ranked #3 on your list.  You can then provide special HTML
+to this member so that a banner or button will appear on their site with a number 3 on it.  Of course, you will be able
+to include other things on the banner/button like information about your site.
+
+<br />
+<br />
+
+<b class="heading">Preparing for Use</b>
+
+<br />
+<br />
+
+To prepare for using image.php, you need to decide how many images you want to display the site's rank on.  Keep in mind that
+you will have to create a separate banner for each of the banners with a ranking number on it, so you probably don't want to
+go too high on this.  For this example, let's say that the top 5 ranked sites will have images on their site displaying their
+rank - all other sites will display the same image, but without their current rank.
+
+<br />
+<br />
+
+Once you have decided on a number, you need to enter it in the <b>Images To Show</b> field of the General Settings interface.  For this example
+you would enter 5 in this field.
+
+<br />
+<br />
+
+Now you need to create the banners/buttons that will be displayed on your member sites.  The software allows you to configure the file extension
+you are using for your images, so you can use any image format that you like.  For this example, let's assume that you are using PNG images for
+your ranking images which will have a .png file extension.  Enter png in the <b>File Extension</b> setting in the General Settings interface.  
+For the banner/button that will be displayed on sites where the rank is not on the image, name this file default.png.
+For the other images with the rank on them, name them 1.png, 2.png, 3.png, etc where the number in the filename matches the number on the image.
+
+<br />
+<br />
+
+Once all of your images have been created, upload them to your server to the directory that corresponds with the Ranking Images URL you entered in
+the General Settings interface.  This is the final thing you need to do to prepare for usage.
+
+<br />
+<br />
+
+<b class="heading">Providing Link Syntax To Your Members</b>
+
+<br />
+<br />
+
+Providing the link syntax for your members to use is pretty straightforward.  For example, on the accounts-banners-links.tpl template you can
+use this code to provide your members with the HTML they will need to place on their site to get the ranking image to appear:
+
+<xmp><a href="{$tracking_url|htmlspecialchars}">
+<img src="{$config.install_url}/image.php?id={$account.username|htmlspecialchars}" border="0"></a></xmp>
+
+This example is a simple img tag wrapped in a link to your site using the tracking URL.
+
+<br />
+<br />
+
+</div>
+
+<br />
+<br />
+
+</body>
+</html>

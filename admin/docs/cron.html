@@ -1,0 +1,362 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">TGPX Documentation</span>
+</div>
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+Cron jobs are a way of automating tasks that you want done every week/month/day and at a certain time.
+To accomplish this, you will make crontab entries on your server which will tell it when it needs to
+run the command you want.  Crontab entries tell the server to "run this command at this time on this date".
+Using cron with TGPX will allow you to have the software automatically build your TGP pages at specific
+times, backup your database, run the gallery scanner, etc.
+
+<br />
+<br />
+
+<b class="heading">Crontab Entries</b>
+
+<br />
+<br />
+
+A crontab entry consists of two parts - a time to run, and a command to run.
+
+<br />
+<br />
+
+The time to run (the first part of the entry) is broken up into 5 fields:<br />
+1. minute of the hour<br />
+2. hour of the day (on the 24 hour clock)<br />
+3. day of the month<br />
+4. month of the year (1 = January, 2 = February, etc.)<br />
+5. day of the week (0 = Sunday, 1 = Monday, 2 = Tuesday, ..., 6 = Saturday)
+
+<br />
+<br />
+
+A * in one of these fields indicates that the job should be executed at any or every one of these,
+so for instance a * in the month of the year field means that this task should be carried out every
+month at the time specified in the other fields. A * in the day of the week field, when there is
+something in the day of the month field, does not mean that this task should be carried out every day,
+but rather that it should be carried out on the appointed day of the month regardless of what weekday
+it is. Only *s in the day of the week field, and the day of the month field, and the month of the year
+field would indicate a daily task.
+
+<br />
+<br />
+
+Examples:<br />
+In the examples, [command] represents the full path and filename of the file you want to execute.
+
+<br />
+<br />
+
+The job with this time to run would run every Sunday at 12:20 am:<br />
+20 0 * * 0 [command]
+
+<br />
+<br />
+
+This job would run at midnight on any Friday the 13th:<br />
+0 0 13 * 5 [command]
+
+<br />
+<br />
+
+You don't have to put just one time in a field. This job, for instance, would run every day at 12:30am, 2:30am, 4:30am, 6:30am, 6:30pm, 8:30pm, and 10:30pm:<br />
+30 0,2,4,6,18,20,22 * * * [command]
+
+<br />
+<br />
+
+This one would run every Tuesday and Friday at 5:30 am:<br />
+30 5 * * 2,5 [command] 
+
+<br />
+<br />
+
+<b class="heading">Creating a File For Crontab Entries</b>
+
+<br />
+<br />
+
+<div class="note">
+Some servers offer a web-based control panel that allows you to configure cron commands.  In that case you should consult the
+documentation for your server control panel and/or consult with your hosting provider's tech support for assistance.
+</div>
+
+<br />
+
+To register the cron commands with the server, you will need to create a plain text file with a list of all of the crontab entries. 
+You will then use this file along with the server's crontab command to register them with the server.  Once they have been registered, they can
+begin executing at the time you specify.
+
+<br />
+<br />
+
+Start with an empty text file in the text editor of your preference (<a href="http://www.editplus.com/" target="_blank">EditPlus</a> is recommended for Windows users).  
+At the top of this file you will want to put any already existing crontab entries that you have running on your server.  If you have never used cron before, there will not be any.  If you have used
+cron before, you will need to login to your server through telnet or SSH and execute the <b>crontab -l</b> command.  This will display a list of your
+existing crontab entries.  Copy and paste this to the top of your text file.
+
+<br />
+<br />
+
+Now you can start adding your TGPX crontab entries to the file.   All of the available commands are covered
+later in this document, so be sure to read the entire thing before setting up your cron jobs.
+
+<br />
+<br />
+
+Once you have all of the above steps completed, you can save the file.  You can name it anything you want.  It is recommended that you use cron.txt for the filename,
+however anything will work.  To register these commands with the server, continue with the next section of this document.
+
+<br />
+<br />
+
+Here is an example <a href="cron.txt">crontab entry file</a> for you to look at.
+
+<br />
+<br />
+
+<b class="heading">Registering Your Cron Commands</b>
+
+<br />
+<br />
+
+<div class="note">
+Some servers offer a web-based control panel that allows you to configure cron commands.  In that case you should consult the
+documentation for your server control panel and/or consult with your hosting provider's tech support for assistance.
+</div>
+
+<br />
+
+Once you have created the text file containing your crontab entries, you will need to register them with the server.  To do this, upload the text file
+to your server (for this example, assume the filename is cron.txt).  A good place to upload it is the same directory where TGPX is installed.
+
+<br />
+<br />
+
+After the cron.txt file has been uploaded, login to your server through telnet or SSH.  Change into the directory where you uploaded the cron.txt file
+and run the command <b>crontab cron.txt</b>.  This will register the crontab entries with the system, and they will begin executing at the next scheduled
+time.  To make sure your crontab entries were recorded properly, you can run the <b>crontab -l</b> command.  This will display a list of all of the current
+crontab entries registered under your username.
+
+<br />
+<br />
+
+<b class="heading">Using the cron.php Script</b>
+
+<br />
+<br />
+
+<div class="note">
+To use the cron.php script your server will need to have the command line interface (CLI) version of PHP installed.  If you are not sure about this, contact
+your server administrator and ask them if the CLI version of PHP is installed on the server.  You will also need to know where the CLI PHP binary is located
+on the server.  In most cases it is in /usr/bin or /usr/local/bin
+</div>
+
+<br />
+<br />
+
+The cron.php script will accept one of several command line arguments that will tell it which function it should run.  Each of the available command line
+arguments are listed below.
+
+<ul>
+<b>--build</b><br />
+This will build all of your TGP pages using a standard Build type of build.  You can also pass an optional additional parameter to specify
+the exact pages that you want built:
+
+<br />
+<br />
+
+<ul>
+<div class="note">
+You can find the ID number for each page through the <a href="pages-manage.html">Manage Pages</a> interface.<br />
+</div>
+<br />
+<b>--pages=3,7,9</b> - This will build pages with ID numbers 3, 7, and 9<br />
+<b>--pages=5-10</b> - This will build pages with ID numbers 5 through 10 inclusive (5, 6, 7, 8, 9, and 10)<br />
+<b>--tags=main_pages</b> - This will build pages with the tag main_pages<br />
+<b>--tags='main_pages rss_feeds'</b> - This will build pages with the tags main_pages or rss_feeds
+</ul>
+
+<br />
+
+You can also override the lock setting on your pages by adding an optional argument:
+
+<br />
+<br />
+
+<ul>
+<b>--override-lock</b> - This will build pages even if they are locked<br />
+</ul>
+
+<br />
+
+<b>--build-with-new</b><br />
+This will build all of your TGP pages using a Build With New type of build.  You can also pass an optional additional parameter to specify
+the exact pages that you want built:
+
+<br />
+<br />
+
+<ul>
+<div class="note">
+You can find the ID number for each page through the <a href="pages-manage.html">Manage Pages</a> interface.<br />
+</div>
+<br />
+<b>--pages=3,7,9</b> - This will build pages with ID numbers 3, 7, and 9<br />
+<b>--pages=5-10</b> - This will build pages with ID numbers 5 through 10 inclusive (5, 6, 7, 8, 9, and 10)<br />
+<b>--tags=main_pages</b> - This will build pages with the tag main_pages<br />
+<b>--tags='main_pages rss_feeds'</b> - This will build pages with the tags main_pages or rss_feeds
+</ul>
+
+<br />
+
+You can also override the lock setting on your pages by adding an optional argument:
+
+<br />
+<br />
+
+<ul>
+<b>--override-lock</b> - This will build pages even if they are locked<br />
+</ul>
+
+<br />
+
+<b>--backup</b><br />
+This will backup your TGPX data.  This function has additional command line arguments to specify the backup filenames to use
+
+<br /><br />
+
+<ul>
+<b>--sql-file=sql-backup.txt</b> - Use this setting to specify the filename to use for your MySQL data (required)<br />
+<b>--thumbs-file=thumbs-backup.txt</b> - Use this setting to specify the filename to use for your preview thumbnails (optional, will not be created if not provided)<br />
+<b>--archive-file=backup.tar.gz</b> - Use this setting to specify the filename to use for a tar.gz archive containing the SQL and thumbnail backup files (optional, will not be created if not provided)
+</ul>
+
+<br /><br />
+
+<b>--optimize</b><br />
+This will optimize and repair your MySQL database<br /><br />
+<b>--process-clicklog</b><br />
+This will process the click log and add the stats to the database if you are using the <a href="click-tracking.html#traffic">high traffic click.php script</a><br /><br />
+<b>--reset-clicks-submitted</b><br />
+This will reset the click counts on all submitted galleries to 0<br /><br />
+<b>--reset-clicks-permanent</b><br />
+This will reset the click counts on all permanent galleries to 0<br /><br />
+<b>--daily-partner</b><br />
+This will perform daily maintenance on your partner accounts; this should be run only once per day.  This requires that
+you pass some additional arguments:
+
+<br />
+<br />
+
+<ul>
+<b>--email-inactive=7</b> - Use this argument to e-mail partner accounts that have been inactive for the number of days specified.  For
+this example, partners that have not submitted within the last 7 days would be e-mailed.  The contents of the email-partner-inactive.tpl template
+will be sent to each partner account.
+<br />
+<br />
+<b>--remove-inactive=10</b> - Use this argument to remove partner accounts that have been inactive for the number of days specified.  For
+this example, partners that have not submitted within the last 10 days would be deleted.
+<br />
+<br />
+<b>--email-expiring=5</b> - Use this argument to send an e-mail message to partner accounts that are expiring soon.  For this example,
+partners that are expiring in 5 days would be e-mailed
+</ul>
+
+<br /><br />
+
+<b>--cleanup</b><br />
+This will perform some general cleanup routines<br /><br />
+</ul>
+
+Here are some examples of the cron commands you might use:
+
+<ul>
+Use this command to build pages with ID numbers 1, 7, and 19 at 5am daily:<br/><br />
+0 5 * * * /path/to/php /full/directory/path/to/cron.php --build --pages=1,7,19
+
+<br /><br /><br />
+
+Use this command to build all pages with a Build With New type build at 3am daily:<br/><br />
+0 3 * * * /path/to/php /full/directory/path/to/cron.php --build-with-new
+
+<br /><br /><br />
+
+Use this command to build the page with ID number 1, even if it is locked, at 5am every Sunday:<br/><br />
+0 5 * * 0 /path/to/php /full/directory/path/to/cron.php --build --pages=1 --override-lock
+
+<br /><br /><br />
+
+Use this command to backup your database (to sql-backup.txt) and thumbnails (to thumbs-backup.txt) once per day at midnight:<br/><br />
+0 0 * * * /path/to/php /full/directory/path/to/cron.php --backup --sql-file=sql-backup.txt --thumbs-file=thumbs-backup.txt
+
+<br /><br /><br />
+
+Use this command to optimize your database once per week at midnight on Sunday:<br /><br />
+0 0 * * 0 /path/to/php /full/directory/path/to/cron.php --optimize
+
+<br /><br /><br />
+
+Use this command to run daily partner account tasks at 6am every day.  Partners inactive for 30 days would be deleted and partners expiring in 2 days would be e-mailed:<br/><br />
+0 6 * * * /path/to/php /full/directory/path/to/cron.php --daily-partner --remove-inactive=30 --email-expiring=2
+</ul>
+
+Note that the /full/directory/path/to/ portion would be replaced with the directory path on your server to the directory where the cron.php script is
+located and /path/to/php would be replaced with the location of the CLI version of PHP on your server.
+
+<br />
+<br />
+
+<b class="heading">Using the scanner.php Script</b>
+
+<br />
+<br />
+
+To use the scanner.php script your server will need to have the command line interface (CLI) version of PHP installed.  If you are not sure about this, contact
+your server administrator and ask them if the CLI version of PHP is installed on the server.  You will also need to know where the CLI PHP binary is located
+on the server.  In most cases it is in /usr/bin or /usr/local/bin
+
+<br />
+<br />
+
+You can start the scanner.php script through cron to have your galleries automatically scanned at the times you specify.  The scanner.php script will need to be passed
+the ID number of the scanner configuration you want it to run.  You can find the ID number for each configuration next to it's Identifier in the control panel interface.
+For example, if you wanted to run the gallery scanner with configuration id 7 once every week at 6am on Sunday, you would use the following crontab entry:
+
+<br />
+<br />
+
+0 6 * * 0 /path/to/php /full/directory/path/to/scanner.php 7 &
+
+<br />
+<br />
+
+Note that the /full/directory/path/to/ portion would be replaced with the directory path on your server to the directory where the scanner.php script is
+located and /path/to/php would be replaced with the location of the CLI version of PHP on your server. 
+
+</div>
+
+<div style="height: 1200px">
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+#!/bin/bash
+
+## Script to install PHP4 CLI version on dreamhost.com servers
+
+# Abort on any errors
+set -e
+
+# Update version information here.
+PHP="php-4.4.4"
+ZLIB="zlib-1.2.3"
+CURL="curl-7.15.2"
+
+# Directory where items will be downloaded and built
+BINDIR=${HOME}/bin
+BUILDDIR=${HOME}/build
+INSTALLDIR=${HOME}/build/install
+
+# What PHP features do you want enabled?
+PHPFEATURES="--with-config-file-path=/etc/php/cgi \
+ --without-pear \
+ --disable-xml \
+ --disable-cgi \
+ --with-freetype-dir=/usr \ 
+ --with-openssl=/usr \
+ --with-zlib-dir=${INSTALLDIR} \
+ --with-jpeg-dir=/usr \
+ --with-png-dir=/usr \
+ --with-gd \
+ --enable-gd-native-ttf \
+ --enable-ftp \
+ --enable-sockets \
+ --with-curl=${INSTALLDIR} \
+ --with-mysql=/usr"
+
+# ---- end of user-editable bits.  Hopefully! ----
+
+#setup directories
+mkdir -p ${BINDIR}
+mkdir -p ${BUILDDIR}
+mkdir -p ${INSTALLDIR}
+cd ${BUILDDIR}
+
+# Get all the required packages
+wget -c -nc http://museum.php.net/php4/${PHP}.tar.gz
+wget -c -nc http://www.zlib.net/${ZLIB}.tar.gz
+wget -c -nc http://curl.mirrors.cyberservers.net/download/${CURL}.tar.gz
+
+# Unpack them all
+echo Unpacking archives
+tar xzf ${BUILDDIR}/${PHP}.tar.gz
+tar xzf ${BUILDDIR}/${ZLIB}.tar.gz
+tar xzf ${BUILDDIR}/${CURL}.tar.gz
+
+# Build them in the required order to satisfy dependencies.
+
+#zlib
+echo Building zlib
+cd ${BUILDDIR}/${ZLIB}
+./configure --shared --prefix=${INSTALLDIR}
+make
+make install
+
+#cURL
+echo Building cURL
+cd ${BUILDDIR}/${CURL}
+./configure --with-ssl=/usr --with-zlib=${INSTALLDIR} --enable-ipv6 --enable-cookies --enable-crypto-auth --prefix=${INSTALLDIR}
+make
+make install
+
+#PHP 4
+echo Building PHP
+cd ${BUILDDIR}/${PHP}
+./configure ${PHPFEATURES}
+make
+
+cp sapi/cli/php ${BINDIR}/php
+
+
+echo ---------- BUILD COMPLETE! ----------
+echo PHP CLI binary is located at ${BINDIR}/php

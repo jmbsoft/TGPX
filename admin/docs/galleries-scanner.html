@@ -1,0 +1,587 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Gallery Scanner</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The gallery scanner function will allow you to automatically check some/all of the galleries in your database to make sure the URLs are still working and that they are following your
+rules for blacklist items, reciprocal links, etc.  This document will describe how to setup and run the gallery scanner through the TGPX control panel.
+
+<br />
+<br />
+
+<b class="heading">Viewing Scanner Configurations<a name="search"></a></b>
+
+<br />
+<br />
+
+To view the scanner configurations that have been created, access the Galleries &gt; Gallery Scanner function from the control panel menu.  This will display a
+page where you will be able to see all of the scanner configurations that are currently defined.
+
+<br />
+<br />
+
+In the table that displays the scanner configurations, you will find several functions that you can run on each configuration.  Each of those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/history.png" border="0" alt="">
+</td>
+<td>
+Click this icon to view the <a href="galleries-scanner-history.html">history for this scanner configuration</a>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/report.png" border="0" alt="">
+</td>
+<td>
+Click this icon to view the <a href="galleries-scanner-results.html">results of the last scan</a> completed using this configuration
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/start.png" border="0" alt="">
+</td>
+<td>
+Click this icon to start the gallery scanner with this configuration
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/stop.png" border="0" alt="">
+</td>
+<td>
+Click this icon to stop the gallery scanner with this configuration
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit this scanner configuration
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this scanner configuration
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running these functions on single configurations, you can also delete several configurations at once.  To delete several configurations at once, put a check in the checkbox next to the
+configurations you want to delete, then press the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Starting/Stopping the Scanner<a name="start"></a></b>
+
+<br />
+<br />
+
+<div class="note">
+The gallery scanner requires that your server have the CLI (command line interface) version of PHP installed in one of the common binary directories.  If TGPX is unable to find the CLI version of PHP
+on your server, you won't be able to use the gallery scanner.  In this case you should contact your server administrator and ask them to install the CLI version of PHP for you and/or make sure it is placed
+in one of the common binary directories on the server (/bin, /usr/bin, /usr/local/bin).
+
+<br />
+<br />
+
+On some servers it may not be possible to start the gallery scanner through the TGPX control panel.  If your server's PHP installation is running in safe mode or has the shell_exec() function disabled you
+will not be able to start the gallery scanner through the TGPX control panel.  In that case, please see the <a href="#alternate">alternate scanner starting methods</a> for possible workarounds.
+
+<br />
+<br />
+
+The gallery scanner will run as a background process on your server, so you may need to confirm with your server administrator that you are allowed to run background processes.
+</div>
+
+<br />
+
+To start the gallery scanner, first locate the configuration you want to run and make sure the status shows that it is Not Running.  You can then click on the
+<img src="../images/start.png" border="0" alt=""> icon to start the gallery scanner.  You will be asked to confirm that you want to start the scanner, and
+if you select ok the process of starting the scanner will continue.  A confirmation box will appear to let you know that the process has been completed, and you should now see
+the Status value updated with the current progress of the scanner.
+
+<br />
+<br />
+
+To stop the gallery scanner, first locate the configuration you want to stop and make sure the status shows that it is scanning galleries.  You can then click on the
+<img src="../images/stop.png" border="0" alt=""> icon to halt the scanning process.  It may take a few minutes for the scanner to stop, so
+during that time it is normal for the Status to still show that the scanner is working.
+
+<br />
+<br />
+
+<b class="heading">Adding a Scanner Configuration<a name="add"></a></b>
+
+<br />
+<br />
+
+To add a new scanner configuration access the Galleries &gt; Gallery Scanner function from the control panel menu.  This will display your scanner configurations that have been created.
+Near the top of the page in the header bar that reads "Gallery Scanner Configurations" click on the <img src="../images/add.png" border="0" alt=""> icon.  This will display
+a popup window where you will be able to enter the settings for the scanner configuration that you want to add.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Identifier</b>
+</td>
+<td>
+Enter a short identifier so you can
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+</td>
+<td>
+<b>Import galleries from your configured RSS feeds before scanning</b><br />
+Check this box if you want the scanner to import any new galleries from your configured RSS feeds before starting the scan
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Status</b>
+</td>
+<td>
+Select the gallery statuses you want to scan (or leave all unchecked to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Type</b>
+</td>
+<td>
+Select the gallery types you want to scan (or leave all unchecked to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Format</b>
+</td>
+<td>
+Select the gallery formats you want to scan (or leave all unchecked to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>ID Range</b>
+</td>
+<td>
+Enter a range of gallery IDs that you want to scan (leave blank to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Date Added Range</b>
+</td>
+<td>
+Enter a date range of when the galleries were added to restrict the scan to galleries in this range (leave blank to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Date Approved Range</b>
+</td>
+<td>
+Enter a date range of when the galleries were approved to restrict the scan to galleries in this range (leave blank to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Date Last Scanned</b>
+</td>
+<td>
+Enter a date range of when the galleries were last scanned to restrict the scan to galleries in this range (leave blank to scan all)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Sponsors</b>
+</td>
+<td>
+Select the sponsors that you want to scan, or select ALL SPONSORS to scan galleries from all sponsors.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Categories</b>
+</td>
+<td>
+Select the categories that you want to scan, or select ALL CATEGORIES to scan galleries from all categories.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Only galleries submitted by partners</b>
+Check this box to only scan galleries that were submitted by partners
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Only galleries that do not currently have a preview thumbnail</b>
+Check this box to only scan galleries that do not yet have at least 1 preview thumbnail created
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Only galleries that currently have a zero thumbnail count</b>
+Check this box to only scan galleries that have 0 set for their thumbnail count (generally galleries imported without a thumbnail count)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Only galleries that have not yet been scanned</b>
+Check this box to only scan galleries that have not yet been scanned (galleries that are bulk imported will not yet have been scanned)
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to selecting what galleries will be scanned, there are several options that you can configure to tell the software what processing should be done
+to galleries when they are scanned.  The processing options are:
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td>
+<b>Create a preview thumbnail for galleries that do not have one with the following dimensions</b><br />
+Check this box to have a preview thumbnail created for galleries that do not yet have at least 1 created.  You will be able to select the dimensions that
+you want to use for both picture and movie type galleries or enter a custom size if needed.
+</td>
+</tr>
+<tr>
+<td>
+<b>Re-create existing preview thumbnails</b><br />
+Check this box to have a new preview thumbnail created for galleries that already have one.  The thumbnail that will be recreated will be the size that you select in the
+thumb size settings above this option.  For example, if a gallery has a 100x100 preview thumb and a 120x150 preview thumb and you select 120x150 in the thumb size fields
+above this option, only the 120x150 preview thumb will be re-created.
+</td>
+</tr>
+
+<tr>
+<td>
+<b>Resize existing preview thumbnails</b><br />
+Check this box to have the existing preview thumbnail image resized to a new size.
+Note that this should generally only be used when you want to reduce the size of an already existing thumbnail, since increasing the size will result in greatly reduced image
+quality.
+
+<br />
+<br />
+
+<div style="margin-left: 30px;">
+<b>Keep original preview thumbnail</b><br />
+Check this box if you want to retain the original sized preview thumbnail.  If you leave this unchecked, the new sized thumbnail will be created and the original will be deleted.
+
+<br />
+<br />
+
+<b>Overwrite existing preview thumbnails that have the new size</b><br />
+Check this box if you want to overwrite existing preview thumbnail images that have the same size(s) as the new thumbnail(s) being created.
+
+<br />
+<br />
+
+<b>Original Size</b><br />
+Select the thumbnail size which will be used to create the resized preview thumbnails
+
+<br />
+<br />
+
+<b>New Size(s)</b><br />
+Enter the new thumbnail size to create in WxH format.  This can also be a comma separated list of sizes to have multiple different sized thumbnails created at once.
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>
+<b>Download preview thumbnails located on remote servers</b><br />
+Check this box to have a preview thumbnails downloaded from remote servers and stored on your server.  This is useful if you have imported a bunch of galleries with thumbnail
+URLs and want to have the software grab the thumbnails from the supplied URLs.
+</td>
+</tr>
+<tr>
+<td>
+<b>Resize downloaded thumbnails to dimensions selected above</b><br />
+If you check the download option above, you can also check this box to have those downloaded preview thumbs resized to the sizes you entered above.
+</td>
+</tr>
+<tr>
+<td>
+<b>Update the thumbnail count for scanned galleries</b><br />
+Check this box to have TGPX count the number of thumbnails on the gallery and set that value for the gallery's thumbnail count.
+</td>
+</tr>
+<tr>
+<td>
+<b>Update the gallery format for scanned galleries</b><br />
+Check this box to have TGPX determine the gallery format (pictures or movies) and assign that value to the gallery
+</td>
+</tr>
+<tr>
+<td>
+<b>Re-enable disabled galleries that no longer have exceptions</b><br />
+Check this box to have galleries restored to their previous status after having been disabled by the gallery scanner.  For example, if you have the gallery scanner
+set to disable galleries with connection errors you can enable this option to have galleries that previously had a connection error but no longer do to be restored
+to their regular status in the gallery database.
+</td>
+</tr>
+<tr>
+<td>
+<b>Rebuild the TGP pages when the scanner is completed</b><br />
+Check this box to have your TGP pages built using a Build type of build when the gallery scanner has finished scanning.
+</td>
+</tr>
+<tr>
+<td>
+<b>Send an e-mail to administrators when the scanner is completed</b><br />
+Check this box to have all administrators with the gallery scanner e-mail option enabled notified by e-mail when the gallery scanner has finished scanning
+</td>
+</tr>
+
+</table>
+</ul>
+
+
+You will also have the option to select what action will be taken for galleries that are found to be no longer working or breaking your rules.  The available actions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Ignore</b>
+</td>
+<td>
+No action will be taken
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Display in report only</b>
+</td>
+<td>
+The gallery will be displayed in the scanner report
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Change gallery status to disabled</b>
+</td>
+<td>
+The gallery status will be changed to disabled and will be displayed in the scanner report
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Delete gallery from database</b>
+</td>
+<td>
+The gallery will be deleted from the database and will be displayed in the scanner report
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Delete gallery and blacklist</b>
+</td>
+<td>
+The gallery will be deleted from the database, the gallery data will be blacklisted, and the gallery will appear in the scanner report.
+The hostname from the gallery URL, e-mail address, and submitter IP will be added to the blacklist.
+</td>
+</tr>
+</table>
+</ul>
+
+A different action can be set for each type of issue that the scanner encounters with the link.  Each of the issue types are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Connection errors</b>
+</td>
+<td>
+Select the action to take for galleries that the scanner cannot connect to.  This could be the result of a DNS lookup failure, the server being offline, or internet
+connection issues.  For this issue type it is not recommended that you delete or blacklist galleries because this can simply indicate that the server is temporarily offline.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Broken URLs</b>
+</td>
+<td>
+Select the action to take for galleries that the scanner has found are no longer working.  Broken URLs are those that return a HTTP status code of 400 or greater.  For example,
+a 404 Not Found status code for pages that no longer exist, or a 500 Internal Server Error for pages that are causing a server error.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Forwarding URLs</b>
+</td>
+<td>
+Select the action to take for galleries that the scanner has found are forwarding to a different URL.  Forwarding URLs are those that return a HTTP status code in the 300 range,
+for example 302 Found.  The scanner will take into account the 'Allow URL redirection' setting for partners and whitelisted data.  If the gallery is allowed to redirect, it will not be flagged for this
+issue type if it produces a 300 level HTTP status code.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Blacklisted data</b>
+</td>
+<td>
+Select the action to take for galleries that the scanner has found to contain one or more items on your blacklist.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>No reciprocal link</b>
+</td>
+<td>
+Select the action to take for galleries that the scanner has found to not contain a link back to your site.  The scanner will take into account the 'Require a reciprocal link' partner setting.
+If the link is not required to have a reciprocal link, it will not be flagged for this issue type.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>No 2257 code</b>
+</td>
+<td>
+Select the action to take for galleries that the scanner has found to not contain 2257 code.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Excessive Links</b>
+</td>
+<td>
+Select the action to take for galleries that the scanner has found to contain more links than you allow (excluding links to the gallery content)
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Thumb count change</b>
+</td>
+<td>
+Select the action to take for galleries where the number of thumbnails appearing on the gallery has changed since the last scan
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Page Changed</b>
+</td>
+<td>
+Select the action to take for galleries where the page HTML has changed since the last scan
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" nowrap>
+<b>Content on different server</b>
+</td>
+<td>
+Select the action to take for galleries where the gallery content is hosted on a different server than the gallery itself
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have filled in all of the fields as you want them, press the Add Scanner Configuration button.  This will add the new configuration to the database, and you will be able
+to immediately run the gallery scanner using this configuration.
+
+<br />
+<br />
+
+<b class="heading">Editing a Scanner Configuration<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit a scanner configuration you will first need to locate it through the <a href="#search">Gallery Scanner Configurations</a> interface.  When you locate the configuration you want to edit,
+click on the <img src="../images/edit.png"> icon to bring up the editing interface.  This interface is nearly identical to the scanner configuration creation interface,
+and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update Scanner Configuration button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting a Configuration<a name="delete"></a></b>
+
+<br />
+<br />
+
+To edit a scanner configuration you will first need to locate it through the <a href="#search">Gallery Scanner Configurations</a> interface.  When you locate the configuration you want to delete, click
+on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion.
+
+<br />
+<br />
+
+You can also delete several configurations at once by putting a check in the box next to the configurations you want to delete, then pressing the Delete button at the bottom of the page.
+
+<br />
+<br />
+
+<b class="heading">Alternate Methods for Starting/Stopping the Scanner<a name="alternate"></a></b>
+
+<br />
+<br />
+
+If you are not able to start the gallery scanner through the control panel, there is currently one alternate method to run the scanner.  This requires that you have shell access to your server and
+are comfortable working with the server's shell environment.  You can login to your server using your favorite shell access software.  Once logged in, change into the admin directory of your
+TGPX installation and issue the following command:
+
+<xmp>php scanner.php CONFIG_ID >/dev/null 2>&1 &</xmp>
+
+You will need to replace CONFIG_ID with the ID number of the configuration you want to run (ID numbers are enclosed in [] before the configuration identifier in the Gallery Scanner Configurations interface).
+This command will start the scanner running in the background, and you will be able to monitor it's status through the TGPX control panel.  Depending on your server, you may need to stay logged in
+during the entire time the scanner is running; logging out may terminate the scanner process.  To prevent this you can use the nohup program if it is available on your server.  In that case you can use
+this command to start the scanner:
+
+<xmp>nohup php scanner.php CONFIG_ID >/dev/null 2>&1 &</xmp>
+
+You should be able to logout after executing this command, and the scanner will continue to run.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

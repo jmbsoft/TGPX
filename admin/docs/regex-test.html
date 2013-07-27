@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Regular Expression Tester</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+Regular expressions are used for blacklist items, whitelist items, and reciprocal links.  To verify that your regular expression is working as expected, TGPX includes an interface
+where you can test your regular expressions against specific values.  This document provides an overview of that interface.
+
+<br />
+<br />
+
+<b class="heading">Accessing the Test Interface</b>
+
+<br />
+<br />
+
+To access the test interface click on the <img src="../images/re-test.png" width="16" height="16" border="0" alt=""> icon in the blacklist, whitelist, or reciprocal link interfaces.
+This will popup a window where you will be able to enter the regular expression to test and the value to test it against.
+
+<br />
+<br />
+
+<b class="heading">Testing Regular Expressions</b>
+
+<br />
+<br />
+
+In the test interface enter the regular expression to test in the field labeled Regular Expression and the value to test it against in the Test String field.  Press the Test
+Regex button to test your regular expression.  When you press this button, a request will be sent to your server, so allow a few seconds for it to complete.  When the test is completed
+the results will display in the Results section.  The results will show you if the string you entered matched the regular expression, and if so it will show you the part that matched.
+
+<br />
+<br />
+
+In TGPX the Perl Compatible Regular Expressions format is used for regular expressions.  If you are not familiar
+with regular expressions, please see the <a href="http://us2.php.net/manual/en/reference.pcre.pattern.syntax.php">Pattern Syntax portion of the PHP manual</a> for additional
+information.
+
+<br />
+<br />
+
+When entering your regular expression, you do not need to use any delimiters at the beginning and end of the regular expression.  For example, you could use this value to test if a string
+contains an IP address:
+
+<br />
+<br />
+
+\d+\.\d+\.\d+\.\d+
+
+<br />
+<br />
+
+If you then enter "My IP address is 192.168.1.15" and press the button, this will indicate a successful match on "192.168.1.15".
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>

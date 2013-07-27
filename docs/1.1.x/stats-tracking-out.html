@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>TradeX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <div class="header-main">Stats Tracking - Outgoing</div>
+
+    <div class="toc-link"><a href="index.html">Table of Contents</a></div>
+
+
+    <span class="header-section">The Traffic URL Setting</span>
+    <div class="section">
+      The out.php script included with TradeX will handle tracking all of your outgoing surfers and will send traffic to your trades.  The easiest way to create the links
+      for the out.php script is to use the control panel's Tools > Link Generator function.  However, you can also create the links manually if you are so inclined.
+    </div>
+
+
+
+    <span class="header-section">out.php Script Parameters</span>
+    <div class="section">
+      By passing parameters to the out.php script you can control how it operates.  The available parameters are listed below:
+
+      <br /><br />
+
+      <b style="font-size: 130%;">c=</b><br />
+      Use this parameter to specify the category that a trade must be assigned to in order to receive traffic from this link.  For example, if you have a category named <b><i>Fetish</i></b> and you want
+      certain links to only go to sites in the Fetish category you would use this parameter like so:
+
+      <xmp class="code">c=Fetish</xmp>
+
+
+
+
+      <b style="font-size: 130%;">fc=</b><br />
+      Use this parameter to specify that the first click on this link should go to content, and the remaining should skim as normal.  This will only have an affect when also using the s= parameter in the link.
+      To have the first click always go to content, use a value of 1 for this parameter like so:
+
+      <xmp class="code">fc=1</xmp>
+
+
+
+      <b style="font-size: 130%;">g=</b><br />
+      Use this parameter to specify the group that a trade must be assigned to in order to receive traffic from this link.  For example, if you have a group named <b><i>tubes</i></b> and you want
+      certain links to only go to sites in the tubes group you would use this parameter like so:
+
+      <xmp class="code">g=tubes</xmp>
+
+
+
+      <b style="font-size: 130%;">l=</b><br />
+      Use this parameter to specify a link identifier for use when viewing stats in the control panel.  For example, if you wanted to track links from your toplist you could use this parameter like so:
+
+      <xmp class="code">l=toplist</xmp>
+
+      The value you use for this parameter can be any alpha-numeric value.
+
+      <br /><br />
+
+
+      <b style="font-size: 130%;">s=</b><br />
+      Use this parameter to specify the skim percentage for the link.  For example, to have 70% of the clicks on the link go to content and 30% go to your trades you would use a value of 70 for this
+      parameter.  That would look like this:
+
+      <xmp class="code">s=70</xmp>
+
+      This parameter has the highest priority for setting the skim value, and will override the skim scheme of the trade and the ss= parameter.
+
+      <br /><br />
+
+
+      <b style="font-size: 130%;">ss=</b><br />
+      Use this parameter to specify the skim scheme to use for the link.  For example, if you have a skim scheme setup with a name of <b><i>myscheme</i></b> you would use this parameter like so:
+
+      <xmp class="code">ss=myscheme</xmp>
+
+      This parameter has the second priority for setting the skim value, and will override the skim scheme of the trade but not the s= parameter.
+
+      <br /><br />
+
+
+      <b style="font-size: 130%;">t=</b><br />
+      Use this parameter to send the surfer to the specified trade.  When this parameter is used, all clicks will go to the trade.  For example, to have a link that sends all clicks to the trade
+      <b><i>myfavoritetrade.com</i></b> you would use this parameter like so:
+
+      <xmp class="code">t=myfavoritetrade.com</xmp>
+
+
+      <b style="font-size: 130%;">u=</b><br />
+      Use this parameter to specify the content URL where the surfer should be sent if they do not get sent to a trade.  The URL can be supplied either as a URL encoded value or a base 64 encoded value
+      (use the Tools > URL Encode/Decode function to handle the encoding).  For example, to send surfers to Google when they are not sent to a trade, use this parameter like so:
+
+      <xmp class="code">u=http%3A%2F%2Fwww.google.com%2F</xmp>
+
+      Or like this for base 64 encoded URLs:
+
+      <xmp class="code">u=aHR0cDovL3d3dy5nb29nbGUuY29tLw==</xmp>
+
+
+      <br /><br />
+
+
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+Overview
+--------
+This example shows the opening portion of a TGP page template and demonstrates how the
+category Meta Description and Meta Keywords values can be used.
+
+
+
+Template Code
+-------------
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="description" content="{$page_category.meta_description|htmlspecialchars}">
+  <meta name="keywords" content="{$page_category.meta_keywords|htmlspecialchars}">
+  <title>TGP</title>
+</head>
+<body>
+
+...
+
+
+

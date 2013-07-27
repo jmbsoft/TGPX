@@ -1,0 +1,15 @@
+Overview
+--------
+This bit of template code gives an example of how the {pages} template function
+can be used.  You can use this on any of your TGP page templates and it will load
+and display links to all of the pages in the same category as the page that this
+code appears on.
+
+
+Template Code
+-------------
+{pages var=$pages category=$page_category.category_id}
+{assign var=$num_pages value=count($pages)}
+{foreach var=$page from=$pages counter=$counter}
+<a href="{$page.page_url|htmlspecialchars}">{if $page.name}{$page.name|htmlspecialchars}{else}Mixed{/if} Page {$counter|htmlspecialchars}</a>{if $counter < $num_pages} | {/if}
+{/foreach}

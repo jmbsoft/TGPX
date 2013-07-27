@@ -1,0 +1,251 @@
+<html>
+<head>
+    <title>TGPX Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div align="center">
+<span class="large">Administrators</span>
+</div>
+
+<br />
+
+<div class="centered">
+<div class="main-content">
+
+<div style="position: relative; float: right;"><a href="index.html">Table of Contents</a></div>
+
+<b class="heading">Introduction</b>
+
+<br />
+<br />
+
+The TGPX control panel allows you to configure multiple administrator accounts so you can have several people working with the data at once.  This document will provide an
+overview of the administrator account features of TGPX
+
+<br />
+<br />
+
+<b class="heading">Account Types</b>
+
+<br />
+<br />
+
+There are two different types of administrator accounts: Editors and Administrators.  Administrator level accounts will have access to all of the functions in the TGPX control panel,
+and therefore should be reserved for those people that you completely trust.  These users will be able to edit the software settings, templates, gallery data, category data, and use all of
+the other functions in the control panel.
+
+<br />
+<br />
+
+The other type of account is an Editor account which will allow access to the gallery, category, and partner functions based on the privileges you select.  So, for example, if
+you want to allow someone to access your TGPX control panel so they can approve new galleries, but not edit the templates, you would create an Editor level account for them.
+
+<br />
+<br />
+
+<b class="heading">Searching Accounts<a name="search"></a></b>
+
+<br />
+<br />
+
+To view the currently configured administrator accounts so you can modify or delete them, access the Settings &gt; Manage Administrators function from the control panel menu.  This will display a 
+page where you will be able to see all of the currently configured administrator accounts, and search them if necessary.
+
+<br />
+<br />
+
+In the table that displays the administrator accounts, you will find several functions that you can run on a single administrator account.  Each of those functions are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<img src="../images/edit.png" border="0" alt="">
+</td>
+<td>
+Click this icon to edit the administrator account.  A window will appear where you will be able to edit all of the account settings.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/mail.png" border="0" alt="">
+</td>
+<td>
+Click this icon to send an e-mail to this administrator account.  A window will appear where you will enter the e-mail text.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<img src="../images/trash.png" border="0" alt="">
+</td>
+<td>
+Click this icon to delete this administrator account.
+</td>
+</tr>
+</table>
+</ul>
+
+In addition to running these functions on single accounts, there are also two functions you can run on multiple accounts at once.  To run these functions, put a check in the checkbox next to the
+administrator accounts you want to run the function on, then press one of the two buttons at the bottom of the page.  The Delete button will delete the selected accounts; the E-mail button will display
+a popup window where you will be able to enter the text of an e-mail message and send it to the selected accounts.
+
+<br />
+<br />
+
+<b class="heading">Adding an Account</b>
+
+<br />
+<br />
+
+To add a new administrator account access the Settings &gt; Manage Administrators function from the control panel menu.  Near the top of the page in the header
+bar that reads "Administrator Accounts" click on the <img src="../images/add.png" border="0" alt=""> icon.  This will display a popup 
+window where you will be able to enter the account information that you want to use.  Each of the form fields are described below.
+
+<ul>
+<table cellspacing="1" cellpadding="4" class="fields">
+<tr>
+<td valign="top" align="right">
+<b>Username</b>
+</td>
+<td>
+The username for this account that the user will login with
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Password</b>
+</td>
+<td>
+The password for this account that the user will login with
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Name</b>
+</td>
+<td>
+The name of this account holder
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>E-mail Address</b>
+</td>
+<td>
+The e-mail address of this account holder
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Account Type</b>
+</td>
+<td>
+The account type, as described above
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Categories</b>
+</td>
+<td>
+The privileges you want to assign to this editor account for category functions
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Partners</b>
+</td>
+<td>
+The privileges you want to assign to this editor account for partner functions
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+<b>Galleries</b>
+</td>
+<td>
+The privileges you want to assign to this editor account for gallery functions
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Send e-mail when gallery scanner finishes</b><br />
+Check this box if you want this administrator account to be e-mailed when
+the gallery scanner finishes running.  The gallery scanner configuration
+must also be setup to send an e-mail.
+</td>
+</tr>
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Send e-mail when there are X cheat reports waiting to be processed</b><br />
+Check this box if you want this administrator account to be e-mailed when
+there are cheater/broken gallery reports ready to be processed.  The text input box is the number of cheater/broken gallery link reports that must be waiting before an e-mail
+message will be sent.  For example, if you set this to 5 then the administrator will be
+e-mailed when there are 5 reports waiting.  They will also be e-mailed when there are 10,15,etc
+reports waiting.
+</td>
+</tr>
+
+<tr>
+<td valign="top" align="right">
+
+</td>
+<td>
+<b>Send e-mail when there are X partner account requests waiting to be processed</b><br />
+Check this box if you want this administrator account to be e-mailed when
+there are partner account requests ready to be processed.  The text input box is the number of requests that must be waiting before an e-mail
+message will be sent.  For example, if you set this to 5 then the administrator will be
+e-mailed when there are 5 requests waiting.  They will also be e-mailed when there are 10,15,etc
+requests waiting.
+</td>
+</tr>
+</table>
+</ul>
+
+Once you have filled in all of the fields as you want them, press the Add Account button.  This will add the new account to the database, and the
+user will immediately be able to login to the control panel.
+
+<br />
+<br />
+
+<b class="heading">Editing an Account<a name="edit"></a></b>
+
+<br />
+<br />
+
+To edit an administrator account you will first need to locate it through the <a href="#search">Account Searching</a> interface.  When you locate the account you want to edit, click on the
+<img src="../images/edit.png"> icon to bring up the account editing interface.  This interface is nearly identical to the administrator account creation interface,
+and has the same form fields with the same properties.  You can make the changes that you want, and then press the Update Account button to save your changes.
+
+<br />
+<br />
+
+<b class="heading">Deleting an Account<a name="delete"></a></b>
+
+<br />
+<br />
+
+To delete an administrator account you will first need to locate it through the <a href="#search">Account Searching</a> interface.  When you locate the account you want to delete, click
+on the <img src="../images/trash.png"> icon, which will ask you to confirm the deletion. 
+
+<br />
+<br />
+
+You can also delete several accounts at once by putting a check in the box next to the accounts you want to delete, then pressing the Delete button at the bottom of the page.
+
+</div>
+</div>
+
+<div style="height: 1200px">
+</div>
+
+</body>
+</html>
