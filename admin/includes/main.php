@@ -113,7 +113,7 @@ legend {
                 <a href="docs/" target="_blank" class="plain-link">Documentation</a>
               </td>
               <td align="center" width="50%">
-                <a href="http://www.jmbsoft.com/support/" target="_blank" class="plain-link">Tech Support</a>
+                <a href="http://forums.unofficialjmbsupport.com" target="_blank" class="plain-link">Tech Support</a>
               </td>
             </tr>
           </table>
@@ -128,7 +128,7 @@ legend {
         <fieldset>
           <legend>JMB Software News and Updates</legend>
 
-          <iframe src="http://www.jmbsoft.com/software/tgpx/news/" style="width: 95%; margin-left: 10px; margin-right: 10px;" frameborder="0"></iframe>
+          <iframe src="http://www.unofficialjmbsupport.com/tgpxnews.html" style="width: 95%; margin-left: 10px; margin-right: 10px;" frameborder="0"></iframe>
         </fieldset>
 
       </td>
