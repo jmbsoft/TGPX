@@ -128,7 +128,7 @@ legend {
         <fieldset>
           <legend>JMB Software News and Updates</legend>
 
-          <iframe src="http://www.unofficialjmbsupport.com/tgpxnews.html" style="width: 95%; margin-left: 10px; margin-right: 10px;" frameborder="0"></iframe>
+          <iframe src="http://www.unofficialjmbsupport.com/iframenews.html" style="width: 95%; margin-left: 10px; margin-right: 10px;" frameborder="0"></iframe>
         </fieldset>
 
       </td>
